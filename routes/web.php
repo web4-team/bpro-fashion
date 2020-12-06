@@ -20,3 +20,8 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('layouts.master');
 });
+
+Route::get('/create', function () {
+    return view('students.create');
+});
+
