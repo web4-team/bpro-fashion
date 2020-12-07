@@ -28,7 +28,9 @@
         <!-- Topbar -->
 
         <!-- Container Fluid-->
-        @include('layouts.dashhome.dashhome')
+        <div class="container-fluid" id="container-wrapper">
+          @yield('content')
+        </div>
         <!---Container Fluid-->
       </div>
       <!-- Footer -->
