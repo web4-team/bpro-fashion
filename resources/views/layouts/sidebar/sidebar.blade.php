@@ -4,7 +4,7 @@
       <div class="sidebar-brand-icon">
         <img src="img/logo/testlogo.png">
       </div>
-      <div class="sidebar-brand-text mx-3">B-Pro Fashion</div>
+      <div class="sidebar-brand-text mx-3"><img src="img/logo/letter.png" style="margin-left:-20px;" width="100px" height="auto"></div>
     </a>
     <hr class="sidebar-divider my-0">
     <li class="nav-item active">
@@ -62,21 +62,21 @@
         </div>
       </div>
     </li>
-    <li class="nav-item">
+    {{-- <li class="nav-item">
       <a class="nav-link" href="ui-colors.html">
         <i class="fas fa-fw fa-palette"></i>
         <span>UI Colors</span>
       </a>
-    </li>
+    </li> --}}
     <hr class="sidebar-divider">
     <div class="sidebar-heading">
-      Examples
+      Settings
     </div>
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePage" aria-expanded="true"
         aria-controls="collapsePage">
         <i class="fas fa-fw fa-columns"></i>
-        <span>Pages</span>
+        <span>Reports</span>
       </a>
       <div id="collapsePage" class="collapse" aria-labelledby="headingPage" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
@@ -91,7 +91,7 @@
     <li class="nav-item">
       <a class="nav-link" href="charts.html">
         <i class="fas fa-fw fa-chart-area"></i>
-        <span>Charts</span>
+        <span>Manage Users </span>
       </a>
     </li>
     <hr class="sidebar-divider">

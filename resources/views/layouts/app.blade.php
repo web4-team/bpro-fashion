@@ -25,7 +25,10 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    BPro Fashion
+                    <div class="sidebar-brand-icon">
+                        <img  style="float:left;"width="50px" height="auto" src="img/logo/testlogo.png">
+                      </div>
+                      <div class="sidebar-brand-text mx-3"><img src="img/logo/letter.png" style="margin-top:-4px;" width="90px" height="auto"></div>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
