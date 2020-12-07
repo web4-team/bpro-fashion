@@ -15,7 +15,7 @@
   <link href="{{URL::asset('css/ruang-admin.min.css')}}" rel="stylesheet">
 </head>
 
-<body id="page-top">
+<body id="page-top;">
   <div id="wrapper">
     <!-- Sidebar -->
         @include('layouts.sidebar.sidebar')
@@ -28,7 +28,9 @@
         <!-- Topbar -->
 
         <!-- Container Fluid-->
-        @include('layouts.dashhome.dashhome')
+       <div class="container-fluid" id="container-wrapper">
+        @yield('content')
+       </div>
         <!---Container Fluid-->
       </div>
       <!-- Footer -->
