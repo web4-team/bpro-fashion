@@ -30,3 +30,6 @@ Route::get('/dashboard', function () {
 
 // Route::get('course', 'CourseController@index')->name('coursepage');
 Route::resource('courses', 'CourseController');
+ Route::resource('students', 'StudentController');
+// Route::get('/create', 'StudentController@create');
+

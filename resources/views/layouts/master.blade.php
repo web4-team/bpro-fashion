@@ -16,7 +16,7 @@
   <link href="{{URL::asset('css/custom.css')}}" rel="stylesheet">
 </head>
 
-<body id="page-top">
+<body id="page-top;">
   <div id="wrapper">
     <!-- Sidebar -->
         @include('layouts.sidebar.sidebar')

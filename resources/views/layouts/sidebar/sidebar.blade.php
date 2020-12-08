@@ -24,14 +24,9 @@
       </a>
       <div id="collapseBootstrap" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">Bootstrap UI</h6>
-          <a class="collapse-item" href="alerts.html">Alerts</a>
-          <a class="collapse-item" href="buttons.html">Buttons</a>
-          <a class="collapse-item" href="dropdowns.html">Dropdowns</a>
-          <a class="collapse-item" href="modals.html">Modals</a>
-          <a class="collapse-item" href="popovers.html">Popovers</a>
-          <a class="collapse-item" href="progress-bar.html">Progress Bars</a>
-        </div>
+          <a class="collapse-item" href="{{route('students.index')}}">Students List</a>
+          <a class="collapse-item" href="buttons.html">Teacher List</a>
+          
       </div>
     </li>
     <li class="nav-item">
