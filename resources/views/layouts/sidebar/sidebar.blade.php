@@ -4,7 +4,7 @@
       <div class="sidebar-brand-icon">
         <img src="img/logo/testlogo.png">
       </div>
-      <div class="sidebar-brand-text mx-3"><img src="img/logo/letter.png" style="margin-left:-20px;" width="100px" height="auto"></div>
+      <div class="sidebar-brand-text mx-3"><img src="img/logo/letter.png"  width="100px" height="auto"></div>
     </a>
     <hr class="sidebar-divider my-0">
     <li class="nav-item active">
