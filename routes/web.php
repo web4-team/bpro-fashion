@@ -24,3 +24,9 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/dashboard', function () {
+    return view('layouts.master');
+});
+
+// Route::get('course', 'CourseController@index')->name('coursepage');
+Route::resource('courses', 'CourseController');
