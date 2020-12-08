@@ -50,7 +50,7 @@ class CourseController extends Controller
             
         ]);
         $course->save();
-        return redirect('/courses')->with('success', 'Contact Successfully Added!');
+        return redirect('/courses')->with('success', 'Course Successfully Added!');
     }
 
     /**
@@ -99,7 +99,7 @@ class CourseController extends Controller
             
         
         $course->save();
-        return redirect('/courses')->with('success', 'Your Course Successfully Changed!');
+        return redirect('/courses')->with('success', 'Your course Successfully Changed!');
     }
 
     /**
