@@ -20,3 +20,6 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('layouts.master');
 });
+
+// Route::get('course', 'CourseController@index')->name('coursepage');
+Route::resource('courses', 'CourseController');
