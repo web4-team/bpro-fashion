@@ -17,17 +17,13 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-// Route::get('/dashboard', function () {
-//     return view('layouts.master');
-// });
-
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/dashboard', function () {
-    return view('layouts.master');
-});
 
+Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
+    Route::resource('/users', 'UsersController', ['except' => ['show', 'create', 'store']]);
+});
 // Route::get('course', 'CourseController@index')->name('coursepage');
 Route::resource('courses', 'CourseController');
  Route::resource('students', 'StudentController');
