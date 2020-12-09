@@ -6,3 +6,9 @@
     color: #f66000;
     background-color: #ffffff;
 }
+
+.card .table td, .card .table th {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    font-size: 14px;
+}

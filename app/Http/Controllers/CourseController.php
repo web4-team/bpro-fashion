@@ -62,7 +62,7 @@ class CourseController extends Controller
             
         ]);
         $course->save();
-        return redirect('/courses')->with('success', 'Course Successfully Added!');
+        return redirect('/courses')->with('success', 'New Course Successfully Created!');
     }
 
     /**
@@ -113,7 +113,7 @@ class CourseController extends Controller
             
         
         $course->save();
-        return redirect('/courses')->with('success', 'Your course Successfully Changed!');
+        return redirect('/courses')->with('success', 'Your Course successfully Updated!');
     }
 
     /**
@@ -127,6 +127,6 @@ class CourseController extends Controller
         $course = Course::find($id);
         $course->delete();
 
-        return redirect('/courses')->with('success', 'Your course have been deleted!');
+        return redirect('/courses')->with('success', 'Your Course has been Deleted!');
     }
 }

@@ -35,9 +35,9 @@
                   <td>{{ $user->name}}</td>
                   <td>{{ $user->email}}</td>
                   <td>{{ implode(',', $user->roles()->get()->pluck('name')->toArray())}}</td>
-                <td>
+                  <td>
                     @can('edit.users')
-                    <a href="{{ route('admin.users.edit', $user->id)}}"> <button type="button" class="btn btn-primary btn-sm float-left"><i class="fas fa-edit"></i></button></a>
+                    <a href="{{ route('admin.users.edit', $user->id)}}" > <button type="button" class="btn btn-primary btn-sm float-left"><i class="fas fa-edit"></i></button></a>
                   @endcan
                   @can('delete.users')
                   <form action="{{ route('admin.users.destroy', $user)}}" method="POST" class="float-left">
