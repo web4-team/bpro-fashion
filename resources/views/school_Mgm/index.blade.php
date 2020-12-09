@@ -4,10 +4,30 @@
   <div class="col-sm-12">
 
   @if(session()->get('success'))
-    <div class="alert alert-success">
+    <div class="alert alert-success fade-message">
       {{ session()->get('success') }}  
     </div>
+        <script>
+    $(function(){
+        setTimeout(function() {
+            $('.fade-message').slideUp();
+        }, 5000);
+    });
+    </script>
   @endif
+
+<!--   @if(Session::has('success'))
+  <script type="text/javascript">
+     swal({
+         title:'Success!',
+         text:"{{Session::get('success')}}",
+         timer:5000,
+         type:'success'
+     }).then((value) => {
+       //location.reload();
+     }).catch(swal.noop);
+ </script>
+ @endif -->
 </div>
 <div class="col-sm-12">
     <h2 class="display-3">Courses</h2> 
@@ -19,9 +39,11 @@
         <tr>
           <td>ID</td>
           <td>Course Name</td>
+          <td>Batch No</td>
           <td>Fees</td>
-          <td>Discount(%)</td>
+          <td>Discount</td>
           <td>Total Fees</td>
+          <td>Starting Date</td>
           <td>Duration</td>
 
           
@@ -33,9 +55,11 @@
         <tr>
             <td>{{$course->id}}</td>
             <td>{{$course->name}}</td>
-            <td>{{number_format($course->fees,2,',','')}}</td>
-            <td>{{$course->discount}}</td>
-            <td>{{$course->fees-($course->fees*$course->discount/100)}}</td>
+            <td>{{$course->batch}}</td>
+            <td>{{number_format($course->fees)}} MMK</td>
+            <td>{{$course->discount}}%</td>
+            <td>{{number_format($course->fees-($course->fees*$course->discount/100))}} MMK</td>
+            <td>{{ \Carbon\Carbon::parse($course->date)->format('d/M/Y')}}</td>
             <td>{{$course->duration}}</td>
 
            

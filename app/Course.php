@@ -8,8 +8,10 @@ class Course extends Model
 {
         protected $fillable = [
         'name',
+        'batch',
         'fees',
         'discount',
+        'date',
         'duration'
               
     ];

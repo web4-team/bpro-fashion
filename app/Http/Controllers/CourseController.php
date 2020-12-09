@@ -44,8 +44,10 @@ class CourseController extends Controller
 
         $course = new Course([
             'name' => $request->get('name'),
+            'batch' => $request->get('batch'),
             'fees' => $request->get('fees'),
             'discount' => $request->get('discount'),
+            'date'=>$request->get('date'),
             'duration' => $request->get('duration')
             
         ]);
@@ -93,8 +95,10 @@ class CourseController extends Controller
 
          $course = Course::find($id);
             $course->name = $request->get('name');
+            $course->batch = $request->get('batch');            
             $course->fees = $request->get('fees');
             $course->discount = $request->get('discount');
+            $course->date = $request->get('date');
             $course->duration = $request->get('duration');
             
         
