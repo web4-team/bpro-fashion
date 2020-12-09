@@ -52,10 +52,10 @@ class StudentController extends Controller
         return redirect()->route('students.index');
     }
 
-    public function show($id)
-    {
-        $course = Course::findOrFail($id);
-        return response()->json($course);
+    public function show($id){
+        $student = Student::find($id);
+        // $courses = Course::all();
+        return view('students.show',compact('student'));
     }
 
     public function edit($id)

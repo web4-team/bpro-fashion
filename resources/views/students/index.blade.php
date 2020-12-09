@@ -6,7 +6,7 @@
         <div class="header-body">
           <div class="row align-items-center py-4">
             <div class="col-lg-6 col-7">
-              <h6 class="h2 text-dark d-inline-block mb-0">Tables</h6>
+              <h6 class="h2 text-dark d-inline-block mb-0">Students Tables</h6>
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                   <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
@@ -31,7 +31,7 @@
               <h2 class="text-white mb-0">Students List</h2>
             </div>
             <div class="table-responsive">
-              <table class="table align-items-center table-dark table-flush">
+              <table class="table align-items-center table-dark table-striped table-hover">
                 <thead class="thead" style="background-color: slategray">
                   <tr>
                     <th scope="col" class="sort">No</th>
@@ -59,7 +59,7 @@
                       <td>{{$row->phone}}</td>
                       <td>{{$row->address}}</td>
                       <td>
-                        <a href="#" class="btn btn-info detail btn-sm" data-id="#"><i class="fas fa-eye"></i></a>
+                        <a href="{{route('students.show',$row->id)}}" class="btn btn-info btn-sm detail" ><i class="fas fa-eye"></i></a>
 
                         <a href="{{route('students.edit',$row->id)}}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
                         
@@ -74,33 +74,10 @@
                 </tbody>
               </table>
             </div>
-            <!-- Card footer -->
-           <!--  <div class="card-footer py-4 bg-dark shadow">
-              <nav aria-label="...">
-                <ul class="pagination justify-content-end mb-0">
-                  <li class="page-item disabled">
-                    <a class="page-link" href="#" tabindex="-1">
-                      <i class="fas fa-angle-left"></i>
-                      <span class="sr-only">Previous</span>
-                    </a>
-                  </li>
-                  <li class="page-item active">
-                    <a class="page-link" href="#">1</a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item">
-                    <a class="page-link" href="#">
-                      <i class="fas fa-angle-right"></i>
-                      <span class="sr-only">Next</span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-            </div> -->
+            
           </div>
         </div>
     </div>
+
 @endsection
+
