@@ -84,12 +84,14 @@
         </div>
       </div>
     </li>
+    @can('manage.users')
     <li class="nav-item">
       <a class="nav-link" href="{{ route('admin.users.index')}}">
         <i class="fas fa-fw fa-user"></i>
         <span>Manage Users </span>
       </a>
     </li>
+    @endcan
     <hr class="sidebar-divider">
     <div class="version" id="version-ruangadmin"></div>
   </ul>
