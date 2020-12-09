@@ -30,6 +30,7 @@
 
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
+         @include('partials.alerts')
           @yield('content')
         </div>
         <!---Container Fluid-->

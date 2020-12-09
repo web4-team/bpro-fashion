@@ -7,6 +7,17 @@ use App\Course;
 
 class StudentController extends Controller
 {
+     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    
     public function index(){
     	$students = Student::all();
         return view('students.index',compact('students')); //compact('$students')
