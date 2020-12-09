@@ -42,7 +42,8 @@
                       <td>{{$row->address}}</td>
                       <td>{{$row->accept_date}}</td>
                       <td>
-                        <a href="#" class="btn btn-warning detail btn-sm" data-id="#"><i class="fas fa-eye"></i></a>
+                       
+                        <a href="{{route('students.show',$row->id)}}" class="btn btn-warning detail btn-sm" ><i class="fas fa-eye"></i></a>
 
                         <a href="{{route('students.edit',$row->id)}}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
                         
