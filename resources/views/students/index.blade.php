@@ -36,7 +36,7 @@
                   <tr>
                     <th scope="col" class="sort">No</th>
                     <!-- <th scope="col" class="sort">Course</th> -->
-                    <th scope="col" class="sort">Accept_date</th>
+                    <th scope="col" class="sort">Accept Date</th>
                     <th scope="col" class="sort">Name</th>
                     <th scope="col" class="sort">Age</th>
                     <!-- <th scope="col" class="sort">Email</th> -->
