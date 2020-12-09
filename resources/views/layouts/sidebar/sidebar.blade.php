@@ -1,6 +1,6 @@
  <!-- Sidebar -->
  <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('/') }}">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('/home') }}">
       <div class="sidebar-brand-icon">
       
         <img src="{{ asset('img/logo/testlogo.png')}}">
@@ -9,7 +9,7 @@
     </a>
     <hr class="sidebar-divider my-0">
     <li class="nav-item active">
-      <a class="nav-link" href="{{ url('/') }}">
+      <a class="nav-link" href="{{ url('/home') }}">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Dashboard</span></a>
     </li>
