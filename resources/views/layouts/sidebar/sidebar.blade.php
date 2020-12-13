@@ -54,6 +54,8 @@
         <div class="bg-white py-2 collapse-inner rounded">
           <!-- <h6 class="collapse-header">Tables</h6> -->
           <a class="collapse-item" href="{{url('/employees')}}">Employee Lists</a>
+          <a class="collapse-item" href="">Department</a>
+          <a class="collapse-item" href="">Salary</a>
           <!-- <a class="collapse-item" href="datatables.html">DataTables</a> -->
         </div>
       </div>
@@ -85,18 +87,17 @@
       </div>
     </li>
     <li class="nav-item">
-      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePage" aria-expanded="true"
-        aria-controls="collapsePage">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsesPage" aria-expanded="true"
+        aria-controls="collapsesPage">
         <i class="fas fa-fw fa-columns"></i>
         <span>System Setting</span>
       </a>
-      <div id="collapsePage" class="collapse" aria-labelledby="headingPage" data-parent="#accordionSidebar">
+      <div id="collapsesPage" class="collapse" aria-labelledby="headingPage" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">Example Pages</h6>
-          <a class="collapse-item" href="login.html">Login</a>
-          <a class="collapse-item" href="register.html">Register</a>
-          <a class="collapse-item" href="404.html">404 Page</a>
-          <a class="collapse-item" href="blank.html">Blank Page</a>
+          <a class="collapse-item" href="">Division</a>
+          <a class="collapse-item" href="">City</a>
+          <a class="collapse-item" href="">State</a>
+          <a class="collapse-item" href="">Country</a>
         </div>
       </div>
     </li>
