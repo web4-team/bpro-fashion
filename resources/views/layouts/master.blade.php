@@ -9,7 +9,7 @@
   <meta name="author" content="">
  
   <link rel="icon" href="{{URL::asset('img/logo/testlogo.png')}}">
-  <title>Bpro Fashion - Dashboard</title>
+  <title>B-Pro Fashion & Art School</title>
   <link href="{{URL::asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
   <link href="{{URL::asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
   <link href="{{URL::asset('css/ruang-admin.min.css')}}" rel="stylesheet">

@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     {{-- <title>{{ config('app.name', 'BPro Fashion') }}</title> --}}
-    <title>BPro Fashion</title>
+    <title>B-Pro Fashion & Art School</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
