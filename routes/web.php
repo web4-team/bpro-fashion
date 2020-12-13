@@ -29,3 +29,5 @@ Route::resource('courses', 'CourseController');
  Route::resource('students', 'StudentController');
 // Route::get('/create', 'StudentController@create');
 
+// Employee
+Route::resource('/employees', 'EmployeesController');
