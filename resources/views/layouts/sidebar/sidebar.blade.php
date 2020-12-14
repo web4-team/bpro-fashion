@@ -20,34 +20,34 @@
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap"
         aria-expanded="true" aria-controls="collapseBootstrap">
-        <i class="far fa-fw fa-window-maximize"></i>
+        <i class="far fa-fw fa-address-card"></i>
         <span>Student Management </span>
       </a>
       <div id="collapseBootstrap" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <a class="collapse-item" href="{{route('students.index')}}">Students List</a>
-          <a class="collapse-item" href="buttons.html">Teacher List</a>
+          <a class="collapse-item" href="#">Teacher List</a>
           
       </div>
     </li>
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm" aria-expanded="true"
         aria-controls="collapseForm">
-        <i class="fab fa-fw fa-wpforms"></i>
+        <i class="fab fa-fw fa-accusoft"></i>
         <span>School Management</span>
       </a>
       <div id="collapseForm" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           
           <a class="collapse-item" href="{{url('/courses')}}">Courses</a>
-          <a class="collapse-item" href="form_advanceds.html">Form Advanceds</a>
+          <a class="collapse-item" href="#">Batch</a>
         </div>
       </div>
     </li>
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
         aria-controls="collapseTable">
-        <i class="fas fa-fw fa-table"></i>
+        <i class="fas fa-fw fa-user-tie"></i>
         <span>Employee Management</span>
       </a>
       <div id="collapseTable" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
@@ -73,7 +73,7 @@
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePage" aria-expanded="true"
         aria-controls="collapsePage">
-        <i class="fas fa-fw fa-columns"></i>
+        <i class="fas fa-fw fa-folder-open"></i>
         <span>Reports</span>
       </a>
       <div id="collapsePage" class="collapse" aria-labelledby="headingPage" data-parent="#accordionSidebar">
@@ -89,7 +89,7 @@
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsesPage" aria-expanded="true"
         aria-controls="collapsesPage">
-        <i class="fas fa-fw fa-columns"></i>
+        <i class="fas fa-fw fa-cogs"></i>
         <span>System Setting</span>
       </a>
       <div id="collapsesPage" class="collapse" aria-labelledby="headingPage" data-parent="#accordionSidebar">
@@ -104,11 +104,18 @@
     @can('manage.users')
     <li class="nav-item">
       <a class="nav-link" href="{{ route('admin.users.index')}}">
-        <i class="fas fa-fw fa-user"></i>
+        <i class="fas fa-fw fa-users"></i>
         <span>Manage Users </span>
       </a>
     </li>
     @endcan
+
+     <li class="nav-item">
+      <a class="nav-link" href="#">
+        <i class="fas fa-fw fa-envelope"></i>
+        <span>Complaint Box</span>
+      </a>
+    </li>
     <hr class="sidebar-divider">
     <div class="version" id="version-ruangadmin"></div>
   </ul>
