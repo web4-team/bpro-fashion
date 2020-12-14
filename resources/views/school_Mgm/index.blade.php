@@ -1,4 +1,8 @@
 @extends('layouts.master')
+@section('style')
+  <!-- Custom styles for this page -->
+  <link href="{{asset('backend/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+@endsection
 @section('content')
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -21,7 +25,7 @@
           <a href="{{ route('courses.create')}}" class="btn btn-sm btn-primary">Create Course</a>
         </div>
         <div class="table-responsive">
-          <table class="table align-items-center table-flush">
+          <table class="table align-items-center table-flush" id="dataTable">
             <thead class="thead-light">
               <tr>
                 <th scope="col" class="sort">ID</th>
@@ -67,4 +71,12 @@
     </div>
 </div>
 
+@endsection
+@section('script')
+  <!-- Page level plugins -->
+  <script src="{{ asset('backend/datatables/jquery.dataTables.min.js') }}"></script>
+  <script src="{{ asset('backend/datatables/dataTables.bootstrap4.min.js') }}"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="{{ asset('backend/js/demo/datatables-demo.js') }}"></script>
 @endsection
