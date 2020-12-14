@@ -114,22 +114,22 @@
 
             <div class="site-section-cover img-bg-section"
                 style="background-image: url({{ URL::asset('frontend/images/slide1.png') }}); ">
-                <div class="container">
+                {{-- <div class="container">
                     <div class="row align-items-center justify-content-center text-center">
                         <div class="col-md-12 col-lg-7">
-                            <h1 data-aos="fade-up" data-aos-delay="">B-Pro Fashion</h1>
-                            <p class="mb-5" data-aos="fade-up" data-aos-delay="100"> &amp; Art School</p>
+                            <h1 data-aos="fade-up" data-aos-delay="">Fashion &amp; Art School</h1>
+                            <p class="mb-5" data-aos="fade-up" data-aos-delay="100">Fashion Design , Styling , Pattern Making or Fashion Marketing </p>
                             <p data-aos="fade-up" data-aos-delay="200"><a href="#"
                                     class="btn btn-outline-white border-w-2 btn-md">View More</a></p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
             </div>
 
-            <div class="site-section-cover overlay img-bg-section"
-                style="background-image: url({{ URL::asset('frontend/images/hero_2.jpg') }}); ">
-                <div class="container">
+            <div class="site-section-cover img-bg-section"
+                style="background-image: url({{ URL::asset('frontend/images/slide2.png') }}); ">
+                {{-- <div class="container">
                     <div class="row align-items-center justify-content-center text-center">
                         <div class="col-md-12 col-lg-8">
                             <h1 data-aos="fade-up" data-aos-delay="">ArtBot Myanmar</h1>
@@ -139,7 +139,7 @@
                                     class="btn btn-outline-white border-w-2 btn-md">View More</a></p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
             </div>
 
@@ -152,7 +152,7 @@
                     <div class="row d-flex no-gutters align-items-stretch">
 
                         <div class="col-12 col-lg-6 block__73422"
-                            style="background-image: url({{ URL::asset('frontend/images/img_1.jpg') }});"
+                            style="background-image: url({{ URL::asset('frontend/images/aboutus.png') }});"
                             data-aos="fade-right" data-aos-delay="">
                         </div>
 
@@ -182,7 +182,7 @@
                     <div class="row d-flex no-gutters align-items-stretch">
 
                         <div class="col-12 col-lg-6 block__73422 order-lg-2"
-                            style="background-image: url({{ URL::asset('frontend/images/img_2.jpg') }});"
+                            style="background-image: url({{ URL::asset('frontend/images/artbot.png') }});"
                             data-aos="fade-left" data-aos-delay="">
                         </div>
 
@@ -190,7 +190,7 @@
 
                         <div class="col-lg-5 mr-auto p-lg-5 mt-4 mt-lg-0 order-lg-1" data-aos="fade-right"
                             data-aos-delay="">
-                            <h2 class="mb-3 text-black">Surface Mining</h2>
+                            <h2 class="mb-3 text-black">ArtBot Myanmar</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus id dignissimos nemo
                                 minus perspiciatis ullam itaque voluptas iure vero, nesciunt unde odit aspernatur
                                 distinctio, maiores facere officiis. Cum, esse, iusto?</p>
@@ -212,7 +212,7 @@
             </div>
         </div>
 
-        <div class="site-section bg-light">
+        {{-- <div class="site-section bg-light">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="">
@@ -278,7 +278,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <div class="site-section bg-light" id="contact-section">
             <div class="container">
@@ -327,7 +327,7 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, distinctio! Harum
                             quibusdam nisi, illum nulla aspernatur aut quidem aperiam, quae non tempora recusandae
                             voluptatibus fugit impedit.</p>
-                        <p><a href="#" class="btn btn-primary text-white">Get Started</a></p>
+                        {{-- <p><a href="#" class="btn btn-primary text-white">Get Started</a></p> --}}
                     </div>
                 </div>
             </div>
