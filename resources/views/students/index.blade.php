@@ -1,6 +1,7 @@
 @extends('layouts.master')	
 @section('content')
-
+<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
   <h1 class="h3 mb-0 text-gray-800">Student Management</h1>
   <ol class="breadcrumb">
@@ -19,7 +20,7 @@
           <a href="{{route('students.create')}}" class="btn btn-sm btn-primary">Create Student</a>
         </div>
         <div class="table-responsive">
-          <table class="table align-items-center table-flush">
+          <table class="table align-items-center table-flush data-table">
             <thead class="thead-light">
               <tr>
                 <th scope="col" class="sort">No</th>                
@@ -62,5 +63,7 @@
       </div>
     </div>
 </div>
-
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 @endsection
