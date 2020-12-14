@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-    <title>BPro Fashion</title>
+    <title>B-Pro Fashion & Art School</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link rel="icon" href="{{URL::asset('img/logo/testlogo.png')}}">
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,700|Oswald:400,700" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ asset('frontend/fonts/icomoon/style.css') }}">
@@ -48,10 +48,10 @@
                 <div class="row">
                     <div class="col-12">
                         <a href="#" class="text-white"><span class="mr-2 text-white icon-envelope-open-o"></span> <span
-                                class="d-none d-md-inline-block">info@yourdomain.com</span></a>
+                                class="d-none d-md-inline-block">info@bprofashionandartschool.com</span></a>
                         <span class="mx-md-2 d-inline-block"></span>
                         <a href="#" class="text-white"><span class="mr-2 text-white icon-phone"></span> <span
-                                class="d-none d-md-inline-block">1+ (234) 5678 9101</span></a>
+                                class="d-none d-md-inline-block">09 788 518075</span></a>
 
 
                         <div class="float-right">
@@ -112,35 +112,34 @@
 
 
 
-            <div class="site-section-cover overlay img-bg-section"
-                style="background-image: url({{ URL::asset('frontend/images/hero_3.jpg') }}); ">
-                <div class="container">
+            <div class="site-section-cover img-bg-section"
+                style="background-image: url({{ URL::asset('frontend/images/slide1.png') }}); ">
+                {{-- <div class="container">
                     <div class="row align-items-center justify-content-center text-center">
                         <div class="col-md-12 col-lg-7">
-                            <h1 data-aos="fade-up" data-aos-delay="">Welcome to UnEarth</h1>
-                            <p class="mb-5" data-aos="fade-up" data-aos-delay="100">Lorem ipsum dolor sit amet,
-                                consectetur adipisicing elit. Molestiae, cumque vitae animi.</p>
+                            <h1 data-aos="fade-up" data-aos-delay="">Fashion &amp; Art School</h1>
+                            <p class="mb-5" data-aos="fade-up" data-aos-delay="100">Fashion Design , Styling , Pattern Making or Fashion Marketing </p>
                             <p data-aos="fade-up" data-aos-delay="200"><a href="#"
-                                    class="btn btn-outline-white border-w-2 btn-md">Get in touch</a></p>
+                                    class="btn btn-outline-white border-w-2 btn-md">View More</a></p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
             </div>
 
-            <div class="site-section-cover overlay img-bg-section"
-                style="background-image: url({{ URL::asset('frontend/images/hero_2.jpg') }}); ">
-                <div class="container">
+            <div class="site-section-cover img-bg-section"
+                style="background-image: url({{ URL::asset('frontend/images/slide2.png') }}); ">
+                {{-- <div class="container">
                     <div class="row align-items-center justify-content-center text-center">
                         <div class="col-md-12 col-lg-8">
-                            <h1 data-aos="fade-up" data-aos-delay="">New Generation of Mining</h1>
+                            <h1 data-aos="fade-up" data-aos-delay="">ArtBot Myanmar</h1>
                             <p class="mb-5" data-aos="fade-up" data-aos-delay="100">Lorem ipsum dolor sit amet,
-                                consectetur adipisicing elit. Est odit dolorum voluptates!</p>
+                                consectetur adipisicing elit. Est odit dolorum</p>
                             <p data-aos="fade-up" data-aos-delay="200"><a href="#"
-                                    class="btn btn-outline-white border-w-2 btn-md">Get in touch</a></p>
+                                    class="btn btn-outline-white border-w-2 btn-md">View More</a></p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
             </div>
 
@@ -153,20 +152,15 @@
                     <div class="row d-flex no-gutters align-items-stretch">
 
                         <div class="col-12 col-lg-6 block__73422"
-                            style="background-image: url({{ URL::asset('frontend/images/img_1.jpg') }});"
+                            style="background-image: url({{ URL::asset('frontend/images/aboutus.png') }});"
                             data-aos="fade-right" data-aos-delay="">
                         </div>
 
 
 
                         <div class="col-lg-5 ml-auto p-lg-5 mt-4 mt-lg-0" data-aos="fade-left" data-aos-delay="">
-                            <h2 class="mb-3 text-black">Land &amp; Property</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus id dignissimos nemo
-                                minus perspiciatis ullam itaque voluptas iure vero, nesciunt unde odit aspernatur
-                                distinctio, maiores facere officiis. Cum, esse, iusto?</p>
-
-                            <p>Minus perspiciatis ullam itaque voluptas iure vero, nesciunt unde odit aspernatur
-                                distinctio, maiores facere officiis. Cum, esse, iusto?</p>
+                            <h2 class="mb-3 text-black">About us</h2>
+                            <p>B-Pro is one of the Fashion School in Myanmar . Whether you are interested in Fashion Design , Styling , Pattern Making or Fashion Marketing , we provide you to fit your Passion .</p>
 
                             <ul class="ul-check primary list-unstyled mt-5">
                                 <li>Lorem ipsum dolor.</li>
@@ -188,7 +182,7 @@
                     <div class="row d-flex no-gutters align-items-stretch">
 
                         <div class="col-12 col-lg-6 block__73422 order-lg-2"
-                            style="background-image: url({{ URL::asset('frontend/images/img_2.jpg') }});"
+                            style="background-image: url({{ URL::asset('frontend/images/artbot.png') }});"
                             data-aos="fade-left" data-aos-delay="">
                         </div>
 
@@ -196,7 +190,7 @@
 
                         <div class="col-lg-5 mr-auto p-lg-5 mt-4 mt-lg-0 order-lg-1" data-aos="fade-right"
                             data-aos-delay="">
-                            <h2 class="mb-3 text-black">Surface Mining</h2>
+                            <h2 class="mb-3 text-black">ArtBot Myanmar</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus id dignissimos nemo
                                 minus perspiciatis ullam itaque voluptas iure vero, nesciunt unde odit aspernatur
                                 distinctio, maiores facere officiis. Cum, esse, iusto?</p>
@@ -218,7 +212,7 @@
             </div>
         </div>
 
-        <div class="site-section bg-light">
+        {{-- <div class="site-section bg-light">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="">
@@ -284,7 +278,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <div class="site-section bg-light" id="contact-section">
             <div class="container">
@@ -333,7 +327,7 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, distinctio! Harum
                             quibusdam nisi, illum nulla aspernatur aut quidem aperiam, quae non tempora recusandae
                             voluptatibus fugit impedit.</p>
-                        <p><a href="#" class="btn btn-primary text-white">Get Started</a></p>
+                        {{-- <p><a href="#" class="btn btn-primary text-white">Get Started</a></p> --}}
                     </div>
                 </div>
             </div>
