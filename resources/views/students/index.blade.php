@@ -24,7 +24,7 @@
           <a href="{{route('students.create')}}" class="btn btn-sm btn-primary">Create Student</a>
         </div>
         <div class="table-responsive">
-          <table class="table align-items-center table-flush data-table">
+          <table class="table align-items-center table-flush" id="dataTable">
             <thead class="thead-light">
               <tr>
                 <th scope="col" class="sort">No</th>                
