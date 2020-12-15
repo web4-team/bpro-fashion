@@ -1,5 +1,5 @@
 .bg-navbar {
-    background-color: #F66000 !important;
+    background-color: #f66000 !important;
 }
 
 .sidebar-light .sidebar-brand {
@@ -7,13 +7,24 @@
     background-color: #ffffff;
 }
 
-.card .table td, .card .table th {
+.card .table td,
+.card .table th {
     padding-right: 1.5rem;
     padding-left: 1.5rem;
     font-size: 14px;
 }
 
 .float-left {
-    float: left!important;
+    float: left !important;
     margin-left: 3px;
+}
+
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_processing,
+.dataTables_wrapper .dataTables_paginate {
+    color: #333;
+    padding-left: 20px;
+    padding-right: 20px;
 }
