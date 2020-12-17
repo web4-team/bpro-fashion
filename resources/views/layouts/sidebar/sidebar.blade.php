@@ -110,12 +110,6 @@
     </li>
     @endcan
 
-     <li class="nav-item">
-      <a class="nav-link" href="#">
-        <i class="fas fa-fw fa-envelope"></i>
-        <span>Complaint Box</span>
-      </a>
-    </li>
     <hr class="sidebar-divider">
     <div class="version" id="version-ruangadmin"></div>
   </ul>

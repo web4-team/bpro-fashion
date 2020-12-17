@@ -87,7 +87,7 @@
                             <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
                                 <li><a href="#home-section" class="nav-link">Home</a></li>
                                 <li><a href="#services-section" class="nav-link">About</a></li>
-                                <li><a href="#contact-section" class="nav-link">Complaint Box</a></li>
+                                <li><a href="#contact-section" class="nav-link">Contact us</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -286,7 +286,7 @@
                     <div class="col-12 text-center mb-5" data-aos="fade-up" data-aos-delay="">
                         <div class="block-heading-1">
                            
-                            <h2>Complaint Box</h2>
+                            <h2>Contact us</h2>
                         </div>
                     </div>
                 </div>
@@ -298,7 +298,7 @@
                                     <input type="text" class="form-control" placeholder="First name">
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="First name">
+                                    <input type="text" class="form-control" placeholder="Last name">
                                 </div>
                             </div>
 
