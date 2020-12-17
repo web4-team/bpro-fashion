@@ -94,7 +94,7 @@
       </a>
       <div id="collapsesPage" class="collapse" aria-labelledby="headingPage" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-          <a class="collapse-item" href="">Division</a>
+          <a class="collapse-item" href="/divisions">Division</a>
           <a class="collapse-item" href="">City</a>
           <a class="collapse-item" href="">State</a>
           <a class="collapse-item" href="">Country</a>

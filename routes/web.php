@@ -31,3 +31,6 @@ Route::resource('courses', 'CourseController');
 
 // Employee
 Route::resource('/employees', 'EmployeesController');
+
+// Divisions
+Route::resource('/divisions', 'DivisionsController');
