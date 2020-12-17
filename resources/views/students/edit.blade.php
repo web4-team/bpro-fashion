@@ -41,11 +41,23 @@
         		<h1 class="text-center text-dark">Update Form</h1>
         	</div>
         	<div class="form-group">
+			    <label for="code" class="text-dark">Student Code</label>
+			    <input type="number" class="form-control text-dark" name="code" value="{{$student->code}}">
+			</div>
+        	<div class="form-group">
 				<label for="class" class="text-dark">Choose Course</label>
-				<select name="course" value="{{$student->course}}" class="custom-select custom-select-md text-dark">
-				  <option value="1">First Class</option>
-				  <option value="2">Second Class</option>
-				  <option value="3">Third Class</option>
+				<select name="course" value="" class="custom-select custom-select-md text-dark">
+				    @foreach($course as $row)
+					<option value="{{$row->id}}" @if($student->course_id==$row->id) {{'selected'}}  @endif>{{$row->name}}</option>
+					@endforeach
+				</select>
+			</div>
+        	<div class="form-group">
+				<label for="bach" class="text-dark">Choose Bach</label>
+				<select name="bach" value="{{$student->bach}}" class="custom-select custom-select-md text-dark">
+				  <option value="1">First Bach</option>
+				  <option value="2">Second Bach</option>
+				  <option value="3">Third Bach</option>
 				</select>
 			</div>
 			<div class="form-group">
@@ -82,7 +94,11 @@
 			</div>
 			<div class="form-group">
 			    <label for="objective" class="text-dark">Objective of join this class</label>
-			    <textarea class="form-control text-dark" name="objective" value="" rows="3">{{$student->objective}}</textarea>
+			    <textarea class="form-control text-dark" name="objective" value="" rows="2">{{$student->objective}}</textarea>
+			</div>
+			<div class="form-group">
+			    <label for="comment" class="text-dark">Comment Box</label>
+			    <textarea class="form-control text-dark" name="comment" value="" rows="3">{{$student->comment}}</textarea>
 			</div>
 			<fieldset class="form-group">
 				<label for="bpro" class="text-dark">How do you Know B Pro</label>

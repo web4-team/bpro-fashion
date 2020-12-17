@@ -31,7 +31,18 @@
 
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
-         @include('partials.alerts')
+         <!-- @include('partials.alerts') -->
+         @if(session('success'))
+          <div class="alert alert-success">
+            {{session('success')}}
+          </div>
+        @endif
+
+        @if(session('error'))
+          <div class="alert alert-danger">
+            {{session('error')}}
+          </div>
+        @endif
           @yield('content')
         </div>
         <!---Container Fluid-->
