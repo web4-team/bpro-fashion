@@ -28,9 +28,10 @@
           <table class="table align-items-center table-flush" id="dataTable">
             <thead class="thead-light">
               <tr>
-                <th scope="col" class="sort">ID</th>
+                <th scope="col" class="sort">No</th>
                 <th scope="col" class="sort">Course Name</th>
-                <th scope="col" class="sort">Batch No</th>
+                
+                <th scope="col" class="sort">Course Type</th>
                 <th scope="col" class="sort">Fees</th>
                 <th scope="col" class="sort">Discount</th>
                 <th scope="col" class="sort">Total Fees</th>
@@ -45,7 +46,8 @@
                     <tr>
                       <td>{{$i++}}</td>             
                       <td>{{$course->name}}</td>
-                      <td>{{$course->batch}}</td>
+                      
+                      <td>{{$course->type}}</td>
                       <td>{{number_format($course->fees)}} MMK</td>
                       <td>{{$course->discount}}%</td>
                       <td>{{number_format($course->fees-($course->fees*$course->discount/100))}} MMK</td>

@@ -8,11 +8,16 @@ class Course extends Model
 {
         protected $fillable = [
         'name',
-        'batch',
+        
+        'type',
         'fees',
         'discount',
         'date',
         'duration'
               
     ];
+public function batches()
+  {
+    return $this->hasMany('App\Batch');
+  }
 }

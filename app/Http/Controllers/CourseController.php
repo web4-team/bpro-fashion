@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Course;
+use App\Batch;
+
 
 class CourseController extends Controller
 {
@@ -35,7 +37,8 @@ class CourseController extends Controller
      */
      public function create()
     {
-        return view('school_Mgm.create');
+         $batches=Batch::all();
+        return view('school_Mgm.create',compact('batches'));
     }
 
     /**
@@ -54,7 +57,8 @@ class CourseController extends Controller
 
         $course = new Course([
             'name' => $request->get('name'),
-            'batch' => $request->get('batch'),
+            
+            'type' => $request->get('type'),
             'fees' => $request->get('fees'),
             'discount' => $request->get('discount'),
             'date'=>$request->get('date'),
@@ -105,7 +109,8 @@ class CourseController extends Controller
 
          $course = Course::find($id);
             $course->name = $request->get('name');
-            $course->batch = $request->get('batch');            
+            
+            $course->type = $request->get('type');             
             $course->fees = $request->get('fees');
             $course->discount = $request->get('discount');
             $course->date = $request->get('date');
