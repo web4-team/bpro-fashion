@@ -1,0 +1,19 @@
+.bg-navbar {
+    background-color: #F66000 !important;
+}
+
+.sidebar-light .sidebar-brand {
+    color: #f66000;
+    background-color: #ffffff;
+}
+
+.card .table td, .card .table th {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    font-size: 14px;
+}
+
+.float-left {
+    float: left!important;
+    margin-left: 3px;
+}
