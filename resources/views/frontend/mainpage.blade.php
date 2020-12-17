@@ -47,10 +47,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <a href="#" class="text-white"><span class="mr-2 text-white icon-envelope-open-o"></span> <span
+                        <a href = "mailto: info@bprofashionandartschool.com" class="text-white"><span class="mr-2 text-white icon-envelope-open-o"></span> <span
                                 class="d-none d-md-inline-block">info@bprofashionandartschool.com</span></a>
                         <span class="mx-md-2 d-inline-block"></span>
-                        <a href="#" class="text-white"><span class="mr-2 text-white icon-phone"></span> <span
+                        <a href="tel:+959788 518075" class="text-white"><span class="mr-2 text-white icon-phone"></span> <span
                                 class="d-none d-md-inline-block">09 788 518075</span></a>
 
 
@@ -347,7 +347,7 @@
                             <div class="col-md-4 ml-auto">
                                 <h2 class="footer-heading mb-4">Features</h2>
                                 <ul class="list-unstyled">
-                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#services-section">About Us</a></li>
                                     <li><a href="#">Press Releases</a></li>
                                     <li><a href="#">Testimonials</a></li>
                                     <li><a href="#">Terms of Service</a></li>
@@ -376,7 +376,7 @@
 
 
                         <h2 class="footer-heading mb-4">Follow Us</h2>
-                        <a href="#about-section" class="smoothscroll pl-0 pr-3"><span class="icon-facebook"></span></a>
+                        <a href="https://web.facebook.com/bprofashionandartschool" class="smoothscroll pl-0 pr-3"><span class="icon-facebook"></span></a>
                         <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
                         <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
                         <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
