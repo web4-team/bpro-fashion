@@ -35,8 +35,24 @@
                                   
                   <tbody>
                     <tr>
+                      <td>Student Code</td>
+                      <td>{{$student->code}}</td>
+                    </tr>
+
+                    <tr>
                       <td>Course Name</td>
-                      <td>{{$student->course}}</td>
+                     
+                      <td>
+                        @foreach($courses as $row)
+                         @if($student->course_id==$row->id) {{$row->name}} @endif
+                        @endforeach
+                      </td>
+                      
+                    </tr>
+
+                    <tr>
+                      <td>Bach Name</td>
+                      <td>{{$student->bach}}</td>
                     </tr>
 
                     <tr>
@@ -82,6 +98,11 @@
                     <tr>
                       <td>Objective of join this class</td>
                       <td>{{$student->objective}}</td>
+                    </tr>
+
+                    <tr>
+                      <td>Comment Box</td>
+                      <td>{{$student->comment}}</td>
                     </tr>
 
                     <tr>

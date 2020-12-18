@@ -43,13 +43,24 @@
 					
     <form method="post" action="{{route('students.store')}}"class="col-md-6 mb-4">
         	@csrf
-        
+        	<div class="form-group">
+			    <label for="code" class="text-dark">Student Code</label>
+			    <input type="number" class="form-control text-dark" name="code">
+			</div>
         	<div class="form-group">
 				<label for="class" class="text-dark">Choose Course</label>
 				<select name="course" class="custom-select custom-select-md text-dark">
-				  <option value="1">First Class</option>
-				  <option value="2">Second Class</option>
-				  <option value="3">Third Class</option>
+				  	@foreach($course as $row)
+					<option value="{{$row->id}}">{{$row->name}}</option>
+					@endforeach
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="class" class="text-dark">Choose Bach</label>
+				<select name="bach" class="custom-select custom-select-md text-dark">
+				  <option value="1">First Bach</option>
+				  <option value="2">Second Bach</option>
+				  <option value="3">Third Bach</option>
 				</select>
 			</div>
 			<div class="form-group">
@@ -86,7 +97,11 @@
 			</div>
 			<div class="form-group">
 			    <label for="objective" class="text-dark">Objective of join this class</label>
-			    <textarea class="form-control text-dark" name="objective" rows="3"></textarea>
+			    <textarea class="form-control text-dark" name="objective" rows="2"></textarea>
+			</div>
+			<div class="form-group">
+			    <label for="comment" class="text-dark">Comment Box</label>
+			    <textarea class="form-control text-dark" name="comment" rows="3"></textarea>
 			</div>
 			<fieldset class="form-group">
 				<label for="bpro" class="text-dark">How do you Know B Pro</label>
