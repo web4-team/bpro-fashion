@@ -54,8 +54,8 @@
         <div class="bg-white py-2 collapse-inner rounded">
           <!-- <h6 class="collapse-header">Tables</h6> -->
           <a class="collapse-item" href="{{url('/employees')}}">Employee Lists</a>
-          <a class="collapse-item" href="">Department</a>
-          <a class="collapse-item" href="">Salary</a>
+          <a class="collapse-item" href="{{url('/departments')}}">Department</a>
+          <a class="collapse-item" href="{{url('/salaries')}}">Salary</a>
           <!-- <a class="collapse-item" href="datatables.html">DataTables</a> -->
         </div>
       </div>
