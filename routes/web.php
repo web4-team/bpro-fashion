@@ -38,5 +38,11 @@ Route::resource('/divisions', 'DivisionsController');
 // Cities
 Route::resource('/cities', 'CitiesController');
 
+// States
+Route::resource('/states', 'StatesController');
+
+// Countries
+Route::resource('/countries', 'CountriesController');
+
 // Batches
 Route::resource('batch', 'BatchController');
