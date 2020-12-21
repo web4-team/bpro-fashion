@@ -34,4 +34,9 @@ Route::resource('/employees', 'EmployeesController');
 
 // Divisions
 Route::resource('/divisions', 'DivisionsController');
+
+// Cities
+Route::resource('/cities', 'CitiesController');
+
+// Batches
 Route::resource('batch', 'BatchController');

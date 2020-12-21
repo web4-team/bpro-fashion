@@ -26,7 +26,7 @@
       <div id="collapseBootstrap" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <a class="collapse-item" href="{{route('students.index')}}">Students List</a>
-          <a class="collapse-item" href="#">Teacher List</a>
+          <!-- <a class="collapse-item" href="#">Teacher List</a> -->
           
       </div>
     </li>
@@ -95,9 +95,9 @@
       <div id="collapsesPage" class="collapse" aria-labelledby="headingPage" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <a class="collapse-item" href="/divisions">Division</a>
-          <a class="collapse-item" href="">City</a>
-          <a class="collapse-item" href="">State</a>
-          <a class="collapse-item" href="">Country</a>
+          <a class="collapse-item" href="/cities">City</a>
+          <a class="collapse-item" href="/states">State</a>
+          <a class="collapse-item" href="/countries">Country</a>
         </div>
       </div>
     </li>
