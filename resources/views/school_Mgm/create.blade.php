@@ -20,9 +20,14 @@
         <input type="text" class="form-control" name="name"/>
 
       </div>
-      <div class="form-group">    
-        <label for="name">Batch NO:</label>
-        <input type="text" class="form-control" name="batch" />
+
+            <div class="form-group">
+        <label for="discount">Course Type:</label>
+        <select class="form-control" name="type" >
+          <option >Online</option>
+          <option >Campus</option>
+          
+        </select>
       </div>
 
       <div class="form-group">
