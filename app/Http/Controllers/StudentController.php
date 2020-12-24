@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Student;
 use App\Course;
+use App\Batch;
+use PDF;
 
 class StudentController extends Controller
 {
@@ -22,10 +24,24 @@ class StudentController extends Controller
     	$students = Student::all();
         return view('students.index',compact('students')); //compact('$students')
     }
+
+    // // Generate PDF
+    // public function createPDF() {
+    //   // retreive all records from db
+    //   $data = Student::all();
+
+    //   // share data to view
+    //   view()->share('students',$data);
+    //   $pdf = PDF::loadView('pdf_view', $data);
+
+    //   // download PDF file with download method
+    //   return $pdf->download('pdf_file.pdf');
+    // }
     
     public function create(){
-    	$course = Course::all();
-    	return view ('students.create',compact('course'));
+        $course = Course::all();
+    	$batch = Batch::all();
+    	return view ('students.create',compact('course','batch'));
     }
 
     public function store(Request $request)
@@ -33,7 +49,7 @@ class StudentController extends Controller
         $request->validate([
             "code" => 'required',
             "course" => 'required',
-        	"bach" => 'required',
+        	"batch" => 'required',
         	"accept_date" => 'required',        	
             "name" => 'required | min:5 | max:191',
             "dob" => 'required',
@@ -50,7 +66,7 @@ class StudentController extends Controller
         $student = new Student;
         $student->code = request('code');
         $student->course_id = request('course');
-        $student->bach_id = request('bach');
+        $student->batch_id = request('batch');
         $student->accept_date = request('accept_date');
         $student->name = request('name');
         $student->dob = request('dob');
@@ -72,14 +88,16 @@ class StudentController extends Controller
     public function show($id){
         $student = Student::find($id);
         $courses = Course::all();
-        return view('students.show',compact('student','courses'));
+        $batches = Batch::all();
+        return view('students.show',compact('student','courses','batches'));
     }
 
     public function edit($id)
     {
         $student = Student::find($id);
         $course = Course::all();
-        return view('students.edit',compact('student','course'));
+        $batch = Batch::all();
+        return view('students.edit',compact('student','course','batch'));
     }
 
     /**
@@ -94,7 +112,7 @@ class StudentController extends Controller
         $request->validate([
             "code" => 'required',
             "course" => 'required',
-            "bach" => 'required',
+            "batch" => 'required',
             "accept_date" => 'required',            
             "name" => 'required | min:5 | max:191',
             "dob" => 'required',
@@ -111,7 +129,7 @@ class StudentController extends Controller
         $student = Student::find($id);
         $student->code = request('code');
         $student->course_id = request('course');
-        $student->bach_id = request('bach');
+        $student->batch_id = request('batch');
         $student->accept_date = request('accept_date');
         $student->name = request('name');
         $student->dob = request('dob');
@@ -125,9 +143,9 @@ class StudentController extends Controller
         $student->bpro = request('bpro');
 
         $student->save();
-        //dd($request);
+        dd($request);
         //Return redirect // 5
-        return redirect()->route('students.index')->with('success','Student update successfully');
+        // return redirect()->route('students.index')->with('success','Student update successfully');
     }
 
     public function destroy($id)

@@ -17,7 +17,7 @@ class CreateStudentsTable extends Migration
             $table->bigIncrements('id');
             $table->string('code');
             $table->unsignedBigInteger('course_id');
-            $table->unsignedBigInteger('bach_id');
+            $table->unsignedBigInteger('batch_id');
             $table->string('accept_date');
             $table->text('name');
             $table->date('dob');

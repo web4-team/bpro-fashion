@@ -45,7 +45,15 @@
         	@csrf
         	<div class="form-group">
 			    <label for="code" class="text-dark">Student Code</label>
-			    <input type="number" class="form-control text-dark" name="code">
+			    <input type="code" class="form-control text-dark" name="code">
+			</div>
+			<div class="form-group">
+				<label for="class" class="text-dark">Choose Batch</label>
+				<select name="batch" class="custom-select custom-select-md text-dark">
+				  	@foreach($batch as $row)
+					  <option value="{{$row->id}}">{{$row->name}}</option>
+					@endforeach
+				</select>
 			</div>
         	<div class="form-group">
 				<label for="class" class="text-dark">Choose Course</label>
@@ -55,14 +63,7 @@
 					@endforeach
 				</select>
 			</div>
-			<div class="form-group">
-				<label for="class" class="text-dark">Choose Bach</label>
-				<select name="bach" class="custom-select custom-select-md text-dark">
-				  <option value="1">First Bach</option>
-				  <option value="2">Second Bach</option>
-				  <option value="3">Third Bach</option>
-				</select>
-			</div>
+			
 			<div class="form-group">
   			    <label for="accept_date" class="text-dark">Accept Date</label>
   			    <input type="date" class="form-control" name="accept_date">

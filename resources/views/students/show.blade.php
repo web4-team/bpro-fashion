@@ -26,7 +26,7 @@
 <!--Page content-->	
     <div class="row">
       <div class="col-md-3"></div>
-        <form class="col-md-6 mb-4">
+        <form class="col-md-6 mb-4 card">
             <div class="card-header bg-light border-0 my-4">
               <h2 class="text-dark mb-0 text-center">Students Detail </h2>
             </div>            
@@ -40,20 +40,23 @@
                     </tr>
 
                     <tr>
-                      <td>Course Name</td>
-                     
+                      <td>Batch Name</td>
+                      <td>
+                        @foreach($batches as $row)
+                         @if($student->batch_id==$row->id) {{$row->name}} @endif
+                        @endforeach
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>Course Name</td>                     
                       <td>
                         @foreach($courses as $row)
                          @if($student->course_id==$row->id) {{$row->name}} @endif
                         @endforeach
-                      </td>
+                    </td>
                       
-                    </tr>
-
-                    <tr>
-                      <td>Bach Name</td>
-                      <td>{{$student->bach}}</td>
-                    </tr>
+                     </tr>                   
 
                     <tr>
                       <td>Accept Date</td>

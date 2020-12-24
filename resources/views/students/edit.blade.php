@@ -32,6 +32,7 @@
         </ul>
     </div>
 @endif
+
 	<div class="row">
       	<div class="col-md-3"></div>
         <form method="post" action="{{route('students.update',$student->id)}}"class="col-md-6 mb-4">
@@ -42,7 +43,16 @@
         	</div>
         	<div class="form-group">
 			    <label for="code" class="text-dark">Student Code</label>
-			    <input type="number" class="form-control text-dark" name="code" value="{{$student->code}}">
+			    <input type="code" class="form-control text-dark" name="code" value="{{$student->code}}">
+			</div>
+			<div class="form-group">
+				<label for="batch" class="text-dark">Choose Batch</label>
+				<select name="bach" value="{{$student->bach}}" class="custom-select custom-select-md text-dark">
+				  	@foreach($batch as $row)
+				  		<option value="{{$row->id}}" @if($student->batch_id==$row->id) {{'selected'}}  @endif>{{$row->name}}
+				  		</option>
+				  	@endforeach
+				</select>
 			</div>
         	<div class="form-group">
 				<label for="class" class="text-dark">Choose Course</label>
@@ -52,14 +62,7 @@
 					@endforeach
 				</select>
 			</div>
-        	<div class="form-group">
-				<label for="bach" class="text-dark">Choose Bach</label>
-				<select name="bach" value="{{$student->bach}}" class="custom-select custom-select-md text-dark">
-				  <option value="1">First Bach</option>
-				  <option value="2">Second Bach</option>
-				  <option value="3">Third Bach</option>
-				</select>
-			</div>
+        	
 			<div class="form-group">
   			    <label for="accept_date" class="text-dark">Accept Date</label>
   			    <input type="date" class="form-control" name="accept_date" value="{{$student->accept_date}}">
