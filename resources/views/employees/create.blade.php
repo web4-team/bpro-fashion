@@ -33,7 +33,7 @@
 					
           <div class="card-body">
 					
-    <form method="post" action="{{route('employees.store')}}" class="col-md-6 mb-4">
+    <form method="post" action="{{route('employees.store')}}"  class="col-md-6 mb-4">
         	@csrf
         	<div class="form-group">
 			    	<label for="first_name" class="text-dark">First Name</label>
@@ -56,16 +56,6 @@
 					</div>
 
 					<div class="form-group">
-			    	<label for="phone" class="text-dark">Phone</label>
-			    	<input type="number" class="form-control text-dark" name="phone" id="phone" value="{{Request::old('phone') ? : ''}}">
-					</div>
-
-					<div class="form-group">
-			    	<label for="address" class="text-dark">Address</label>
-			    	<textarea class="form-control text-dark" name="address" id="address" rows="3">{{Request::old('address') ? : ''}}</textarea>
-					</div>
-
-        	<div class="form-group">
 						<label for="class" class="text-dark">Gender</label>
 							<select name="gender" class="custom-select custom-select-md text-dark">
 								<option value="" disabled {{ old('gender') ? '' : 'selected' }}>Choose a gender</option>
@@ -76,6 +66,27 @@
 					</div>
 
 					<div class="form-group">
+			    	<label for="phone" class="text-dark">Phone</label>
+			    	<input type="number" class="form-control text-dark" name="phone" id="phone" value="{{Request::old('phone') ? : ''}}">
+					</div>
+
+					<div class="form-group">
+			    		<label for="address" class="text-dark">Address</label>
+			    		<textarea class="form-control text-dark" name="address" id="address" rows="3">{{Request::old('address') ? : ''}}</textarea>
+					</div>
+
+					<div class="form-group">
+						<label for="class" class="text-dark">State/Region</label>
+							<select name="state" class="custom-select custom-select-md text-dark">
+								<option value="" disabled {{ old('state') ? '' : 'selected' }}>Choose a state/region</option>
+				  			@foreach($states as $state)
+								<option value="{{$state->id}}" {{ old('state') ? 'selected' : '' }}>{{$state->state_name}}</option>
+								@endforeach
+							</select>
+					</div>
+        			
+
+				<div class="form-group">
 						<label for="class" class="text-dark">Salary</label>
 							<select name="salary" class="custom-select custom-select-md text-dark">
 								<option value="" disabled {{ old('salary') ? '' : 'selected' }}>Choose a Salary</option>
@@ -93,7 +104,23 @@
 								<option value="{{$department->id}}" {{ old('department') ? 'selected' : '' }}>{{$department->dept_name}}</option>
 								@endforeach
 							</select>
+							
 					</div>
+				
+				
+				
+					<div class="form-group">
+						<label for="join_date">Join Date</label>
+						<input name="join_date" id="join_date" class="form-control" type="date">
+					</div>
+					<div class="form-group">
+						<label for="join_date">Date of birth</label>
+						<input name="birth_date" id="join_date" class="form-control" type="date">
+					</div>
+					{{-- <div class="form-group">
+						<label for="picture">Picture</label>
+						<input type="file" name="picture">
+					</div>  --}}
 			
 	  	    <div class="form-group row">
 	  		    <div class="col-sm-10">

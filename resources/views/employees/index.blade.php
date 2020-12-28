@@ -16,7 +16,7 @@
       <div class="card">
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
           <h6 class="m-0 font-weight-bold text-primary">Employee Lists</h6>
-          <a href="" class="btn btn-sm btn-primary">Create Employee</a>
+          <a href="{{route('employees.create')}}" class="btn btn-sm btn-primary">Create Employee</a>
         </div>
         <div class="table-responsive">
           <table class="table align-items-center table-flush">
@@ -26,7 +26,7 @@
                 <th scope="col" class="sort">Image</th>
                 <th scope="col" class="sort">Name</th>
                 <th scope="col" class="sort">Department</th>
-                <th scope="col" class="sort">Division</th>    
+               
                 <th scope="col" class="sort">Join Date</th>            
                 <th scope="col" class="sort">Action</th>
               </tr>
@@ -39,7 +39,7 @@
                       <td></td>
                       <td></td>                
                       <td></td>
-                      <td></td>
+                     
                       <td></td>
                       <td>
                        
