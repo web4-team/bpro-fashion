@@ -86,7 +86,7 @@
         </div>
       </div>
     </li>
-    {{-- <li class="nav-item">
+    <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsesPage" aria-expanded="true"
         aria-controls="collapsesPage">
         <i class="fas fa-fw fa-cogs"></i>
@@ -100,7 +100,7 @@
           <a class="collapse-item" href="/countries">Country</a>
         </div>
       </div>
-    </li> --}}
+    </li>
     @can('manage.users')
     <li class="nav-item">
       <a class="nav-link" href="{{ route('admin.users.index')}}">

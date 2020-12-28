@@ -33,7 +33,7 @@
 					
           <div class="card-body">
 					
-    <form method="post" action="{{route('employees.store')}}"  class="col-md-6 mb-4">
+    <form method="post" action="{{route('employees.store')}}" enctype="multipart/form-data" class="col-md-6 mb-4">
         	@csrf
         	<div class="form-group">
 			    	<label for="first_name" class="text-dark">First Name</label>
@@ -76,11 +76,43 @@
 					</div>
 
 					<div class="form-group">
+						<label for="class" class="text-dark">City</label>
+							<select name="city" class="custom-select custom-select-md text-dark">
+								<option value="" disabled {{ old('city') ? '' : 'selected' }}>Choose a city</option>
+				  			@foreach($cities as $city)
+								<option value="{{$city->id}}" {{ old('city') ? 'selected' : '' }}>{{$city->city_name}}</option>
+								@endforeach
+							</select>
+					</div>
+
+					
+
+					<div class="form-group">
+						<label for="class" class="text-dark">Division</label>
+							<select name="division" class="custom-select custom-select-md text-dark">
+								<option value="" disabled {{ old('division') ? '' : 'selected' }}>Choose a division</option>
+				  			@foreach($divisions as $division)
+								<option value="{{$division->id}}" {{ old('division') ? 'selected' : '' }}>{{$division->division_name}}</option>
+								@endforeach
+							</select>
+					</div>
+
+					<div class="form-group">
 						<label for="class" class="text-dark">State/Region</label>
 							<select name="state" class="custom-select custom-select-md text-dark">
 								<option value="" disabled {{ old('state') ? '' : 'selected' }}>Choose a state/region</option>
 				  			@foreach($states as $state)
 								<option value="{{$state->id}}" {{ old('state') ? 'selected' : '' }}>{{$state->state_name}}</option>
+								@endforeach
+							</select>
+					</div>
+
+					<div class="form-group">
+						<label for="class" class="text-dark">Country</label>
+							<select name="country" class="custom-select custom-select-md text-dark">
+								<option value="" disabled {{ old('country') ? '' : 'selected' }}>Choose a country</option>
+				  			@foreach($countries as $country)
+								<option value="{{$country->id}}" {{ old('country') ? 'selected' : '' }}>{{$country->country_name}}</option>
 								@endforeach
 							</select>
 					</div>
@@ -117,10 +149,10 @@
 						<label for="join_date">Date of birth</label>
 						<input name="birth_date" id="join_date" class="form-control" type="date">
 					</div>
-					{{-- <div class="form-group">
+					<div class="form-group">
 						<label for="picture">Picture</label>
 						<input type="file" name="picture">
-					</div>  --}}
+					</div> 
 			
 	  	    <div class="form-group row">
 	  		    <div class="col-sm-10">

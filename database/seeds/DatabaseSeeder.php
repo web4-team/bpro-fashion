@@ -20,7 +20,9 @@ class DatabaseSeeder extends Seeder
         $this->call(UsersTableSeeder::class);
         $this->call(GendersTableSeeder::class);
         $this->call(StatesTableSeeder::class);
-
+        $this->call(CitiesTableSeeder::class);
+        $this->call(DivisionsTableSeeder::class);
+        $this->call(CountriesTableSeeder::class);
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
         
     }
