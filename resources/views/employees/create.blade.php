@@ -56,6 +56,11 @@
 					</div>
 
 					<div class="form-group">
+						<label for="join_date">Date of birth</label>
+						<input name="birth_date" id="join_date" class="form-control" type="date">
+					</div>
+					
+					<div class="form-group">
 						<label for="class" class="text-dark">Gender</label>
 							<select name="gender" class="custom-select custom-select-md text-dark">
 								<option value="" disabled {{ old('gender') ? '' : 'selected' }}>Choose a gender</option>
@@ -145,10 +150,7 @@
 						<label for="join_date">Join Date</label>
 						<input name="join_date" id="join_date" class="form-control" type="date">
 					</div>
-					<div class="form-group">
-						<label for="join_date">Date of birth</label>
-						<input name="birth_date" id="join_date" class="form-control" type="date">
-					</div>
+					
 					<div class="form-group">
 						<label for="picture">Picture</label>
 						<input type="file" name="picture">

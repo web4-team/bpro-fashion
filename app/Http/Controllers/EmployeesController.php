@@ -102,7 +102,8 @@ class EmployeesController extends Controller
      */
     public function show($id)
     {
-        //
+        $employee = Employee::find($id);
+        return view('employees.show')->with('employee',$employee);
     }
 
     /**
@@ -113,7 +114,25 @@ class EmployeesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $departments  = Department::orderBy('dept_name','asc')->get();
+        $countries    = Country::orderBy('country_name','asc')->get();
+        $cities       = City::orderBy('city_name','asc')->get();
+        $states       = State::orderBy('state_name','asc')->get();
+        $salaries     = Salary::orderBy('s_amount','asc')->get();
+        $divisions    = Division::orderBy('division_name','asc')->get();
+        $genders      = Gender::orderBy('gender_name','asc')->get();
+
+        $employee = Employee::find($id);
+        return view('employees.edit')->with([
+            'departments'  => $departments,
+            'countries'    => $countries,
+            'cities'       => $cities,
+            'states'       => $states,
+            'salaries'     => $salaries,
+            'divisions'    => $divisions,
+            'genders'      => $genders,       
+            'employee'     => $employee
+        ]);
     }
 
     /**
@@ -125,7 +144,24 @@ class EmployeesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      
+        $employee = Employee::find($id);
+        $old_picture = $employee->picture;
+        if($request->hasFile('picture')){
+            //Upload the image
+            $fileNameToStore = $this->handleImageUpload($request);
+            //Delete the previous image
+            Storage::delete('public/employee_images/'.$employee->picture);
+        }else{
+            $fileNameToStore = '';
+        }
+        
+        /**
+         *  updating an existing employee with setEmployee
+         *  method
+         */
+        $this->setEmployee($employee,$request,$fileNameToStore);
+        return redirect('/employees')->with('info','Selected Employee has been updated!');
     }
 
     /**

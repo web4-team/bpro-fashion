@@ -50,6 +50,10 @@
                       <td>{{$employee->empDivision->division_name}}</td>
                       <td>{{$employee->join_date}}</td>
                       <td>
+                        <a href="{{route('employees.show',$employee->id)}}" class="btn btn-warning detail btn-sm" ><i class="fas fa-eye"></i></a>
+
+                        <a href="{{route('employees.edit',$employee->id)}}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
+
                         <form method="post" style="display: inline-block" action="{{route('employees.destroy',$employee->id)}}" onsubmit="return confirm('Are you sure?')">
                           @csrf
                           @method('DELETE')
