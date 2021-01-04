@@ -59,7 +59,7 @@ class StudentController extends Controller
             "education" => 'required',
             "address" => 'required',
             "objective" => 'required',
-            "comment" => 'required',
+            
             "bpro" => 'required'
         ]);
         
@@ -78,6 +78,7 @@ class StudentController extends Controller
         $student->objective = request('objective');
         $student->comment = request('comment');
         $student->bpro = request('bpro');
+        $student->note = request('note');
 
         $student->save();
         //dd($request);
@@ -141,11 +142,12 @@ class StudentController extends Controller
         $student->objective = request('objective');
         $student->comment = request('comment');
         $student->bpro = request('bpro');
+        $student->note = request('note');
 
         $student->save();
-        dd($request);
+        //dd($request);
         //Return redirect // 5
-        // return redirect()->route('students.index')->with('success','Student update successfully');
+        return redirect()->route('students.index')->with('success','Student update successfully');
     }
 
     public function destroy($id)

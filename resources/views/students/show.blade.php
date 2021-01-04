@@ -112,6 +112,11 @@
                       <td>How do you Know bpro </td>
                       <td>{{$student->bpro}}</td>
                     </tr>
+
+                    <tr>
+                      <td>Additional Note </td>
+                      <td>{!!$student->note!!}</td>
+                    </tr>
                   </tbody>
               
                 </table>

@@ -15,7 +15,7 @@
                   <div class="card bg-gradient-primary text-white">
                     <div class="card-body">
                       Total Student
-                      <div class="text-white-50 small">1</div>
+                      <div class="text-white-50 small">{{$student}}</div>
                     </div>
                   </div>
                 </div>

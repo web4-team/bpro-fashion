@@ -29,6 +29,7 @@ class CreateStudentsTable extends Migration
             $table->string('objective');
             $table->string('comment');
             $table->string('bpro');
+            $table->string('note');
             $table->timestamps();
         });
     }
