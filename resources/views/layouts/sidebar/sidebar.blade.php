@@ -56,6 +56,10 @@
           <a class="collapse-item" href="{{url('/employees')}}">Employee Lists</a>
           <a class="collapse-item" href="{{url('/departments')}}">Department</a>
           <a class="collapse-item" href="{{url('/salaries')}}">Salary</a>
+          <a class="collapse-item" href="{{url('/salaries')}}">Attendence</a>
+          <a class="collapse-item" href="{{url('/salaries')}}">Late</a>
+          <a class="collapse-item" href="{{url('/salaries')}}">Leave</a>
+          <a class="collapse-item" href="{{url('/salaries')}}">Overtime</a>
           <!-- <a class="collapse-item" href="datatables.html">DataTables</a> -->
         </div>
       </div>
