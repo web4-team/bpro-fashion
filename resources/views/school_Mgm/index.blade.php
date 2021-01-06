@@ -36,7 +36,8 @@
                 <th scope="col" class="sort">Discount</th>
                 <th scope="col" class="sort">Total Fees</th>
                 <th scope="col" class="sort">Starting Date</th>
-                <th scope="col" class="sort">Duration</th>           
+                <th scope="col" class="sort">Duration</th> 
+                          
                 <th scope="col" class="sort">Action</th>
               </tr>
             </thead>
@@ -53,6 +54,7 @@
                       <td>{{number_format($course->fees-($course->fees*$course->discount/100))}} MMK</td>
                       <td>{{ \Carbon\Carbon::parse($course->date)->format('d/M/Y')}}</td>
                       <td>{{$course->duration}}</td>
+                      
                       <td>
                        
                         <a href="{{ route('courses.edit',$course->id)}}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>

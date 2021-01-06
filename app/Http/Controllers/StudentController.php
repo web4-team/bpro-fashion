@@ -43,7 +43,7 @@ class StudentController extends Controller
             "objective" => 'required',
             "bpro" => 'required'
         ]);
-        
+       
         $student = new Student;
         $student->course_id = request('course');
         $student->accept_date = request('accept_date');
@@ -55,7 +55,18 @@ class StudentController extends Controller
         $student->education = request('education');
         $student->address = request('address');
         $student->objective = request('objective');
-        $student->bpro = request('bpro');
+        
+
+        $request->replace([ 
+        'bpro' => implode(',', (array) $request->get('bpro'))
+    ]);
+        $student->bpro= request('bpro');
+
+   
+        // $student['bpro'] = $request('bpro');
+        // Student::create($student);
+        
+        
 
         $student->save();
         //dd($request);

@@ -31,8 +31,9 @@
                 <th scope="col" class="sort">Name</th>
                 <th scope="col" class="sort">Age</th>
                 <th scope="col" class="sort">Phone</th>
-                <th scope="col" class="sort">Address</th>    
-                <th scope="col" class="sort">Accept Date</th>            
+                <th scope="col" class="sort">Address</th>
+                <th scope="col" class="sort">Bpro</th>     
+                <th scope="col" class="sort">Accept Date</th>          
                 <th scope="col" class="sort">Action</th>
               </tr>
             </thead>
@@ -45,7 +46,12 @@
                       <td>{{$row->age}}</td>                
                       <td>{{$row->phone}}</td>
                       <td>{{$row->address}}</td>
+                      <td>  @foreach($row as $value)
+                                       {{$value}}
+                                    @endforeach
+                      </td>
                       <td>{{$row->accept_date}}</td>
+
                       <td>
                        
                         <a href="{{route('students.show',$row->id)}}" class="btn btn-warning detail btn-sm" ><i class="fas fa-eye"></i></a>

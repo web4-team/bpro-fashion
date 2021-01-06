@@ -14,6 +14,7 @@ class Course extends Model
         'discount',
         'date',
         'duration'
+        
               
     ];
 public function batches()

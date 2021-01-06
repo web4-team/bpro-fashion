@@ -92,15 +92,15 @@
 				<label for="bpro" class="text-dark">How do you Know B Pro</label>
 				<div class="col-sm-10">
 					<div class="form-check form-check-inline">
-					  <input class="form-check-input" type="checkbox" name="bpro" value="facebook">
+					  <input class="form-check-input" type="checkbox" name="bpro[]" value="1">
 					  <label class="form-check-label" for="inlineCheckbox1" class="text-dark">Facebook</label>
 					</div>
 					<div class="form-check form-check-inline">
-					  <input class="form-check-input" type="checkbox" name="bpro" value="friend">
+					  <input class="form-check-input" type="checkbox" name="bpro[]" value="2">
 					  <label class="form-check-label" for="inlineCheckbox2" class="text-dark">Friends</label>
 					</div>
 					<div class="form-check form-check-inline">
-					  <input class="form-check-input" type="checkbox" name="bpro" value="other">
+					  <input class="form-check-input" type="checkbox" name="bpro[]" value="3">
 					  <label class="form-check-label" for="inlineCheckbox3" class="text-dark">Other</label>
 					</div>
 				</div>

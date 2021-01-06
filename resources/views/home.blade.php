@@ -15,7 +15,7 @@
                   <div class="card bg-gradient-primary text-white">
                     <div class="card-body">
                       Total Student
-                      <div class="text-white-50 small">1</div>
+                      <div class="text-white-50 small">{{$students}}</div>
                     </div>
                   </div>
                 </div>
@@ -38,8 +38,8 @@
                 <div class="col-lg-4 mb-4">
                   <div class="card bg-gradient-warning text-white">
                     <div class="card-body">
-                      Total Class
-                      <div class="text-white-50 small">1</div>
+                      Total Course
+                      <div class="text-white-50 small">{{$courses}}</div>
                     </div>
                   </div>
                 </div>

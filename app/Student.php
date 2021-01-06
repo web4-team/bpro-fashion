@@ -13,4 +13,13 @@ class Student extends Model
     // 	return $this->belongsTo('App\Course')
     // 				->withTimestamps();
     // }
+        public function setBproAttribute($value)
+    {
+        $this->attributes['bpro'] = json_encode($value);
+    }
+
+    // public function getBproAttribute($value)
+    // {
+    //     return $this->attributes['bpro'] = json_decode($value);
+    // }
 }

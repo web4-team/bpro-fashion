@@ -32,3 +32,4 @@ Route::resource('courses', 'CourseController');
 // Employee
 Route::resource('/employees', 'EmployeesController');
 Route::resource('batch', 'BatchController');
+Route::resource('item', 'ItemController');
