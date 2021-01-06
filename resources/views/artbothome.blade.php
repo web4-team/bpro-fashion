@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('artbotlayouts.master')
 
 @section('content')
 <div class="container">
@@ -7,7 +7,7 @@
         <div class="col-lg-12">
           <div class="card sm mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-              <h6 class="m-0 font-weight-bold text-primary">B-Pro Fashion {{ __('Dashboard') }}</h6>
+              <h6 class="m-0 font-weight-bold text-primary">ArtBot Myanmar {{ __('Dashboard') }}</h6>
             </div>
             <div class="card-body">
               <div class="row">
@@ -15,7 +15,7 @@
                   <div class="card bg-gradient-primary text-white">
                     <div class="card-body">
                       Total Student
-                      <div class="text-white-50 small"><a style="text-decoration:none;color:#fff;" href="{{ url('/students') }}">{{$student}}</a></div>
+                      <div class="text-white-50 small">{{$student}}</div>
                     </div>
                   </div>
                 </div>
