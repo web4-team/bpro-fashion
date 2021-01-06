@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Student;
+use App\Course;
+use App\Batch;
+use App\Employee;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -25,6 +29,11 @@ class HomeController extends Controller
     public function index()
     {
         $student=Student::count();
-        return view('home',compact('student'));
+        $course=Course::count();
+        $batch=Batch::count();
+        $employee=Employee::count();
+        $user=User::count();
+        return view('home',compact('student','course','batch','employee','user'));
+    
     }
 }
