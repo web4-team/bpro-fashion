@@ -29,12 +29,12 @@
             <thead class="thead-light">
               <tr>
                 <th scope="col" class="sort">No</th>                
-                <th scope="col" class="sort">Code</th>                
+                <th scope="col" class="sort">Student Code</th>                
                 <th scope="col" class="sort">Name</th>
                 <th scope="col" class="sort">Age</th>
                 <th scope="col" class="sort">Phone</th>
                 <th scope="col" class="sort">Address</th>
-                <th scope="col" class="sort">Bpro</th>     
+                {{-- <th scope="col" class="sort">Bpro</th>      --}}
                 <th scope="col" class="sort">Accept Date</th>          
                 <th scope="col" class="sort">Action</th>
               </tr>
@@ -49,10 +49,10 @@
                       <td>{{$row->age}}</td>                
                       <td>{{$row->phone}}</td>
                       <td>{{$row->address}}</td>
-                      <td>  @foreach($row as $value)
+                      {{-- <td>  @foreach($row as $value)
                                        {{$value}}
                                     @endforeach
-                      </td>
+                      </td> --}}
                       <td>{{$row->accept_date}}</td>
 
                       <td>
@@ -66,6 +66,7 @@
                           @method('DELETE')
                           <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
                         </form>
+                        <a href="#" class="btn btn-success btn-sm"><i class="fas fa-download"></i></a>
                       </td>
                     </tr>
                   @endforeach
