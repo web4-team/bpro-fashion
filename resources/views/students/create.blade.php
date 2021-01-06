@@ -36,7 +36,7 @@
 	<div class="row">
 		<div class="col-md-2"></div>   
 		<div class="mb-4 py-3 d-flex flex-row">
-	      <h1 class="m-0 font-weight-bold text-primary text-center">Registration Form</h1>
+	      {{-- <h1 class="m-0 font-weight-bold text-primary text-center">Student Form</h1> --}}
 	    </div>
 					
 	    <form method="post" action="{{route('students.store')}}"class=" mb-4 card-body mx-10">
