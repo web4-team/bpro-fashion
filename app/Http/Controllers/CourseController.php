@@ -106,7 +106,7 @@ class CourseController extends Controller
             'fees'=>'required'
             
         ]);
-
+            
          $course = Course::find($id);
             $course->name = $request->get('name');
             
@@ -115,6 +115,10 @@ class CourseController extends Controller
             $course->discount = $request->get('discount');
             $course->date = $request->get('date');
             $course->duration = $request->get('duration');
+           
+            
+
+            
             
         
         $course->save();

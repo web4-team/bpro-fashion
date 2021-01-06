@@ -36,4 +36,5 @@ class HomeController extends Controller
         return view('home',compact('student','course','batch','employee','user'));
     
     }
+
 }

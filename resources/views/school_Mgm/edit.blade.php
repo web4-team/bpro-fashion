@@ -1,4 +1,5 @@
 @extends('layouts.master')
+
 @section('content')
 <div class="row">
  <div class="col-sm-8 offset-sm-2">
@@ -59,10 +60,14 @@
       <label for="duration">Duration:</label>
       <input type="text" class="form-control" name="duration" value="{{$course->duration}}"/>
     </div>
+  
 
     <button type="submit" class="btn btn-primary">Save Changes</button>
   </form>
 </div>
 </div>
 </div>
+
+
 @endsection
+

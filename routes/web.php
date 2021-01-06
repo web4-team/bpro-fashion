@@ -52,3 +52,6 @@ Route::resource('/countries', 'CountriesController');
 
 // Batches
 Route::resource('batch', 'BatchController');
+
+// Items
+Route::resource('item', 'ItemController');
