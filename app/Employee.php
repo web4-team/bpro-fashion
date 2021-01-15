@@ -59,4 +59,8 @@ class Employee extends Model
     public function empGender(){
         return $this->belongsTo('App\Gender','gender_id');
     }
+
+    public function payrolls(){
+		return $this->hasMany('App\Payroll');
+	}
 }

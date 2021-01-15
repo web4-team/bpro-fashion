@@ -32,7 +32,7 @@
                 <th scope="col" class="sort">Image</th>
                 <th scope="col" class="sort">Name</th>
                 <th scope="col" class="sort">Department</th>
-                <th scope="col" class="sort">Division</th>
+                <th scope="col" class="sort">Position</th>
                 <th scope="col" class="sort">Join Date</th>            
                 <th scope="col" class="sort">Action</th>
               </tr>
@@ -59,7 +59,7 @@
                           @method('DELETE')
                           <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
                         </form>
-              
+                        <a href="{{ route('payrolls.show', ['id' => $employee->id]) }}" data-toggle="tooltip" title="Payroll" class="btn btn-success btn-sm"><i class="fas fa-file"></i></a>
                       </td>
                     </tr>
                 @endforeach

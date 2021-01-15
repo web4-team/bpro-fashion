@@ -32,7 +32,11 @@ Route::resource('courses', 'CourseController');
 Route::get('/downloadPDF/{id}','StudentController@downloadPDF');
 // Employee
 Route::resource('/employees', 'EmployeesController');
-
+Route::get('/employee/payroll/{id}', 'PayrollController@payrollIndex')->name('payrolls.show');
+Route::get('/payrolls/create/{id}', 'PayrollController@create')->name('payrolls.create');
+Route::post('/payrolls/{id}', 'PayrollController@store')->name('payrolls.store');
+Route::get('/employee/payroll/{id}/edit', 'PayrollController@edit')->name('payrolls.edit');
+Route::patch('/payrolls/update/{id}', 'PayrollController@update')->name('payrolls.update');
 // Departments
 Route::resource('/departments', 'DepartmentsController');
 

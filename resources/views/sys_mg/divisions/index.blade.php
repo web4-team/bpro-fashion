@@ -15,15 +15,15 @@
      
       <div class="card">
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-          <h6 class="m-0 font-weight-bold text-primary">Division Lists</h6>
-          <a href="{{route('divisions.create')}}" class="btn btn-sm btn-primary">Create Division</a>
+          <h6 class="m-0 font-weight-bold text-primary">Position Lists</h6>
+          <a href="{{route('divisions.create')}}" class="btn btn-sm btn-primary">Create Position</a>
         </div>
         <div class="table-responsive">
           <table class="table align-items-center table-flush">
             <thead class="thead-light">
               <tr>
                 <th scope="col" class="sort">No</th>                
-                <th scope="col" class="sort">Division Name</th>
+                <th scope="col" class="sort">Position Name</th>
                 <th scope="col" class="sort">Created at</th>
                 <th scope="col" class="sort">Updated at</th>               
                 <th scope="col" class="sort">Action</th>

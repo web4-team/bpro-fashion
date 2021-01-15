@@ -50,13 +50,13 @@
                     <p class="pl-15"><span class="bold col s5 m4 l4 xl3">Department :</span><span class="col m8 l8 xl9">{{$employee->empDepartment->dept_name}}</span></p>
                 </div>
                 <div class="row">
-                    <p class="pl-15"><span class="bold col s5 m4 l4 xl3">Division :</span><span class="col m8 l8 xl9">{{$employee->empDivision->division_name}}</span></p>
+                    <p class="pl-15"><span class="bold col s5 m4 l4 xl3">Position :</span><span class="col m8 l8 xl9">{{$employee->empDivision->division_name}}</span></p>
                 </div>
                 <div class="row">
                     <p class="pl-15"><span class="bold col s5 m4 l4 xl3">Email :</span><span class="col m8 l8 xl9">{{$employee->email}}</span></p>
                 </div>
                 <div class="row">
-                    <p class="pl-15"><span class="bold col s5 m4 l4 xl3">Salary :</span><span class="col m8 l8 xl9">${{$employee->empSalary->s_amount}}/-</span></p>
+                    <p class="pl-15"><span class="bold col s5 m4 l4 xl3">Salary :</span><span class="col m8 l8 xl9">MMK {{$employee->empSalary->s_amount}}/-</span></p>
                 </div>
                 <div class="row">
                     <p class="pl-15"><span class="bold col s5 m4 l4 xl3">Joined Date :</span><span class="col m8 l8 xl9">{{$employee->join_date}}</span></p>
