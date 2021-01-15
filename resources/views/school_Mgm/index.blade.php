@@ -49,9 +49,11 @@
                       <td>{{$course->name}}</td>
                       
                       <td>{{$course->type}}</td>
-                      <td>{{number_format($course->fees)}} MMK</td>
+                      <td>{{number_format($course->fees)}} Ks</td>
                       <td>{{$course->discount}}%</td>
-                      <td>{{number_format($course->fees-($course->fees*$course->discount/100))}} MMK</td>
+                      <td>{{$course->amount}} Ks</td>
+                      <td>{{number_format($course->fees-($course->fees*$course->discount/100)-$course->amount)}} Ks</td>
+
                       <td>{{ \Carbon\Carbon::parse($course->date)->format('d/M/Y')}}</td>
                       <td>{{$course->duration}}</td>
                       

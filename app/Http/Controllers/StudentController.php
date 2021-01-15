@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Student;
 use App\Course;
+use App\Batch;
 
 class StudentController extends Controller
 {
@@ -20,12 +21,14 @@ class StudentController extends Controller
     
     public function index(){
     	$students = Student::all();
+
         return view('students.index',compact('students')); //compact('$students')
     }
     
     public function create(){
-    	
-    	return view ('students.create');
+    	$course = Course::all();
+        $batch = Batch::all();
+    	return view ('students.create',compact('course','batch'));
     }
 
     public function store(Request $request)
@@ -55,16 +58,9 @@ class StudentController extends Controller
         $student->education = request('education');
         $student->address = request('address');
         $student->objective = request('objective');
-        
 
-        $request->replace([ 
-        'bpro' => implode(',', (array) $request->get('bpro'))
-    ]);
-        $student->bpro= request('bpro');
+        $student->bpro=implode(',', request('bpro'));
 
-   
-        // $student['bpro'] = $request('bpro');
-        // Student::create($student);
         
         
 
@@ -107,7 +103,7 @@ class StudentController extends Controller
             "education" => 'required',
             "address" => 'required',
             "objective" => 'required',
-            "bpro" => 'required'
+            
         ]);
         
         $student = Student::find($id);
@@ -121,7 +117,9 @@ class StudentController extends Controller
         $student->education = request('education');
         $student->address = request('address');
         $student->objective = request('objective');
-        $student->bpro = request('bpro');
+         $student->bpro=explode(',', request('bpro'));
+        //  $finds=checkbox::whereName($id)->first();
+        // $stro =explode(',', $finds->bpro) ;
 
         $student->save();
         //dd($request);

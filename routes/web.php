@@ -33,3 +33,7 @@ Route::resource('courses', 'CourseController');
 Route::resource('/employees', 'EmployeesController');
 Route::resource('batch', 'BatchController');
 Route::resource('item', 'ItemController');
+Route::resource('expense', 'ExpenseController');
+Route::resource('income', 'IncomeController');
+
+Route::get('/summary', 'SummaryController@index')->name('summary');

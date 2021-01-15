@@ -14,12 +14,16 @@
     <thead>
       <tr>
         <td>No</td>
-        <td>Date Time</td>
+        <td>Date</td>
         <td>Item Name</td>
         <td>Per Price</td>
-        <td>Stock In</td>
-        <td>Stock Out</td>
-        <td>Sub_Total</td>
+        <td>Quantity</td>        
+        <td>Total</td>
+        <td>Customer</td>
+        <td>Paid Amount</td>
+        <td>Unpaid Amount</td>
+        <td>Due Date</td>
+        <td>Remark</td>
 
 
 
@@ -31,14 +35,21 @@
       @foreach($items as $row)
       <tr>
         <td>{{$i++}}</td>
-        <td>{{$row->created_at->format('d/M/Y,h:iA')}}</td>
+        <td>{{$row->date}}</td>
         <!-- <td><button class="btn btn-primary" type="submit" onclick="check('{{$row->name}}','{{$row->price}}','{{$row->stock}}')"><i class="fa fa-minus"></i></button></td> -->
         <td>{{$row->name}}</td>
         
         <td>{{$row->price}}</td>
-        <td>{{$row->stock_in}}</td>
-        <td>{{$row->stock_out}}</td>
-        <td>{{number_format($row->price*$row->stock_out)}}</td>
+        <td>{{$row->quantity}}</td>
+        <td>{{number_format($row->price*$row->quantity)}}</td>
+        <td>{{$row->customer}}</td>
+        <td>{{$row->paid}}</td>
+        <td>{{number_format(($row->price*$row->quantity)-$row->paid)}}</td>
+        <td>{{$row->due_date}}</td>
+        <td>{{$row->remark}}</td>
+
+
+        
 
 
 

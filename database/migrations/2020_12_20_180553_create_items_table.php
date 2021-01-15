@@ -16,10 +16,14 @@ class CreateItemsTable extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
+            $table->date('date');
             $table->string('name');
             $table->integer('price');
-            $table->integer('stock_in');
-            $table->integer('stock_out');
+            $table->integer('quantity');
+            $table->string('customer');
+            $table->integer('paid');
+            $table->date('due_date')->default('null');
+            $table->string('remark')->default(NULL);
             $table->timestamps();
         });
     }

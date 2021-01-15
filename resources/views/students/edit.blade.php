@@ -88,15 +88,18 @@
 				<label for="bpro" class="text-dark">How do you Know B Pro</label>
 				<div class="col-sm-10">
 					<div class="form-check form-check-inline">
-					  <input class="form-check-input" type="checkbox" name="bpro" value="{{$student->bpro}}">
+					  <input class="form-check-input" type="checkbox" name="bpro[]"  value="Facebook" @if ($student->bpro== "Facebook") checked @endif
+					    >
+					  
 					  <label class="form-check-label" for="inlineCheckbox1" class="text-dark">Facebook</label>
 					</div>
 					<div class="form-check form-check-inline">
-					  <input class="form-check-input" type="checkbox" name="bpro" value="{{$student->bpro}}">
+					  <input class="form-check-input" type="checkbox" name="bpro[]"  value="Friends" @if ($student->bpro== "Friends") checked @endif>
 					  <label class="form-check-label" for="inlineCheckbox2" class="text-dark">Friends</label>
 					</div>
 					<div class="form-check form-check-inline">
-					  <input class="form-check-input" type="checkbox" name="bpro" value="{{$student->bpro}}">
+					  <input class="form-check-input" type="checkbox" name="bpro[]"  value="Other"
+					  @if ($student->bpro == "Other") checked @endif>
 					  <label class="form-check-label" for="inlineCheckbox3" class="text-dark">Other</label>
 					</div>
 				</div>
