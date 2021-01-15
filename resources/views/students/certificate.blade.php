@@ -54,7 +54,7 @@
       </p>
       <p class="p3">
         @foreach($course as $row)
-         @if($student->course_id==$row->id){{ \Carbon\Carbon::parse($row->duration)->format('j F Y')}}@endif
+         @if($student->course_id==$row->id){{ \Carbon\Carbon::parse($row->duration)->format('d F Y')}}@endif
         @endforeach
       </p>
     </div>
