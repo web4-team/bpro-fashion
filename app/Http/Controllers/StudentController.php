@@ -27,6 +27,15 @@ class StudentController extends Controller
         return view('students.index',compact('students','batches','courses')); //compact('$students')
     }
 
+    public function downloadPDF($id) {
+        $student = Student::find($id);
+        $course = Course::all();
+        $pdf = PDF::loadView('students.certificate', compact('student','course'));
+        // $customPaper = array(0,0,650,450);
+        $pdf->setPaper('letter', 'landscape');
+        return $pdf->download($student->name.".pdf");
+    }
+
     // // Generate PDF
     // public function createPDF() {
     //   // retreive all records from db
@@ -60,9 +69,7 @@ class StudentController extends Controller
             "email" => 'required',
             "education" => 'required',
             "address" => 'required',
-           
-            
-            "bpro" => 'required'
+            "bpro" => 'required',
         ]);
        
        $student = new Student;
@@ -130,9 +137,7 @@ class StudentController extends Controller
             "email" => 'required',
             "education" => 'required',
             "address" => 'required',
-            "objective" => 'required',
-            "comment" => 'required',
-            "bpro" => 'required'
+            "bpro" => 'required',
         ]);
         
         $student = Student::find($id);
@@ -149,15 +154,11 @@ class StudentController extends Controller
         $student->address = request('address');
         $student->objective = request('objective');
         $student->comment = request('comment');
-        $student->bpro=implode(',', request('bpro'));
-        
-        $student->note = request('note');
-
-          
+        $student->bpro = implode(",", request('bpro'));
+        $student->note = strip_tags(request('note'));
 
         $student->save();
-        //dd($request);
-        //Return redirect // 5
+      
         return redirect()->route('students.index')->with('success','Student update successfully');
     }
 

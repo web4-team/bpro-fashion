@@ -159,7 +159,7 @@
 					<div class="form-group col-md-5">
 				    <label for="email" class="text-dark"><strong>Email</strong></label>
 				    	<div class="col-md-12">
-				    		<input type="text" class="form-control text-dark @error('email') is-invalid @enderror" name="email" value="{{old('email')}}">
+				    		<input type="email" class="form-control text-dark @error('email') is-invalid @enderror" name="email" value="{{old('email')}}">
 
 					    	@error('email')
 							    <span class="invalid-feedback alert-danger" role="alert">
