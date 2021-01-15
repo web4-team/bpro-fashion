@@ -44,12 +44,12 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="date">Starting Date:</label>
+        <label for="startdate">Start Date:</label>
         <input name="date" id="date" class="form-control" type="date">
       </div>
       <div class="form-group">
-        <label for="duration">Duration:</label>
-        <input type="text" class="form-control" name="duration"/>
+        <label for="enddate">Ending Date:</label>
+        <input type="date" class="form-control" name="duration"/>
       </div>
 
       <button type="submit" class="btn btn-primary">Add Course</button>

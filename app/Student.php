@@ -6,17 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Student extends Model
 {
-    protected $fillable=['course_id', 'accept_date', 'name', 'dob', 'age', 'phone', 'email', 'education', 'address', 'objective', 'bpro','note'];
+    protected $fillable=['course_id','batch_id', 'accept_date', 'name', 'dob', 'age', 'phone', 'email', 'education', 'address', 'objective', 'bpro','note'];
 
-    public function courses($value='')
+    public function course($value='')
     {
-    	return $this->belongsTo('App\Course')
-    				->withTimestamps();
+    	return $this->belongsTo('App\Course');
+
     }
 
-    public function batches($value='')
+    public function batch($value='')
     {
-    	return $this->belongsTo('App\Batch')
-    				->withTimestamps();
+    	return $this->belongsTo('App\Batch');
+
     }
+
 }

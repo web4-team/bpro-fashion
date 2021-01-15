@@ -21,7 +21,6 @@
       <div class="card">
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between mb-2">
           <h6 class="m-0 font-weight-bold text-primary">Students List</h6>
-          {{-- <a class="btn btn-primary" href="{{url('students.createPDF')}}">Export to PDF</a> --}}
           <a href="{{route('students.create')}}" class="btn btn-sm btn-primary">Create Student</a>
         </div>
         <div class="table-responsive">
@@ -29,12 +28,11 @@
             <thead class="thead-light">
               <tr>
                 <th scope="col" class="sort">No</th>                
-                <th scope="col" class="sort">Code</th>                
+                <th scope="col" class="sort"> Student Code</th>                
                 <th scope="col" class="sort">Name</th>
-                <th scope="col" class="sort">Age</th>
-                <th scope="col" class="sort">Phone</th>
-                <th scope="col" class="sort">Address</th>    
-                <th scope="col" class="sort">Accept Date</th>            
+                <th scope="col" class="sort">Batch</th>
+                <th scope="col" class="sort">Course</th>    
+                <th scope="col" class="sort">Phone</th>            
                 <th scope="col" class="sort">Action</th>
               </tr>
             </thead>
@@ -45,12 +43,12 @@
                       <td>{{$i++}}</td>             
                       <td>{{$row->code}}</td>
                       <td>{{$row->name}}</td>
-                      <td>{{$row->age}}</td>                
+                      <td>{{$row->batch->name}}</td>
+                      <td>{{$row->course->name}}</td>
                       <td>{{$row->phone}}</td>
-                      <td>{{$row->address}}</td>
-                      <td>{{$row->accept_date}}</td>
                       <td>
-                       
+                        <a href="{{action('StudentController@downloadPDF', $row->id)}}" class="btn btn-dark detail btn-sm" ><i class="fa fa-file-pdf fa-1x btn-danger"></i></a>
+
                         <a href="{{route('students.show',$row->id)}}" class="btn btn-warning detail btn-sm" ><i class="fas fa-eye"></i></a>
 
                         <a href="{{route('students.edit',$row->id)}}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>

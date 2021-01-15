@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
 @section('style')
-	<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+	<link href="{{asset('backend/summernote/bootstrap.min.css" rel="stylesheet')}}">
 	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 @endsection
 	<!-- Header -->
@@ -100,7 +100,7 @@
 				<div class="row">
 					<div class="form-group col-md-5">
 				    <label for="email" class="text-dark"><strong>Email</strong></label>
-				    <input type="text" class="form-control text-dark" name="email" value="{{$student->email}}">
+				    <input type="email" class="form-control text-dark" name="email" value="{{$student->email}}">
 					</div>
 					<div class="form-group col-md-5">
 					    <label for="education" class="text-dark"><strong>Education</strong></label>
@@ -126,15 +126,15 @@
 						<label for="bpro" class="text-dark mb-3"><strong>How do you Know B Pro</strong></label>
 						<div class="col">
 							<div class="form-check form-check-inline">
-							  <input class="form-check-input" type="checkbox" name="bpro" value="{{$student->bpro}}">
+							  <input class="form-check-input" type="checkbox" name="bpro[]" value="facebook" @if(old('bpro','{{$student->bpro}}')=="facebook") checked @endif >
 							  <label class="form-check-label" for="inlineCheckbox1" class="text-dark">Facebook</label>
 							</div>
 							<div class="form-check form-check-inline">
-							  <input class="form-check-input" type="checkbox" name="bpro" value="{{$student->bpro}}">
+							  <input class="form-check-input" type="checkbox" name="bpro[]" value="friend" @if(old('bpro','{{$student->bpro}}')=="friend") checked @endif >
 							  <label class="form-check-label" for="inlineCheckbox2" class="text-dark">Friends</label>
 							</div>
 							<div class="form-check form-check-inline">
-							  <input class="form-check-input" type="checkbox" name="bpro" value="{{$student->bpro}}">
+							  <input class="form-check-input" type="checkbox" name="bpro[]" value="other" @if(old('bpro','{{$student->bpro}}')=="other") checked @endif >
 							  <label class="form-check-label" for="inlineCheckbox3" class="text-dark">Other</label>
 							</div>
 						</div>

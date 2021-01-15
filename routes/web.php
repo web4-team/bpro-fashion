@@ -27,8 +27,8 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
 // Route::get('course', 'CourseController@index')->name('coursepage');
 Route::resource('courses', 'CourseController');
  Route::resource('students', 'StudentController');
-// Route::get('/create', 'StudentController@create');
-
+// Route::get('/students/pdf', 'StudentController@index');
+Route::get('/downloadPDF/{id}','StudentController@downloadPDF');
 // Employee
 Route::resource('/employees', 'EmployeesController');
 

@@ -159,7 +159,7 @@
 					<div class="form-group col-md-5">
 				    <label for="email" class="text-dark"><strong>Email</strong></label>
 				    	<div class="col-md-12">
-				    		<input type="text" class="form-control text-dark @error('email') is-invalid @enderror" name="email" value="{{old('email')}}">
+				    		<input type="email" class="form-control text-dark @error('email') is-invalid @enderror" name="email" value="{{old('email')}}">
 
 					    	@error('email')
 							    <span class="invalid-feedback alert-danger" role="alert">
@@ -224,15 +224,15 @@
 						<label for="bpro" class="text-dark mb-4"><strong>How do you Know B Pro</strong></label>
 						<div class="col">
 							<div class="form-check form-check-inline">
-							  <input class="form-check-input" type="checkbox" name="bpro" value="facebook" @if(old('bpro','{{$student->bpro}}')=="facebook") checked @endif>
+							  <input class="form-check-input" type="checkbox" name="bpro[]" value="facebook" >
 							  <label class="form-check-label" for="inlineCheckbox1" class="text-dark">Facebook</label>
 							</div>
 							<div class="form-check form-check-inline">
-							  <input class="form-check-input" type="checkbox" name="bpro" value="friend" @if(old('bpro','{{$student->bpro}}')=="friend") checked @endif>
+							  <input class="form-check-input" type="checkbox" name="bpro[]" value="friend" >
 							  <label class="form-check-label" for="inlineCheckbox2" class="text-dark">Friends</label>
 							</div>
 							<div class="form-check form-check-inline">
-							  <input class="form-check-input" type="checkbox" name="bpro" value="other" @if(old('bpro','{{$student->bpro}}')=="other") checked @endif>
+							  <input class="form-check-input" type="checkbox" name="bpro[]" value="other" >
 							  <label class="form-check-label" for="inlineCheckbox3" class="text-dark">Other</label>
 							</div>
 
