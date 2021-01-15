@@ -58,7 +58,7 @@
                           @method('DELETE')
                           <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
                         </form>
-                        <a href="#" class="btn btn-success btn-sm"><i class="fas fa-download"></i></a>
+                        
                       </td>
                     </tr>
                   @endforeach
