@@ -23,7 +23,8 @@ class StudentController extends Controller
     public function index(){
         $students = Student::all();
         $batches = Batch::all();
-        return view('students.index',compact('students','batches')); //compact('$students')
+        $courses = Course::all();
+        return view('students.index',compact('students','batches','courses')); //compact('$students')
     }
 
     // // Generate PDF
@@ -59,7 +60,7 @@ class StudentController extends Controller
             "email" => 'required',
             "education" => 'required',
             "address" => 'required',
-            "objective" => 'required',
+           
             
             "bpro" => 'required'
         ]);
@@ -78,9 +79,9 @@ class StudentController extends Controller
         $student->address = request('address');
         $student->objective = request('objective');
         $student->comment = request('comment');
-        $student->bpro = request('bpro');
+        
         $student->note = request('note');
-
+        $student->bpro=implode(',', request('bpro'));
    
         // $student['bpro'] = $request('bpro');
         // Student::create($student);
@@ -148,8 +149,11 @@ class StudentController extends Controller
         $student->address = request('address');
         $student->objective = request('objective');
         $student->comment = request('comment');
-        $student->bpro = request('bpro');
+        $student->bpro=implode(',', request('bpro'));
+        
         $student->note = request('note');
+
+          
 
         $student->save();
         //dd($request);

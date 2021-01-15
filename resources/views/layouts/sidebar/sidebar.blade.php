@@ -41,10 +41,11 @@
           
           <a class="collapse-item" href="{{url('/courses')}}">Courses</a>
           <a class="collapse-item" href="{{url('/batch')}}">Batch</a>
-          <a class="collapse-item" href="{{url('/item')}}">Item</a>
+          @can('manage.users')  <a class="collapse-item" href="{{url('/item')}}">Item</a> @endcan
         </div>
       </div>
     </li>
+    @can('manage.users')
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
         aria-controls="collapseTable">
@@ -91,6 +92,7 @@
         </div>
       </div>
     </li>
+  
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsesPage" aria-expanded="true"
         aria-controls="collapsesPage">
@@ -106,6 +108,7 @@
         </div>
       </div>
     </li>
+    @endcan
     @can('manage.users')
     <li class="nav-item">
       <a class="nav-link" href="{{ route('admin.users.index')}}">

@@ -31,11 +31,11 @@
                 <th scope="col" class="sort">No</th>                
                 <th scope="col" class="sort">Student Code</th>                
                 <th scope="col" class="sort">Name</th>
-                <th scope="col" class="sort">Age</th>
+                <th scope="col" class="sort">Batch</th>
+                <th scope="col" class="sort">Course</th>
                 <th scope="col" class="sort">Phone</th>
-                <th scope="col" class="sort">Address</th>
                 {{-- <th scope="col" class="sort">Bpro</th>      --}}
-                <th scope="col" class="sort">Accept Date</th>          
+                {{-- <th scope="col" class="sort">Accept Date</th>           --}}
                 <th scope="col" class="sort">Action</th>
               </tr>
             </thead>
@@ -46,14 +46,14 @@
                       <td>{{$i++}}</td>             
                       <td>{{$row->code}}</td>
                       <td>{{$row->name}}</td>
-                      <td>{{$row->age}}</td>                
+                      <td>{{$row->batch->name}}</td>                
+                      <td>{{$row->course->name}}</td>
                       <td>{{$row->phone}}</td>
-                      <td>{{$row->address}}</td>
                       {{-- <td>  @foreach($row as $value)
                                        {{$value}}
                                     @endforeach
                       </td> --}}
-                      <td>{{$row->accept_date}}</td>
+                      {{-- <td>{{$row->accept_date}}</td> --}}
 
                       <td>
                        

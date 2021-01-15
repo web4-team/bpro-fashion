@@ -122,23 +122,24 @@
 				    <label for="comment" class="text-dark"><strong>Comment Box</strong></label>
 				    <textarea class="form-control text-dark" name="comment" value="" rows="3">{{$student->comment}}</textarea>
 					</div>
-					<fieldset class="form-group col-md-5">
-						<label for="bpro" class="text-dark mb-3"><strong>How do you Know B Pro</strong></label>
-						<div class="col">
+					<fieldset class="form-group">
+						<label for="bpro" class="text-dark">How do you Know B Pro</label>
+						<div class="col-sm-10">
 							<div class="form-check form-check-inline">
-							  <input class="form-check-input" type="checkbox" name="bpro" value="{{$student->bpro}}">
+							  <input class="form-check-input" type="checkbox" name="bpro[]"  value="Facebook" @if ($student->bpro== "Facebook") checked @endif>
 							  <label class="form-check-label" for="inlineCheckbox1" class="text-dark">Facebook</label>
 							</div>
 							<div class="form-check form-check-inline">
-							  <input class="form-check-input" type="checkbox" name="bpro" value="{{$student->bpro}}">
+							  <input class="form-check-input" type="checkbox" name="bpro[]"  value="Friends" @if ($student->bpro== "Friends") checked @endif>
 							  <label class="form-check-label" for="inlineCheckbox2" class="text-dark">Friends</label>
 							</div>
 							<div class="form-check form-check-inline">
-							  <input class="form-check-input" type="checkbox" name="bpro" value="{{$student->bpro}}">
+							  <input class="form-check-input" type="checkbox" name="bpro[]"  value="Other"
+							  @if ($student->bpro == "Other") checked @endif>
 							  <label class="form-check-label" for="inlineCheckbox3" class="text-dark">Other</label>
 							</div>
 						</div>
-					</fieldset>
+					</fieldset>	
 				</div>
 				<div class="row">
 					<div class="form-group col-md-10">

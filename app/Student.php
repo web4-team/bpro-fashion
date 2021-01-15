@@ -22,4 +22,14 @@ class Student extends Model
     // {
     //     return $this->attributes['bpro'] = json_decode($value);
     // }
+
+    public function course()
+    {
+      return $this->belongsTo('App\Course');
+    }
+
+    public function batch()
+    {
+      return $this->belongsTo('App\Batch');
+    }
 }

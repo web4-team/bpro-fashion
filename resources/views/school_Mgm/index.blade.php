@@ -35,8 +35,8 @@
                 <th scope="col" class="sort">Fees</th>
                 <th scope="col" class="sort">Discount</th>
                 <th scope="col" class="sort">Total Fees</th>
-                <th scope="col" class="sort">Starting Date</th>
-                <th scope="col" class="sort">Duration</th> 
+                <th scope="col" class="sort">Start Date</th>
+                <th scope="col" class="sort">End Date</th> 
                           
                 <th scope="col" class="sort">Action</th>
               </tr>
@@ -53,7 +53,7 @@
                       <td>{{$course->discount}}%</td>
                       <td>{{number_format($course->fees-($course->fees*$course->discount/100))}} MMK</td>
                       <td>{{ \Carbon\Carbon::parse($course->date)->format('d/M/Y')}}</td>
-                      <td>{{$course->duration}}</td>
+                      <td>{{\Carbon\Carbon::parse($course->duration)->format('d/M/Y')}}</td>
                       
                       <td>
                        

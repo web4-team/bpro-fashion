@@ -53,12 +53,12 @@
        </select>
      </div>
      <div class="form-group">
-      <label for="date">Starting Date:</label>
+      <label for="date">Start Date:</label>
       <input name="date" class="form-control" type="date" value="{{$course->date}}">
     </div>
     <div class="form-group">
-      <label for="duration">Duration:</label>
-      <input type="text" class="form-control" name="duration" value="{{$course->duration}}"/>
+      <label for="duration">End Date:</label>
+      <input type="date" class="form-control"  name="duration" value="{{$course->duration}}"/>
     </div>
   
 

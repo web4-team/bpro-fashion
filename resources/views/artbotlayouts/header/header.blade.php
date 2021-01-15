@@ -4,7 +4,7 @@
       <i class="fa fa-bars"></i>
     </button>
     <div>
-      <h3 style="color:#fff;">Fashion School Management System  <a  style="font-size: 14px;text-decoration:none;color:#fff;"  href="{{ url('/home') }}"><span><i class="fa fa-arrow-right" aria-hidden="true"></i> Go to B-Pro Fashion</a></span></h3>
+      <h3 style="color:#fff;">Fashion School Management System  <a style="font-size: 14px;text-decoration:none;color:#fff;"  href="{{ url('/home') }}"><span><i class="fa fa-arrow-right" aria-hidden="true"></i> Go to B-Pro Fashion</a></span></h3>
     </div>
     <ul class="navbar-nav ml-auto">
       <!-- <li class="nav-item dropdown no-arrow">
