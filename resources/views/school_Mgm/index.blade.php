@@ -33,7 +33,8 @@
                 
                 <th scope="col" class="sort">Course Type</th>
                 <th scope="col" class="sort">Fees</th>
-                <th scope="col" class="sort">Discount</th>
+                <th scope="col" class="sort">Discount(%)</th>
+                <th scope="col" class="sort">Discount(Amount)</th>
                 <th scope="col" class="sort">Total Fees</th>
                 <th scope="col" class="sort">Start Date</th>
                 <th scope="col" class="sort">End Date</th> 
@@ -84,5 +85,5 @@
   <script src="{{ asset('backend/datatables/dataTables.bootstrap4.min.js') }}"></script>
 
   <!-- Page level custom scripts -->
-  <script src="{{ asset('backend/js/demo/datatables-demo.js') }}"></script>
+  {{-- <script src="{{ asset('backend/js/demo/datatables-demo.js') }}"></script> --}}
 @endsection
