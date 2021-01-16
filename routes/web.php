@@ -60,3 +60,7 @@ Route::resource('batch', 'BatchController');
 
 // Items
 Route::resource('item', 'ItemController');
+Route::resource('expense', 'ExpenseController');
+Route::resource('income', 'IncomeController');
+
+Route::get('/summary', 'SummaryController@index')->name('summary');

@@ -12,6 +12,7 @@ class Course extends Model
         'type',
         'fees',
         'discount',
+        'amount',
         'date',
         'duration'
         

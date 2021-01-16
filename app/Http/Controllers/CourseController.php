@@ -63,6 +63,7 @@ class CourseController extends Controller
             'type' => $request->get('type'),
             'fees' => $request->get('fees'),
             'discount' => $request->get('discount'),
+            'amount' => $request->get('amount'),
             'date'=>$request->get('date'),
             'duration' => $request->get('duration')
             
@@ -118,6 +119,8 @@ class CourseController extends Controller
             $course->type = $request->get('type');             
             $course->fees = $request->get('fees');
             $course->discount = $request->get('discount');
+            $course->amount = $request->get('amount');
+
             $course->date = $request->get('date');
             $course->duration = $request->get('duration');
            
