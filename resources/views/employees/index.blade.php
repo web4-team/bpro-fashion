@@ -1,11 +1,5 @@
 @extends('layouts.master')	
-@section('style')
-  <!-- Custom styles for this page -->
-  <link href="{{asset('backend/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
-@endsection
 @section('content')
-<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
-<link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
   <h1 class="h3 mb-0 text-gray-800">Employee Management</h1>
@@ -70,16 +64,6 @@
       </div>
     </div>
 </div>
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
-@endsection
-@section('script')
-  <!-- Page level plugins -->
-  <script src="{{ asset('backend/datatables/jquery.dataTables.min.js') }}"></script>
-  <script src="{{ asset('backend/datatables/dataTables.bootstrap4.min.js') }}"></script>
-
-  <!-- Page level custom scripts -->
-  <script src="{{ asset('backend/js/demo/datatables-demo.js') }}"></script>
 
 @endsection
+

@@ -1,19 +1,13 @@
 @extends('layouts.master')
+
 @section('style')
 <link href="{{asset('backend/js/demo/custom.css')}}" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
-<!-- Custom styles for this page -->
 <link href="{{asset('backend/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
-
 @endsection
-{{-- @section('style')
-  <!-- Custom styles for this page -->
-  <link href="{{asset('backend/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
-@endsection --}}
+
 @section('content')
-{{-- <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
-<link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet"> --}}
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
   <h1 class="h3 mb-0 text-gray-800">Student Management</h1>
   <ol class="breadcrumb">
@@ -94,18 +88,9 @@
       </div>
     </div>
 </div>
-{{-- <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script> --}}
-@endsection
-{{-- @section('script')
-  <!-- Page level plugins -->
-  <script src="{{ asset('backend/datatables/jquery.dataTables.min.js') }}"></script>
-  <script src="{{ asset('backend/datatables/dataTables.bootstrap4.min.js') }}"></script>
 
-  <!-- Page level custom scripts -->
-  <script src="{{ asset('backend/js/demo/datatables-demo.js') }}"></script>
-@endsection --}}
+@endsection
+
 @section('script')
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -122,6 +107,5 @@
 
 <!-- Page level custom scripts -->
 <script src="{{ asset('backend/js/demo/datatables-demo.js') }}"></script>
-<script src="{{ asset('backend/js/demo/custom.css') }}"></script>
 <script src="{{ asset('backend/datatables/dataTables.bootstrap4.min.js') }}"></script>
 @endsection
