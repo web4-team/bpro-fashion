@@ -26,8 +26,8 @@ class CreateStudentsTable extends Migration
             $table->string('email');
             $table->string('education');
             $table->string('address');
-            $table->string('objective');
-            $table->string('comment');
+            $table->string('objective')->nullable();
+            $table->string('comment')->nullable();
             $table->string('bpro');
             $table->string('note')->nullable();
             $table->timestamps();

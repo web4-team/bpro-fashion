@@ -46,6 +46,9 @@
         @foreach($course as $row)
          @if($student->course_id==$row->id) {{$row->name}} @endif
         @endforeach
+        @foreach($batches as $row)
+        @if($student->batch_id==$row->id) ({{$row->name}}) @endif
+       @endforeach
       </h2>
       <p class="p2">
          @foreach($course as $row)

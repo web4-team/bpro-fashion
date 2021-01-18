@@ -31,7 +31,8 @@ class StudentController extends Controller
     public function downloadPDF($id) {
         $student = Student::find($id);
         $course = Course::all();
-        $pdf = PDF::loadView('students.certificate', compact('student','course'));
+        $batches = Batch::all();
+        $pdf = PDF::loadView('students.certificate', compact('student','course','batches'));
         // $customPaper = array(0,0,650,450);
         $pdf->setPaper('letter', 'landscape');
         return $pdf->download($student->name.".pdf");
