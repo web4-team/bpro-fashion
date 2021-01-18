@@ -3,9 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Salary;
 
 class SalariesController extends Controller
 {
+
+     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +25,8 @@ class SalariesController extends Controller
      */
     public function index()
     {
-        //
+        $salaries = Salary::all();
+        return view('sys_mg.salaries.index')->with('salaries', $salaries);
     }
 
     /**
@@ -23,7 +36,7 @@ class SalariesController extends Controller
      */
     public function create()
     {
-        //
+        return view('sys_mg.salaries.create');
     }
 
     /**
@@ -34,7 +47,16 @@ class SalariesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $salary = new Salary();
+        $salary->s_amount = $request->input('s_amount');
+       
+        if($salary->save()){
+            $request->session()->flash('success', 'New Salary has been created');
+        }else{
+            $request->session()->flash('error', 'There was an error Creating the Salary');
+        }
+
+        return redirect('/salaries');
     }
 
     /**
@@ -56,7 +78,8 @@ class SalariesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $salary = Salary::find($id);
+        return view('sys_mg.salaries.edit')->with('salary', $salary);
     }
 
     /**
@@ -68,7 +91,16 @@ class SalariesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $salary = Salary::find($id);
+        $salary->s_amount = $request->input('s_amount');
+       
+        if($salary->save()){
+            $request->session()->flash('success', 'Selected Salary has been updated');
+        }else{
+            $request->session()->flash('error', 'There was an error updating the Salary');
+        }
+
+        return redirect('/salaries');
     }
 
     /**
@@ -79,6 +111,8 @@ class SalariesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $salary = Salary::find($id);
+        $salary->delete();
+        return redirect('/salaries')->with('info', 'Selected Salary has been deleted!');
     }
 }

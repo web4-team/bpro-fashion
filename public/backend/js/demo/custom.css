@@ -1,45 +1,43 @@
 .pdfButton{
- background-color: #0225e8 !important;
-    color: #ffffff !important;
-    border-radius: 6px !important;
-    height: 2.5em;
-    width: 5em;
-    text-align: center;
-  
-  
-}
-.pdfButton:hover {
-  background-color: #ff7308  !important;
-  color: white;
-}
 
-.excelButton{
- background-color: #0225e8 !important;
-    color: #ffffff !important;
-    border-radius: 6px !important;
-    height: 2.5em;
-    width: 6em;
-    text-align: center;
-  
-  
-}
-.excelButton:hover {
-  background-color: #ff7308  !important;
-  color: white;
-}
-
-.page{
- background-color: #0225e8 !important;
-    color: #ffffff !important;
-    border-radius: 6px !important;
-    height: 2.5em;
-    width: 9em;
-    text-align: center;
-  
-  
-}
-.page:hover {
-  background-color: #ff7308  !important;
-  color: white;
-}
+    background-color: #34495E !important;
+    border-radius: 9px !important;
+    font-size: 12px !important;
+    color: white !important;
+    display: inline-block !important;
+    text-shadow: 2px 3px 4px red !important;
+    left: 10px;
+    }
+    
+    .pdfButton:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+    
+    .excelButton{
+    background-color: #35790B !important;
+    border-radius: 9px !important;
+    font-size: 12px !important;
+    color: white !important;
+    display: inline-block !important;
+    text-shadow: 2px 3px 4px green !important;
+    left: 10px;
+    }
+    
+    .excelButton:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+    
+    .colButton{
+    background-color: #34495E !important;
+    border-radius: 9px !important;
+    font-size: 12px !important;
+    color: white !important;
+    display: inline-block !important;
+    text-shadow: 2px 3px 4px orange !important;
+    left: 10px;
+    }
+    
+    .colButton:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
 

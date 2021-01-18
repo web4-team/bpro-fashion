@@ -3,9 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Division;
 
 class DivisionsController extends Controller
 {
+      /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +25,8 @@ class DivisionsController extends Controller
      */
     public function index()
     {
-        //
+        $divisions = Division::all();
+        return view('sys_mg.divisions.index')->with('divisions', $divisions);
     }
 
     /**
@@ -23,7 +36,7 @@ class DivisionsController extends Controller
      */
     public function create()
     {
-        //
+        return view('sys_mg.divisions.create');
     }
 
     /**
@@ -34,7 +47,16 @@ class DivisionsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $division = new Division();
+        $division->division_name = $request->input('division_name');
+       
+        if($division->save()){
+            $request->session()->flash('success', 'New Division has been created');
+        }else{
+            $request->session()->flash('error', 'There was an error Creating the Division');
+        }
+
+        return redirect('/divisions');
     }
 
     /**
@@ -56,7 +78,8 @@ class DivisionsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $division = Division::find($id);
+        return view('sys_mg.divisions.edit')->with('division', $division);
     }
 
     /**
@@ -68,7 +91,16 @@ class DivisionsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $division = Division::find($id);
+        $division->division_name = $request->input('division_name');
+       
+        if($division->save()){
+            $request->session()->flash('success', 'Selected Division has been updated');
+        }else{
+            $request->session()->flash('error', 'There was an error updating the Division');
+        }
+
+        return redirect('/divisions');
     }
 
     /**
@@ -79,6 +111,8 @@ class DivisionsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $division = Division::find($id);
+        $division->delete();
+        return redirect('/divisions')->with('info', 'Selected Division has been deleted!');
     }
 }

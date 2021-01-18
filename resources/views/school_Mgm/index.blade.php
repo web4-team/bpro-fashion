@@ -37,10 +37,12 @@
                 <th scope="col" class="sort">Course Type</th>
                 <th scope="col" class="sort">Fees</th>
                 <th scope="col" class="sort">Discount(%)</th>
-                <th scope="col" class="sort">Discount(amount)</th>
+
+                <th scope="col" class="sort">Discount(Amount)</th>
+
                 <th scope="col" class="sort">Total Fees</th>
-                <th scope="col" class="sort">Starting Date</th>
-                <th scope="col" class="sort">Duration</th> 
+                <th scope="col" class="sort">Start Date</th>
+                <th scope="col" class="sort">End Date</th> 
                           
                 <th scope="col" class="sort">Action</th>
               </tr>
@@ -59,7 +61,9 @@
                       <td>{{number_format($course->fees-($course->fees*$course->discount/100)-$course->amount)}} Ks</td>
 
                       <td>{{ \Carbon\Carbon::parse($course->date)->format('d/M/Y')}}</td>
-                      <td>{{$course->duration}}</td>
+
+                      <td>{{\Carbon\Carbon::parse($course->duration)->format('d/M/Y')}}</td>
+                      
 
                       <td>
                        
@@ -112,5 +116,7 @@
   
 
   <!-- Page level custom scripts -->
-  <script src="{{ asset('backend/js/demo/datatables-demo.js') }}"></script>
+
+<script src="{{ asset('backend/js/demo/datatables-demo.js') }}"></script> --}}
 @endsection
+

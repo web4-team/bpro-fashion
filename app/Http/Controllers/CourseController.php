@@ -51,7 +51,9 @@ class CourseController extends Controller
     {
         $request->validate([
             'name'=>'required',
-            'fees'=>'required'
+            'fees'=>'required',
+            'date'=>'required',
+            'duration'=>'required'
             
         ]);
 
@@ -67,6 +69,7 @@ class CourseController extends Controller
             
         ]);
         $course->save();
+        //dd($request);
         return redirect('/courses')->with('success', 'New Course Successfully Created!');
     }
 
@@ -104,7 +107,9 @@ class CourseController extends Controller
     {
         $request->validate([
             'name'=>'required',
-            'fees'=>'required'
+            'fees'=>'required',
+            'date'=>'required',
+            'duration'=>'required'
             
         ]);
             

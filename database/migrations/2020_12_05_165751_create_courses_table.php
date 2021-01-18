@@ -22,7 +22,7 @@ class CreateCoursesTable extends Migration
             $table->integer('discount');
             $table->integer('amount');
             $table->string('date');
-            $table->text('duration');            
+            $table->string('duration');
             $table->timestamps();
 
            

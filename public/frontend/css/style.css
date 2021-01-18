@@ -1259,3 +1259,24 @@ h1, h2, h3, h4, h5,
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%); }
+
+  @media only screen and (max-width: 600px) {
+    img.artbotlogo {
+      width: 60px;
+      height: auto;
+      margin-left: -160px;
+      margin-top: -56px;
+    }
+
+    .log-btn {
+      display: inline;
+      color: #fff;
+    }
+  }
+
+  @media only screen and (min-width: 600px) {
+  
+    .log-btn {
+      display: none;
+    }
+  }

@@ -1,4 +1,3 @@
-// Call the dataTables jQuery plugin
-        $(document).ready(function() {
-          $('#summernote').summernote();
-        });
+$(document).ready(function() {
+	$('.summernote').summernote();
+});

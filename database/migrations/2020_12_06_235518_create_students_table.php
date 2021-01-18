@@ -15,7 +15,9 @@ class CreateStudentsTable extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('code');
             $table->unsignedBigInteger('course_id');
+            $table->unsignedBigInteger('batch_id');
             $table->string('accept_date');
             $table->text('name');
             $table->date('dob');
@@ -24,8 +26,10 @@ class CreateStudentsTable extends Migration
             $table->string('email');
             $table->string('education');
             $table->string('address');
-            $table->string('objective');
+            $table->string('objective')->nullable();
+            $table->string('comment')->nullable();
             $table->string('bpro');
+            $table->string('note')->nullable();
             $table->timestamps();
 
             $table->foreign('course_id')

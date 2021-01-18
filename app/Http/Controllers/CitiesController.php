@@ -3,9 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\City;
 
 class CitiesController extends Controller
 {
+
+       /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +26,8 @@ class CitiesController extends Controller
      */
     public function index()
     {
-        //
+        $cities = City::all();
+        return view('sys_mg.cities.index')->with('cities', $cities);
     }
 
     /**
@@ -23,7 +37,7 @@ class CitiesController extends Controller
      */
     public function create()
     {
-        //
+        return view('sys_mg.cities.create');
     }
 
     /**
@@ -34,7 +48,17 @@ class CitiesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $city = new City();
+        $city->city_name = $request->input('city_name');
+        $city->zip_code = $request->input('zip_code');
+       
+        if($city->save()){
+            $request->session()->flash('success', 'New field has been created');
+        }else{
+            $request->session()->flash('error', 'There was an error Creating the field');
+        }
+
+        return redirect('/cities');
     }
 
     /**
@@ -56,7 +80,8 @@ class CitiesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $city = City::find($id);
+        return view('sys_mg.cities.edit')->with('city', $city);
     }
 
     /**
@@ -68,7 +93,17 @@ class CitiesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $city = City::find($id);
+        $city->city_name = $request->input('city_name');
+        $city->zip_code = $request->input('zip_code');
+       
+        if($city->save()){
+            $request->session()->flash('success', 'Selected field has been updated');
+        }else{
+            $request->session()->flash('error', 'There was an error updating the field');
+        }
+
+        return redirect('/cities');
     }
 
     /**
@@ -79,6 +114,8 @@ class CitiesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $city = City::find($id);
+        $city->delete();
+        return redirect('/cities')->with('info', 'Selected field has been deleted!');
     }
 }

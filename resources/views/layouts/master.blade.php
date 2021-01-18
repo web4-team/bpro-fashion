@@ -16,6 +16,10 @@
   <link href="{{URL::asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
   <link href="{{URL::asset('css/ruang-admin.min.css')}}" rel="stylesheet">
   <link href="{{URL::asset('css/custom.css')}}" rel="stylesheet">
+  {{-- <link href="{{URL::asset('backend/summernote/bootstrap.min.css')}}" rel="stylesheet">
+  
+  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet"> --}}
+
   @yield('style')
 </head>
 
@@ -33,7 +37,8 @@
 
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
-         @include('partials.alerts')
+          @include('partials.alerts')
+         
           @yield('content')
         </div>
         <!---Container Fluid-->
@@ -55,6 +60,11 @@
   <script src="{{URL::asset('js/ruang-admin.min.js')}}"></script>
   <script src="{{URL::asset('vendor/chart.js/Chart.min.js')}}"></script>
   <script src="{{URL::asset('js/demo/chart-area-demo.js')}}"></script> 
+  {{-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+  <script type="text/javascript" src="{{URL::asset('backend/summernote/summer.js')}}"></script> --}}
+
   @yield('script') 
 </body>
 

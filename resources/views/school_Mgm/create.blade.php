@@ -48,12 +48,12 @@
         <input type="number" class="form-control" name="amount" min="0" value="0" />
       </div>
       <div class="form-group">
-        <label for="date">Starting Date:</label>
+        <label for="date">Start Date:</label>
         <input name="date" id="date" class="form-control" type="date">
       </div>
       <div class="form-group">
-        <label for="duration">Duration:</label>
-        <input type="text" class="form-control" name="duration"/>
+        <label for="duration">End Date:</label>
+        <input type="date" id="date" class="form-control" name="duration"/>
       </div>
 
       <button type="submit" class="btn btn-primary">Add Course</button>
