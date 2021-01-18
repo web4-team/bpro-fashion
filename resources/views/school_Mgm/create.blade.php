@@ -43,6 +43,10 @@
           <option >20</option>
         </select>
       </div>
+       <div class="form-group">
+        <label for="fees">Discount(amount):</label>
+        <input type="number" class="form-control" name="amount" min="0" value="0" />
+      </div>
       <div class="form-group">
         <label for="date">Start Date:</label>
         <input name="date" id="date" class="form-control" type="date">

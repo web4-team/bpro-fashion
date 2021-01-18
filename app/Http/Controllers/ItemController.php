@@ -40,16 +40,20 @@ class ItemController extends Controller
                 $request->validate([
             'name'=>'required',
             'price'=>'required',
-            'stock_in'=>'required',
+            
             
             
         ]);
 
         $item = new Item([
+            'date'=>$request->get('date'),
             'name' => $request->get('name'),
             'price'=>$request->get('price'),
-            'stock_in'=>$request->get('stock_in'),
-            'stock_out'=>$request->get('stock_out')
+            'quantity'=>$request->get('quantity'),
+            'customer'=>$request->get('customer'),
+            'paid'=>$request->get('paid'),
+            'due_date'=>$request->get('due_date'),
+            'remark'=>$request->get('remark')
             
             
         ]);

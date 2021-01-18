@@ -52,6 +52,10 @@
 
        </select>
      </div>
+      <div class="form-group">
+        <label for="amount">Discount(amount):</label>
+        <input type="number" class="form-control" name="amount"  value="{{$course->amount}}" />
+      </div>
      <div class="form-group">
       <label for="date">Start Date:</label>
       <input name="date" class="form-control" type="date" value="{{$course->date}}">

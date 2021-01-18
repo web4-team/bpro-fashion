@@ -41,7 +41,8 @@
           
           <a class="collapse-item" href="{{url('/courses')}}">Courses</a>
           <a class="collapse-item" href="{{url('/batch')}}">Batch</a>
-          @can('manage.users')  <a class="collapse-item" href="{{url('/item')}}">Item</a> @endcan
+          <a class="collapse-item" href="{{url('/item')}}">Item</a>
+          <a class="collapse-item" href="{{url('/summary')}}">Income/Expense</a>
         </div>
       </div>
     </li>
