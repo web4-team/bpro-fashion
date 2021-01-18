@@ -16,10 +16,10 @@
   <link href="{{URL::asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
   <link href="{{URL::asset('css/ruang-admin.min.css')}}" rel="stylesheet">
   <link href="{{URL::asset('css/custom.css')}}" rel="stylesheet">
-  <link href="{{asset('backend/js/demo/custom.css')}}" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
-<link href="{{asset('backend/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+  {{-- <link href="{{URL::asset('backend/summernote/bootstrap.min.css')}}" rel="stylesheet">
+  
+  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet"> --}}
+
   @yield('style')
 </head>
 
@@ -59,8 +59,7 @@
   <script src="{{URL::asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
   <script src="{{URL::asset('js/ruang-admin.min.js')}}"></script>
   <script src="{{URL::asset('vendor/chart.js/Chart.min.js')}}"></script>
-
-  {{-- <script src="{{URL::asset('js/demo/chart-area-demo.js')}}"></script>  --}}
+  <script src="{{URL::asset('js/demo/chart-area-demo.js')}}"></script> 
   {{-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
