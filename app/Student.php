@@ -8,16 +8,14 @@ class Student extends Model
 {
     protected $fillable=['course_id', 'accept_date', 'name', 'dob', 'age', 'phone', 'email', 'education', 'address', 'objective', 'bpro'];
 
-public function courses($value='')
+public function course()
     {
-    	return $this->belongsTo('App\Course')
-    				->withTimestamps();
+    	return $this->belongsTo('App\Course');
     }
 
-    public function batches($value='')
+    public function batch()
     {
-    	return $this->belongsTo('App\Batch')
-    				->withTimestamps();
+    	return $this->belongsTo('App\Batch');
     }
  
 }

@@ -1,0 +1,45 @@
+.pdfButton{
+ background-color: #0225e8 !important;
+    color: #ffffff !important;
+    border-radius: 6px !important;
+    height: 2.5em;
+    width: 5em;
+    text-align: center;
+  
+  
+}
+.pdfButton:hover {
+  background-color: #ff7308  !important;
+  color: white;
+}
+
+.excelButton{
+ background-color: #0225e8 !important;
+    color: #ffffff !important;
+    border-radius: 6px !important;
+    height: 2.5em;
+    width: 6em;
+    text-align: center;
+  
+  
+}
+.excelButton:hover {
+  background-color: #ff7308  !important;
+  color: white;
+}
+
+.page{
+ background-color: #0225e8 !important;
+    color: #ffffff !important;
+    border-radius: 6px !important;
+    height: 2.5em;
+    width: 9em;
+    text-align: center;
+  
+  
+}
+.page:hover {
+  background-color: #ff7308  !important;
+  color: white;
+}
+

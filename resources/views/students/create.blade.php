@@ -47,9 +47,9 @@
         	<div class="form-group">
 				<label for="class" class="text-dark">Choose Course</label>
 				<select name="course" class="custom-select custom-select-md text-dark">
-				  <option value="1">First Class</option>
-				  <option value="2">Second Class</option>
-				  <option value="3">Third Class</option>
+		@foreach($course as $row)
+            <option value="{{$row->id}}">{{$row->name}}</option>
+            @endforeach
 				</select>
 			</div>
 			<div class="form-group">

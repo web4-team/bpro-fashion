@@ -36,7 +36,7 @@
                   <tbody>
                     <tr>
                       <td>Course Name</td>
-                      <td>{{$student->course}}</td>
+                      <td>{{$student->course->name}}</td>
                     </tr>
 
                     <tr>

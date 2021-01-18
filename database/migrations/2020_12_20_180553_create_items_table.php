@@ -22,8 +22,8 @@ class CreateItemsTable extends Migration
             $table->integer('quantity');
             $table->string('customer');
             $table->integer('paid');
-            $table->date('due_date')->default('null');
-            $table->string('remark')->default(NULL);
+            $table->date('due_date');
+            $table->string('remark')->default('null');
             $table->timestamps();
         });
     }
