@@ -1,8 +1,4 @@
 @extends('layouts.master')
-@section('style')
-  <!-- Custom styles for this page -->
-  <link href="{{asset('backend/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
-@endsection
 @section('content')
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -25,12 +21,11 @@
           <a href="{{ route('courses.create')}}" class="btn btn-sm btn-primary">Create Course</a>
         </div>
         <div class="table-responsive">
-          <table class="table align-items-center table-flush" id="dataTable">
+          <table class="table align-items-center table-flush" id="course">
             <thead class="thead-light">
               <tr>
                 <th scope="col" class="sort">No</th>
                 <th scope="col" class="sort">Course Name</th>
-                
                 <th scope="col" class="sort">Course Type</th>
                 <th scope="col" class="sort">Fees</th>
                 <th scope="col" class="sort">Discount</th>
@@ -74,11 +69,9 @@
 </div>
 
 @endsection
-@section('script')
-  <!-- Page level plugins -->
-  <script src="{{ asset('backend/datatables/jquery.dataTables.min.js') }}"></script>
-  <script src="{{ asset('backend/datatables/dataTables.bootstrap4.min.js') }}"></script>
+@section('scripts')
 
   <!-- Page level custom scripts -->
-  <script src="{{ asset('backend/js/demo/datatables-demo.js') }}"></script>
+  <script src="{{ asset('backend/js/demo/course-demo.js') }}"></script>
+  
 @endsection

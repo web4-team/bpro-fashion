@@ -1,39 +1,37 @@
 // Call the dataTables jQuery plugin
 $(document).ready(function() {
-    $('#dataTable').DataTable( {
+    $('#course').DataTable( {
         dom: 'Bfrtip',
         
-        buttons: [ 
-            { extend: 'colvis',
+        buttons: [{ 
+              extend: 'colvis',
               text: '<i class="fa fa-columns" aria-hidden="true"></i> <b>Column</b>',
-              className:'colButton',
+              className:'colvis',
               exportOptions: {
-                      columns: [ 0,1,2,3,4,8, ],
+                      columns: [ 0,1,2,3,4,5,6,7 ],
                             }
-          	},
+            },
 
             { extend: 'pdfHtml5', 
               text: '<i class="fas fa-file-pdf btn-danger" aria-hidden="true"></i> <b>PDF</b>',
-              orientation: 'landscape',
+              
               pageSize: 'A4',
-              className:'pdfButton',
+              className:'pdf',
               exportOptions: {
-                    columns: [ 0,1,2,3,4,5,6,7,8,9,10,11 ],
+                    columns: [ 0,1,2,3,4,5,6,7 ],
                 }
-          	},
+            },
 
-          	{ extend: 'excel', 
-          	  text: '<i class="fas fa-file-excel" aria-hidden="true"></i> <b>Excel</b>' ,
-          	  className:'excelButton',
+            { extend: 'excel', 
+              text: '<i class="fas fa-file-excel" aria-hidden="true"></i> <b>Excel</b>' ,
+              className:'excel',
               exportOptions: {
-                    columns: [ 0,1,2,3,4,5,6,7,8,9,10,11 ],
+                    columns: [ 0,1,2,3,4,5,6,7 ],
                 }
-          	},
+            },
                                
         ],
-        columnDefs: [{targets: [5,6,7,9,10,11], visible: false}],
-
-        
+        columnDefs: [{targets: [6,7], visible: false}],
 
     } );
 } );
