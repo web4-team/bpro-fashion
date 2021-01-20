@@ -1,0 +1,41 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateArtbotCoursesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('artbot_courses', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            
+            $table->string('type');
+            $table->integer('fees');
+            $table->integer('discount');
+            $table->integer('amount');
+            $table->string('date');
+            $table->string('duration');
+            $table->timestamps();
+
+           
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('artbot_courses');
+    }
+}

@@ -45,7 +45,8 @@
         </div>
       </div>
     </li>
-    {{-- <li class="nav-item">
+    @can('manage.users')
+    <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
         aria-controls="collapseTable">
         <i class="fas fa-fw fa-user-tie"></i>
@@ -56,15 +57,17 @@
           <!-- <h6 class="collapse-header">Tables</h6> -->
           <a class="collapse-item" href="{{url('/employees')}}">Employee Lists</a>
           <a class="collapse-item" href="{{url('/departments')}}">Department</a>
+          <a class="collapse-item" href="/divisions">Position</a>
           <a class="collapse-item" href="{{url('/salaries')}}">Salary</a>
-          <a class="collapse-item" href="{{url('/salaries')}}">Attendence</a>
+          {{-- <a class="collapse-item" href="{{url('/salaries')}}">Attendence</a>
           <a class="collapse-item" href="{{url('/salaries')}}">Late</a>
           <a class="collapse-item" href="{{url('/salaries')}}">Leave</a>
-          <a class="collapse-item" href="{{url('/salaries')}}">Overtime</a>
+          <a class="collapse-item" href="{{url('/salaries')}}">Overtime</a> --}}
+          {{-- <a class="collapse-item" href="{{url('/salaries')}}">Payroll</a> --}}
           <!-- <a class="collapse-item" href="datatables.html">DataTables</a> -->
         </div>
       </div>
-    </li> --}}
+    </li>
     {{-- <li class="nav-item">
       <a class="nav-link" href="ui-colors.html">
         <i class="fas fa-fw fa-palette"></i>
@@ -91,6 +94,7 @@
         </div>
       </div>
     </li>
+  
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsesPage" aria-expanded="true"
         aria-controls="collapsesPage">
@@ -99,13 +103,14 @@
       </a>
       <div id="collapsesPage" class="collapse" aria-labelledby="headingPage" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-          <a class="collapse-item" href="/divisions">Division</a>
+         
           <a class="collapse-item" href="/cities">City</a>
           <a class="collapse-item" href="/states">State</a>
           <a class="collapse-item" href="/countries">Country</a>
         </div>
       </div>
     </li>
+    @endcan
     @can('manage.users')
     <li class="nav-item">
       <a class="nav-link" href="{{ route('admin.users.index')}}">
