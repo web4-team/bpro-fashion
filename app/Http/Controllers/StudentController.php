@@ -38,6 +38,7 @@ class StudentController extends Controller
         return $pdf->download($student->name.".pdf");
     }
 
+
     // // Generate PDF
     // public function createPDF() {
     //   // retreive all records from db
