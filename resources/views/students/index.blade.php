@@ -85,4 +85,4 @@
   <script src="{{ asset('backend/js/demo/datatables-demo.js') }}"></script>
   
 @endsection
->>>>>>> sha
+

@@ -27,10 +27,16 @@ $(document).ready(function() {
               exportOptions: {
                     columns: [ 0,1,2,3,4,5,6,7,8,9,10,11 ],
                 }
-          	},
+            },
+            { extend: 'pageLength',
+            className:'page'},
+            
+            
                                
         ],
+
         columnDefs: [{targets: [5,6,7,9,10,11], visible: false}],
+        'pagingType':'full_numbers',
 
         
 
