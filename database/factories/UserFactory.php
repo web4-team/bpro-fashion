@@ -27,8 +27,3 @@ $factory->define(User::class, function (Faker $faker) {
     ];
 });
 
-public function run()
-{
-    Student::factory()->count(50)->create()
-            ;
-}

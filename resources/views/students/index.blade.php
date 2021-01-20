@@ -7,6 +7,7 @@
 <link href="{{asset('backend/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 
 @endsection
+@section('content')
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
   <h1 class="h3 mb-0 text-gray-800">Student Management</h1>
@@ -100,6 +101,7 @@
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.23/js/dataTables.foundation.min.js"></script>
 
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+
 <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js"></script>
 
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.23/js/dataTables.foundation.min.js"></script>
