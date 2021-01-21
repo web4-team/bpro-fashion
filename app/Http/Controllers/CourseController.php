@@ -59,7 +59,7 @@ class CourseController extends Controller
 
         $course = new Course([
             'name' => $request->get('name'),
-            
+            'batch_id' => $request->get('batch_id'),
             'type' => $request->get('type'),
             'fees' => $request->get('fees'),
             'discount' => $request->get('discount'),

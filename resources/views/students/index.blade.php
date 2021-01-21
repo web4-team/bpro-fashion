@@ -24,8 +24,9 @@
                 <th scope="col" class="sort">No</th>                
                 <th scope="col" class="sort">Code</th>
                 <th scope="col" class="sort">Name</th>
-                <th scope="col" class="sort">Batch</th>
                 <th scope="col" class="sort">Course</th>
+                <th scope="col" class="sort">Batch</th>
+               
                 <th scope="col" class="sort">Accept Date</th>
                 <th scope="col" class="sort">Age</th>
                 <th scope="col" class="sort">Date of Birth</th>

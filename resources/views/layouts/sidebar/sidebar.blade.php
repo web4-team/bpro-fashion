@@ -39,8 +39,8 @@
       <div id="collapseForm" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           
-          <a class="collapse-item" href="{{url('/courses')}}">Courses</a>
-          <a class="collapse-item" href="{{url('/batch')}}">Batch</a>
+          <a class="collapse-item" href="{{url('/courses')}}">Batch</a>
+          <a class="collapse-item" href="{{url('/batch')}}">Course</a>
           <a class="collapse-item" href="{{url('/item')}}">Item</a>
           <a class="collapse-item" href="{{url('/summary')}}">Income/Expense</a>
         </div>

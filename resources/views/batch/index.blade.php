@@ -7,16 +7,17 @@
 
 </div>
 <div class="col-sm-12">
-    <h2 class="display-3">Batches</h2> 
+    <h2 class="display-3">Course</h2> 
         <div>
-    <a style="margin: 19px;" href="{{ route('batch.create')}}" class="btn btn-primary">New Batch</a>
+    <a style="margin: 19px;" href="{{ route('batch.create')}}" class="btn btn-primary">New Course</a>
     </div>     
   <table class="table table-striped">
     <thead>
         <tr>
           <td>No</td>
-          <td>Batch No</td>
           <td>Course Name</td>
+          {{-- <td>Batch No</td> --}}
+        
          
 
           
@@ -29,7 +30,7 @@
         <tr>
             <td>{{$i++}}</td>
             <td>{{$row->name}}</td>
-            <td>{{$row->course->name}}</td>
+            {{-- <td>{{$row->course->name}}</td> --}}
             
            
 
