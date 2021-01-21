@@ -62,7 +62,7 @@
                                 </div>
                             </div>
                             <div class="float-right">
-                                <a href="{{ route('expense.index') }}" class="btn btn-success">Back</a>
+                                <a href="{{ url('summary') }}" class="btn btn-success">Back</a>
                                 <button type="submit" class="btn btn-primary">Save</button>
                             </div>
                         </form>
