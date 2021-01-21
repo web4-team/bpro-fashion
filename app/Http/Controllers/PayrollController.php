@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Payroll;
 use App\Employee;
 use App\Role;
+use App\Salary;
 use Session;
 use Paginate;
 use Illuminate\Http\Request;
@@ -63,6 +64,7 @@ class PayrollController extends Controller
      */
     public function payrollIndex($id){
 		$employee = Employee::findOrFail($id);
+		
         return view('payroll.payroll')->with('employee',$employee);
     }
 

@@ -31,6 +31,10 @@ class CreateStudentsTable extends Migration
             $table->string('bpro');
             $table->string('note')->nullable();
             $table->timestamps();
+
+            $table->foreign('course_id')
+                  ->references('id')->on('courses')
+                  ->onDelete('cascade');
         });
     }
 

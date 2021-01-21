@@ -25,7 +25,7 @@
             <a href="{{ route('payrolls.create', ['id'=>$employee->id]) }}" class="btn btn-sm btn-primary">Create Payroll</a>
           </div>
           <div class="table-responsive">
-            <table class="table align-items-center table-flush" id="dataTable">
+            <table class="table align-items-center table-flush">
               <thead class="thead-light">
                 <tr>
                   <th scope="col" class="sort">Date-issued</th>                

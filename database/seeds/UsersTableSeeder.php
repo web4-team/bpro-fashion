@@ -42,5 +42,7 @@ class UsersTableSeeder extends Seeder
         $admin->roles()->attach($adminRole);
         $manager->roles()->attach($managerRole);
         $user->roles()->attach($userRole);
+
+ 
     }
 }

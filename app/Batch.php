@@ -14,4 +14,6 @@ class Batch extends Model
   {
     return $this->belongsTo('App\Course');
   }
+
 }
+
