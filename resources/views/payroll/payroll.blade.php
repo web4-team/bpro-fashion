@@ -82,5 +82,5 @@
   <script src="{{ asset('backend/datatables/dataTables.bootstrap4.min.js') }}"></script>
 
   <!-- Page level custom scripts -->
-  <script src="{{ asset('backend/js/demo/datatables-demo.js') }}"></script>
+  {{-- <script src="{{ asset('backend/js/demo/datatables-demo.js') }}"></script> --}}
 @endsection

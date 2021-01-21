@@ -1,4 +1,5 @@
 @extends('layouts.master')
+<<<<<<< HEAD
 @section('style')
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
@@ -6,6 +7,8 @@
   <link href="{{asset('backend/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="{{ asset('backend/js/demo/custom.css') }}">
 @endsection
+=======
+>>>>>>> master
 @section('content')
 <!-- <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
 <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet"> -->
@@ -28,12 +31,13 @@
           <a href="{{route('courses.create')}}" class="btn btn-sm btn-primary">Create Course</a>
         </div>
         <div class="table-responsive">
-          <table class="table align-items-center table-flush">
+
+          <table class="table align-items-center table-flush" id="course">
+
             <thead class="thead-light">
               <tr>
                 <th scope="col" class="sort">No</th>
                 <th scope="col" class="sort">Course Name</th>
-                
                 <th scope="col" class="sort">Course Type</th>
                 <th scope="col" class="sort">Fees</th>
                 <th scope="col" class="sort">Discount(%)</th>
@@ -92,31 +96,11 @@
 <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script> -->
 
 @endsection
-@section('script')
-<script type="text/javascript" src="{{ asset('backend/jQuery/jquery.js') }}"></script>
 
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js"></script>
-
-
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js"></script>
-
-
-
-  <!-- Page level plugins -->
-
-  <!-- <script src="{{ asset('backend/datatables/jquery.dataTables.min.js') }}"></script> -->
-  <script src="{{ asset('backend/datatables/dataTables.bootstrap4.min.js') }}"></script>
-  
-
-  
+@section('scripts')
 
   <!-- Page level custom scripts -->
-
-<script src="{{ asset('backend/js/demo/datatables-demo.js') }}"></script> --}}
+  <script src="{{ asset('backend/js/demo/course-demo.js') }}"></script>
+  
 @endsection
 

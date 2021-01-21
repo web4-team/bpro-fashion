@@ -105,17 +105,7 @@
                 </div>
             </div>
 
-            <div class="form-group row">
-                <label for="division" class="col-sm-3 col-form-label text-dark">Division</label>
-                <div class="col-sm-9">
-                    <select name="division" class="form-control">
-                        <option value="" disabled>Choose a Division</option>
-                        @foreach($divisions as $division)
-                            <option value="{{$division->id}}" {{ old('division') ? 'selected' : '' }} {{ $employee->empDivision==$division ? 'selected' : '' }} >{{$division->division_name}}</option>
-                        @endforeach
-                    </select>
-                </div>
-            </div>
+           
             
             <div class="form-group row">
                 <label for="state" class="col-sm-3 col-form-label text-dark">State/Region</label>
@@ -141,6 +131,17 @@
                 </div>
             </div>
 
+            <div class="form-group row">
+                <label for="division" class="col-sm-3 col-form-label text-dark">Position</label>
+                <div class="col-sm-9">
+                    <select name="division" class="form-control">
+                        <option value="" disabled>Choose a position</option>
+                        @foreach($divisions as $division)
+                            <option value="{{$division->id}}" {{ old('division') ? 'selected' : '' }} {{ $employee->empDivision==$division ? 'selected' : '' }} >{{$division->division_name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
             <div class="form-group row">
                 <label for="salary" class="col-sm-3 col-form-label text-dark">Salary</label>
                 <div class="col-sm-9">

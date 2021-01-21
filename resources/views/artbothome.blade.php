@@ -15,7 +15,7 @@
                   <div class="card bg-gradient-primary text-white">
                     <div class="card-body">
                       Total Student
-                      <div class="text-white-50 small">{{$student}}</div>
+                      <div class="text-white-50 small">0</div>
                     </div>
                   </div>
                 </div>
@@ -23,7 +23,7 @@
                   <div class="card bg-gradient-success text-white">
                     <div class="card-body">
                       Total Course
-                      <div class="text-white-50 small">{{$course}}</div>
+                      <div class="text-white-50 small">0</div>
                     </div>
                   </div>
                 </div>
@@ -31,7 +31,7 @@
                   <div class="card bg-gradient-info text-white">
                     <div class="card-body">
                       Total Batch
-                      <div class="text-white-50 small">{{$batch}}</div>
+                      <div class="text-white-50 small">0</div>
                     </div>
                   </div>
                 </div>
@@ -39,7 +39,7 @@
                   <div class="card bg-gradient-warning text-white">
                     <div class="card-body">
                       Total Course
-                      <div class="text-white-50 small">{{$course}}</div>
+                      <div class="text-white-50 small">0</div>
                     </div>
                   </div>
                 </div>
@@ -47,7 +47,7 @@
                   <div class="card bg-gradient-danger text-white">
                     <div class="card-body">
                       Total Employee
-                      <div class="text-white-50 small">{{$employee}}</div>
+                      <div class="text-white-50 small">0</div>
                     </div>
                   </div>
                 </div>
@@ -55,7 +55,7 @@
                   <div class="card bg-gradient-secondary text-white">
                     <div class="card-body">
                       Total User
-                      <div class="text-white-50 small">{{$user}}</div>
+                      <div class="text-white-50 small">0</div>
                     </div>
                   </div>
                 </div>
