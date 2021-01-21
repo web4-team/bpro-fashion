@@ -92,15 +92,6 @@
 
 					
 
-					<div class="form-group">
-						<label for="class" class="text-dark">Division</label>
-							<select name="division" class="custom-select custom-select-md text-dark">
-								<option value="" disabled {{ old('division') ? '' : 'selected' }}>Choose a division</option>
-				  			@foreach($divisions as $division)
-								<option value="{{$division->id}}" {{ old('division') ? 'selected' : '' }}>{{$division->division_name}}</option>
-								@endforeach
-							</select>
-					</div>
 
 					<div class="form-group">
 						<label for="class" class="text-dark">State/Region</label>
@@ -122,6 +113,15 @@
 							</select>
 					</div>
         			
+					<div class="form-group">
+						<label for="class" class="text-dark">Position</label>
+							<select name="division" class="custom-select custom-select-md text-dark">
+								<option value="" disabled {{ old('division') ? '' : 'selected' }}>Choose a position</option>
+				  			@foreach($divisions as $division)
+								<option value="{{$division->id}}" {{ old('division') ? 'selected' : '' }}>{{$division->division_name}}</option>
+								@endforeach
+							</select>
+					</div>
 
 				<div class="form-group">
 						<label for="class" class="text-dark">Salary</label>
