@@ -8,7 +8,7 @@ class Course extends Model
 {
         protected $fillable = [
         'name',
-        
+        'batch_id',
         'type',
         'fees',
         'discount',
@@ -20,6 +20,8 @@ class Course extends Model
     ];
 public function batch()
   {
-    return $this->hasMany('App\Batch');
+    return $this->belongsTo('App\Batch');
   }
+
 }
+

@@ -1,5 +1,7 @@
 @extends('layouts.master')
+
 @section('content')
+
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
   <h1 class="h3 mb-0 text-gray-800">Student Management</h1>
   <ol class="breadcrumb">
@@ -24,9 +26,13 @@
                 <th scope="col" class="sort">No</th>                
                 <th scope="col" class="sort">Code</th>
                 <th scope="col" class="sort">Name</th>
-                <th scope="col" class="sort">Batch</th>
+
                 <th scope="col" class="sort">Course</th>
+                <th scope="col" class="sort">Batch</th>
+               
+
                 <th scope="col" class="sort">Accept Date</th>
+
                 <th scope="col" class="sort">Age</th>
                 <th scope="col" class="sort">Date of Birth</th>
                 <th scope="col" class="sort">Phone</th>
@@ -43,6 +49,7 @@
                       <td>{{$i++}}</td>             
                       <td>{{$row->code}}</td>
                       <td>{{$row->name}}</td>
+
                       <td>{{$row->batch->name}}</td>
                       <td>{{$row->course->name}}</td>
                       <td>{{$row->accept_date}}</td>
@@ -79,9 +86,14 @@
 
 @endsection
 
+
 @section('scripts')
 
   <!-- Page level custom scripts -->
   <script src="{{ asset('backend/js/demo/datatables-demo.js') }}"></script>
   
 @endsection
+<<<<<<< HEAD
+=======
+
+>>>>>>> master

@@ -16,9 +16,23 @@
     <form method="post" action="{{ route('courses.store') }}">
       @csrf
       <div class="form-group">    
+<<<<<<< HEAD
         <label for="name">Batch Name:</label>
+=======
+        <label for="name">Batch no:</label>
+>>>>>>> master
         <input type="text" class="form-control" name="name"/>
 
+      </div>
+      <div class="form-group">
+        <label for="discount">Course Name:</label>
+        <select class="form-control" name="batch_id">
+          <optgroup label="Choose Course">
+            @foreach($batches as $row)
+            <option value="{{$row->id}}">{{$row->name}}</option>
+            @endforeach
+          </optgroup>
+        </select>
       </div>
 
             <div class="form-group">

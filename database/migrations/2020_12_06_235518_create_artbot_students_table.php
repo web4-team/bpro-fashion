@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStudentsTable extends Migration
+class CreateArtbotStudentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateStudentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('students', function (Blueprint $table) {
+        Schema::create('artbot_students', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('code');
             $table->unsignedBigInteger('course_id');
@@ -31,10 +31,6 @@ class CreateStudentsTable extends Migration
             $table->string('bpro');
             $table->string('note')->nullable();
             $table->timestamps();
-
-            $table->foreign('course_id')
-                  ->references('id')->on('courses')
-                  ->onDelete('cascade');
         });
     }
 
@@ -45,6 +41,6 @@ class CreateStudentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('students');
+        Schema::dropIfExists('artbot_students');
     }
 }

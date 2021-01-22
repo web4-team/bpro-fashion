@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 
-class CreateItemsTable extends Migration
+class CreateArtbotItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class CreateItemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('items', function (Blueprint $table) {
+        Schema::create('artbot_items', function (Blueprint $table) {
             $table->id();
             $table->date('date');
             $table->string('name');
@@ -22,10 +22,8 @@ class CreateItemsTable extends Migration
             $table->integer('quantity');
             $table->string('customer');
             $table->integer('paid');
-
             $table->date('due_date')->default(NULL);
             $table->string('remark')->default(NULL);
-
             $table->timestamps();
         });
     }
@@ -37,6 +35,6 @@ class CreateItemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('items');
+        Schema::dropIfExists('artbot_items');
     }
 }

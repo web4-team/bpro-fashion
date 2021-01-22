@@ -25,7 +25,7 @@
             <a href="{{ route('payrolls.create', ['id'=>$employee->id]) }}" class="btn btn-sm btn-primary">Create Payroll</a>
           </div>
           <div class="table-responsive">
-            <table class="table align-items-center table-flush" id="dataTable">
+            <table class="table align-items-center table-flush">
               <thead class="thead-light">
                 <tr>
                   <th scope="col" class="sort">Date-issued</th>                
@@ -49,7 +49,7 @@
                       <td>{{ $payroll->overtime }}</td>
                       <td>{{ $payroll->leave }}</td>
                       <td>{{ $payroll->late }}</td>
-                      <td></td>
+                      <td>{{($payroll->employee->empSalary->s_amount+$payroll->commission+$payroll->bonus+$payroll->overtime)-($payroll->leave+$payroll->late) }}</td>
                      
                       <td>
                         <a href="{{ route('payrolls.edit', ['id' => $payroll->id]) }}" class="btn btn-success">Edit</a>

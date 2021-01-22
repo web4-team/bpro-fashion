@@ -7,11 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Batch extends Model
 {
              protected $fillable = [
-        'name','course_id'
+        'name'
       
     ];
   public function course()
   {
     return $this->belongsTo('App\Course');
   }
+
 }
+

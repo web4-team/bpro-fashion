@@ -7,9 +7,12 @@ use Illuminate\support\Carbon;
 use App\Income;
 use App\Expense;
 
+
 class SummaryController extends Controller
 {
    public function index(){
+
+  
 
    	$sum_income=Income::whereDay('date', Carbon::now()->day)->sum('amount');
    	$sum_expense=Expense::whereDay('date', Carbon::now()->day)->sum('amount');

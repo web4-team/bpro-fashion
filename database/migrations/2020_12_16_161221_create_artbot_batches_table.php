@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-
-class CreateItemsTable extends Migration
+class CreateArtbotBatchesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,19 +13,20 @@ class CreateItemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('items', function (Blueprint $table) {
+        Schema::create('artbot_batches', function (Blueprint $table) {
             $table->id();
-            $table->date('date');
             $table->string('name');
-            $table->integer('price');
-            $table->integer('quantity');
-            $table->string('customer');
-            $table->integer('paid');
+            $table->unsignedBigInteger('course_id');
 
-            $table->date('due_date')->default(NULL);
-            $table->string('remark')->default(NULL);
+            $table->foreign('course_id')
+                  ->references('id')->on('courses')
+                  ->onDelete('cascade');
+
+
 
             $table->timestamps();
+
+
         });
     }
 
@@ -37,6 +37,6 @@ class CreateItemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('items');
+        Schema::dropIfExists('artbot_batches');
     }
 }

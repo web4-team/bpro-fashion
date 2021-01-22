@@ -48,7 +48,7 @@ class BatchController extends Controller
 
         $batch = new Batch([
             'name' => $request->get('name'),
-            'course_id'=>$request->get('course')
+       
             
             
         ]);

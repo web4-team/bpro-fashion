@@ -12,6 +12,19 @@
     <li class="breadcrumb-item"><a href="{{ url('/courses')}}">Courses</a></li>
   </ol>
 </div>
+<form action="" method="get">
+<div class="row mb-4">
+    <div class="col-md-4">
+        Start<input type="date" class="form-control" name="date_filter" id="date_filter"/>
+    </div>
+    <div class="col-md-4">
+        End Date<input type="date" class="form-control" name="date_filter" id="date_filter"/>
+    </div>
+    <div class="col-md-4">
+        <input type="submit" name="filter_submit" class="btn btn-success" value="Filter" />
+    </div>
+</div>
+</form>
 
 <div class="row">
         <div class="col-xl-6 offset-xl-3 col-sm-12 mb-3">
