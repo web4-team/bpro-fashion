@@ -18,8 +18,10 @@
      
       <div class="card">
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-          <h6 class="m-0 font-weight-bold text-primary">Courses List</h6>
-          <a href="{{route('courses.create')}}" class="btn btn-sm btn-primary">Create Course</a>
+
+          <h6 class="m-0 font-weight-bold text-primary">Batch</h6>
+          <a href="{{ route('courses.create')}}" class="btn btn-sm btn-primary">Create Batch</a>
+
         </div>
         <div class="table-responsive">
 
@@ -28,6 +30,8 @@
             <thead class="thead-light">
               <tr>
                 <th scope="col" class="sort">No</th>
+                
+                <th scope="col" class="sort">Batch no.</th>
                 <th scope="col" class="sort">Course Name</th>
                 <th scope="col" class="sort">Course Type</th>
                 <th scope="col" class="sort">Fees</th>
@@ -48,7 +52,7 @@
                     <tr>
                       <td>{{$i++}}</td>             
                       <td>{{$course->name}}</td>
-                      
+                      <td>{{$course->batch->name}}</td>
                       <td>{{$course->type}}</td>
                       <td>{{number_format($course->fees)}} Ks</td>
                       <td>{{$course->discount}}%</td>

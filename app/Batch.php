@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Batch extends Model
 {
              protected $fillable = [
-        'name','course_id'
+        'name'
       
     ];
   public function course()

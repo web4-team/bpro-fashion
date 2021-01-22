@@ -89,21 +89,22 @@ class PayrollController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
-			'hours'=> 'required',
-			'rate'=>'required',
-			'over_time' => 'required|bool'
-		]);
+          'date'=> 'required',
+    ]);
+   
 		
 		$payroll = Payroll::findOrFail($id);
-		$payroll->hours = $request->hours;
-		$payroll->rate= $request->rate;
-		$payroll->over_time = $request->over_time;
+		$payroll->date = $request->date;
+		$payroll->commission= $request->commission;
+		$payroll->bonus = $request->bonus;
+		$payroll->overtime = $request->overtime;
+		$payroll->leave = $request->leave;
+		$payroll->late = $request->late;
 		$payroll->save();		
 		
-		$payroll->grossPay();
-		$payroll->save();
+
 		
-		Session::flash('success', 'Payroll Updated ready for download');
+		Session::flash('success', 'Payroll Updated.');
 		return redirect()->route('payrolls.show',['id'=>$payroll->employee_id]);			
     }
 
