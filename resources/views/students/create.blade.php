@@ -24,19 +24,11 @@
         </div>
       </div>
     </div>
-{{-- @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif --}}
+
 	<div class="row">
 		<div class="col-md-2"></div>   
 		<div class="mb-4 py-3 d-flex flex-row">
-	      {{-- <h1 class="m-0 font-weight-bold text-primary text-center">Student Form</h1> --}}
+	   
 	    </div>
 					
 	    <form method="post" action="{{route('students.store')}}"class=" mb-4 card-body mx-10">
@@ -167,6 +159,7 @@
 		                      	</span>
 							@enderror	
 				    	</div>
+
 					</div>
 					<div class="form-group float-right col-md-5">
 					    <label for="education" class="text-dark"><strong>Education</strong></label>
@@ -224,25 +217,22 @@
 						<label for="bpro" class="text-dark mb-4"><strong>How do you Know B Pro</strong></label>
 						<div class="col">
 							<div class="form-check form-check-inline">
-							  <input class="form-check-input" type="checkbox" name="bpro[]" value="Facebook" @if(old('bpro','{{$student->bpro}}')=="Facebook") checked @endif>
+							  <input class="form-check-input" type="checkbox" name="bpro[]" value="Facebook" >
 							  <label class="form-check-label" for="inlineCheckbox1" class="text-dark">Facebook</label>
 							</div>
 							<div class="form-check form-check-inline">
-							  <input class="form-check-input" type="checkbox" name="bpro[]" value="Friends" @if(old('bpro','{{$student->bpro}}')=="Friends") checked @endif>
+							  <input class="form-check-input" type="checkbox" name="bpro[]" value="Friends" >
 							  <label class="form-check-label" for="inlineCheckbox2" class="text-dark">Friends</label>
 							</div>
 							<div class="form-check form-check-inline">
-							  <input class="form-check-input" type="checkbox" name="bpro[]" value="Other" @if(old('bpro','{{$student->bpro}}')=="Other") checked @endif>
+							  <input class="form-check-input" type="checkbox" name="bpro[]" value="Other" >
 							  <label class="form-check-label" for="inlineCheckbox3" class="text-dark">Other</label>
 							</div>
 
 						</div>
 					</fieldset>	
 				</div>
-				{{-- <div class="form-group">
-				    <label for="note" class="text-dark">Addition Note</label>
-				    <textarea class="form-control" name="note"  rows="3"></textarea>
-				</div>   --}}  
+				
 		  	    <div class="form-group row my-3">
 		  		    <div class="col-sm-10">
 		  		      <button type="submit" class="btn btn-primary">Create Student</button>

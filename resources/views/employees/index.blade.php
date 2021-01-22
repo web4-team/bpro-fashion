@@ -19,7 +19,9 @@
           <a href="{{route('employees.create')}}" class="btn btn-sm btn-primary">Create Employee</a>
         </div>
         <div class="table-responsive">
+
           <table class="table align-items-center table-flush" id="emp">
+
             <thead class="thead-light">
               <tr>
                 <th scope="col" class="sort">No</th>                

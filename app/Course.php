@@ -22,4 +22,6 @@ public function batch()
   {
     return $this->belongsTo('App\Batch');
   }
+
 }
+

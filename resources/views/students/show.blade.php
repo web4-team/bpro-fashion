@@ -35,8 +35,10 @@
                                   
                   <tbody>
                     <tr>
+
                       <td>Student Code</td>
                       <td>{{$student->code}}</td>
+
                     </tr>
 
                     <tr>
