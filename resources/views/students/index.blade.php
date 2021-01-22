@@ -1,8 +1,5 @@
 @extends('layouts.master')
-
 @section('content')
-<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
-<link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
   <h1 class="h3 mb-0 text-gray-800">Student Management</h1>
   <ol class="breadcrumb">
@@ -55,6 +52,7 @@
                       <td>{{$row->email}}</td>
                       <td>{{$row->education}}</td>
                       <td>{{$row->address}}</td>
+
                       <td>
                         <a href="{{action('StudentController@downloadPDF', $row->id)}}" class="btn btn-dark detail btn-sm mt-1" ><i class="fa fa-file-pdf fa-1x btn-danger"></i></a>
 
@@ -67,6 +65,7 @@
                           @method('DELETE')
                           <button type="submit" class="btn btn-danger btn-sm mt-1"><i class="fas fa-trash"></i></button>
                         </form>
+                        
                       </td>
                     </tr>
                   @endforeach
@@ -79,6 +78,7 @@
 </div>
 
 @endsection
+
 @section('scripts')
 
   <!-- Page level custom scripts -->

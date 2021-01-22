@@ -5,14 +5,15 @@
     <title></title>
     <style>
         body{
-          background-image: url(img/certificate2.jpg);
+          background-image: url(img/Certificate.jpg);
           background-position: center;
           background-size: cover;
           background-repeat: no-repeat;
           margin: -5%;
-        }
+          
+         }
         h1{
-          margin-top: 260px;
+          margin-top: 280px;
           margin-left: 205px;
         }
         .p1{
@@ -31,8 +32,8 @@
           font-style: italic;          
         }
         .p3{
-          margin-top: 147px;
-          margin-left: 190px;
+          margin-top: 127px;
+          margin-left: 210px;
           font-size: 16;          
         }
     </style>
@@ -46,6 +47,9 @@
         @foreach($course as $row)
          @if($student->course_id==$row->id) {{$row->name}} @endif
         @endforeach
+        @foreach($batches as $row)
+        @if($student->batch_id==$row->id) ({{$row->name}}) @endif
+       @endforeach
       </h2>
       <p class="p2">
          @foreach($course as $row)

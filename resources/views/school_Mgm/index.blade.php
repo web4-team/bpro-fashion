@@ -17,21 +17,23 @@
      
       <div class="card">
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-          <h6 class="m-0 font-weight-bold text-primary">Courses</h6>
-          <a href="{{ route('courses.create')}}" class="btn btn-sm btn-primary">Create Course</a>
+          <h6 class="m-0 font-weight-bold text-primary">Batches</h6>
+          <a href="{{ route('courses.create')}}" class="btn btn-sm btn-primary">Create Batch</a>
         </div>
         <div class="table-responsive">
           <table class="table align-items-center table-flush" id="course">
             <thead class="thead-light">
               <tr>
                 <th scope="col" class="sort">No</th>
-                <th scope="col" class="sort">Course Name</th>
+                <th scope="col" class="sort">Batch Name</th>
                 <th scope="col" class="sort">Course Type</th>
                 <th scope="col" class="sort">Fees</th>
-                <th scope="col" class="sort">Discount</th>
+                <th scope="col" class="sort">Discount(%)</th>
+                <th scope="col" class="sort">Discount(Amount)</th>
                 <th scope="col" class="sort">Total Fees</th>
                 <th scope="col" class="sort">Start Date</th>
-                <th scope="col" class="sort">End Date</th>           
+                <th scope="col" class="sort">End Date</th> 
+                          
                 <th scope="col" class="sort">Action</th>
               </tr>
             </thead>
@@ -43,11 +45,14 @@
                       <td>{{$course->name}}</td>
                       
                       <td>{{$course->type}}</td>
-                      <td>{{number_format($course->fees)}} MMK</td>
+                      <td>{{number_format($course->fees)}} Ks</td>
                       <td>{{$course->discount}}%</td>
-                      <td>{{number_format($course->fees-($course->fees*$course->discount/100))}} MMK</td>
+                      <td>{{$course->amount}} Ks</td>
+                      <td>{{number_format($course->fees-($course->fees*$course->discount/100)-$course->amount)}} Ks</td>
+
                       <td>{{ \Carbon\Carbon::parse($course->date)->format('d/M/Y')}}</td>
-                      <td>{{ \Carbon\Carbon::parse($course->duration)->format('d/M/Y')}}</td>
+                      <td>{{\Carbon\Carbon::parse($course->duration)->format('d/M/Y')}}</td>
+                      
                       <td>
                        
                         <a href="{{ route('courses.edit',$course->id)}}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>

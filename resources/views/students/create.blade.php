@@ -36,7 +36,7 @@
 	<div class="row">
 		<div class="col-md-2"></div>   
 		<div class="mb-4 py-3 d-flex flex-row">
-	      <h1 class="m-0 font-weight-bold text-primary text-center">Registration Form</h1>
+	      {{-- <h1 class="m-0 font-weight-bold text-primary text-center">Student Form</h1> --}}
 	    </div>
 					
 	    <form method="post" action="{{route('students.store')}}"class=" mb-4 card-body mx-10">
@@ -224,15 +224,15 @@
 						<label for="bpro" class="text-dark mb-4"><strong>How do you Know B Pro</strong></label>
 						<div class="col">
 							<div class="form-check form-check-inline">
-							  <input class="form-check-input" type="checkbox" name="bpro[]" value="facebook" >
+							  <input class="form-check-input" type="checkbox" name="bpro[]" value="Facebook" @if(old('bpro','{{$student->bpro}}')=="Facebook") checked @endif>
 							  <label class="form-check-label" for="inlineCheckbox1" class="text-dark">Facebook</label>
 							</div>
 							<div class="form-check form-check-inline">
-							  <input class="form-check-input" type="checkbox" name="bpro[]" value="friend" >
+							  <input class="form-check-input" type="checkbox" name="bpro[]" value="Friends" @if(old('bpro','{{$student->bpro}}')=="Friends") checked @endif>
 							  <label class="form-check-label" for="inlineCheckbox2" class="text-dark">Friends</label>
 							</div>
 							<div class="form-check form-check-inline">
-							  <input class="form-check-input" type="checkbox" name="bpro[]" value="other" >
+							  <input class="form-check-input" type="checkbox" name="bpro[]" value="Other" @if(old('bpro','{{$student->bpro}}')=="Other") checked @endif>
 							  <label class="form-check-label" for="inlineCheckbox3" class="text-dark">Other</label>
 							</div>
 

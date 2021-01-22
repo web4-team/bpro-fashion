@@ -8,13 +8,13 @@ class Student extends Model
 {
     protected $fillable=['course_id','batch_id', 'accept_date', 'name', 'dob', 'age', 'phone', 'email', 'education', 'address', 'objective', 'bpro','note'];
 
-    public function course($value='')
+    public function course()
     {
     	return $this->belongsTo('App\Course');
 
     }
 
-    public function batch($value='')
+    public function batch()
     {
     	return $this->belongsTo('App\Batch');
 

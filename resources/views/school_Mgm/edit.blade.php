@@ -1,8 +1,9 @@
 @extends('layouts.master')
+
 @section('content')
 <div class="row">
  <div class="col-sm-8 offset-sm-2">
-  <h1 class="display-3">Update Course</h1>
+  <h1 class="display-3">Update Batch</h1>
   <div>
     @if ($errors->any())
     <div class="alert alert-danger">
@@ -17,12 +18,12 @@
       @method ('PATCH')
       @csrf
       <div class="form-group">    
-        <label for="name">Course Name:</label>
+        <label for="name">Batch Name:</label>
         <input type="text" class="form-control" name="name" value="{{$course->name}}" />
       </div>
 
             <div class="form-group">    
-        <label for="name">Course Type:</label>
+        <label for="name">Batch Type:</label>
          <select class="form-control" id="dis" name="type">
          <option @if($course->type == 'Online') selected @endif >Online           
          </option>
@@ -51,18 +52,26 @@
 
        </select>
      </div>
+      <div class="form-group">
+        <label for="amount">Discount(amount):</label>
+        <input type="number" class="form-control" name="amount"  value="{{$course->amount}}" />
+      </div>
      <div class="form-group">
       <label for="date">Start Date:</label>
       <input name="date" class="form-control" type="date" value="{{$course->date}}">
     </div>
     <div class="form-group">
       <label for="duration">End Date:</label>
-      <input type="date" class="form-control" name="duration" value="{{$course->duration}}"/>
+      <input type="date" class="form-control"  name="duration" value="{{$course->duration}}"/>
     </div>
+  
 
     <button type="submit" class="btn btn-primary">Save Changes</button>
   </form>
 </div>
 </div>
 </div>
+
+
 @endsection
+

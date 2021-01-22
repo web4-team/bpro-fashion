@@ -1,8 +1,8 @@
 @extends('layouts.master')
 @section('content')
 @section('style')
-	<link href="{{asset('backend/summernote/bootstrap.min.css" rel="stylesheet')}}">
-	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="{{asset('backend/summernote/summernote-bs4.min.css')}}" />
+	
 @endsection
 	<!-- Header -->
     <div class="header pb-6">
@@ -44,7 +44,7 @@
 	        	@csrf
 	        	@method('PUT')
 	        	<div class="mb-4 py-3 d-flex flex-row">
-			      <h1 class="m-0 font-weight-bold text-primary text-center">Update Form</h1>
+			      {{-- <h1 class="m-0 font-weight-bold text-primary text-center">Update Form</h1> --}}
 			    </div>
 	        	
 	        	<div class="row">
@@ -122,23 +122,24 @@
 				    <label for="comment" class="text-dark"><strong>Comment Box</strong></label>
 				    <textarea class="form-control text-dark" name="comment" value="" rows="3">{{$student->comment}}</textarea>
 					</div>
-					<fieldset class="form-group col-md-5">
-						<label for="bpro" class="text-dark mb-3"><strong>How do you Know B Pro</strong></label>
-						<div class="col">
+					<fieldset class="form-group">
+						<label for="bpro" class="text-dark">How do you Know B Pro</label>
+						<div class="col-sm-10">
 							<div class="form-check form-check-inline">
-							  <input class="form-check-input" type="checkbox" name="bpro[]" value="facebook" @if(old('bpro','{{$student->bpro}}')=="facebook") checked @endif >
+							  <input class="form-check-input" type="checkbox" name="bpro[]"  value="Facebook" @if ($student->bpro== "Facebook") checked @endif>
 							  <label class="form-check-label" for="inlineCheckbox1" class="text-dark">Facebook</label>
 							</div>
 							<div class="form-check form-check-inline">
-							  <input class="form-check-input" type="checkbox" name="bpro[]" value="friend" @if(old('bpro','{{$student->bpro}}')=="friend") checked @endif >
+							  <input class="form-check-input" type="checkbox" name="bpro[]"  value="Friends" @if ($student->bpro== "Friends") checked @endif>
 							  <label class="form-check-label" for="inlineCheckbox2" class="text-dark">Friends</label>
 							</div>
 							<div class="form-check form-check-inline">
-							  <input class="form-check-input" type="checkbox" name="bpro[]" value="other" @if(old('bpro','{{$student->bpro}}')=="other") checked @endif >
+							  <input class="form-check-input" type="checkbox" name="bpro[]"  value="Other"
+							  @if ($student->bpro == "Other") checked @endif>
 							  <label class="form-check-label" for="inlineCheckbox3" class="text-dark">Other</label>
 							</div>
 						</div>
-					</fieldset>
+					</fieldset>	
 				</div>
 				<div class="row">
 					<div class="form-group col-md-10">
@@ -156,8 +157,7 @@
     </div>
 @endsection
 @section('script')
-	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{asset('backend/summernote/summernote-bs4.min.js')}}">
 	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 	<script type="text/javascript" src="{{asset('backend/summernote/summer.js')}}"></script>
 @endsection

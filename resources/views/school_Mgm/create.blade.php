@@ -2,7 +2,7 @@
 @section('content')
 <div class="row">
  <div class="col-sm-8 offset-sm-2">
-  <h1 class="display-3">Create Your Course</h1>
+  <h1 class="display-3">Create Your Batch</h1>
   <div>
     @if ($errors->any())
     <div class="alert alert-danger">
@@ -16,13 +16,13 @@
     <form method="post" action="{{ route('courses.store') }}">
       @csrf
       <div class="form-group">    
-        <label for="name">Course Name:</label>
+        <label for="name">Batch Name:</label>
         <input type="text" class="form-control" name="name"/>
 
       </div>
 
             <div class="form-group">
-        <label for="discount">Course Type:</label>
+        <label for="discount">Batch Type:</label>
         <select class="form-control" name="type" >
           <option >Online</option>
           <option >Campus</option>
@@ -43,13 +43,17 @@
           <option >20</option>
         </select>
       </div>
+       <div class="form-group">
+        <label for="fees">Discount(amount):</label>
+        <input type="number" class="form-control" name="amount" min="0" value="0" />
+      </div>
       <div class="form-group">
-        <label for="startdate">Start Date:</label>
+        <label for="date">Start Date:</label>
         <input name="date" id="date" class="form-control" type="date">
       </div>
       <div class="form-group">
-        <label for="enddate">Ending Date:</label>
-        <input type="date" class="form-control" name="duration"/>
+        <label for="duration">End Date:</label>
+        <input type="date" id="date" class="form-control" name="duration"/>
       </div>
 
       <button type="submit" class="btn btn-primary">Add Course</button>

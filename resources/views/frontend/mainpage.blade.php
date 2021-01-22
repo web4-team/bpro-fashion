@@ -48,10 +48,11 @@
                 <div class="row">
                     <div class="col-12">
                         <a href="#" class="text-white"><span class="mr-2 text-white icon-envelope-open-o"></span> <span
-                                class="d-none d-md-inline-block">info@bprofashionandartschool.com</span></a>
+                                class="d-none d-md-inline-block">bprofashionart@gmail.com</span></a>
                         <span class="mx-md-2 d-inline-block"></span>
                         <a href="#" class="text-white"><span class="mr-2 text-white icon-phone"></span> <span
                                 class="d-none d-md-inline-block">09 788 518075</span></a>
+                                <a href="{{ route('login') }}" class="text-white"> <span class="log-btn">Login</span></a>
 
 
                         <div class="float-right">
@@ -59,8 +60,8 @@
                             <a href="{{ route('login') }}" class="text-white"><span
                                     class="d-none d-md-inline-block">{{ __('Login') }}</span></a>
                             <span class="mx-md-2 d-inline-block"></span>
-                            <a href="#" class="text-white"><span
-                                    class="d-none d-md-inline-block">Register</span></a>
+                            {{-- <a href="#" class="text-white"><span
+                                    class="d-none d-md-inline-block">Register</span></a> --}}
 
                         </div>
 
@@ -94,7 +95,7 @@
 
                     
                         <div class="site-logo" style="position:relative;left:28%" >
-                             <a href="{{ url('/') }}" class="text-black"><span class="text-primary"><img style="width:60px;height:auto;" src="{{ asset ('img/logo/artbotlogo.png')}}"></a>
+                             <a href="{{ url('/') }}" class="text-black"><span class="text-primary"><img class="artbotlogo" style="width:60px;height:auto;" src="{{ asset ('img/logo/artbotlogo.png')}}"></a>
                         </div>
                     
 
@@ -159,14 +160,12 @@
 
 
                         <div class="col-lg-5 ml-auto p-lg-5 mt-4 mt-lg-0" data-aos="fade-left" data-aos-delay="">
+                            <br><br><br><br><br><br>
                             <h2 class="mb-3 text-black">About us</h2>
-                            <p>B-Pro is one of the Fashion School in Myanmar . Whether you are interested in Fashion Design , Styling , Pattern Making or Fashion Marketing , we provide you to fit your Passion .</p>
+                            <p style="text-align:justify;">B-Pro is one of the Fashion School in Myanmar. Whether you are interested in Fashion Design, Styling, Pattern Making or Fashion Marketing, we provide you to fit your Passion.</p>
 
                             <ul class="ul-check primary list-unstyled mt-5">
-                                <li>Lorem ipsum dolor.</li>
-                                <li>Quod, amet. Provident.</li>
-                                <li>Quo, adipisci, quis.</li>
-                                <li>Cumque perspiciatis, blanditiis?</li>
+                              <br><br>
                             </ul>
 
 
@@ -190,19 +189,14 @@
 
                         <div class="col-lg-5 mr-auto p-lg-5 mt-4 mt-lg-0 order-lg-1" data-aos="fade-right"
                             data-aos-delay="">
+                            <br><br><br><br><br>
                             <h2 class="mb-3 text-black">ArtBot Myanmar</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus id dignissimos nemo
-                                minus perspiciatis ullam itaque voluptas iure vero, nesciunt unde odit aspernatur
-                                distinctio, maiores facere officiis. Cum, esse, iusto?</p>
+                            <p style="text-align:justify;">ArtBot is one of the Art & Craft School in Myanmar. We create opportunies for youth to study art and craft in Myanmar by international standard. We focus on career and offer high quality external experiences for students.</p>
 
-                            <p>Minus perspiciatis ullam itaque voluptas iure vero, nesciunt unde odit aspernatur
-                                distinctio, maiores facere officiis. Cum, esse, iusto?</p>
+                            <p style="text-align:justify;">We support our students to win oppotunies in the creative industries. After certification in ArtBot, students can start a small business in related carrier.</p>
 
                             <ul class="ul-check primary list-unstyled mt-5">
-                                <li>Lorem ipsum dolor.</li>
-                                <li>Quod, amet. Provident.</li>
-                                <li>Quo, adipisci, quis.</li>
-                                <li>Cumque perspiciatis, blanditiis?</li>
+                               <br><br>
                             </ul>
 
                         </div>
@@ -286,49 +280,12 @@
                     <div class="col-12 text-center mb-5" data-aos="fade-up" data-aos-delay="">
                         <div class="block-heading-1">
                            
-                            <h2>Contact us</h2>
+                            <h2>Our Location</h2>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-6 mb-5" data-aos="fade-up" data-aos-delay="100">
-                        <form action="#" method="post">
-                            <div class="form-group row">
-                                <div class="col-md-6 mb-4 mb-lg-0">
-                                    <input type="text" class="form-control" placeholder="First name">
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="Last name">
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <div class="col-md-12">
-                                    <input type="text" class="form-control" placeholder="Email address">
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <div class="col-md-12">
-                                    <textarea name="" id="" class="form-control" placeholder="Write your message."
-                                        cols="30" rows="10"></textarea>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-md-6 ml-auto">
-                                    <input type="submit" class="btn btn-block btn-primary text-white py-3 px-5"
-                                        value="Send Message">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="col-lg-4 ml-auto" data-aos="fade-up" data-aos-delay="200">
-                        <h2 class="text-black">Need to know more on details. Get In Touch</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, distinctio! Harum
-                            quibusdam nisi, illum nulla aspernatur aut quidem aperiam, quae non tempora recusandae
-                            voluptatibus fugit impedit.</p>
-                        {{-- <p><a href="#" class="btn btn-primary text-white">Get Started</a></p> --}}
-                    </div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3818.8103100221824!2d96.12637361434612!3d16.83576392291184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c1950d7f6de271%3A0xc4e0f5728a8ff79c!2sB-Pro%20Fashion%20Design%20School!5e0!3m2!1sen!2smm!4v1610395528275!5m2!1sen!2smm" width="100%" height="450" frameborder="0" style="border:0;border-radius:5px;box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                 </div>
             </div>
         </div>
@@ -337,46 +294,39 @@
         <footer class="site-footer">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <h2 class="footer-heading mb-4">About Us</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque facere laudantium
-                                    magnam voluptatum autem. Amet aliquid nesciunt veritatis aliquam.</p>
-                            </div>
-                            <div class="col-md-4 ml-auto">
-                                <h2 class="footer-heading mb-4">Features</h2>
-                                <ul class="list-unstyled">
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="#">Press Releases</a></li>
-                                    <li><a href="#">Testimonials</a></li>
-                                    <li><a href="#">Terms of Service</a></li>
-                                    <li><a href="#">Privacy</a></li>
-                                    <li><a href="#">Contact Us</a></li>
+                    <div class="col-md-4 ml-auto">
+                   
+                          
+                                <h2 class="footer-heading mb-4">Contacts</h2>
+                                <ul style="list-style-type:none;color:#fff;">
+                                <li>Bpro Fashion & Art School</li>
+                                <li style="font-size: 13px;">No. (6C/6E), Kan Road Condo, Hlaing Township,
+                                    Yangon, Myanmar</li>
+                                <li style="font-size: 13px;"><span><i class="fa fa-mobile"></i></span>09 788518075</li>
+                                <li style="font-size: 13px;">bprofashionart@gmail.com</li>
                                 </ul>
-                            </div>
+                        
 
-                        </div>
+                      
+                    </div>
+                    <div class="col-md-4 ml-auto">
+                        <h2 class="footer-heading mb-4"><br></h2>
+                        <ul style="list-style-type:none;color:#fff;">
+                            <li>ArtBot Myanmar Art Academy</li>
+                            <li style="font-size: 13px;">No. (6C/6E), Kan Road Condo, Hlaing Township,
+                                Yangon, Myanmar</li>
+                            <li style="font-size: 13px;">09 788518075</li>
+                            <li style="font-size: 13px;">artbotmyanmar@gmail.com</li>
+                            </ul>
+                        
                     </div>
                     <div class="col-md-4 ml-auto">
 
-                        <div class="mb-5">
-                            <h2 class="footer-heading mb-4">Subscribe to Newsletter</h2>
-                            <form action="#" method="post" class="footer-suscribe-form">
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control border-secondary text-white bg-transparent"
-                                        placeholder="Enter Email" aria-label="Enter Email"
-                                        aria-describedby="button-addon2">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary text-white" type="button"
-                                            id="button-addon2">Subscribe</button>
-                                    </div>
-                                </div>
-                        </div>
+             
 
 
                         <h2 class="footer-heading mb-4">Follow Us</h2>
-                        <a href="#about-section" class="smoothscroll pl-0 pr-3"><span class="icon-facebook"></span></a>
+                        <a href="https://www.facebook.com/bprofashionandartschool" target=”_blank” class="smoothscroll pl-0 pr-3"><span class="icon-facebook"></span></a>
                         <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
                         <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
                         <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>

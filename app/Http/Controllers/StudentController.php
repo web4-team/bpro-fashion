@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Student;
 use App\Course;
@@ -21,15 +22,18 @@ class StudentController extends Controller
 
     
     public function index(){
-    	$students = Student::all();
-        return view('students.index',compact('students')); //compact('$students')
+        $students = Student::all();
+        $batches = Batch::all();
+        $courses = Course::all();
+        return view('students.index',compact('students','batches','courses')); //compact('$students')
     }
 
     public function downloadPDF($id) {
         $student = Student::find($id);
         $course = Course::all();
-        $pdf = PDF::loadView('students.certificate', compact('student','course'));
-        // $customPaper = array(0,25,0,50);
+        $batches = Batch::all();
+        $pdf = PDF::loadView('students.certificate', compact('student','course','batches'));
+        // $customPaper = array(0,0,650,450);
         $pdf->setPaper('letter', 'landscape');
         return $pdf->download($student->name.".pdf");
     }
@@ -70,8 +74,8 @@ class StudentController extends Controller
             "address" => 'required',
             "bpro" => 'required',
         ]);
-        
-        $student = new Student;
+       
+       $student = new Student;
         $student->code = request('code');
         $student->course_id = request('course');
         $student->batch_id = request('batch');
@@ -85,7 +89,14 @@ class StudentController extends Controller
         $student->address = request('address');
         $student->objective = request('objective');
         $student->comment = request('comment');
-        $student->bpro = implode(",", request('bpro'));
+        
+        $student->note = request('note');
+        $student->bpro=implode(',', request('bpro'));
+   
+        // $student['bpro'] = $request('bpro');
+        // Student::create($student);
+        
+        
 
         $student->save();
         //dd($request);
@@ -149,13 +160,8 @@ class StudentController extends Controller
         $student->bpro = implode(",", request('bpro'));
         $student->note = strip_tags(request('note'));
 
-        // $request->merge([
-        //     'bpro' => implode((array) $request->get('bpro'))
-        // ]);
-        // $student['bpro'] = $request->get('bpro');
         $student->save();
-        //dd($request);
-        //Return redirect // 5
+      
         return redirect()->route('students.index')->with('success','Student update successfully');
     }
 

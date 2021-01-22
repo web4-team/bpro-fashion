@@ -1,4 +1,3 @@
-// Call the dataTables jQuery plugin
 $(document).ready(function() {
     $('#dataTable').DataTable( {
         dom: 'Bfrtip',
@@ -45,3 +44,4 @@ $(document).ready(function() {
 // buttons: [
         //     'colvis','excel', 'pdf', 'print'
         // ]
+

@@ -17,11 +17,11 @@
       @csrf
       
       <div class="form-group">    
-        <label for="name">Batch Name:</label>
+        <label for="name">Course Name:</label>
         <input type="text" class="form-control" name="name" />
       </div>
             <div class="form-group">    
-        <label for="name">Course Name</label>
+        <label for="name">Batch Type</label>
         
         <select class="form-control" name="course">
           <optgroup label="Choose Course">

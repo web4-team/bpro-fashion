@@ -3,9 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Department;
 
 class DepartmentsController extends Controller
 {
+
+     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +25,8 @@ class DepartmentsController extends Controller
      */
     public function index()
     {
-        //
+        $departments = Department::all();
+        return view('sys_mg.departments.index')->with('departments', $departments);
     }
 
     /**
@@ -23,7 +36,7 @@ class DepartmentsController extends Controller
      */
     public function create()
     {
-        //
+        return view('sys_mg.departments.create');
     }
 
     /**
@@ -34,7 +47,16 @@ class DepartmentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $department = new Department();
+        $department->dept_name = $request->input('dept_name');
+       
+        if($department->save()){
+            $request->session()->flash('success', 'New Department has been created');
+        }else{
+            $request->session()->flash('error', 'There was an error Creating the Department');
+        }
+
+        return redirect('/departments');
     }
 
     /**
@@ -56,7 +78,8 @@ class DepartmentsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $department = Department::find($id);
+        return view('sys_mg.departments.edit')->with('department', $department);
     }
 
     /**
@@ -68,7 +91,16 @@ class DepartmentsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $department = Department::find($id);
+        $department->dept_name = $request->input('dept_name');
+       
+        if($department->save()){
+            $request->session()->flash('success', 'Selected Department has been updated');
+        }else{
+            $request->session()->flash('error', 'There was an error updating the Department');
+        }
+
+        return redirect('/departments');
     }
 
     /**
@@ -79,6 +111,8 @@ class DepartmentsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $department = Department::find($id);
+        $department->delete();
+        return redirect('/departments')->with('info', 'Selected Department has been deleted!');
     }
 }

@@ -97,7 +97,7 @@ class DivisionsController extends Controller
         if($division->save()){
             $request->session()->flash('success', 'Selected Division has been updated');
         }else{
-            $request->session()->flash('error', 'There was an error updating the user');
+            $request->session()->flash('error', 'There was an error updating the Division');
         }
 
         return redirect('/divisions');
