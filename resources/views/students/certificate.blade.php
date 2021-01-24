@@ -5,16 +5,23 @@
     <title></title>
     <style>
         body{
-          background-image: url(img/certificate2.jpg);
+          background-image: url(img/certificate.jpg);
           background-position: center;
           background-size: cover;
           background-repeat: no-repeat;
           margin: -5%;
         }
+        .p0{
+          margin-top: 230px;
+          margin-left: 170px;
+          font-size: 18;
+          letter-spacing: 1;          
+        }
         h1{
-          margin-top: 260px;
+         
           margin-left: 205px;
         }
+       
         .p1{
           
           margin-left: 170px;
@@ -31,8 +38,8 @@
           font-style: italic;          
         }
         .p3{
-          margin-top: 147px;
-          margin-left: 190px;
+          margin-top: 123px;
+          margin-left: 210px;
           font-size: 16;          
         }
     </style>
@@ -40,6 +47,7 @@
   <body>
 
     <div>
+      <p class="p0">PROUDLY PRESENTED TO</p>
       <h1>{{$student->name}}</h1>
       <p class="p1">has successfully completed</p>
       <h2>
