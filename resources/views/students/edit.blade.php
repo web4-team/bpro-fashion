@@ -53,7 +53,7 @@
 				    <input type="code" class="form-control text-dark" name="code" value="{{$student->code}}">
 					</div>
 					<div class="form-group col-md-5">
-						<label for="batch" class="text-dark"><strong>Choose Batch</strong></label>
+						<label for="batch" class="text-dark"><strong>Choose Course</strong></label>
 						<select name="batch" value="{{$student->batch}}" class="custom-select custom-select-md text-dark">
 						  	@foreach($batch as $row)
 						  		<option value="{{$row->id}}" @if($student->batch_id==$row->id) {{'selected'}}  @endif>{{$row->name}}
@@ -64,7 +64,7 @@
 	        	</div>
 	        	<div class="row">
 	        		<div class="form-group col-md-5">
-					<label for="class" class="text-dark"><strong>Choose Course</strong></label>
+					<label for="class" class="text-dark"><strong>Choose Batch</strong></label>
 					<select name="course" value="" class="custom-select custom-select-md text-dark">
 					    @foreach($course as $row)
 						<option value="{{$row->id}}" @if($student->course_id==$row->id) {{'selected'}}  @endif>{{$row->name}}</option>
