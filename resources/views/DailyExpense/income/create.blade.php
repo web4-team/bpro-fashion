@@ -47,6 +47,13 @@
                                     
                                 </div>
                             </div>
+                              <div class="form-group">
+                                <div class="form-label-group">
+                                    <label for="expense_title">Description</label>
+                                    <input type="text" id="expense_title" class="form-control" placeholder="Income Description" required="required" autofocus="autofocus" name="income_description">
+                                    
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <div class="form-label-group">
                                     <label for="expense_amount">Amount</label>

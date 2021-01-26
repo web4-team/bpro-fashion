@@ -15,29 +15,22 @@
       <div class="form-group">    
         <label for="name">Item Name:</label>
         <input type="text" class="form-control" name="name" />
-      </div>
-     
-      <div class="form-group">    
-        <label for="name">Per Price:</label>
-        <input type="number" class="form-control" name="price" />
-      </div>
+      </div>   
+      
       
       <div class="form-group">    
         <label for="name">Quantity:</label>
         <input type="number" class="form-control" name="quantity" min="0" />
       </div>
+      
       <div class="form-group">    
-        <label for="name">Customer Name:</label>
-        <input type="text" class="form-control" name="customer" />
+        <label for="name">Total</label>
+        <input type="number" class="form-control" name="total" />
       </div>
       <div class="form-group">    
-        <label for="name">Paid Amount</label>
-        <input type="number" class="form-control" name="paid" />
+        <label for="name">Retail Price:</label>
+        <input type="number" class="form-control" name="price" />
       </div>
-      <div class="form-group">
-            <label for="date" class="text-dark">Due Date</label>
-            <input type="date" class="form-control" name="due_date">
-        </div>
         <div class="form-group">
           <label for="remark" class="text-dark">Remark</label>
           <textarea class="form-control text-dark" name="remark" rows="3"></textarea>

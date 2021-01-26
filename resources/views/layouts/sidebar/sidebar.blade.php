@@ -42,7 +42,7 @@
           <a class="collapse-item" href="{{url('/courses')}}">Batch</a>
           <a class="collapse-item" href="{{url('/batch')}}">Course</a>
           <a class="collapse-item" href="{{url('/item')}}">Item</a>
-          <a class="collapse-item" href="{{url('/summary')}}">Income/Expense</a>
+          <a class="collapse-item" href="{{url('/income')}}">Income/Expense</a>
         </div>
       </div>
     </li>

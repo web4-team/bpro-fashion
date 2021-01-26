@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Session;
 use App\Expense;
+use App\Income;
 use Illuminate\Http\Request;
 
 class ExpenseController extends Controller
@@ -14,7 +15,17 @@ class ExpenseController extends Controller
      */
     public function index()
     {
-        //
+    // $incomes=Income::find();
+    // $expenses=Expense::all();
+    // return view ('DailyExpense.expense.index',compact('incomes','expenses'));
+    }
+
+    public function expenseIndex($id)
+    {
+    $incomes=Income::find($id);
+    $expenses=Expense::all();
+    $sum_expense =Expense::all()->where('income_id',$id)->sum('amount');
+    return view ('DailyExpense.expense.index',compact('incomes','expenses','sum_expense'));
     }
 
     /**
@@ -22,9 +33,10 @@ class ExpenseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        return view ('DailyExpense.expense.create');
+        $income = Income::findOrFail($id);
+        return view ('DailyExpense.expense.create',compact('income'));
     }
 
     /**
@@ -33,7 +45,7 @@ class ExpenseController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$id)
     {
         $request-> validate ([
             'expense_category'=>'required',
@@ -41,12 +53,15 @@ class ExpenseController extends Controller
         ]);
         $expense= new Expense([
             'category'=>$request->get('expense_category'),
+            'description'=>$request->get('expense_description'),
             'amount'=>$request->get('expense_amount'),
-            'date'=>$request->get('expense_date')
+            'date'=>$request->get('expense_date'),
+            'income_id'=>$id,
         ]);
         $expense->save();
         
-        return redirect('/summary')->with('success', 'Expense Successfully Added!');
+        Session::flash('success', 'Expense Created');
+        return redirect()->route('expenses.index',['id'=>$id]);
     }
 
     /**
@@ -66,9 +81,10 @@ class ExpenseController extends Controller
      * @param  \App\Expense  $expense
      * @return \Illuminate\Http\Response
      */
-    public function edit(Expense $expense)
+    public function edit($id)
     {
-        //
+        $exp = Expense::findOrFail($id);
+        return view('DailyExpense.expense.edit')->with('exp',$exp);
     }
 
     /**
@@ -78,9 +94,25 @@ class ExpenseController extends Controller
      * @param  \App\Expense  $expense
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Expense $expense)
+    public function update(Request $request, $id)
     {
-        //
+             $this->validate($request,[
+          'date'=> 'required',
+    ]);
+   
+        
+        $expense = Expense::findOrFail($id);
+       $expense->category = $request->get('expense_category');
+         $expense->description = $request->get('expense_description');
+         $expense->amount = $request->get('expense_amount');
+         $expense->date = $request->get('expense_date');
+       
+        $expense->save();       
+        
+
+        
+        Session::flash('success', 'Expense Updated.');
+        return redirect()->route('expenses.index',['id'=>$expense->income_id]);
     }
 
     /**

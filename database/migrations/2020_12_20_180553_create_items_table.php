@@ -18,12 +18,12 @@ class CreateItemsTable extends Migration
             $table->id();
             $table->date('date');
             $table->string('name');
-            $table->integer('price');
+            
             $table->integer('quantity');
-            $table->string('customer');
-            $table->integer('paid');
+            $table->string('total');
+            $table->integer('retail_price');
 
-            $table->date('due_date')->default(NULL);
+           
             $table->string('remark')->default(NULL);
 
             $table->timestamps();

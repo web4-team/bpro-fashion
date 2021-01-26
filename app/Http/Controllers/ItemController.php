@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Item;
+use App\Sale;
 use Illuminate\Http\Request;
 
 class ItemController extends Controller
@@ -15,6 +16,7 @@ class ItemController extends Controller
     public function index()
     {
         $items=Item::all();
+        
         return view('item.index', compact('items'));
     }
 
@@ -48,11 +50,10 @@ class ItemController extends Controller
         $item = new Item([
             'date'=>$request->get('date'),
             'name' => $request->get('name'),
-            'price'=>$request->get('price'),
+            
             'quantity'=>$request->get('quantity'),
-            'customer'=>$request->get('customer'),
-            'paid'=>$request->get('paid'),
-            'due_date'=>$request->get('due_date'),
+            'total'=>$request->get('total'),
+            'retail_price'=>$request->get('price'),
             'remark'=>$request->get('remark')
             
             
@@ -101,10 +102,12 @@ class ItemController extends Controller
         ]);
             
          $items = Item::find($id);
+         $items->date = $request->get('date');
             $items->name = $request->get('name');
-            $items->price = $request->get('price');
-            $items->stock_in = $request->get('stock_in');
-            $items->stock_out = $request->get('stock_out');
+            $items->quantity = $request->get('quantity');
+            $items->total = $request->get('total');
+            $items->retail_price = $request->get('price');
+            $items->remark = $request->get('remark');
               
             
         
