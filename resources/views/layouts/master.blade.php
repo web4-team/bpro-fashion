@@ -3,6 +3,8 @@
 
 <head>
   <meta charset="utf-8">
+
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -14,6 +16,8 @@
   <link href="{{URL::asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
   <link href="{{URL::asset('css/ruang-admin.min.css')}}" rel="stylesheet">
   <link href="{{URL::asset('css/custom.css')}}" rel="stylesheet">
+  @include('datatable.style')
+
   @yield('style')
 </head>
 
@@ -31,7 +35,8 @@
 
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
-         @include('partials.alerts')
+          @include('partials.alerts')
+         
           @yield('content')
         </div>
         <!---Container Fluid-->
@@ -53,7 +58,9 @@
   <script src="{{URL::asset('js/ruang-admin.min.js')}}"></script>
   <script src="{{URL::asset('vendor/chart.js/Chart.min.js')}}"></script>
   <script src="{{URL::asset('js/demo/chart-area-demo.js')}}"></script> 
-  @yield('script') 
+  
+  @yield('scripts') 
+  @include('datatable.script')
 </body>
 
 </html>

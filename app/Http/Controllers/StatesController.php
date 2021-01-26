@@ -3,9 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\State;
 
 class StatesController extends Controller
 {
+
+      /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +25,8 @@ class StatesController extends Controller
      */
     public function index()
     {
-        //
+        $states = State::all();
+        return view('sys_mg.states.index')->with('states', $states);
     }
 
     /**
@@ -23,7 +36,7 @@ class StatesController extends Controller
      */
     public function create()
     {
-        //
+        return view('sys_mg.states.create');
     }
 
     /**
@@ -34,7 +47,16 @@ class StatesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $state = new State();
+        $state->state_name = $request->input('state_name');
+       
+        if($state->save()){
+            $request->session()->flash('success', 'New State has been created');
+        }else{
+            $request->session()->flash('error', 'There was an error Creating the State');
+        }
+
+        return redirect('/states');
     }
 
     /**
@@ -56,7 +78,8 @@ class StatesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $state = State::find($id);
+        return view('sys_mg.states.edit')->with('state', $state);
     }
 
     /**
@@ -68,7 +91,16 @@ class StatesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $state = State::find($id);
+        $state->state_name = $request->input('state_name');
+       
+        if($state->save()){
+            $request->session()->flash('success', 'Selected State has been updated');
+        }else{
+            $request->session()->flash('error', 'There was an error updating the State');
+        }
+
+        return redirect('/states');
     }
 
     /**
@@ -79,6 +111,8 @@ class StatesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $state = State::find($id);
+        $state->delete();
+        return redirect('/states')->with('info', 'Selected State has been deleted!');
     }
 }

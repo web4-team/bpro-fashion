@@ -1,5 +1,9 @@
 @extends('layouts.master')
 @section('content')
+@section('style')
+	<link rel="stylesheet" href="{{asset('backend/summernote/summernote-bs4.min.css')}}" />
+	
+@endsection
 	<!-- Header -->
     <div class="header pb-6">
       <div class="container-fluid">
@@ -32,80 +36,128 @@
         </ul>
     </div>
 @endif
+
 	<div class="row">
-      	<div class="col-md-3"></div>
-        <form method="post" action="{{route('students.update',$student->id)}}"class="col-md-6 mb-4">
-        	@csrf
-        	@method('PUT')
-        	<div class="my-4">
-        		<h1 class="text-center text-dark">Update Form</h1>
-        	</div>
-        	<div class="form-group">
-				<label for="class" class="text-dark">Choose Course</label>
-				<select name="course" value="{{$student->course}}" class="custom-select custom-select-md text-dark">
-				  <option value="1">First Class</option>
-				  <option value="2">Second Class</option>
-				  <option value="3">Third Class</option>
-				</select>
-			</div>
-			<div class="form-group">
-  			    <label for="accept_date" class="text-dark">Accept Date</label>
-  			    <input type="date" class="form-control" name="accept_date" value="{{$student->accept_date}}">
-    		</div>
-        	<div class="form-group">
-  			    <label for="name" class="text-dark">Name</label>
-  			    <input type="text" class="form-control text-dark" name="name" value="{{$student->name}}">
-    		</div>
-			<div class="form-group">
-  			    <label for="dob" class="text-dark">Date of Birth</label>
-  			    <input type="date" class="form-control text-dark" name="dob" value="{{$student->dob}}">
-    		</div>
-    		<div class="form-group">
-  			    <label for="age" class="text-dark">Age</label>
-  			    <input type="number" class="form-control text-dark" name="age" value="{{$student->age}}">
-    		</div>			
-			<div class="form-group">
-			    <label for="phone" class="text-dark">Phone</label>
-			    <input type="number" class="form-control text-dark" name="phone" value="{{$student->phone}}">
-			</div>
-			<div class="form-group">
-			    <label for="email" class="text-dark">Email</label>
-			    <input type="text" class="form-control text-dark" name="email" value="{{$student->email}}">
-			</div>
-			<div class="form-group">
-			    <label for="education" class="text-dark">Education</label>
-			    <input type="text" class="form-control text-dark" name="education" value="{{$student->education}}">
-			</div>
-			<div class="form-group">
-			    <label for="address" class="text-dark">Address</label>
-			    <textarea class="form-control text-dark" name="address" value="" rows="2">{{$student->address}}</textarea>
-			</div>
-			<div class="form-group">
-			    <label for="objective" class="text-dark">Objective of join this class</label>
-			    <textarea class="form-control text-dark" name="objective" value="" rows="3">{{$student->objective}}</textarea>
-			</div>
-			<fieldset class="form-group">
-				<label for="bpro" class="text-dark">How do you Know B Pro</label>
-				<div class="col-sm-10">
-					<div class="form-check form-check-inline">
-					  <input class="form-check-input" type="checkbox" name="bpro" value="{{$student->bpro}}">
-					  <label class="form-check-label" for="inlineCheckbox1" class="text-dark">Facebook</label>
+      	<div class="col-md-2"></div>
+      		
+	        <form method="post" action="{{route('students.update',$student->id)}}"class="card-body mb-4">
+	        	@csrf
+	        	@method('PUT')
+	        	<div class="mb-4 py-3 d-flex flex-row">
+			      {{-- <h1 class="m-0 font-weight-bold text-primary text-center">Update Form</h1> --}}
+			    </div>
+	        	
+	        	<div class="row">
+	        		<div class="form-group col-md-5">
+				    <label for="code" class="text-dark"><strong>Student Code</strong></label>
+				    <input type="code" class="form-control text-dark" name="code" value="{{$student->code}}">
 					</div>
-					<div class="form-check form-check-inline">
-					  <input class="form-check-input" type="checkbox" name="bpro" value="{{$student->bpro}}">
-					  <label class="form-check-label" for="inlineCheckbox2" class="text-dark">Friends</label>
+					<div class="form-group col-md-5">
+						<label for="batch" class="text-dark"><strong>Choose Course</strong></label>
+						<select name="batch" value="{{$student->batch}}" class="custom-select custom-select-md text-dark">
+						  	@foreach($batch as $row)
+						  		<option value="{{$row->id}}" @if($student->batch_id==$row->id) {{'selected'}}  @endif>{{$row->name}}
+						  		</option>
+						  	@endforeach
+						</select>
 					</div>
-					<div class="form-check form-check-inline">
-					  <input class="form-check-input" type="checkbox" name="bpro" value="{{$student->bpro}}">
-					  <label class="form-check-label" for="inlineCheckbox3" class="text-dark">Other</label>
+	        	</div>
+	        	<div class="row">
+	        		<div class="form-group col-md-5">
+					<label for="class" class="text-dark"><strong>Choose Batch</strong></label>
+					<select name="course" value="" class="custom-select custom-select-md text-dark">
+					    @foreach($course as $row)
+						<option value="{{$row->id}}" @if($student->course_id==$row->id) {{'selected'}}  @endif>{{$row->name}}</option>
+						@endforeach
+					</select>
+					</div>
+		        	
+					<div class="form-group col-md-5">
+		  			    <label for="accept_date" class="text-dark"><strong>Accept Date</strong></label>
+		  			    <input type="date" class="form-control" name="accept_date" value="{{$student->accept_date}}">
+		    		</div>
+	        	</div>
+	        	<div class="row">
+	        		<div class="form-group col-md-5">
+	  			    <label for="name" class="text-dark"><strong>Name</strong></label>
+	  			    <input type="text" class="form-control text-dark" name="name" value="{{$student->name}}">
+		    		</div>
+					<div class="form-group col-md-5">
+		  			    <label for="dob" class="text-dark"><strong>Date of Birth</strong></label>
+		  			    <input type="date" class="form-control text-dark" name="dob" value="{{$student->dob}}">
+		    		</div>
+	        	</div>
+	    		<div class="row">
+	    			<div class="form-group col-md-5">
+	  			    <label for="age" class="text-dark"><strong>Age</strong></label>
+	  			    <input type="number" class="form-control text-dark" name="age" value="{{$student->age}}">
+		    		</div>			
+					<div class="form-group col-md-5">
+					    <label for="phone" class="text-dark"><strong>Phone No</strong></label>
+					    <input type="number" class="form-control text-dark" name="phone" value="{{$student->phone}}">
+					</div>
+	    		</div>
+				<div class="row">
+					<div class="form-group col-md-5">
+				    <label for="email" class="text-dark"><strong>Email</strong></label>
+				    <input type="email" class="form-control text-dark" name="email" value="{{$student->email}}">
+					</div>
+					<div class="form-group col-md-5">
+					    <label for="education" class="text-dark"><strong>Education</strong></label>
+					    <input type="text" class="form-control text-dark" name="education" value="{{$student->education}}">
 					</div>
 				</div>
-			</fieldset>	    
-	  	    <div class="form-group row">
-	  		    <div class="col-sm-10">
-	  		      <button type="submit" class="btn btn-primary">Update</button>
-	  		    </div>
-	  	    </div>
-	    </form>
+				<div class="row">
+					<div class="form-group col-md-5">
+				    <label for="address" class="text-dark"><strong>Address</strong></label>
+				    <textarea class="form-control text-dark" name="address" value="" rows="2">{{$student->address}}</textarea>
+					</div>
+					<div class="form-group col-md-5">
+					    <label for="objective" class="text-dark"><strong>Objective of join this class</strong></label>
+					    <textarea class="form-control text-dark" name="objective" value="" rows="2">{{$student->objective}}</textarea>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-md-5">
+				    <label for="comment" class="text-dark"><strong>Comment Box</strong></label>
+				    <textarea class="form-control text-dark" name="comment" value="" rows="3">{{$student->comment}}</textarea>
+					</div>
+					<fieldset class="form-group">
+						<label for="bpro" class="text-dark">How do you Know B Pro</label>
+						<div class="col-sm-10">
+							<div class="form-check form-check-inline">
+							  <input class="form-check-input" type="checkbox" name="bpro[]"  value="Facebook" @if ($student->bpro== "Facebook") checked @endif>
+							  <label class="form-check-label" for="inlineCheckbox1" class="text-dark">Facebook</label>
+							</div>
+							<div class="form-check form-check-inline">
+							  <input class="form-check-input" type="checkbox" name="bpro[]"  value="Friends" @if ($student->bpro== "Friends") checked @endif>
+							  <label class="form-check-label" for="inlineCheckbox2" class="text-dark">Friends</label>
+							</div>
+							<div class="form-check form-check-inline">
+							  <input class="form-check-input" type="checkbox" name="bpro[]"  value="Other"
+							  @if ($student->bpro == "Other") checked @endif>
+							  <label class="form-check-label" for="inlineCheckbox3" class="text-dark">Other</label>
+							</div>
+						</div>
+					</fieldset>	
+				</div>
+				<div class="row">
+					<div class="form-group col-md-10">
+					    <label for="note" class="text-dark"><strong>Addition Information</strong></label>
+					    <textarea class="form-control text-dark summernote" name="note" rows="3">{{$student->note}}</textarea>
+					</div>
+				</div>	    
+		  	    <div class="form-group row">
+		  		    <div class="col-sm-10">
+		  		      <button type="submit" class="btn btn-primary">Update Student</button>
+		  		    </div>
+		  	    </div>
+		    </form>
+
     </div>
+@endsection
+@section('script')
+<script type="text/javascript" src="{{asset('backend/summernote/summernote-bs4.min.js')}}">
+	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+	<script type="text/javascript" src="{{asset('backend/summernote/summer.js')}}"></script>
 @endsection

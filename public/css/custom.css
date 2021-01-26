@@ -1,5 +1,5 @@
 .bg-navbar {
-    background-color: #F66000 !important;
+    background-color: #f66000 !important;
 }
 
 .sidebar-light .sidebar-brand {
@@ -7,13 +7,58 @@
     background-color: #ffffff;
 }
 
-.card .table td, .card .table th {
+.card .table td,
+.card .table th {
     padding-right: 1.5rem;
     padding-left: 1.5rem;
     font-size: 14px;
 }
 
 .float-left {
-    float: left!important;
+    float: left !important;
     margin-left: 3px;
 }
+
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_processing,
+.dataTables_wrapper .dataTables_paginate {
+    color: #333;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.emp-img{
+    width: 50px;
+    height: 50px;
+}
+
+.emp-img-big{
+    height: 180px;
+    width: 180px;
+    padding: 15px;
+}
+
+.card-panel{
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  .pl-15{
+    padding-left:15px !important;
+}
+
+.mt-20{
+    margin-top:20px !important;
+}
+
+
+/*********************
+  Media Query Classes
+**********************/
+@media only screen and (max-width: 600px) {
+    .hide-on-small-only, .hide-on-small-and-down {
+      display: none !important;
+    }
+  }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Course;
+use App\Batch;
+
 
 class CourseController extends Controller
 {
@@ -35,7 +37,8 @@ class CourseController extends Controller
      */
      public function create()
     {
-        return view('school_Mgm.create');
+         $batches=Batch::all();
+        return view('school_Mgm.create',compact('batches'));
     }
 
     /**
@@ -48,20 +51,25 @@ class CourseController extends Controller
     {
         $request->validate([
             'name'=>'required',
-            'fees'=>'required'
+            'fees'=>'required',
+            'date'=>'required',
+            'duration'=>'required'
             
         ]);
 
         $course = new Course([
             'name' => $request->get('name'),
-            'batch' => $request->get('batch'),
+            'batch_id' => $request->get('batch_id'),
+            'type' => $request->get('type'),
             'fees' => $request->get('fees'),
             'discount' => $request->get('discount'),
+            'amount' => $request->get('amount'),
             'date'=>$request->get('date'),
             'duration' => $request->get('duration')
             
         ]);
         $course->save();
+        //dd($request);
         return redirect('/courses')->with('success', 'New Course Successfully Created!');
     }
 
@@ -99,17 +107,26 @@ class CourseController extends Controller
     {
         $request->validate([
             'name'=>'required',
-            'fees'=>'required'
+            'fees'=>'required',
+            'date'=>'required',
+            'duration'=>'required'
             
         ]);
-
+            
          $course = Course::find($id);
             $course->name = $request->get('name');
-            $course->batch = $request->get('batch');            
+            
+            $course->type = $request->get('type');             
             $course->fees = $request->get('fees');
             $course->discount = $request->get('discount');
+            $course->amount = $request->get('amount');
+
             $course->date = $request->get('date');
             $course->duration = $request->get('duration');
+           
+            
+
+            
             
         
         $course->save();

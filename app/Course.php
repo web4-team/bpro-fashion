@@ -8,11 +8,20 @@ class Course extends Model
 {
         protected $fillable = [
         'name',
-        'batch',
+        'batch_id',
+        'type',
         'fees',
         'discount',
+        'amount',
         'date',
         'duration'
+        
               
     ];
+public function batch()
+  {
+    return $this->belongsTo('App\Batch');
+  }
+
 }
+
