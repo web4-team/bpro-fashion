@@ -50,7 +50,7 @@
                         <a href="#" class="text-white"><span class="mr-2 text-white icon-envelope-open-o"></span> <span
                                 class="d-none d-md-inline-block">bprofashionart@gmail.com</span></a>
                         <span class="mx-md-2 d-inline-block"></span>
-                        <a href="#" class="text-white"><span class="mr-2 text-white icon-phone"></span> <span
+                        <a href="tel:+959788 518075" class="text-white"><span class="mr-2 text-white icon-phone"></span> <span
                                 class="d-none d-md-inline-block">09 788 518075</span></a>
                                 <a href="{{ route('login') }}" class="text-white"> <span class="log-btn">Login</span></a>
 
