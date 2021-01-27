@@ -160,7 +160,7 @@
 
     </div>
 @endsection
-@section('script')
+@section('scripts')
 <script type="text/javascript" src="{{asset('backend/summernote/summernote-bs4.min.js')}}">
 </script>
 

@@ -1,6 +1,6 @@
 @extends('layouts.master')	
 @section('content')
-
+@include('datatable.style')
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
   <h1 class="h3 mb-0 text-gray-800">Employee Management</h1>
   <ol class="breadcrumb">
@@ -70,7 +70,7 @@
 @endsection
 
 @section('scripts')
-
+@include('datatable.script')
   <!-- Page level custom scripts -->
   <script src="{{ asset('backend/js/demo/emp-demo.js') }}"></script>
   

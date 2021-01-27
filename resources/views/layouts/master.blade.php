@@ -16,7 +16,7 @@
   <link href="{{URL::asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
   <link href="{{URL::asset('css/ruang-admin.min.css')}}" rel="stylesheet">
   <link href="{{URL::asset('css/custom.css')}}" rel="stylesheet">
-  @include('datatable.style')
+
 
   @yield('style')
 </head>
@@ -60,7 +60,7 @@
   <script src="{{URL::asset('js/demo/chart-area-demo.js')}}"></script> 
   
   @yield('scripts') 
-  @include('datatable.script')
+  
 </body>
 
 </html>

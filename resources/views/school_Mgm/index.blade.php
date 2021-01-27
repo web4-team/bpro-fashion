@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+@include('datatable.style')
 <!-- <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
 <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet"> -->
 
@@ -93,7 +94,7 @@
 @endsection
 
 @section('scripts')
-
+@include('datatable.script')
   <!-- Page level custom scripts -->
   <script src="{{ asset('backend/js/demo/course-demo.js') }}"></script>
   
