@@ -48,7 +48,7 @@
 					    </div>
 					</div>
 					<div class="form-group float-right col-md-5">
-						<label for="class" class="text-dark"><strong>Choose Batch</strong></label>
+						<label for="class" class="text-dark"><strong>Choose Course</strong></label>
 							<div class="col-md-12">
 								<select name="batch" class="custom-select custom-select-md text-dark @error('batch') is-invalid @enderror" value="{{old('batch')}}">
 							  	@foreach($batch as $row)
@@ -66,7 +66,7 @@
 	        	</div>
 	        	<div class="row">
 	        		<div class="form-group col-md-5">
-					<label for="class" class="text-dark"><strong>Choose Course</strong></label>
+					<label for="class" class="text-dark"><strong>Choose Batch</strong></label>
 						<div class="col-md-12">
 							<select name="course" class="custom-select custom-select-md text-dark @error('course') is-invalid @enderror" value="{{old('course')}}">
 						  	@foreach($course as $row)

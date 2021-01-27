@@ -26,7 +26,7 @@ class SaleController extends Controller
         return view('sale.create')->with('item',$item);
     }
 
-        public function downloadPDF($id) {
+    public function downloadSale($id) {
         $item = Item::find($id);
         $sale=Sale::all();
         $sale_sum =Sale::all()->where('item_id',$id)->sum('stock_out');
@@ -70,7 +70,7 @@ class SaleController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-      public function saleIndex($id){
+    public function saleIndex($id){
         $item = Item::findOrFail($id);
         $sale_sum =Sale::all()->where('item_id',$id)->sum('stock_out');
         // dd($sale_sum);
