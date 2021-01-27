@@ -16,6 +16,7 @@ class ItemController extends Controller
     public function index()
     {
         $items=Item::all();
+        
         return view('item.index', compact('items'));
     }
 
@@ -45,15 +46,14 @@ class ItemController extends Controller
                         
         ]);
 
-        $items = new Item;
-        
-        $items->name = request('name');
-        $items->to_qty = request('to_qty');
-        $items->to_price = request('to_price');
-        $items->date = request('date');
-        $items->remark = request('remark');
+        $item = new Item([
+            'date'=>$request->get('date'),
+            'name' => $request->get('name'),
             
-            
+            'quantity'=>$request->get('quantity'),
+            'total'=>$request->get('total'),
+            'retail_price'=>$request->get('price'),
+            'remark'=>$request->get('remark')                        
         
         $items->save();
         //dd($request);
@@ -102,13 +102,13 @@ class ItemController extends Controller
         ]);
             
          $items = Item::find($id);
+         $items->date = $request->get('date');
             $items->name = $request->get('name');
-            $items->to_qty = $request->get('to_qty');
-            $items->to_price = $request->get('to_price');
-            $items->date = $request->get('date');
+            $items->quantity = $request->get('quantity');
+            $items->total = $request->get('total');
+            $items->retail_price = $request->get('price');
             $items->remark = $request->get('remark');
-              
-            
+                          
         
         $items->save();
         return redirect('/item')->with('success', 'Your items are successfully Updated!');

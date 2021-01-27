@@ -1,4 +1,5 @@
 @extends('layouts.master')
+<<<<<<< HEAD
 @section('content')
 @section('style')	
 	{{-- for summernote --}}
@@ -6,7 +7,17 @@
   {{-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet"> --}}
   {{-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet"> --}}
 
+=======
+@section('style')
+	<link rel="stylesheet" href="{{asset('backend/summernote/summernote-bs4.min.css')}}" />
+
+<!-- 	  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+	  <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet"> -->
+	
+>>>>>>> ppz
 @endsection
+@section('content')
+
 	<!-- Header -->
     <div class="header pb-6">
       <div class="container-fluid">
@@ -56,7 +67,7 @@
 				    <input type="code" class="form-control text-dark" name="code" value="{{$student->code}}">
 					</div>
 					<div class="form-group col-md-5">
-						<label for="batch" class="text-dark"><strong>Choose Batch</strong></label>
+						<label for="batch" class="text-dark"><strong>Choose Course</strong></label>
 						<select name="batch" value="{{$student->batch}}" class="custom-select custom-select-md text-dark">
 						  	@foreach($batch as $row)
 						  		<option value="{{$row->id}}" @if($student->batch_id==$row->id) {{'selected'}}  @endif>{{$row->name}}
@@ -67,7 +78,7 @@
 	        	</div>
 	        	<div class="row">
 	        		<div class="form-group col-md-5">
-					<label for="class" class="text-dark"><strong>Choose Course</strong></label>
+					<label for="class" class="text-dark"><strong>Choose Batch</strong></label>
 					<select name="course" value="" class="custom-select custom-select-md text-dark">
 					    @foreach($course as $row)
 						<option value="{{$row->id}}" @if($student->course_id==$row->id) {{'selected'}}  @endif>{{$row->name}}</option>
@@ -160,10 +171,22 @@
     </div>
 @endsection
 @section('script')
+<<<<<<< HEAD
 	{{-- for summernote --}}
 	<script type="text/javascript" src="{{asset('backend/summernote/summernote-bs4.min.js')}}"></script>
 	{{-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> --}}
 	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 	{{-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> --}}
 	<script type="text/javascript" src="{{asset('backend/summernote/summer.js')}}"></script>
+=======
+<script type="text/javascript" src="{{asset('backend/summernote/summernote-bs4.min.js')}}">
+</script>
+
+<!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script> -->
+	
+<script type="text/javascript" src="{{asset('backend/summernote/summer.js')}}"></script>
+>>>>>>> ppz
 @endsection

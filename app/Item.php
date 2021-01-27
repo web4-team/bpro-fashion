@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Item extends Model
 {
-   protected $fillable=['name','to_qty','to_price','sale_id','to_date','remark'];
+   protected $fillable=['date','name','quantity','total','retail_price','remark'];
+
+     public function sales(){
+		return $this->hasMany('App\Sale');
+	}
     
 }

@@ -75,7 +75,7 @@
 
                       <td>
                        
-                        <a href="{{route('courses.show',$course->id)}}" class="btn btn-warning detail btn-sm" ><i class="fas fa-eye"></i></a>
+                        {{-- <a href="{{route('courses.show',$course->id)}}" class="btn btn-warning detail btn-sm" ><i class="fas fa-eye"></i></a> --}}
 
                         <a href="{{route('courses.edit',$course->id)}}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
                         

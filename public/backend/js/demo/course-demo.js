@@ -31,7 +31,7 @@ $(document).ready(function() {
             },
                                
         ],
-        columnDefs: [{targets: [2,7,8], visible: false}],
+        columnDefs: [{targets: [5,6,7], visible: false}],
 
     } );
 } );
