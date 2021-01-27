@@ -1,54 +1,67 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <meta charset="utf-8">
     <title></title>
     <style>
         body{
-          background-image: url(img/certificate2.jpg);
+          background-image: url(img/certificate.jpg);
           background-position: center;
           background-size: cover;
           background-repeat: no-repeat;
           margin: -5%;
         }
-        h1{
-          margin-top: 260px;
-          margin-left: 205px;
+      
+        .p0{
+          margin-top: 240px;
+          margin-left: 160px;
+          font-size: 24;
+          letter-spacing: 2;
+          font-family: 'Source Sans Pro', sans-serif;
         }
+       
         .p1{
           
           margin-left: 170px;
-          font-size: 18;
+          font-size: 16;
           letter-spacing: 1;          
         }
-        h2{          
-          margin-left: 140px;
-          font-size: 18;          
+        h2{   
+          margin-top: 30px;       
+          margin-left: 125px;
+          font-size: 15;  
+          letter-spacing: 4; 
+          text-transform: uppercase; 
+          font-family: 'Source Sans Pro', sans-serif;        
         }
-        .p2{          
-          margin-left: 115px;
-          font-size: 16;
-          font-style: italic;          
+        .p2{         
+          margin-top: 30px;   
+          margin-left: 140px;
+          font-size: 14;
+          text-transform: uppercase; 
+                  
         }
         .p3{
-          margin-top: 147px;
-          margin-left: 190px;
-          font-size: 16;          
+          margin-top: 150px;
+          margin-left: 210px;
+          font-size: 14;   
+                 
         }
     </style>
   </head>
   <body>
 
     <div>
-      <h1>{{$student->name}}</h1>
+    
+      <p class="p0">{{$student->name}}</p>
       <p class="p1">has successfully completed</p>
       <h2>
-        @foreach($course as $row)
-         @if($student->course_id==$row->id) {{$row->name}} @endif
-        @endforeach
         @foreach($batches as $row)
-        @if($student->batch_id==$row->id) ({{$row->name}}) @endif
+        @if($student->batch_id==$row->id) {{$row->name}} Course @endif
        @endforeach
+    
+       
       </h2>
       <p class="p2">
          @foreach($course as $row)
