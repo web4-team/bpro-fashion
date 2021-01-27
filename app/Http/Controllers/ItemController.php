@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Item;
+use App\Sale;
 use Illuminate\Http\Request;
 
 class ItemController extends Controller
@@ -37,27 +38,25 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-                $request->validate([
-            'name'=>'required',
-            'price'=>'required',
-            
-            
-            
+        $request->validate([
+        'name'=>'required',
+        'to_price'=>'required',
+        'date'=>'required',
+                        
         ]);
 
-        $item = new Item([
-            'date'=>$request->get('date'),
-            'name' => $request->get('name'),
-            'price'=>$request->get('price'),
-            'quantity'=>$request->get('quantity'),
-            'customer'=>$request->get('customer'),
-            'paid'=>$request->get('paid'),
-            'due_date'=>$request->get('due_date'),
-            'remark'=>$request->get('remark')
+        $items = new Item;
+        
+        $items->name = request('name');
+        $items->to_qty = request('to_qty');
+        $items->to_price = request('to_price');
+        $items->date = request('date');
+        $items->remark = request('remark');
             
             
-        ]);
-        $item->save();
+        
+        $items->save();
+        //dd($request);
         
         return redirect('/item')->with('success', 'Items Successfully Added!');
     }
@@ -68,9 +67,10 @@ class ItemController extends Controller
      * @param  \App\Item  $item
      * @return \Illuminate\Http\Response
      */
-    public function show(Item $item)
+    public function show($id)
     {
-        //
+        $items = Item::find($id);
+        return view('item.show', compact('items'));    
     }
 
     /**
@@ -96,15 +96,17 @@ class ItemController extends Controller
     {
         $request->validate([
             'name'=>'required',
-            'price'=>'required'
+            'to_price'=>'required',
+            'date'=>'required'
             
         ]);
             
          $items = Item::find($id);
             $items->name = $request->get('name');
-            $items->price = $request->get('price');
-            $items->stock_in = $request->get('stock_in');
-            $items->stock_out = $request->get('stock_out');
+            $items->to_qty = $request->get('to_qty');
+            $items->to_price = $request->get('to_price');
+            $items->date = $request->get('date');
+            $items->remark = $request->get('remark');
               
             
         

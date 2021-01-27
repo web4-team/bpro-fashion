@@ -1,8 +1,11 @@
 @extends('layouts.master')
 @section('content')
-@section('style')
-	<link rel="stylesheet" href="{{asset('backend/summernote/summernote-bs4.min.css')}}" />
-	
+@section('style')	
+	{{-- for summernote --}}
+  <link rel="stylesheet" href="{{asset('backend/summernote/summernote-bs4.min.css')}}" />
+  {{-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet"> --}}
+  {{-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet"> --}}
+
 @endsection
 	<!-- Header -->
     <div class="header pb-6">
@@ -144,7 +147,7 @@
 				<div class="row">
 					<div class="form-group col-md-10">
 					    <label for="note" class="text-dark"><strong>Addition Information</strong></label>
-					    <textarea class="form-control text-dark summernote" name="note" rows="3">{{$student->note}}</textarea>
+					    <textarea id="summernote" class="form-control text-dark" name="note" rows="3">{{$student->note}}</textarea>
 					</div>
 				</div>	    
 		  	    <div class="form-group row">
@@ -157,7 +160,10 @@
     </div>
 @endsection
 @section('script')
-<script type="text/javascript" src="{{asset('backend/summernote/summernote-bs4.min.js')}}">
+	{{-- for summernote --}}
+	<script type="text/javascript" src="{{asset('backend/summernote/summernote-bs4.min.js')}}"></script>
+	{{-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> --}}
 	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+	{{-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> --}}
 	<script type="text/javascript" src="{{asset('backend/summernote/summer.js')}}"></script>
 @endsection

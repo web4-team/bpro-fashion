@@ -13,7 +13,6 @@ class Student extends Model
     {
     	return $this->belongsTo('App\Course');
 
-
     }
 
     public function batch()

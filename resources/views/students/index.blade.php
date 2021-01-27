@@ -1,6 +1,6 @@
 @extends('layouts.master')
-
 @section('content')
+@include('datatable.style')
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
   <h1 class="h3 mb-0 text-gray-800">Student Management</h1>
@@ -26,13 +26,9 @@
                 <th scope="col" class="sort">No</th>                
                 <th scope="col" class="sort">Code</th>
                 <th scope="col" class="sort">Name</th>
-
                 <th scope="col" class="sort">Course</th>
-                <th scope="col" class="sort">Batch</th>
-               
-
+                <th scope="col" class="sort">Batch</th>               
                 <th scope="col" class="sort">Accept Date</th>
-
                 <th scope="col" class="sort">Age</th>
                 <th scope="col" class="sort">Date of Birth</th>
                 <th scope="col" class="sort">Phone</th>
@@ -88,12 +84,8 @@
 
 
 @section('scripts')
-
+  @include('datatable.script')
   <!-- Page level custom scripts -->
   <script src="{{ asset('backend/js/demo/datatables-demo.js') }}"></script>
   
 @endsection
-<<<<<<< HEAD
-=======
-
->>>>>>> master
