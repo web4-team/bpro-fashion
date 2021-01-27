@@ -39,11 +39,10 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-        'name'=>'required',
-        'to_price'=>'required',
-        'date'=>'required',
-                        
+            $request->validate([
+            'name'=>'required',
+            'price'=>'required',                       
+            
         ]);
 
         $item = new Item([
@@ -53,10 +52,11 @@ class ItemController extends Controller
             'quantity'=>$request->get('quantity'),
             'total'=>$request->get('total'),
             'retail_price'=>$request->get('price'),
-            'remark'=>$request->get('remark')                        
-        
-        $items->save();
-        //dd($request);
+            'remark'=>$request->get('remark')
+            
+            
+        ]);
+        $item->save();
         
         return redirect('/item')->with('success', 'Items Successfully Added!');
     }
@@ -96,8 +96,6 @@ class ItemController extends Controller
     {
         $request->validate([
             'name'=>'required',
-            'to_price'=>'required',
-            'date'=>'required'
             
         ]);
             

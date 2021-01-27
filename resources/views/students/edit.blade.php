@@ -1,20 +1,7 @@
 @extends('layouts.master')
-<<<<<<< HEAD
-@section('content')
-@section('style')	
-	{{-- for summernote --}}
-  <link rel="stylesheet" href="{{asset('backend/summernote/summernote-bs4.min.css')}}" />
-  {{-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet"> --}}
-  {{-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet"> --}}
-
-=======
 @section('style')
 	<link rel="stylesheet" href="{{asset('backend/summernote/summernote-bs4.min.css')}}" />
 
-<!-- 	  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-	  <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet"> -->
-	
->>>>>>> ppz
 @endsection
 @section('content')
 
@@ -170,23 +157,10 @@
 
     </div>
 @endsection
-@section('script')
-<<<<<<< HEAD
-	{{-- for summernote --}}
-	<script type="text/javascript" src="{{asset('backend/summernote/summernote-bs4.min.js')}}"></script>
-	{{-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> --}}
-	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-	{{-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> --}}
-	<script type="text/javascript" src="{{asset('backend/summernote/summer.js')}}"></script>
-=======
+@section('scripts')
+
 <script type="text/javascript" src="{{asset('backend/summernote/summernote-bs4.min.js')}}">
 </script>
-
-<!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  
-  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script> -->
 	
 <script type="text/javascript" src="{{asset('backend/summernote/summer.js')}}"></script>
->>>>>>> ppz
 @endsection

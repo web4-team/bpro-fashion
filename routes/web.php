@@ -29,7 +29,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
 Route::resource('courses', 'CourseController');
  Route::resource('students', 'StudentController');
 // Route::get('/students/pdf', 'StudentController@index');
-Route::get('/downloadPDF/{id}','StudentController@downloadPDF');
+Route::get('/downloadSPDF/{id}','StudentController@downloadSPDF');
 // Employee
 Route::resource('/employees', 'EmployeesController');
 Route::get('/employee/payroll/{id}', 'PayrollController@payrollIndex')->name('payrolls.show');

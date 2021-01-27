@@ -28,7 +28,7 @@ class StudentController extends Controller
         return view('students.index',compact('students','batches','courses')); //compact('$students')
     }
 
-    public function downloadPDF($id) {
+    public function downloadSPDF($id) {
         $student = Student::find($id);
         $course = Course::all();
         $batches = Batch::all();

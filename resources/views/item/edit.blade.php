@@ -44,14 +44,6 @@
           <label for="remark" class="text-dark">Remark</label>
           <textarea class="form-control text-dark" name="remark" rows="3" value="">{{$items->remark}}</textarea>
       </div>
-
-
-   
-        
-
-
-      
-
       <button type="submit" class="btn btn-primary">Change</button>
   </form>
 </div>

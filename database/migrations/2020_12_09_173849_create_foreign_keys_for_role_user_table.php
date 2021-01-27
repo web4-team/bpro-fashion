@@ -9,8 +9,8 @@ class CreateForeignKeysForRoleUserTable extends Migration
     /**
      * Run the migrations.
      *
-     * @return void
-     */ public function up()
+     * @return void*/ 
+    public function up()
     {
         Schema::table('role_user', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

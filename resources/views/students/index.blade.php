@@ -57,7 +57,7 @@
                       <td>{{$row->address}}</td>
 
                       <td>
-                        <a href="{{action('StudentController@downloadPDF', $row->id)}}" class="btn btn-dark detail btn-sm mt-1" ><i class="fa fa-file-pdf fa-1x btn-danger"></i></a>
+                        <a href="{{action('StudentController@downloadSPDF', $row->id)}}" class="btn btn-dark detail btn-sm mt-1" ><i class="fa fa-file-pdf fa-1x btn-danger"></i></a>
 
                         <a href="{{route('students.show',$row->id)}}" class="btn btn-warning detail btn-sm mt-1" ><i class="fas fa-eye"></i></a>
 

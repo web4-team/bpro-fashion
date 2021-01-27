@@ -1,13 +1,12 @@
 @extends('layouts.master')
-
 @section('content')
-
+@include('datatable.style')
 <div class="col-sm-12">
   <h2 class="display-3">Items</h2> 
   <div>
     <a style="margin: 19px;" href="{{ route('item.create')}}" class="btn btn-primary">New Item</a>
   </div>     
-  <table class="table table-striped">
+  <table id="item" class="table table-striped " >
     <thead>
       <tr>
         <td>No</td>
@@ -40,24 +39,18 @@
      
        <td>{{$row->remark}}</td>
 
-
-        
-
-
-
-
         <td>
           <div class="btn-group">
 
 
 
-              <a href="{{ route('item.edit',$row->id)}}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
+              <a href="{{ route('item.edit',$row->id)}}" class="btn btn-primary btn btn-sm"><i class="fas fa-edit"></i></a>
             <form action="{{ route('item.destroy', $row->id)}}" method="post">
               @csrf
               @method('DELETE')
-              <button class="btn btn-danger" type="submit"><i class="fa fa-trash"></i></button>
+              <button class="btn btn-danger btn btn-sm mx-1" type="submit"><i class="fa fa-trash"></i></button>
             </form>
-             <a href="{{ route('sales.show', $row->id) }}" data-toggle="tooltip" title="SaleList" class="btn btn-success btn-sm"><i class="fas fa-file"></i></a>
+             <a href="{{ route('sales.show', $row->id) }}" data-toggle="tooltip" title="SaleList" class="btn btn-success btn btn-sm"><i class="fas fa-file"></i></a>
           </div>
         </td>
       </tr>
@@ -66,13 +59,11 @@
   </table>
 
 </div>
-
-
-
-
-
-
-
-
-  @endsection
+@endsection
+@section('scripts')
+  @include('datatable.script')
+  <!-- Page level custom scripts -->
+  <script src="{{ asset('backend/js/demo/item-demo.js') }}"></script>
+  
+@endsection
  

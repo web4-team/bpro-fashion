@@ -1,8 +1,6 @@
 @extends('layouts.master')
-
 @section('content')
-<!-- <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
-<link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet"> -->
+@include('datatable.style')
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
   <h1 class="h3 mb-0 text-gray-800">Course Management</h1>
@@ -18,15 +16,10 @@
      
       <div class="card">
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-<<<<<<< HEAD
-          <h6 class="m-0 font-weight-bold text-primary">Batches</h6>
-          <a href="{{ route('courses.create')}}" class="btn btn-sm btn-primary">Create Batch</a>
-=======
 
           <h6 class="m-0 font-weight-bold text-primary">Batch</h6>
           <a href="{{ route('courses.create')}}" class="btn btn-sm btn-primary">Create Batch</a>
 
->>>>>>> master
         </div>
         <div class="table-responsive">
 
@@ -34,24 +27,16 @@
 
             <thead class="thead-light">
               <tr>
-                <th scope="col" class="sort">No</th>
-<<<<<<< HEAD
-                <th scope="col" class="sort">Batch Name</th>
-=======
-                
+                <th scope="col" class="sort">No</th>                
                 <th scope="col" class="sort">Batch no.</th>
                 <th scope="col" class="sort">Course Name</th>
->>>>>>> master
                 <th scope="col" class="sort">Course Type</th>
                 <th scope="col" class="sort">Fees</th>
                 <th scope="col" class="sort">Discount(%)</th>
-
                 <th scope="col" class="sort">Discount(Amount)</th>
-
                 <th scope="col" class="sort">Total Fees</th>
                 <th scope="col" class="sort">Start Date</th>
-                <th scope="col" class="sort">End Date</th> 
-                          
+                <th scope="col" class="sort">End Date</th>                           
                 <th scope="col" class="sort">Action</th>
               </tr>
             </thead>
@@ -94,15 +79,11 @@
       </div>
     </div>
 </div>
-<!--  <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script> -->
 
 @endsection
 
 @section('scripts')
-
+  @include('datatable.script')
   <!-- Page level custom scripts -->
   <script src="{{ asset('backend/js/demo/course-demo.js') }}"></script>
   

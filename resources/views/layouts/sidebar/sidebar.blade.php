@@ -40,13 +40,6 @@
       </a>
       <div id="collapseForm" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-<<<<<<< HEAD
-          <a class="collapse-item" href="{{url('/courses')}}">Batch</a>
-          <a class="collapse-item" href="{{url('/batch')}}">Course</a>
-=======
-          
-         
->>>>>>> ppz
           <a class="collapse-item" href="{{url('/item')}}">Item</a>
           <a class="collapse-item" href="{{url('/income')}}">Income/Expense</a>
         </div>

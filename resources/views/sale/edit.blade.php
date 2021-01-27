@@ -1,9 +1,11 @@
 @extends('layouts.master')
-
 @section('content')
-<div class="row">
+<div class="row card">
  <div class="col-sm-8 offset-sm-2">
-  <h3 class="display-3">Update Sales List of {{ $sale->item->name }}</h3>
+  <h5 class="display-3">Update Sales List of {{ $sale->item->name }}</h5>
+  <div class="col-lg-6 col-5 text-right">
+    <a href="{{ route('sales.show',['id'=>$sale->item_id]) }}" class="btn btn-primary btn-sm">Back to Table</a>    
+  </div>
   <div>
     @if ($errors->any())
     <div class="alert alert-danger">

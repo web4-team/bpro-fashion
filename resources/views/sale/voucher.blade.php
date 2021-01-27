@@ -47,6 +47,10 @@ tfoot {
               <tr>
                 <td>Stock Out</td>
                 <td>{{$sale_sum}}</td>
+                @php $sum_total=0 @endphp
+                @foreach($item->sales as $row)
+                  @php $sum_total +=  $row->stock_out*$row->per_price; @endphp
+                @endforeach
                <td>{{number_format($sum_total)}} Ks (Income)</td>
                 
             </tr>
@@ -73,7 +77,6 @@ tfoot {
                   <th scope="col" class="sort">Coustomer Name</th>
                   <th scope="col" class="sort">Stock Out</th>
                   <th scope="col" class="sort">Per Price</th>
-                           
                   <th scope="col" class="sort">Total</th> 
                  
                 </tr>
@@ -102,8 +105,8 @@ tfoot {
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
                 <td>{{$sale_sum}}</td>
+                <td></td>
                 <td>{{$sum_total}}</td>
                 
               </tr></tfoot>  
