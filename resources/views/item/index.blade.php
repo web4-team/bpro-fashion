@@ -1,6 +1,8 @@
 @extends('layouts.master')
 @section('content')
-@include('datatable.style')
+@section('style')
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
+@endsection
 <div class="col-sm-12">
   <h2 class="display-3">Items</h2> 
   <div>
@@ -61,9 +63,10 @@
 </div>
 @endsection
 @section('scripts')
-  @include('datatable.script')
-  <!-- Page level custom scripts -->
-  <script src="{{ asset('backend/js/demo/item-demo.js') }}"></script>
   
+  <!-- Page level custom scripts -->
+  <script src="{{ asset('backend/js/demo/datatable.item.js') }}"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
 @endsection
  
