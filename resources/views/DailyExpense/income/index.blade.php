@@ -42,8 +42,9 @@
                     <tr>
                       <td>{{$i++}}</td>             
                       <td>{{$row->category}}</td>
+                      <td>{{$row->description}}</td>
                       <td>{{$row->amount}}</td>
-                      <td>{{$row->date}}</td>
+                      <td>{{ \Carbon\Carbon::parse($row->date)->format('d/M/Y')}}</td>
                        <td>
                        
                         

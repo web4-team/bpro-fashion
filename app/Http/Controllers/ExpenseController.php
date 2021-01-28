@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Session;
 use App\Expense;
 use App\Income;
+use PDF;
 use Illuminate\Http\Request;
 
 class ExpenseController extends Controller
@@ -18,6 +19,19 @@ class ExpenseController extends Controller
     // $incomes=Income::find();
     // $expenses=Expense::all();
     // return view ('DailyExpense.expense.index',compact('incomes','expenses'));
+    }
+
+
+    public function downloadExpense($id) {
+        $incomes = Income::find($id);
+        $expense=Expense::all();
+        $amount_sum =Expense::all()->where('income_id',$id)->sum('amount');
+
+        
+        $pdf = PDF::loadView('DailyExpense.expense.voucher', compact('incomes','amount_sum','expense'));
+        // $customPaper = array(0,0,650,450);
+        $pdf->setPaper('A4', 'portrait');
+        return $pdf->download($incomes->category.".pdf");
     }
 
     public function expenseIndex($id)
@@ -96,13 +110,10 @@ class ExpenseController extends Controller
      */
     public function update(Request $request, $id)
     {
-             $this->validate($request,[
-          'date'=> 'required',
-    ]);
    
         
         $expense = Expense::findOrFail($id);
-       $expense->category = $request->get('expense_category');
+        $expense->category = $request->get('expense_category');
          $expense->description = $request->get('expense_description');
          $expense->amount = $request->get('expense_amount');
          $expense->date = $request->get('expense_date');
@@ -121,8 +132,11 @@ class ExpenseController extends Controller
      * @param  \App\Expense  $expense
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Expense $expense)
+    public function destroy($id)
     {
-        //
+        $expense=Expense::find($id);
+        $expense->delete();
+        Session::flash('success', 'Expense Deleted.');
+        return redirect()->route('expenses.index',['id'=>$expense->income_id]);
     }
 }

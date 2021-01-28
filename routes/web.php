@@ -63,6 +63,7 @@ Route::resource('item', 'ItemController');
 
 // Income/Expense
 Route::resource('expense', 'ExpenseController');
+Route::get('/downloadExpense/{id}','ExpenseController@downloadExpense');
 Route::get('/income/expense/{id}', 'ExpenseController@expenseIndex')->name('expenses.index');
 Route::get('/expenses/create/{id}', 'ExpenseController@create')->name('expenses.create');
 Route::post('/expenses/{id}', 'ExpenseController@store')->name('expenses.store');
@@ -71,7 +72,7 @@ Route::patch('/expenses/update/{id}', 'ExpenseController@update')->name('expense
 Route::resource('income', 'IncomeController');
 
 
-Route::get('/summary', 'SummaryController@index')->name('summary');
+
 
 // Sale
 Route::resource('/sale', 'SaleController');
@@ -80,7 +81,7 @@ Route::get('/sales/create/{id}', 'SaleController@create')->name('sales.create');
 Route::post('/sales/{id}', 'SaleController@store')->name('sales.store');
 Route::get('/item/sale/{id}/edit', 'SaleController@edit')->name('sales.edit');
 Route::patch('/sales/update/{id}', 'SaleController@update')->name('sales.update');
-Route::get('/downloadPDF/{id}','SaleController@downloadPDF');
+Route::get('/downloadSale/{id}','SaleController@downloadSale');
 // register
 
 

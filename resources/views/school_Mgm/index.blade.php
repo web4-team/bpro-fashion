@@ -83,7 +83,7 @@
 @endsection
 
 @section('scripts')
-  @include('datatable.script')
+@include('datatable.script')
   <!-- Page level custom scripts -->
   <script src="{{ asset('backend/js/demo/course-demo.js') }}"></script>
   

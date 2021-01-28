@@ -15,10 +15,10 @@
                 </ol>
               </nav>
             </div>
-           <!--  <div class="col-lg-6 col-5 text-right">
-              <a href="{{route('expense.index')}}" class="btn btn-primary btn-sm">Back to Table</a>
-              
-            </div> -->
+             <div class="col-lg-6 col-5 text-right">
+            <a href="{{ route('expenses.index', ['id' => $income->id]) }}" class="btn btn-primary btn-sm">Back to Table</a>
+            
+          </div>
           </div>
         </div>
       </div>
@@ -69,7 +69,7 @@
                                 </div>
                             </div>
                             <div class="float-right">
-                                <a href="{{ url('summary') }}" class="btn btn-success">Back</a>
+                                <a href="{{ route('expenses.index', ['id' => $income->id]) }}" class="btn btn-success">Back</a>
                                 <button type="submit" class="btn btn-primary">Save</button>
                             </div>
                         </form>

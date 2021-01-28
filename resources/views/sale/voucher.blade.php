@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <title></title>
     <style>
-      h1  {
+
+      h1,h3  {
         text-align: center;
       }
 table {
@@ -22,10 +23,27 @@ td, th {
 tfoot {
   background-color: #dddddd;
 }
+.img{
+  width: 100%;
+  height: 50px;
+  background-color:#f76f07;
+  color:#211f1e; 
+  border-radius: 10px;
+}
+
+span{
+  color: white;
+  font-size: large;
+}
 </style>
 
   </head>
   <body>
+    <div class="img">
+            <h1>B-Pro <span>Fashion & Art School</span></h1> 
+          
+        </div>
+
         <div>
       <h1>Report Summary for {{$item->name}} ({{ \Carbon\Carbon::parse($item->date)->format('M/Y')}})</h1>
       <table class="table align-items-center table-flush" >
@@ -47,7 +65,8 @@ tfoot {
               <tr>
                 <td>Stock Out</td>
                 <td>{{$sale_sum}}</td>
-                @php $sum_total=0 @endphp
+
+               @php $sum_total=0 @endphp
                 @foreach($item->sales as $row)
                   @php $sum_total +=  $row->stock_out*$row->per_price; @endphp
                 @endforeach
@@ -66,9 +85,10 @@ tfoot {
         </table>
 
     </div>
+       
 
     <div>
-      <h1>Detail Report</h1>
+      <h1>Details Report ({{ \Carbon\Carbon::parse($item->date)->format('M/Y')}})</h1>
                   <table class="table align-items-center table-flush">
               <thead class="thead-light">
                 <tr>
@@ -113,7 +133,6 @@ tfoot {
            
             </table>
     </div>
-
     
   </body>
 </html>

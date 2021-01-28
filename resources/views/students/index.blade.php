@@ -20,7 +20,7 @@
           <a href="{{route('students.create')}}" class="btn btn-sm btn-primary">Create Student</a>
         </div>
         <div class="table-responsive">
-          <table class="table align-items-center table-flush" id="dataTable">
+          <table class="table hover align-items-center table-flush" id="dataTable">
             <thead class="thead-light">
               <tr>
                 <th scope="col" class="sort">No</th>                
@@ -84,7 +84,7 @@
 
 
 @section('scripts')
-  @include('datatable.script')
+@include('datatable.script')
   <!-- Page level custom scripts -->
   <script src="{{ asset('backend/js/demo/datatables-demo.js') }}"></script>
   

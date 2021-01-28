@@ -26,15 +26,17 @@ class SaleController extends Controller
         return view('sale.create')->with('item',$item);
     }
 
-    public function downloadPDF($id) {
-    $item = Item::find($id);
-    $sale=Sale::all();
-    $sale_sum =Sale::all()->where('item_id',$id)->sum('stock_out');
-    
-    $pdf = PDF::loadView('sale.voucher', compact('item','sale_sum','sale'));
-    // $customPaper = array(0,0,650,450);
-    $pdf->setPaper('A4', 'portrait');
-    return $pdf->download($item->name.".pdf");
+
+    public function downloadSale($id) {
+        $item = Item::find($id);
+        $sale=Sale::all();
+        $sale_sum =Sale::all()->where('item_id',$id)->sum('stock_out');
+
+        
+        $pdf = PDF::loadView('sale.voucher', compact('item','sale_sum','sale'));
+        // $customPaper = array(0,0,650,450);
+        $pdf->setPaper('A4', 'portrait');
+        return $pdf->download($item->name.".pdf");
     }
 
     /**
@@ -69,7 +71,7 @@ class SaleController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-      public function saleIndex($id){
+    public function saleIndex($id){
         $item = Item::findOrFail($id);
         $sale_sum =Sale::all()->where('item_id',$id)->sum('stock_out');
         // dd($sale_sum);

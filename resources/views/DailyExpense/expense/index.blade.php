@@ -37,7 +37,7 @@
       <div class="card">
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
 
-          <h6 class="m-0 font-weight-bold text-primary">Expense</h6>
+          <a href="{{action('ExpenseController@downloadExpense',['id'=>$incomes->id])}}" class="btn btn-dark detail btn-sm mt-1" ><i class="fa fa-file-pdf fa-1x btn-danger"></i> Voucher</a>
           <a href="{{ route('expenses.create', ['id'=>$incomes->id])}}" class="btn btn-sm btn-primary">Create Expense</a>
 
         </div>
@@ -64,7 +64,7 @@
                       <td>{{$row->category}}</td>
                       <td>{{$row->description}}</td>
                       <td>{{$row->amount}}</td>
-                      <td>{{$row->date}}</td>
+                      <td>{{ \Carbon\Carbon::parse($row->date)->format('d/M/Y')}}</td>
                        <td>
                        
                         

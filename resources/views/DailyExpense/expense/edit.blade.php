@@ -15,10 +15,10 @@
                 </ol>
               </nav>
             </div>
-           <!--  <div class="col-lg-6 col-5 text-right">
-              <a href="{{route('expense.index')}}" class="btn btn-primary btn-sm">Back to Table</a>
+            <div class="col-lg-6 col-5 text-right">
+              <a href="{{ route('expenses.index', ['id' => $exp->income->id]) }}" class="btn btn-primary btn-sm">Back to Table</a>
               
-            </div> -->
+            </div>
           </div>
         </div>
       </div>
@@ -44,33 +44,33 @@
                             <div class="form-group">
                                 <div class="form-label-group">
                                     <label for="expense_title">Category</label>
-                                    <input type="text" id="expense_title" class="form-control" placeholder="Income Category" required="required" autofocus="autofocus" name="income_category" value="{{$exp->category}}">
+                                    <input type="text" id="expense_title" class="form-control" placeholder="Income Category" required="required" autofocus="autofocus" name="expense_category" value="{{$exp->category}}">
                                     
                                 </div>
                             </div>
                               <div class="form-group">
                                 <div class="form-label-group">
                                     <label for="expense_title">Description</label>
-                                    <input type="text" id="expense_title" class="form-control" placeholder="Income Description" required="required" autofocus="autofocus" name="income_description" value="{{$exp->description}}">
+                                    <input type="text" id="expense_title" class="form-control" placeholder="Income Description" required="required" autofocus="autofocus" name="expense_description" value="{{$exp->description}}">
                                     
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="form-label-group">
                                     <label for="expense_amount">Amount</label>
-                                    <input type="number" step="any" id="expense_amount" min="0.01"  class="form-control" placeholder="Income Amount" required="required" name="income_amount" value="{{$exp->amount}}">
+                                    <input type="number" step="any" id="expense_amount" min="0.01"  class="form-control" placeholder="Income Amount" required="required" name="expense_amount" value="{{$exp->amount}}">
                                     
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="form-label-group">
                                     <label for="expense_amount">Date</label>
-                                    <input type="date" id="expense_amount" class="form-control" placeholder="Income Date" required="required" name="income_date" value="{{ $exp->date }}">
+                                    <input type="date" id="expense_amount" class="form-control" placeholder="Income Date" required="required" name="expense_date" value="{{ $exp->date }}">
                                     
                                 </div>
                             </div>
                             <div class="float-right">
-                                <a href="{{ url('expenses.index') }}" class="btn btn-success">Back</a>
+                                <a href="{{ route('expenses.index', ['id' => $exp->income->id]) }}" class="btn btn-success">Back</a>
                                 <button type="submit" class="btn btn-primary">Save</button>
                             </div>
                         </form>
