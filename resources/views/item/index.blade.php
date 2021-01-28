@@ -2,12 +2,13 @@
 @section('content')
 @section('style')
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
+<link href="{{asset('backend/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 @endsection
 
 <div class="col-sm-12">
   <h2 class="display-3">Items</h2> 
-  <div>
-    <a style="margin: 19px;" href="{{ route('item.create')}}" class="btn btn-primary">New Item</a>
+  <div class="float-right btn btn-sm">
+    <a style="margin: 10px;" href="{{ route('item.create')}}" class="btn btn-primary">New Item</a>
   </div>     
 
   <table class="table table-striped" id="sale">
@@ -61,10 +62,11 @@
 
 @endsection
 
-@section('script')
+@section('scripts')
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
   <!-- Page level custom scripts -->
 <script src="{{ asset('backend/js/demo/datatables-item.js') }}"></script>
+<script src="{{ asset('backend/datatables/dataTables.bootstrap4.min.js') }}"></script>
 @endsection
  

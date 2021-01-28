@@ -1,6 +1,9 @@
 @extends('layouts.master')
-
 @section('content')
+@section('style')
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
+<link href="{{asset('backend/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+@endsection
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
   <h1 class="h3 mb-0 text-gray-800">Income Management</h1>
@@ -23,7 +26,7 @@
         </div>
         <div class="table-responsive">
 
-         <table class="table align-items-center table-flush" >
+         <table class="table align-items-center table-flush" id="sale" >
             <thead class="thead-light">
               <tr>
                 <th scope="col" class="sort">No</th>
@@ -70,4 +73,11 @@
 </div>
 
 
+@endsection
+@section('scripts')
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+  <!-- Page level custom scripts -->
+<script src="{{ asset('backend/js/demo/datatables-item.js') }}"></script>
+<script src="{{ asset('backend/datatables/dataTables.bootstrap4.min.js') }}"></script>
 @endsection
