@@ -17,6 +17,13 @@ Route::get('/', function () {
     return view('frontend.mainpage');
 });
 
+// Route::get('/st_register', function () {
+//     return view('frontend.st_register');
+// });
+
+Route::resource('/st_register', 'StudentRegController');
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -48,6 +48,12 @@
           font-size: 14;   
                  
         }
+        .p4{
+          margin-top: 93px;
+          margin-left: 212px;
+          font-size: 12;  
+          letter-spacing: 1; 
+        }
     </style>
   </head>
   <body>
@@ -73,6 +79,7 @@
          @if($student->course_id==$row->id){{ \Carbon\Carbon::parse($row->duration)->format('d F Y')}}@endif
         @endforeach
       </p>
+      <p class="p4">Founder of B-Pro</p>
     </div>
     
   </body>

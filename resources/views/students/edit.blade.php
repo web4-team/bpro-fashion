@@ -104,7 +104,7 @@
 				<div class="row">
 					<div class="form-group col-md-5">
 				    <label for="email" class="text-dark"><strong>Email</strong></label>
-				    <input type="email" class="form-control text-dark" name="email" value="{{$student->email}}">
+				    <input type="text" class="form-control text-dark" name="email" value="{{$student->email}}">
 					</div>
 					<div class="form-group col-md-5">
 					    <label for="education" class="text-dark"><strong>Education</strong></label>
