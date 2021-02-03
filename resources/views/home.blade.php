@@ -38,8 +38,8 @@
                 <div class="col-lg-4 mb-4">
                   <div class="card bg-gradient-warning text-white">
                     <div class="card-body">
-                      Total Course
-                      <div class="text-white-50 small">{{$course}}</div>
+                      Total Item
+                      <div class="text-white-50 small">{{$item}}</div>
                     </div>
                   </div>
                 </div>

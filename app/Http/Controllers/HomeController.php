@@ -36,12 +36,13 @@ class HomeController extends Controller
         $stu=Student::all();
         $course=Course::count();
         $batch=Batch::count();
+        $item=Item::count();
         $employee=Employee::count();
         $user=User::count();
         $data_item=Item::all()->sum('total');
         $sale_total=Sale::all();
 
-        return view('home',compact('student','course','batch','employee','user','sale_total','students','data_item','stu'));
+        return view('home',compact('student','course','batch','item','employee','user','sale_total','students','data_item','stu'));
     
     }
 

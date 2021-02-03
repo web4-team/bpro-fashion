@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Student;
-use App\Course;
-use App\Batch;
-use App\Employee;
+use App\AbStudent;
+use App\AbCourse;
+use App\AbBatch;
+use App\AbEmployee;
 use App\User;
 
 class ArtbotHomeController extends Controller
@@ -28,12 +28,12 @@ class ArtbotHomeController extends Controller
      */
     public function index()
     {
-        $student=Student::count();
-        $course=Course::count();
-        $batch=Batch::count();
-        $employee=Employee::count();
+        $ab_student=AbStudent::count();
+        $ab_course=AbCourse::count();
+        $ab_batch=AbBatch::count();
+        // $employee=Employee::count();
         $user=User::count();
-        return view('artbothome',compact('student','course','batch','employee','user'));
+        return view('artbothome',compact('ab_student','ab_course','ab_batch','user'));
     
     }
 
