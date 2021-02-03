@@ -11,4 +11,4 @@
   <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.colVis.min.js"></script> 
 
   <!-- Page level custom scripts -->
- <script src="{{ asset('backend/datatables/dataTables.bootstrap4.min.js') }}"></script>
+ <script src="{{ asset('backend/DataTables/js/dataTables.bootstrap4.min.js') }}"></script>

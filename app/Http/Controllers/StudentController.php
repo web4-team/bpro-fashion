@@ -7,6 +7,7 @@ use App\Student;
 use App\Course;
 use App\Batch;
 use PDF;
+use Carbon\Carbon;
 
 class StudentController extends Controller
 {
@@ -23,9 +24,10 @@ class StudentController extends Controller
     
     public function index(){
         $students = Student::all();
+        $counts = Student::where('course_id','=','5')->count();
         $batches = Batch::all();
         $courses = Course::all();
-        return view('students.index',compact('students','batches','courses')); //compact('$students')
+        return view('students.index',compact('students','batches','courses','counts')); //compact('$students')
     }
 
     public function downloadPDF($id) {
@@ -66,8 +68,7 @@ class StudentController extends Controller
         	"batch" => 'required',
         	"accept_date" => 'required',        	
             "name" => 'required | min:5 | max:191',
-            // "dob" => 'required',
-            // "age" => 'required | max:2' ,
+            "dob" => 'required',           
             "phone" => 'required|min:5| max:11',
             // "email" => 'required',
             // "education" => 'required',
@@ -86,6 +87,8 @@ class StudentController extends Controller
         $student->phone = request('phone');
         $student->email = request('email');        
         $student->education = request('education');
+        $student->first_paid = request('first');
+        $student->second_paid = request('second');
         $student->address = request('address');
         $student->objective = request('objective');
         $student->comment = request('comment');
@@ -154,6 +157,8 @@ class StudentController extends Controller
         $student->phone = request('phone');
         $student->email = request('email');        
         $student->education = request('education');
+        $student->first_paid = request('first');
+        $student->second_paid = request('second');
         $student->address = request('address');
         $student->objective = request('objective');
         $student->comment = request('comment');
@@ -171,4 +176,6 @@ class StudentController extends Controller
         $student->delete();
         return redirect()->route('students.index');  
     }
+
+
 }

@@ -15,9 +15,9 @@ class ItemController extends Controller
      */
     public function index()
     {
-        $items=Item::all();
-        
-        return view('item.index', compact('items'));
+       $items=Item::all();
+
+        return view('item.index',compact('items'));
     }
 
     /**
@@ -48,7 +48,7 @@ class ItemController extends Controller
         ]);
 
         $item = new Item([
-            'date'=>$request->get('date'),
+            'item_date'=>$request->get('date'),
             'name' => $request->get('name'),
             
             'quantity'=>$request->get('quantity'),
@@ -102,7 +102,7 @@ class ItemController extends Controller
         ]);
             
          $items = Item::find($id);
-         $items->date = $request->get('date');
+         $items->item_date = $request->get('date');
             $items->name = $request->get('name');
             $items->quantity = $request->get('quantity');
             $items->total = $request->get('total');
@@ -128,4 +128,5 @@ class ItemController extends Controller
 
         return redirect('/item')->with('success', 'Your items have been deleted!'); 
     }
+
 }

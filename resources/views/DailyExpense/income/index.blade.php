@@ -1,4 +1,9 @@
 @extends('layouts.master')
+@section('style')
+<link rel="stylesheet" type="text/css" href="backend/DataTables/css/jquery.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="backend/DataTables/css/dataTables.bootstrap4.min.css">
+@endsection
+
 
 @section('content')
 
@@ -23,7 +28,7 @@
         </div>
         <div class="table-responsive">
 
-         <table class="table align-items-center table-flush" >
+         <table class="table align-items-center table-flush" id="datatable" >
             <thead class="thead-light">
               <tr>
                 <th scope="col" class="sort">No</th>
@@ -31,6 +36,7 @@
                 <th scope="col" class="sort">Income Description</th>
                 <th scope="col" class="sort">Income Amount</th>
                 <th scope="col" class="sort">Income Date</th>
+                <th scope="col" class="sort">Income Remark</th>
                 <th scope="col" class="sort">Action</th>
                 
               
@@ -45,6 +51,7 @@
                       <td>{{$row->description}}</td>
                       <td>{{$row->amount}}</td>
                       <td>{{ \Carbon\Carbon::parse($row->date)->format('d/M/Y')}}</td>
+                       <td>{{$row->remark}}</td>
                        <td>
                        
                         
@@ -71,3 +78,12 @@
 
 
 @endsection
+@section('scripts')
+
+
+<script type="text/javascript" src="backend/DataTables/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="backend/DataTables/js/dataTables.bootstrap4.min.js"></script>
+  <!-- Page level custom scripts -->
+<script src="{{ asset('backend/js/demo/datatables-item.js') }}"></script>
+@endsection
+ 

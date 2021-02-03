@@ -2,6 +2,7 @@
 
 @section('content')
 @include('datatable.style')
+
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
   <h1 class="h3 mb-0 text-gray-800">Student Management</h1>
   <ol class="breadcrumb">
@@ -19,6 +20,8 @@
           <h6 class="m-0 font-weight-bold text-primary">Students List</h6>
           <a href="{{route('students.create')}}" class="btn btn-sm btn-primary">Create Student</a>
         </div>
+
+
         <div class="table-responsive">
           <table class="table hover align-items-center table-flush" id="dataTable">
             <thead class="thead-light">
@@ -29,6 +32,7 @@
 
                 <th scope="col" class="sort">Course</th>
                 <th scope="col" class="sort">Batch</th>
+                <th scope="col" class="sort">Fees</th>
                
 
                 <th scope="col" class="sort">Accept Date</th>
@@ -38,6 +42,8 @@
                 <th scope="col" class="sort">Phone</th>
                 <th scope="col" class="sort">Email</th>
                 <th scope="col" class="sort">Education</th>
+                <th scope="col" class="sort">First Paid</th>
+                <th scope="col" class="sort">Second Paid</th>
                 <th scope="col" class="sort">Address</th>
                 <th scope="col" class="sort">Action</th>
               </tr>
@@ -52,12 +58,15 @@
 
                       <td>{{$row->batch->name}}</td>
                       <td>{{$row->course->name}}</td>
+                      <td>{{$row->course->fees}}</td>
                       <td>{{$row->accept_date}}</td>
                       <td>{{$row->age}}</td>
                       <td>{{$row->dob}}</td>
                       <td>{{$row->phone}}</td>
                       <td>{{$row->email}}</td>
                       <td>{{$row->education}}</td>
+                      <td>{{$row->first_paid}}</td>
+                      <td>{{$row->second_paid}}</td>
                       <td>{{$row->address}}</td>
 
                       <td>
@@ -77,6 +86,16 @@
                     </tr>
                   @endforeach
             </tbody>
+              <tfoot>
+            <tr>
+                <th colspan="6" style="text-align:right">Total:</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                
+                
+            </tr>
+        </tfoot>
           </table>
         </div>
         <div class="card-footer"></div>

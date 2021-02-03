@@ -2,8 +2,6 @@
 
 @section('content')
 @include('datatable.style')
-<!-- <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
-<link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet"> -->
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
   <h1 class="h3 mb-0 text-gray-800">Course Management</h1>
@@ -94,7 +92,8 @@
 @endsection
 
 @section('scripts')
-@include('datatable.script')
+ @include('datatable.script')
+
   <!-- Page level custom scripts -->
   <script src="{{ asset('backend/js/demo/course-demo.js') }}"></script>
   
