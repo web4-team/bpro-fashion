@@ -40,7 +40,7 @@ $(document).ready(function() {
               text: '<i class="fa fa-columns" aria-hidden="true"></i> <b>Column</b>',
               className:'colButton',
               exportOptions: {
-                      columns: [ 0,1,2,3,4,8, ],
+                      columns: [ 0,1,2,3,4,5 ],
                             }
           	},
 
@@ -68,8 +68,41 @@ $(document).ready(function() {
                                
         ],
 
-        columnDefs: [{targets: [5,6,7,9,10,11], visible: false}],
+        columnDefs: [{targets: [6,7,8,9,10,11,12,13,14], visible: false}],
         'pagingType':'full_numbers',
+
+                 "footerCallback": function ( row, data, start, end, display ) {
+            var api = this.api(), data;
+ 
+            // Remove the formatting to get integer data for summation
+            var intVal = function ( i ) {
+                return typeof i === 'string' ?
+                    i.replace(/[\$,]/g, '')*1 :
+                    typeof i === 'number' ?
+                        i : 0;
+            };
+ 
+            // Total over all pages
+            total = api
+                .column( 5)
+                .data()
+                .reduce( function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0 );
+ 
+            // Total over this page
+            pageTotal = api
+                .column( 5, { page: 'current'} )
+                .data()
+                .reduce( function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0 );
+ 
+            // Update footer
+            $( api.column( 5 ).footer() ).html(
+                'Ks '+pageTotal +' ( Ks '+ total +' total)'
+            );
+        }
 
         
 

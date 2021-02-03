@@ -94,6 +94,14 @@
                       <td>Education </td>
                       <td>{{$student->education}}</td>
                     </tr>
+                     <tr>
+                      <td>First Paid Amount</td>
+                      <td>{{$student->first_paid}} Ks</td>
+                    </tr>
+                     <tr>
+                      <td>Second Paid Amount</td>
+                      <td>{{$student->second_paid}} Ks</td>
+                    </tr>
                     
                     <tr>
                       <td>Address</td>

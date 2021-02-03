@@ -68,6 +68,13 @@
                                     
                                 </div>
                             </div>
+                              <div class="form-group">
+                                <div class="form-label-group">
+                                    <label for="expense_amount">Remark</label>
+                                   <textarea class="form-control text-dark" name="income_remark" rows="3"></textarea>
+                                    
+                                </div>
+                            </div>
                             <div class="float-right">
                                 <a href="{{route('income.index')}}" class="btn btn-success">Back</a>
                                 <button type="submit" class="btn btn-primary">Save</button>

@@ -46,7 +46,8 @@ class IncomeController extends Controller
             'category'=>$request->get('income_category'),
             'description'=>$request->get('income_description'),
             'amount'=>$request->get('income_amount'),
-            'date'=>$request->get('income_date')
+            'date'=>$request->get('income_date'),
+            'remark'=>$request->get('income_remark'),
         ]);
         $income->save();
         
@@ -93,6 +94,7 @@ class IncomeController extends Controller
          $incomes->description = $request->get('income_description');
          $incomes->amount = $request->get('income_amount');
          $incomes->date = $request->get('income_date');
+          $incomes->remark= $request->get('income_remark');
             
               
             

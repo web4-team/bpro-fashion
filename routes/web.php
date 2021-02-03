@@ -20,6 +20,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/home','HomeController@searchHome')->name('home.search');
+
 Route::get('/artbothome', 'ArtbotHomeController@index')->name('artbothome');
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage.users')->group(function(){
@@ -28,6 +30,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
 // Route::get('course', 'CourseController@index')->name('coursepage');
 Route::resource('courses', 'CourseController');
  Route::resource('students', 'StudentController');
+
 // Route::get('/students/pdf', 'StudentController@index');
 Route::get('/downloadPDF/{id}','StudentController@downloadPDF');
 // Employee
@@ -61,6 +64,7 @@ Route::resource('batch', 'BatchController');
 // Items
 Route::resource('item', 'ItemController');
 
+
 // Income/Expense
 Route::resource('expense', 'ExpenseController');
 Route::get('/downloadExpense/{id}','ExpenseController@downloadExpense');
@@ -83,5 +87,7 @@ Route::get('/item/sale/{id}/edit', 'SaleController@edit')->name('sales.edit');
 Route::patch('/sales/update/{id}', 'SaleController@update')->name('sales.update');
 Route::get('/downloadSale/{id}','SaleController@downloadSale');
 // register
+
+Route::get('my-chart', 'ChartController@index');
 
 

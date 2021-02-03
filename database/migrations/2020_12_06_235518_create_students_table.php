@@ -25,6 +25,8 @@ class CreateStudentsTable extends Migration
             $table->string('phone');
             $table->string('email');
             $table->string('education');
+            $table->integer('first_paid');
+            $table->integer('second_paid');
             $table->string('address');
             $table->string('objective')->nullable();
             $table->string('comment')->nullable();
