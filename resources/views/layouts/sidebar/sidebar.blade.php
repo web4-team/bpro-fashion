@@ -32,6 +32,7 @@
           
       </div>
     </li>
+    @can('manage.users')
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm" aria-expanded="true"
         aria-controls="collapseForm">
@@ -47,7 +48,7 @@
         </div>
       </div>
     </li>
-    @can('manage.users')
+  
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
         aria-controls="collapseTable">

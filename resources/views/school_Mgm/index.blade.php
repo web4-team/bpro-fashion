@@ -4,7 +4,7 @@
 @include('datatable.style')
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-  <h1 class="h3 mb-0 text-gray-800">Course Management</h1>
+  <h1 class="h3 mb-0 text-gray-800">Batch Management</h1>
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{{ url('/')}}"><i class="fas fa-home"></i></a></li>
     <li class="breadcrumb-item"><a href="{{ route('courses.index')}}">Students List</a></li>
@@ -68,12 +68,13 @@
                         {{-- <a href="{{route('courses.show',$course->id)}}" class="btn btn-warning detail btn-sm" ><i class="fas fa-eye"></i></a> --}}
 
                         <a href="{{route('courses.edit',$course->id)}}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
-                        
+                        @can('delete.users')
                         <form method="post" style="display: inline-block" action="{{route('courses.destroy',$course->id)}}" onsubmit="return confirm('Are you sure?')">
                           @csrf
                           @method('DELETE')
                           <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
                         </form>
+                        @endcan
                       </td>
                     </tr>
                   @endforeach

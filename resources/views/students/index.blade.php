@@ -75,13 +75,13 @@
                         <a href="{{route('students.show',$row->id)}}" class="btn btn-warning detail btn-sm mt-1" ><i class="fas fa-eye"></i></a>
 
                         <a href="{{route('students.edit',$row->id)}}" class="btn btn-primary btn-sm mt-1"><i class="fas fa-edit"></i></a>
-                        
+                        @can('delete.users')
                         <form method="post" style="display: inline-block;" action="{{route('students.destroy',$row->id)}}" onsubmit="return confirm('Are you sure?')">
                           @csrf
                           @method('DELETE')
                           <button type="submit" class="btn btn-danger btn-sm mt-1"><i class="fas fa-trash"></i></button>
                         </form>
-                        
+                        @endcan
                       </td>
                     </tr>
                   @endforeach

@@ -74,10 +74,11 @@ class BatchController extends Controller
      * @param  \App\Batch  $batch
      * @return \Illuminate\Http\Response
      */
-    public function edit(Batch $batch)
+    public function edit($id)
     {
-        //
-    }
+        $batch = Batch::find($id);
+       return view('batch.edit', compact('batch')); 
+   }
 
     /**
      * Update the specified resource in storage.
@@ -86,9 +87,18 @@ class BatchController extends Controller
      * @param  \App\Batch  $batch
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Batch $batch)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name'=>'required',
+                        
+        ]);
+            
+         $batch = Batch::find($id);
+            $batch->name = $request->get('name');
+           
+        $batch->save();
+        return redirect('/batch')->with('success', 'Your Course successfully Updated!');
     }
 
     /**
