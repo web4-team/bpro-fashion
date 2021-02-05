@@ -61,7 +61,21 @@
               
             @endforeach
               </div>
-            </div>       
+            </div>  
+            <div class="form-group row">
+              <label for="password" class="col-md-2 col-form-label text-md-right">Change Password</label>
+  
+              <div class="col-md-6">
+                  <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Enter Password" required autofocus>
+  
+                  @error('password')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
+              </div>
+          </div>
+
               <div class="form-group row">
                 <div class="col-sm-10">
                   <button type="submit" class="btn btn-success">Update</button>
