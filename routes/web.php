@@ -41,7 +41,6 @@ Route::get('/downloadPDF/{id}','StudentController@downloadPDF');
 
 Route::middleware('can:manage.users')->group(function(){
 // Employee
-
     
     Route::resource('/employees', 'EmployeesController');
     Route::get('/employee/payroll/{id}', 'PayrollController@payrollIndex')->name('payrolls.show');
@@ -102,3 +101,4 @@ Route::resource('ab_students', 'AbStudentController');
 Route::resource('ab_batch', 'AbBatchController');
 Route::get('/ab_downloadPDF/{id}','AbStudentController@downloadPDF');
 });
+
