@@ -13,7 +13,7 @@
               <div class="card">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
         
-                  <h6 class="m-0 font-weight-bold text-primary">Batch</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Course</h6>
                   <a href="{{ route('batch.create') }}" class="btn btn-sm btn-primary">Create Course</a>
         
                 </div>

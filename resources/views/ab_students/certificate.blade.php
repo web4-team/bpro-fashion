@@ -79,7 +79,7 @@
          @if($ab_student->ab_course_id==$row->id){{ \Carbon\Carbon::parse($row->ab_duration)->format('d F Y')}}@endif
         @endforeach
       </p>
-      <p class="p4">Founder of B-Pro</p>
+      <p class="p4">Founder of ArtBot</p>
     </div>
     
   </body>

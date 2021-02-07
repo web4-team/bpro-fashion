@@ -28,19 +28,29 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
     Route::resource('/users', 'UsersController', ['except' => ['show', 'create', 'store']]);
 });
 
+Route::middleware('can:schoolmanage.users')->group(function(){
 Route::resource('courses', 'CourseController');
 Route::resource('students', 'StudentController');
+// Batches
+Route::resource('batch', 'BatchController');
+
 
 // Route::get('/students/pdf', 'StudentController@index');
 Route::get('/downloadPDF/{id}','StudentController@downloadPDF');
+});
 
+Route::middleware('can:manage.users')->group(function(){
 // Employee
-Route::resource('/employees', 'EmployeesController');
-Route::get('/employee/payroll/{id}', 'PayrollController@payrollIndex')->name('payrolls.show');
-Route::get('/payrolls/create/{id}', 'PayrollController@create')->name('payrolls.create');
-Route::post('/payrolls/{id}', 'PayrollController@store')->name('payrolls.store');
-Route::get('/employee/payroll/{id}/edit', 'PayrollController@edit')->name('payrolls.edit');
-Route::patch('/payrolls/update/{id}', 'PayrollController@update')->name('payrolls.update');
+
+    
+    Route::resource('/employees', 'EmployeesController');
+    Route::get('/employee/payroll/{id}', 'PayrollController@payrollIndex')->name('payrolls.show');
+    Route::get('/payrolls/create/{id}', 'PayrollController@create')->name('payrolls.create');
+    Route::post('/payrolls/{id}', 'PayrollController@store')->name('payrolls.store');
+    Route::get('/employee/payroll/{id}/edit', 'PayrollController@edit')->name('payrolls.edit');
+    Route::patch('/payrolls/update/{id}', 'PayrollController@update')->name('payrolls.update');
+
+
 // Departments
 Route::resource('/departments', 'DepartmentsController');
 // Salaries
@@ -53,8 +63,10 @@ Route::resource('/cities', 'CitiesController');
 Route::resource('/states', 'StatesController');
 // Countries
 Route::resource('/countries', 'CountriesController');
-// Batches
-Route::resource('batch', 'BatchController');
+
+});
+
+Route::middleware('can:usermanage.users')->group(function(){
 // Items
 Route::resource('item', 'ItemController');
 
@@ -89,4 +101,4 @@ Route::resource('ab_course', 'AbCourseController');
 Route::resource('ab_students', 'AbStudentController');
 Route::resource('ab_batch', 'AbBatchController');
 Route::get('/ab_downloadPDF/{id}','AbStudentController@downloadPDF');
-
+});
