@@ -43,7 +43,10 @@
         <input type="date" class="form-control" name="date"/>
 
       </div>
-
+      <div class="form-group">
+        <label for="commission">Basic Salary:</label>
+        <input type="number" class="form-control" name="salary"/>
+      </div>
       <div class="form-group">
         <label for="commission">Commission:</label>
         <input type="number" class="form-control" name="commission"/>

@@ -15,11 +15,16 @@ class CreateExpensesTable extends Migration
     {
         Schema::create('expenses', function (Blueprint $table) {
             $table->id();
-            $table->integer('income_id');
+            $table->unsignedBigInteger('income_id');
             $table->string('category');
             $table->string('description');
             $table->integer('amount');
+            $table->integer('given');
             $table->date('date');
+
+            $table->foreign('income_id')
+                  ->references('id')->on('incomes')
+                  ->onDelete('cascade');
             $table->timestamps();
         });
     }

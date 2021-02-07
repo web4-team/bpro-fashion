@@ -69,58 +69,7 @@
     <div class="row">
         <!-- Report -->
          <!-- Area Chart -->
-         <div class="col-xl-8 col-lg-7">
-            <div class="card mb-4">
-               <div class="card-body">
-                <form action="{{route('home.search')}}" method="POST">
-                  @csrf
-                  <div class="row mb-4">
-                   <div class="col-md-5">
-                    <input type="date" class="form-control" name="fromdate" id="date"  />
-                   </div>
-                   <div class="col-md-5">
-                    <input type="date" class="form-control" name="todate" />
-                  </div>
-                  <div class="col-md-2">
-                    <input type="submit" name="search" class="btn btn-success" value="Filter" />
-                  </div>
-                  </div>
-                </form>
-                <ul class="list-group">
-                    <li class="list-group-item bg-info text-center text-white">
-                        <span> Profit/Loss of B-Pro Fashion</span>
-                    </li>
-                    @php $sum_total=0 @endphp
-                    @foreach($sale_total as $row)
-                      @php $sum_total +=  $row->stock_out*$row->per_price; @endphp
-                    @endforeach
-    
-                    @php $stu_total=0 @endphp
-                    @foreach($stu as $row)
-                      @php $stu_total +=  $row->course->fees; @endphp
-                    @endforeach
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                         Total Course Fee
-                        <span class="badge badge-success badge-pill incomeValue">{{$stu_total}} Ks</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                       Total Income Of Items
-                        <span class="badge badge-success badge-pill expenseValue"> {{$sum_total}} ks</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                       Total Outcome of Items
-                        <span class="badge badge-danger badge-pill expenseValue"> {{$data_item}} ks</span>
-                    </li>
-                    
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Profit/Loss
-                        <span class="badge badge-primary badge-pill">{{($sum_total+$stu_total)-$data_item}} Ks</span>
-                    </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          
+                   
           <!-- Course Fees -->
           <div class="col-xl-4 col-lg-5">
             <div class="card mb-4">
@@ -161,6 +110,82 @@
               </div>
             </div>
           </div>
+                    <div class="col-xl-6 offset-xl-3 col-sm-12 mb-3">
+                              <form action="{{route('home.search')}}" method="POST">
+          @csrf
+<div class="row mb-4">
+
+     <div class="col-md-5">
+        <input type="date" class="form-control" name="fromdate" id="date"  />
+    </div>
+    <div class="col-md-5">
+        <input type="date" class="form-control" name="todate" />
+    </div>
+    <div class="col-md-2">
+        <input type="submit" name="search" class="btn btn-success" value="Filter" />
+    </div>
+</div>
+</form>
+            <ul class="list-group">
+                <li class="list-group-item bg-info text-center text-white">
+                    <span> Profit/Loss of B-Pro Fashion</span>
+                </li>
+                @php $sum_total=0 @endphp
+                @foreach($sale_total as $row)
+                  @php $sum_total +=  $row->stock_out*$row->per_price; @endphp
+                @endforeach
+
+
+                @php $stu_total=0 @endphp
+                @foreach($stu as $row)
+                  @php $stu_total +=  $row->course->fees; @endphp
+                @endforeach
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                     Total Course Fee
+                    <span class="badge badge-success badge-pill incomeValue">{{$stu_total}} Ks</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                   Sell Items
+                    <span class="badge badge-success badge-pill expenseValue"> {{$sum_total}} ks</span>
+                </li>
+                
+                @php $item_total=0 @endphp
+                @foreach($sale_total as $row)
+                @php $item_total += $row->in_total; @endphp
+                @endforeach
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                         
+                Buy Items
+                <span class="badge badge-danger badge-pill expenseValue">{{$item_total}} Ks</span>                
+                </li>
+                @php $salary=0 @endphp
+                @foreach($payroll as $row)
+                @php $salary += ($row->salary+$row->commission+$row->bonus+$row->overtime)-($row->leave+$row->late); @endphp
+                @endforeach
+
+
+                 <li class="list-group-item d-flex justify-content-between align-items-center">
+                   All Salary
+                    <span class="badge badge-danger badge-pill expenseValue"> {{$salary}} ks</span>
+                </li>
+                
+               
+               
+
+            
+                
+                 <li class="list-group-item d-flex justify-content-between align-items-center">
+                   >>>
+                    <span class="badge badge-danger badge-pill expenseValue">Total Expense  {{$item_total}} ks</span>
+                </li>
+
+                
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Profit/Loss 
+                    <span class="badge badge-primary badge-pill">{{($sum_total+$stu_total)-$item_total}} Ks</span>
+                </li>
+            </ul>
+        </div>
     </div>
     @endcan
 </div>

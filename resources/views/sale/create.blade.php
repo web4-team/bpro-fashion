@@ -44,19 +44,42 @@
 
       </div>
 
-      <div class="form-group">
-        <label for="commission">Customer Name:</label>
-        <input type="text" class="form-control" name="customer_name"/>
+  <div class="form-group">
+    <label for="seeAnotherFieldGroup">Please Choose One</label>
+    <select class="form-control" id="seeAnotherFieldGroup" name="choose">
+          <option value="Customer">Customer</option>
+          <option value="Supplier">Supplier</option>
+    </select>
+  </div>
+    <div class="form-group" id="otherFieldGroupDiv">
+    <div class="row">
+       <div class="col-12">
+        <label for="otherField1">Supplier Name</label>
+        <input type="text" class="form-control w-100" id="otherField1" name="supplier">
       </div>
+      <div class="col-6">
+        <label for="otherField1">Stock In</label>
+        <input type="number" class="form-control w-100" id="otherField1" name="stock_in">
+      </div>
+      <div class="col-6">
+        <label for="otherField2">Stock In Total Amount</label>
+        <input type="number" class="form-control w-100" id="otherField2" name="in_total">
+      </div>
+    </div>
+  </div>
+  <div class="form-group" id="FieldGroupDiv">
+        <label for="commission">Customer Name:</label>
+        <input type="text" class="form-control" name="customer" id="otherField1"/>
+      
       <div class="form-group">
         <label for="commission">Stock Out:</label>
-        <input type="number" class="form-control" name="stock_out"/>
+        <input type="number" class="form-control" name="stock_out" id="otherField2"/>
       </div>
       <div class="form-group">
         <label for="overtime">Per Price:</label>
         <input type="number" class="form-control" name="per_price"/>
       </div>
-     
+    </div> 
      
      
       
@@ -67,4 +90,21 @@
   </div>
 </div>
 </div>
+@endsection
+
+@section('scripts')
+<script type="text/javascript">
+$("#seeAnotherFieldGroup").change(function() {
+  if ($(this).val() == "Supplier") {
+    $('#otherFieldGroupDiv').show();
+   
+    $('#FieldGroupDiv').hide();
+  } else {
+    $('#otherFieldGroupDiv').hide();
+    
+    $('#FieldGroupDiv').show();
+  }
+});
+$("#seeAnotherFieldGroup").trigger("change");
+</script>
 @endsection

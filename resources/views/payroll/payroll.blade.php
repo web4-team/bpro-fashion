@@ -28,7 +28,8 @@
             <table class="table align-items-center table-flush">
               <thead class="thead-light">
                 <tr>
-                  <th scope="col" class="sort">Date-issued</th>                
+                  <th scope="col" class="sort">Date-issued</th>
+                  <th scope="col" class="sort">Salary</th>                
                   <th scope="col" class="sort">Commission</th>
                   <th scope="col" class="sort">Bonus</th>
                   <th scope="col" class="sort">Overtime</th>
@@ -44,12 +45,13 @@
                   @foreach($employee->payrolls as $payroll)
                     <tr>		
                       <td>{{ $payroll->date }}</td>
+                      <td>{{ $payroll->salary }}</td>
                         <td>{{ $payroll->commission }}</td>
                       <td>{{ $payroll->bonus }}</td>
                       <td>{{ $payroll->overtime }}</td>
                       <td>{{ $payroll->leave }}</td>
                       <td>{{ $payroll->late }}</td>
-                      <td>{{($payroll->employee->empSalary->s_amount+$payroll->commission+$payroll->bonus+$payroll->overtime)-($payroll->leave+$payroll->late) }}</td>
+                      <td>{{($payroll->salary+$payroll->commission+$payroll->bonus+$payroll->overtime)-($payroll->leave+$payroll->late) }}</td>
                      
                       <td>
                         <a href="{{ route('payrolls.edit', ['id' => $payroll->id]) }}" class="btn btn-success">Edit</a>

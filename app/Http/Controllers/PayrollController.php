@@ -41,6 +41,7 @@ class PayrollController extends Controller
 		
 	    $payroll = Payroll::create([
 			'date' => $request->date,
+			'salary' => $request->salary,
 			'commission' => $request->commission,
 			'bonus' => $request->bonus,
 			'overtime' => $request->overtime,

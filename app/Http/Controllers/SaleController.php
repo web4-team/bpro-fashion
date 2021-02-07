@@ -5,6 +5,7 @@ use App\Item;
 use App\Sale;
 use Session;
 use PDF;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class SaleController extends Controller
@@ -47,14 +48,18 @@ class SaleController extends Controller
     public function store(Request $request, $id)
     {
        $request-> validate ([
-            'customer_name'=>'required',
+           
             
         ]);
         $sale= new Sale([
             'date'=>$request->get('date'),
-            'customer_name'=>$request->get('customer_name'),
+            'customer_name'=>$request->get('customer'),
+            'choose'=>$request->get('choose'),
             'stock_out'=>$request->get('stock_out'),
             'per_price'=>$request->get('per_price'),
+            'supplier_name'=>$request->get('supplier'),
+            'stock_in'=>$request->get('stock_in'),
+            'in_total'=>$request->get('in_total'),
             'item_id' => $id,
         ]);
         $sale->save();
@@ -72,10 +77,14 @@ class SaleController extends Controller
 
     public function saleIndex($id){
         $item = Item::findOrFail($id);
+        $data_sale=Sale::all();
         $sale_sum =Sale::all()->where('item_id',$id)->sum('stock_out');
+        $sale=Sale::where('item_id',$id)->whereMonth('date', Carbon::now()->month);
+        $sum_inTotal=Sale::where('item_id',$id)->whereMonth('date', Carbon::now()->month)->sum('in_total');
+         $inTotal=Sale::where('item_id',$id)->whereMonth('date', Carbon::now()->month)->sum('stock_in');
         // dd($sale_sum);
         
-        return view('sale.sale',compact('item','sale_sum'));
+        return view('sale.sale',compact('item','sum_inTotal','sale','inTotal','data_sale'));
     }
     public function show(Sale $sale)
     {
@@ -132,5 +141,21 @@ class SaleController extends Controller
     public function destroy(Sale $sale)
     {
         //
+    }
+
+        public function searchSale(Request $request, $id)
+    {
+     $item = Item::findOrFail($id);
+        $from_date=request()->input('fromdate');
+        $to_date=request()->input('todate');
+
+        $data_sale=Sale::where('date','>=',$from_date)->where('date','<=',$to_date)->get();    
+        
+        
+        
+
+        
+        return redirect()->route('sales.show',['id'=>$id])->with('data_sale',$data_sale,'item',$item);
+
     }
 }

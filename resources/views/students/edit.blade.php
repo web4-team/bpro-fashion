@@ -48,7 +48,7 @@
 			@csrf
 			@method('PUT')
 			<div class="mb-4 py-3 d-flex flex-row">
-				{{-- <h1 class="m-0 font-weight-bold text-primary text-center">Update Form</h1> --}}
+				<h1 class="m-0 font-weight-bold text-primary text-center">Update Form</h1>
 			</div>
 
 			<div class="row">

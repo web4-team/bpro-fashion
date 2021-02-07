@@ -14,10 +14,8 @@ class IncomeController extends Controller
      */
     public function index()
     {
-        $incomes = Income::all();
-        
+       $incomes = Income::all();
         return view('DailyExpense.income.index',compact('incomes'));
-       
     }
 
     /**
@@ -27,8 +25,7 @@ class IncomeController extends Controller
      */
     public function create()
     {
-        return view ('DailyExpense.income.create');
-    }
+        return view('DailyExpense.income.create');    }
 
     /**
      * Store a newly created resource in storage.
@@ -38,20 +35,19 @@ class IncomeController extends Controller
      */
     public function store(Request $request)
     {
-            $request-> validate ([
-            'income_category'=>'required',
-            'income_amount'=>'required'
+            $request->validate([
+            'category'=>'required',
+            
+            
         ]);
-        $income= new Income([
-            'category'=>$request->get('income_category'),
-            'description'=>$request->get('income_description'),
-            'amount'=>$request->get('income_amount'),
-            'date'=>$request->get('income_date'),
-            'remark'=>$request->get('income_remark'),
+
+        $income = new Income([
+            'category' => $request->get('category')     
+                      
         ]);
         $income->save();
         
-        return redirect('/income')->with('success', 'Income Successfully Added!');
+        return redirect('income')->with('success', 'Successfully Added!');
     }
 
     /**
@@ -62,7 +58,7 @@ class IncomeController extends Controller
      */
     public function show(Income $income)
     {
-       
+        //
     }
 
     /**
@@ -71,10 +67,9 @@ class IncomeController extends Controller
      * @param  \App\Income  $income
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Income $income)
     {
-        $incomes = Income::find($id);
-        return view('DailyExpense.income.edit', compact('incomes'));
+        //
     }
 
     /**
@@ -84,23 +79,9 @@ class IncomeController extends Controller
      * @param  \App\Income  $income
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Income $income)
     {
-       
-            
-         $incomes = Income::find($id);
-         
-         $incomes->category = $request->get('income_category');
-         $incomes->description = $request->get('income_description');
-         $incomes->amount = $request->get('income_amount');
-         $incomes->date = $request->get('income_date');
-          $incomes->remark= $request->get('income_remark');
-            
-              
-            
-        
-        $incomes->save();
-        return redirect('/income')->with('success', 'Incomes are successfully Updated!');
+        //
     }
 
     /**
@@ -109,11 +90,10 @@ class IncomeController extends Controller
      * @param  \App\Income  $income
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
-       $income = Income::find($id);
+        $income=Income::find($id);
         $income->delete();
-
-        return redirect('/income')->with('success', 'Your items have been deleted!'); 
+        return redirect('/income')->with('success', ' have been deleted!'); 
     }
 }

@@ -15,11 +15,22 @@ class CreateSalesTable extends Migration
     {
         Schema::create('sales', function (Blueprint $table) {
             $table->id();
-            $table->integer('item_id');
+            $table->unsignedBigInteger('item_id');
             $table->date('date');
             $table->string('customer_name');
             $table->integer('stock_out');
             $table->integer('per_price');
+            $table->integer('stock_in');
+            $table->string('supplier_name');
+            $table->integer('in_total');
+            $table->string('choose');
+
+            
+
+
+            $table->foreign('item_id')
+                  ->references('id')->on('items')
+                  ->onDelete('cascade');
             $table->timestamps();
         });
     }

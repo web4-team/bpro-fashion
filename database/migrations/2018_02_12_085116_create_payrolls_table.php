@@ -17,6 +17,7 @@ class CreatePayrollsTable extends Migration
             $table->increments('id');
             $table->integer('employee_id');
             $table->string('date');
+            $table->integer('salary');
 			$table->integer('commission')->nullable();
 			$table->integer('bonus')->nullable();
 			$table->integer('overtime')->nullable();	

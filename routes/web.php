@@ -70,18 +70,14 @@ Route::middleware('can:usermanage.users')->group(function(){
 Route::resource('item', 'ItemController');
 
 // Income/Expense
-Route::resource('expense', 'ExpenseController');
-Route::get('/downloadExpense/{id}','ExpenseController@downloadExpense');
-Route::get('/income/expense/{id}', 'ExpenseController@expenseIndex')->name('expenses.index');
-Route::get('/expenses/create/{id}', 'ExpenseController@create')->name('expenses.create');
-Route::post('/expenses/{id}', 'ExpenseController@store')->name('expenses.store');
-Route::get('/income/expense/{id}/edit', 'ExpenseController@edit')->name('expenses.edit');
-Route::patch('/expenses/update/{id}', 'ExpenseController@update')->name('expenses.update');
 Route::resource('income', 'IncomeController');
+Route::resource('expense', 'ExpenseController');
+
 
 // Sale
 Route::resource('/sale', 'SaleController');
 Route::get('/item/sale/{id}', 'SaleController@saleIndex')->name('sales.show');
+Route::post('/item/sale/{id}','SaleController@searchSale')->name('sale.search');
 Route::get('/sales/create/{id}', 'SaleController@create')->name('sales.create');
 Route::post('/sales/{id}', 'SaleController@store')->name('sales.store');
 Route::get('/item/sale/{id}/edit', 'SaleController@edit')->name('sales.edit');

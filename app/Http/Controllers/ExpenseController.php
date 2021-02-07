@@ -1,10 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use Session;
+
 use App\Expense;
 use App\Income;
-use PDF;
 use Illuminate\Http\Request;
 
 class ExpenseController extends Controller
@@ -16,30 +15,8 @@ class ExpenseController extends Controller
      */
     public function index()
     {
-    // $incomes=Income::find();
-    // $expenses=Expense::all();
-    // return view ('DailyExpense.expense.index',compact('incomes','expenses'));
-    }
-
-
-    public function downloadExpense($id) {
-        $incomes = Income::find($id);
-        $expense=Expense::all();
-        $amount_sum =Expense::all()->where('income_id',$id)->sum('amount');
-
-        
-        $pdf = PDF::loadView('DailyExpense.expense.voucher', compact('incomes','amount_sum','expense'));
-        // $customPaper = array(0,0,650,450);
-        $pdf->setPaper('A4', 'portrait');
-        return $pdf->download($incomes->category.".pdf");
-    }
-
-    public function expenseIndex($id)
-    {
-    $incomes=Income::find($id);
-    $expenses=Expense::all();
-    $sum_expense =Expense::all()->where('income_id',$id)->sum('amount');
-    return view ('DailyExpense.expense.index',compact('incomes','expenses','sum_expense'));
+        $exps = Expense::all();
+        return view('DailyExpense.expense.index',compact('exps'));
     }
 
     /**
@@ -47,10 +24,10 @@ class ExpenseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create()
     {
-        $income = Income::findOrFail($id);
-        return view ('DailyExpense.expense.create',compact('income'));
+        $incomes = Income::all();
+        return view('DailyExpense.expense.create',compact('incomes'));
     }
 
     /**
@@ -59,23 +36,23 @@ class ExpenseController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,$id)
+    public function store(Request $request)
     {
-        $request-> validate ([
-            'expense_category'=>'required',
-            'expense_amount'=>'required'
-        ]);
-        $expense= new Expense([
-            'category'=>$request->get('expense_category'),
-            'description'=>$request->get('expense_description'),
-            'amount'=>$request->get('expense_amount'),
+
+        $exp = new Expense([
+            
+            'income_id' => $request->get('income_id'),
+            'description' => $request->get('description'),
+            'amount' => $request->get('expense_amount'),
+            'given' => $request->get('given_amount'),
+            
             'date'=>$request->get('expense_date'),
-            'income_id'=>$id,
+            
+            
         ]);
-        $expense->save();
-        
-        Session::flash('success', 'Expense Created');
-        return redirect()->route('expenses.index',['id'=>$id]);
+        $exp->save();
+        //dd($request);
+        return redirect('/expense')->with('success', 'Successfully Created!');
     }
 
     /**
@@ -97,8 +74,9 @@ class ExpenseController extends Controller
      */
     public function edit($id)
     {
-        $exp = Expense::findOrFail($id);
-        return view('DailyExpense.expense.edit')->with('exp',$exp);
+        $expense = Expense::find($id);
+        $incomes = Income::all();
+        return view('DailyExpense.expense.edit',compact('expense','incomes'));
     }
 
     /**
@@ -110,20 +88,25 @@ class ExpenseController extends Controller
      */
     public function update(Request $request, $id)
     {
-   
-        
-        $expense = Expense::findOrFail($id);
-        $expense->category = $request->get('expense_category');
-         $expense->description = $request->get('expense_description');
-         $expense->amount = $request->get('expense_amount');
-         $expense->date = $request->get('expense_date');
        
-        $expense->save();       
-        
+            
+         $expense = Expense::find($id);
+            $expense->income_id = $request->get('income_id');
+            
+            $expense->description = $request->get('description');             
+            $expense->amount = $request->get('expense_amount');
+            $expense->given = $request->get('given_amount');
+            $expense->date = $request->get('expense_date');
 
+            
+           
+            
+
+            
+            
         
-        Session::flash('success', 'Expense Updated.');
-        return redirect()->route('expenses.index',['id'=>$expense->income_id]);
+        $expense->save();
+        return redirect('/expense')->with('success', 'successfully Updated!');
     }
 
     /**
@@ -134,9 +117,8 @@ class ExpenseController extends Controller
      */
     public function destroy($id)
     {
-        $expense=Expense::find($id);
-        $expense->delete();
-        Session::flash('success', 'Expense Deleted.');
-        return redirect()->route('expenses.index',['id'=>$expense->income_id]);
+     $expense=Expense::find($id);
+     $expense->delete();
+     return redirect()->route('DailyExpense.expense.index');
     }
 }
