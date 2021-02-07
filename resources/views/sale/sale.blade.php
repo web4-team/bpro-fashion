@@ -1,6 +1,12 @@
 @extends('layouts.master')	
+@section('style')
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
+<!-- <link rel="stylesheet" type="text/css" href="backend/DataTables/css/dataTables.bootstrap4.min.css"> -->
+@endsection
 
 @section('content')
+@include('datatable.style')
+
 
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -9,6 +15,38 @@
     <li class="breadcrumb-item"><a href="{{ url('/home')}}"><i class="fas fa-home"></i></a></li>
     <li class="breadcrumb-item"><a href="">Sale Lists</a></li>
   </ol>
+</div>
+<div class="col-xl-6 offset-xl-3 col-sm-12 mb-3">
+   <ul class="list-group">
+                <li class="list-group-item bg-info text-center text-white">
+                    <span> Summary For This Month</span>
+                </li>
+                 @php $sum_total=0 @endphp
+          @php $in_total=0 @endphp
+                @foreach($sale as $row)
+                  @php $sum_total +=  $row->stock_out*$row->per_price; 
+                  $in_total += $row->in_total;
+                  @endphp
+                @endforeach
+            
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                     Total Income for Item
+                    <span class="badge badge-success badge-pill incomeValue">{{$sum_total}} Ks</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                   Total Outcome Of Items
+                    <span class="badge badge-success badge-pill expenseValue"> {{$sum_inTotal}} ks</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                   Total of Stock In
+                    <span class="badge badge-danger badge-pill expenseValue"> {{$inTotal}} ks</span>
+                </li>
+                
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Profit/Loss
+                    <span class="badge badge-primary badge-pill"> Ks</span>
+                </li>
+            </ul>
 </div>
 
 
@@ -21,18 +59,38 @@
             <a href="{{ route('sales.create', ['id'=>$item->id]) }}" class="btn btn-sm btn-primary">Create Sale</a>
             
           </div>
+         
+          <form action="{{route('sale.search',['id' => $item->id])}}" method="POST">
+          @csrf
+<div class="row mb-4">
+
+     <div class="col-md-5">
+        <input type="date" class="form-control" name="fromdate" id="date"  />
+    </div>
+    <div class="col-md-5">
+        <input type="date" class="form-control" name="todate" />
+    </div>
+    <div class="col-md-2">
+        <input type="submit" name="search" class="btn btn-success" value="Filter" />
+    </div>
+</div>
+</form>
         
           <div class="table-responsive">
             <table class="table align-items-center table-flush" id="sale">
               <thead class="thead-light">
                 <tr>
                   <th scope="col" class="sort">No</th>
-                  <th scope="col" class="sort">Sale Date</th>                
-                  <th scope="col" class="sort">Coustomer Name</th>
+                  <th scope="col" class="sort">Sale Date</th>
+                  <th scope="col" class="sort">Type</th>                 
+                  <th scope="col" class="sort">Customer Name</th>
                   <th scope="col" class="sort">Stock Out</th>
-                  <th scope="col" class="sort">Per Price</th>
-                           
-                  <th scope="col" class="sort">Total</th> 
+                  <th scope="col" class="sort">Per Price</th>                           
+                  <th scope="col" class="sort">StockOut Total</th>
+
+                  <th scope="col" class="sort">Supplier Name</th>
+                  <th scope="col" class="sort">Stock In</th>
+                  <th scope="col" class="sort">StockIn Total</th>
                               
                   <th scope="col" class="sort">Action</th>
                 </tr>
@@ -45,10 +103,14 @@
                     <tr>	
                     <td>{{$i++}}</td>	
                       <td>{{ \Carbon\Carbon::parse($row->date)->format('d/M/Y')}}</td>
+                      <td>{{$row->choose}}</td>
                       <td>{{ $row->customer_name }}</td>
                       <td>{{ $row->stock_out }}</td>
                       <td>{{ $row->per_price }}</td>
                       <td>{{ $row->stock_out*$row->per_price }}</td>
+                      <td>{{ $row->supplier_name }}</td>
+                      <td>{{ $row->stock_in }}</td>
+                      <td>{{ $row->in_total }}</td>
                     
                       
                      
@@ -76,8 +138,12 @@
 
 
 @endsection
-@section('script')
 
+@section('scripts')
+  @include('datatable.script')
   <!-- Page level custom scripts -->
-<script src="{{ asset('backend/js/demo/datatables-item.js') }}"></script>
+  <script src="{{ asset('backend/js/demo/sale.js') }}"></script>
+  
 @endsection
+
+

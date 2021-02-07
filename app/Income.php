@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Income extends Model
 {
-    protected $fillable=['category','description','amount','date','remark'];
+                 protected $fillable = [
+        'category'
+      
+    ];
 
-    public function expense(){
-		return $this->hasMany('App\Expense');
-	}
 }

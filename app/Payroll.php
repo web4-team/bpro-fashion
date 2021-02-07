@@ -11,7 +11,7 @@ class Payroll extends Model
 	
 	
 	
-	protected $fillable=['employee_id','date','commission','bonus','overtime','leave','late'];
+	protected $fillable=['employee_id','date','salary','commission','bonus','overtime','leave','late'];
 	
 	
 	public function employee(){

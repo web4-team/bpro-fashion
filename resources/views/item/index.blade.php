@@ -17,10 +17,7 @@
         <td>No</td>
         <td>Date</td>
         <td>Item Name</td>       
-        <td>Quantity</td>        
-        <td>Total</td>
-        <td>Retail Price</td>  
-        <td>Remark</td>
+       
         <td>Actions</td>
       </tr>
     </thead>
@@ -29,15 +26,11 @@
       @foreach($items as $row)
       <tr>
         <td>{{$i++}}</td>
-       <td>{{ \Carbon\Carbon::parse($row->date)->format('d/M/Y')}}</td>
+       <td>{{ \Carbon\Carbon::parse($row->created_at)->format('d/M/Y')}}</td>
         
         <td>{{$row->name}}</td>    
-       <td>{{$row->quantity}}</td>
-       <td>{{$row->total}}</td>
-       <td>{{$row->retail_price}}</td>
-       
      
-       <td>{{$row->remark}}</td>
+  
 
 
         
@@ -62,14 +55,7 @@
       </tr>
       @endforeach
     </tbody>
-           <tfoot>
-            <tr>
-                <th colspan="5" style="text-align:right">Total:</th>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
-        </tfoot>
+        
   </table>
 
 </div>

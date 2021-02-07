@@ -188,17 +188,44 @@
                     <span class="badge badge-success badge-pill incomeValue">{{$stu_total}} Ks</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                   Total Income Of Items
+                   Sell Items
                     <span class="badge badge-success badge-pill expenseValue"> {{$sum_total}} ks</span>
                 </li>
+                
+                @php $item_total=0 @endphp
+                @foreach($sale_total as $row)
+                @php $item_total += $row->in_total; @endphp
+                @endforeach
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                   Total Outcome of Items
-                    <span class="badge badge-danger badge-pill expenseValue"> {{$data_item}} ks</span>
+                         
+                Buy Items
+                <span class="badge badge-danger badge-pill expenseValue">{{$item_total}} Ks</span>                
+                </li>
+                @php $salary=0 @endphp
+                @foreach($payroll as $row)
+                @php $salary += ($row->salary+$row->commission+$row->bonus+$row->overtime)-($row->leave+$row->late); @endphp
+                @endforeach
+
+
+                 <li class="list-group-item d-flex justify-content-between align-items-center">
+                   All Salary
+                    <span class="badge badge-danger badge-pill expenseValue"> {{$salary}} ks</span>
                 </li>
                 
+               
+               
+
+            
+                
+                 <li class="list-group-item d-flex justify-content-between align-items-center">
+                   >>>
+                    <span class="badge badge-danger badge-pill expenseValue">Total Expense  {{$item_total}} ks</span>
+                </li>
+
+                
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Profit/Loss
-                    <span class="badge badge-primary badge-pill">{{($sum_total+$stu_total)-$data_item}} Ks</span>
+                    Profit/Loss 
+                    <span class="badge badge-primary badge-pill">{{($sum_total+$stu_total)-$item_total}} Ks</span>
                 </li>
             </ul>
         </div>

@@ -16,15 +16,10 @@ class CreateItemsTable extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->date('item_date');
+           
             $table->string('name');
             
-            $table->integer('quantity');
-            $table->string('total');
-            $table->integer('retail_price');
-
-           
-            $table->string('remark')->default(NULL);
+        
 
             $table->timestamps();
         });

@@ -6,19 +6,19 @@
         <div class="header-body">
           <div class="row align-items-center py-4">
             <div class="col-lg-6 col-7">
-              <h3 class="h2 text-dark d-inline-block mb-0">Update Expense of {{$exp->income->category}}</h3>
+              <h3 class="h2 text-dark d-inline-block mb-0">Add New Expense</h3>
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                   <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                  <li class="breadcrumb-item"><a href="#">Income Lists</a></li>
+                  <li class="breadcrumb-item"><a href="#">Expense Lists</a></li>
                   <li class="breadcrumb-item active" aria-current="page">Add Expense</li>
                 </ol>
               </nav>
             </div>
-            <div class="col-lg-6 col-5 text-right">
-              <a href="{{ route('expenses.index', ['id' => $exp->income->id]) }}" class="btn btn-primary btn-sm">Back to Table</a>
+           <!--  <div class="col-lg-6 col-5 text-right">
+              <a href="{{route('expense.index')}}" class="btn btn-primary btn-sm">Back to Table</a>
               
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -36,48 +36,61 @@
 <div class="row">
             <div class="col-xl-8 offset-2">
                 <div class="card mx-auto mt-5">
-                    <div class="card-header">Update Expense</div>
+                    <div class="card-header">Insert New Expense</div>
                     <div class="card-body">
-                        <form action="{{ route('expenses.update', ['id'=>$exp->id]) }}" method="post">
-                            @method ('PATCH')
-                            @csrf
+                        <form action="{{ route('expense.update', $expense->id) }}" method="POST">
+                           @method ('PATCH')
+                           @csrf
                             <div class="form-group">
                                 <div class="form-label-group">
                                     <label for="expense_title">Category</label>
-                                    <input type="text" id="expense_title" class="form-control" placeholder="Income Category" required="required" autofocus="autofocus" name="expense_category" value="{{$exp->category}}">
-                                    
-                                </div>
-                            </div>
-                              <div class="form-group">
-                                <div class="form-label-group">
-                                    <label for="expense_title">Description</label>
-                                    <input type="text" id="expense_title" class="form-control" placeholder="Income Description" required="required" autofocus="autofocus" name="expense_description" value="{{$exp->description}}">
+                                      <select class="form-control" name="income_id" value="{{$expense->income_id}}">
+          <optgroup label="Choose Course">
+            @foreach($incomes as $row)
+            <option value="{{$row->id}}">{{$row->category}}</option>
+            @endforeach
+          </optgroup>
+        </select>
                                     
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="form-label-group">
-                                    <label for="expense_amount">Amount</label>
-                                    <input type="number" step="any" id="expense_amount" min="0.01"  class="form-control" placeholder="Income Amount" required="required" name="expense_amount" value="{{$exp->amount}}">
+                                    <label for="expense_amount">Description</label>
+                                    <input type="text" step="any" id="expense_amount"   class="form-control" placeholder="Description" required="required" name="description" value="{{$expense->description}}">
+                                    
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-label-group">
+                                    <label for="expense_amount">Expense Amount</label>
+                                    <input type="number" step="any" id="expense_amount" min="0.01"  class="form-control" placeholder="Expense Amount" required="required" name="expense_amount" value="{{$expense->amount}}">
+                                    
+                                </div>
+                            </div>
+                             <div class="form-group">
+                                <div class="form-label-group">
+                                    <label for="expense_amount">Given Amount</label>
+                                    <input type="number" step="any" id="expense_amount" value="0"  class="form-control" placeholder="Given Amount" required="required" name="given_amount" value="{{$expense->given}}">
                                     
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="form-label-group">
                                     <label for="expense_amount">Date</label>
-                                    <input type="date" id="expense_amount" class="form-control" placeholder="Income Date" required="required" name="expense_date" value="{{ $exp->date }}">
+                                    <input type="date" id="expense_amount" class="form-control" placeholder="Expense Date" required="required" name="expense_date" value="{{ $expense->date}}">
                                     
                                 </div>
                             </div>
                             <div class="float-right">
-                                <a href="{{ route('expenses.index', ['id' => $exp->income->id]) }}" class="btn btn-success">Back</a>
-                                <button type="submit" class="btn btn-primary">Save</button>
+                                
+                                <button type="submit" class="btn btn-primary">Change</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-
+    
 
     @endsection

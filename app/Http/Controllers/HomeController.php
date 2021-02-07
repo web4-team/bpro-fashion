@@ -10,7 +10,10 @@ use App\Item;
 use App\Sale;
 use App\Employee;
 use App\User;
+use App\Expense;
+use App\Payroll;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -38,10 +41,16 @@ class HomeController extends Controller
         $batch=Batch::count();
         $employee=Employee::count();
         $user=User::count();
-        $data_item=Item::all()->sum('total');
+        $data_item=Item::all();
+        $data_items=Item::all();
         $sale_total=Sale::all();
+              $payroll=Payroll::all();
+        $employee1=Employee::all();
+        $results = DB::select('SELECT SUM(amount), income_id FROM expenses 
+group by income_id');
+           
 
-        return view('home',compact('student','course','batch','employee','user','sale_total','students','data_item','stu'));
+        return view('home',compact('student','course','batch','employee','user','sale_total','students','data_item','stu','payroll','employee1','data_items','results'));
     
     }
 
@@ -50,7 +59,7 @@ class HomeController extends Controller
         $from_date=request()->input('fromdate');
         $to_date=request()->input('todate');
 
-        $data_item=Item::where('item_date','>',$from_date)->where('item_date','<',$to_date)->sum('total');
+        $data_item=Item::where('item_date','>=',$from_date)->where('item_date','<=',$to_date)->get();
         $students=Student::all();
         $student=Student::count();
         $stu=Student::where('accept_date','>=',$from_date)->where('accept_date','<=',$to_date)->get();
@@ -58,11 +67,18 @@ class HomeController extends Controller
         $batch=Batch::count();
         $employee=Employee::count();
         $user=User::count();
+        // $expanse=Expense::where('date','>=',$from_date)->where('date','<=',$to_date)->get();
+        $payroll=Payroll::where('date','>=',$from_date)->where('date','<=',$to_date)->get();
+        $employee1=Employee::all();
+        $data_items=Item::all();
+        $expanse=Expense::where('income_id')->sum('amount')->groupBy('income_id')->get();
+      
         
-        $sale_total=Sale::where('date','>',$from_date)->where('date','<',$to_date)->get();
-        
+        $sale_total=Sale::where('date','>=',$from_date)->where('date','<=',$to_date)->get();
+        $results = DB::select('SELECT SUM(amount), income_id FROM expenses 
+      group by income_id');
 
-        return view('home',compact('student','course','batch','employee','user','sale_total','stu','data_item','students'));
+        return view('home',compact('student','course','batch','employee','user','sale_total','stu','data_item','students','expanse','payroll','employee1','data_items','results'));
 
     }
 

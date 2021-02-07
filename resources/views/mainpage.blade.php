@@ -60,8 +60,8 @@
                             <a href="{{ route('login') }}" class="text-white"><span
                                     class="d-none d-md-inline-block">{{ __('Login') }}</span></a>
                             <span class="mx-md-2 d-inline-block"></span>
-                            {{-- <a href="#" class="text-white"><span
-                                    class="d-none d-md-inline-block">Register</span></a> --}}
+                            <a href="#" class="text-white"><span
+                                    class="d-none d-md-inline-block">Register</span></a>
 
                         </div>
 
@@ -117,7 +117,7 @@
 
             <div class="site-section-cover img-bg-section"
                 style="background-image: url({{ URL::asset('frontend/images/slide1.png') }}); ">
-                {{-- <div class="container">
+                 <div class="container">
                     <div class="row align-items-center justify-content-center text-center">
                         <div class="col-md-12 col-lg-7">
                             <h1 data-aos="fade-up" data-aos-delay="">Fashion &amp; Art School</h1>
@@ -126,13 +126,13 @@
                                     class="btn btn-outline-white border-w-2 btn-md">View More</a></p>
                         </div>
                     </div>
-                </div> --}}
+                </div> 
 
             </div>
 
             <div class="site-section-cover img-bg-section"
                 style="background-image: url({{ URL::asset('frontend/images/slide2.png') }}); ">
-                {{-- <div class="container">
+                 <div class="container">
                     <div class="row align-items-center justify-content-center text-center">
                         <div class="col-md-12 col-lg-8">
                             <h1 data-aos="fade-up" data-aos-delay="">ArtBot Myanmar</h1>
@@ -142,7 +142,7 @@
                                     class="btn btn-outline-white border-w-2 btn-md">View More</a></p>
                         </div>
                     </div>
-                </div> --}}
+                </div> 
 
             </div>
 
@@ -208,7 +208,7 @@
             </div>
         </div>
 
-        {{-- <div class="site-section bg-light">
+        <div class="site-section bg-light">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="">
@@ -274,7 +274,7 @@
                     </div>
                 </div>
             </div>
-        </div> --}}
+        </div> 
 
         <div class="site-section bg-light" id="contact-section">
             <div class="container">
@@ -354,7 +354,7 @@
         </footer>
 
     </div>
-    <div class="modal fade" id="myModal" role="dialog">
+<!--     <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -362,7 +362,7 @@
             <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-            <form method="post" action="{{route('stu_register.store')}}"class=" mb-4 card-body mx-10">
+            <form method="post" action=""class=" mb-4 card-body mx-10">
 	    	
             @csrf
            @method("POST")
@@ -545,7 +545,7 @@
             
         </div>
         </div>
-    </div>
+    </div> -->
 
     <script src="{{ asset('frontend/js/jquery-3.3.1.min.js') }}"></script>
     <script src="{{ asset('frontend/js/popper.min.js') }}"></script>

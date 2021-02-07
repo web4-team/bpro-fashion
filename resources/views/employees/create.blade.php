@@ -153,7 +153,7 @@
 					
 					<div class="form-group">
 						<label for="picture">Picture</label>
-						<input type="file" name="picture">
+						<input type="file" name="picture" accept = 'image/jpeg , image/jpg, image/gif, image/png'>
 					</div> 
 			
 	  	    <div class="form-group row">

@@ -48,13 +48,10 @@ class ItemController extends Controller
         ]);
 
         $item = new Item([
-            'item_date'=>$request->get('date'),
+            
             'name' => $request->get('name'),
             
-            'quantity'=>$request->get('quantity'),
-            'total'=>$request->get('total'),
-            'retail_price'=>$request->get('price'),
-            'remark'=>$request->get('remark')
+         
             
             
         ]);
@@ -102,12 +99,9 @@ class ItemController extends Controller
         ]);
             
          $items = Item::find($id);
-         $items->item_date = $request->get('date');
+         
             $items->name = $request->get('name');
-            $items->quantity = $request->get('quantity');
-            $items->total = $request->get('total');
-            $items->retail_price = $request->get('price');
-            $items->remark = $request->get('remark');
+          
               
             
         
