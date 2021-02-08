@@ -44,7 +44,7 @@ class HomeController extends Controller
         $data_item=Item::all();
         $data_items=Item::all();
         $sale_total=Sale::all();
-              $payroll=Payroll::all();
+        $payroll=Payroll::all();
         $employee1=Employee::all();
         $results = DB::select('SELECT SUM(amount), income_id FROM expenses 
 group by income_id');
@@ -59,7 +59,7 @@ group by income_id');
         $from_date=request()->input('fromdate');
         $to_date=request()->input('todate');
 
-        $data_item=Item::where('item_date','>=',$from_date)->where('item_date','<=',$to_date)->get();
+       
         $students=Student::all();
         $student=Student::count();
         $stu=Student::where('accept_date','>=',$from_date)->where('accept_date','<=',$to_date)->get();
@@ -78,7 +78,7 @@ group by income_id');
         $results = DB::select('SELECT SUM(amount), income_id FROM expenses 
       group by income_id');
 
-        return view('home',compact('student','course','batch','employee','user','sale_total','stu','data_item','students','expanse','payroll','employee1','data_items','results'));
+        return view('home',compact('student','course','batch','employee','user','sale_total','stu','students','expanse','payroll','employee1','data_items','results'));
 
     }
 
