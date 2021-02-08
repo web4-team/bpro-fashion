@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('artbotlayouts.master')
 
 @section('content')
 @include('datatable.style')
@@ -7,7 +7,7 @@
   <h1 class="h3 mb-0 text-gray-800">Batch Management</h1>
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{{ url('/')}}"><i class="fas fa-home"></i></a></li>
-    <li class="breadcrumb-item"><a href="{{ route('courses.index')}}">Students List</a></li>
+    <li class="breadcrumb-item"><a href="">Students List</a></li>
   </ol>
 </div>
 
@@ -19,7 +19,7 @@
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
 
           <h6 class="m-0 font-weight-bold text-primary">Batch</h6>
-          <a href="{{ route('courses.create')}}" class="btn btn-sm btn-primary">Create Batch</a>
+          <a href="{{ route('ab_course.create')}}" class="btn btn-sm btn-primary">Create Batch</a>
 
         </div>
         <div class="table-responsive">
@@ -47,34 +47,33 @@
             </thead>
             <tbody>
               @php $i=1; @endphp
-                  @foreach($courses as $course)
+                  @foreach($ab_courses as $course)
                     <tr>
                       <td>{{$i++}}</td>             
-                      <td>{{$course->name}}</td>
-                      <td>{{$course->batch->name}}</td>
-                      <td>{{$course->type}}</td>
-                      <td>{{number_format($course->fees)}} Ks</td>
-                      <td>{{$course->discount}}%</td>
-                      <td>{{$course->amount}} Ks</td>
-                      <td>{{number_format($course->fees-($course->fees*$course->discount/100)-$course->amount)}} Ks</td>
+                      <td>{{$course->ab_name}}</td>
+                      <td>{{$course->ab_batch->ab_name}}</td>
+                      <td>{{$course->ab_type}}</td>
+                      <td>{{number_format($course->ab_fees)}} Ks</td>
+                      <td>{{$course->ab_discount}}%</td>
+                      <td>{{$course->ab_amount}} Ks</td>
+                      <td>{{number_format($course->ab_fees-($course->ab_fees*$course->ab_discount/100)-$course->ab_amount)}} Ks</td>
 
-                      <td>{{ \Carbon\Carbon::parse($course->date)->format('d/M/Y')}}</td>
+                      <td>{{ \Carbon\Carbon::parse($course->ab_date)->format('d/M/Y')}}</td>
 
-                      <td>{{\Carbon\Carbon::parse($course->duration)->format('d/M/Y')}}</td>
+                      <td>{{\Carbon\Carbon::parse($course->ab_duration)->format('d/M/Y')}}</td>
                       
 
                       <td>
                        
                         {{-- <a href="{{route('courses.show',$course->id)}}" class="btn btn-warning detail btn-sm" ><i class="fas fa-eye"></i></a> --}}
 
-                        <a href="{{route('courses.edit',$course->id)}}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
-                        @can('delete.users')
-                        <form method="post" style="display: inline-block" action="{{route('courses.destroy',$course->id)}}" onsubmit="return confirm('Are you sure?')">
+                        <a href="{{route('ab_course.edit',$course->id)}}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
+                        
+                        <form method="post" style="display: inline-block" action="{{route('ab_course.destroy',$course->id)}}" onsubmit="return confirm('Are you sure?')">
                           @csrf
                           @method('DELETE')
                           <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
                         </form>
-                        @endcan
                       </td>
                     </tr>
                   @endforeach

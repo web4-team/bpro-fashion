@@ -38,8 +38,8 @@
                 <div class="col-lg-4 mb-4">
                   <div class="card bg-gradient-warning text-white">
                     <div class="card-body">
-                      Total Course
-                      <div class="text-white-50 small">{{$course}}</div>
+                      Total Item
+                      <div class="text-white-50 small">{{$item}}</div>
                     </div>
                   </div>
                 </div>
@@ -65,71 +65,29 @@
         </div>
     </div>
 
+    @can('manage.users')
     <div class="row">
         <!-- Report -->
          <!-- Area Chart -->
-         <div class="col-xl-8 col-lg-7">
-            <div class="card mb-4">
-              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Monthly Recap Report</h6>
-                <div class="dropdown no-arrow">
-                  <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                    aria-labelledby="dropdownMenuLink">
-                    <div class="dropdown-header">Dropdown Header:</div>
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </div>
-                </div>
-              </div>
-              <div class="card-body">
-                <div class="chart-area">
-                  <canvas id="myAreaChart"></canvas>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Pie Chart -->
+                   
+          <!-- Course Fees -->
           <div class="col-xl-4 col-lg-5">
             <div class="card mb-4">
               <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 <h6 class=" font-weight-bold text-primary text-center">Summary Of Course Fees</h6>
-             <!--    <div class="dropdown no-arrow">
-                  <a class="dropdown-toggle btn btn-primary btn-sm" href="#" role="button" id="dropdownMenuLink"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Month <i class="fas fa-chevron-down"></i>
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                    aria-labelledby="dropdownMenuLink">
-                    <div class="dropdown-header">Select Periode</div>
-                    <a class="dropdown-item" href="#">Today</a>
-                    <a class="dropdown-item" href="#">Week</a>
-                    <a class="dropdown-item active" href="#">Month</a>
-                    <a class="dropdown-item" href="#">This Year</a>
-                  </div>
-                </div> -->
               </div>
               <div class="card-body">
-                <div class="mb-2">
-                
-                </div>
                  @php $stu_total=0 @endphp
                   @php     $first=0   @endphp
                   @php     $second=0   @endphp
-                @foreach($students as $row)
-                  @php $stu_total +=  $row->course->fees;
+                  @foreach($students as $row)
+                    @php $stu_total +=  $row->course->fees;
                        $first += $row->first_paid;
                        $second += $row->second_paid;
-                  @endphp
-                @endforeach
+                    @endphp
+                  @endforeach
                 <div class="mb-4">
-                 <div class="medium text-gray-500">Total Course Fee
+                  <div class="medium text-gray-500">Total Course Fee
                     <div class="medium float-right"><b>{{$stu_total}} Ks</b></div>
                   </div>
                 </div>
@@ -139,7 +97,7 @@
                   </div>
                 </div>
                 <div class="mb-4">
-                <div class="medium text-gray-500">Total First Amount
+                  <div class="medium text-gray-500">Total Second Amount
                     <div class="medium float-right"><b>{{$second}} Ks</b></div>
                   </div>
                 </div>
@@ -147,10 +105,9 @@
                   <div class="medium text-gray-500">Due
                     <div class="medium float-right"><b>{{$stu_total-$first}} Ks</b></div>
                   </div>
-                  
                 </div>
+                <br><br>
               </div>
-            
             </div>
           </div>
                     <div class="col-xl-6 offset-xl-3 col-sm-12 mb-3">
@@ -230,17 +187,7 @@
             </ul>
         </div>
     </div>
+    @endcan
 </div>
 @endsection
-<!-- @section('scripts')
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script>
-    $( function() {
-        $('#date').datepicker({
-          format: 'dd/mm/yy';
-        });        
-    });
-</script>
-@endsection
- -->
+

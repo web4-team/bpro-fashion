@@ -25,7 +25,9 @@
       </a>
       <div id="collapseBootstrap" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-          <a class="collapse-item" href="{{route('students.index')}}">Students List</a>
+          <a class="collapse-item" href="{{route('ab_students.index')}}">Students List</a>
+          <a class="collapse-item" href="{{url('/ab_batch')}}">Course</a>
+          <a class="collapse-item" href="{{url('/ab_course')}}">Batch</a>
           <!-- <a class="collapse-item" href="#">Teacher List</a> -->
           
       </div>
@@ -39,8 +41,8 @@
       <div id="collapseForm" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           
-          <a class="collapse-item" href="{{url('/courses')}}">Courses</a>
-          <a class="collapse-item" href="{{url('/batch')}}">Batch</a>
+          
+          
           <a class="collapse-item" href="{{url('/item')}}">Item</a>
         </div>
       </div>

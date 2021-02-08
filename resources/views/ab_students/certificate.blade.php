@@ -6,7 +6,7 @@
     <title></title>
     <style>
         body{
-          background-image: url(img/certificate.jpg);
+          background-image: url(img/artbot_certificate.jpg);
           background-position: center;
           background-size: cover;
           background-repeat: no-repeat;
@@ -15,7 +15,7 @@
       
         .p0{
           margin-top: 240px;
-          margin-left: 160px;
+          margin-left: 380px;
           font-size: 24;
           letter-spacing: 2;
           font-family: 'Source Sans Pro', sans-serif;
@@ -23,13 +23,13 @@
        
         .p1{
           
-          margin-left: 170px;
+          margin-left: 400px;
           font-size: 16;
           letter-spacing: 1;          
         }
         h2{   
           margin-top: 30px;       
-          margin-left: 125px;
+          margin-left: 390px;
           font-size: 15;  
           letter-spacing: 4; 
           text-transform: uppercase; 
@@ -37,20 +37,20 @@
         }
         .p2{         
           margin-top: 30px;   
-          margin-left: 140px;
+          margin-left: 320px;
           font-size: 14;
           text-transform: uppercase; 
                   
         }
         .p3{
-          margin-top: 150px;
-          margin-left: 210px;
+          margin-top: 155px;
+          margin-left: 230px;
           font-size: 14;   
                  
         }
         .p4{
-          margin-top: 93px;
-          margin-left: 212px;
+          margin-top: 0px;
+          margin-left: 725px;
           font-size: 12;  
           letter-spacing: 1; 
         }
@@ -60,26 +60,26 @@
 
     <div>
     
-      <p class="p0">{{$student->name}}</p>
+      <p class="p0">{{$ab_student->ab_name}}</p>
       <p class="p1">has successfully completed</p>
       <h2>
-        @foreach($batches as $row)
-        @if($student->batch_id==$row->id) {{$row->name}} Course @endif
+        @foreach($ab_batches as $row)
+        @if($ab_student->ab_batch_id==$row->id) {{$row->ab_name}} Course @endif
        @endforeach
     
        
       </h2>
       <p class="p2">
-         @foreach($course as $row)
-         @if($student->course_id==$row->id) FROM {{ \Carbon\Carbon::parse($row->date)->format('j F Y')}} TO {{ \Carbon\Carbon::parse($row->duration)->format('j F Y')}}@endif
+         @foreach($ab_course as $row)
+         @if($ab_student->ab_course_id==$row->id) FROM {{ \Carbon\Carbon::parse($row->ab_date)->format('j F Y')}} TO {{ \Carbon\Carbon::parse($row->ab_duration)->format('j F Y')}}@endif
         @endforeach
       </p>
       <p class="p3">
-        @foreach($course as $row)
-         @if($student->course_id==$row->id){{ \Carbon\Carbon::parse($row->duration)->format('d F Y')}}@endif
+        @foreach($ab_course as $row)
+         @if($ab_student->ab_course_id==$row->id){{ \Carbon\Carbon::parse($row->ab_duration)->format('d F Y')}}@endif
         @endforeach
       </p>
-      <p class="p4">Founder of B-Pro</p>
+      <p class="p4">Founder of ArtBot</p>
     </div>
     
   </body>

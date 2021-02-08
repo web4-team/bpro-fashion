@@ -39,6 +39,7 @@ class HomeController extends Controller
         $stu=Student::all();
         $course=Course::count();
         $batch=Batch::count();
+        $item=Item::count();
         $employee=Employee::count();
         $user=User::count();
         $data_item=Item::all();
@@ -48,9 +49,9 @@ class HomeController extends Controller
         $employee1=Employee::all();
         $results = DB::select('SELECT SUM(amount), income_id FROM expenses 
 group by income_id');
-           
+        
 
-        return view('home',compact('student','course','batch','employee','user','sale_total','students','data_item','stu','payroll','employee1','data_items','results'));
+     return view('home',compact('student','course','batch','employee','user','sale_total','students','item','data_item','stu','payroll','employee1','data_items','results'));
     
     }
 

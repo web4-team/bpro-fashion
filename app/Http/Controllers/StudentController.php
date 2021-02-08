@@ -68,12 +68,11 @@ class StudentController extends Controller
         	"batch" => 'required',
         	"accept_date" => 'required',        	
             "name" => 'required | min:5 | max:191',
-            "dob" => 'required',
-           
+            "dob" => 'required',           
             "phone" => 'required|min:5| max:11',
-            "email" => 'required',
-            "education" => 'required',
-            "address" => 'required',
+            // "email" => 'required',
+            // "education" => 'required',
+            // "address" => 'required',
             "bpro" => 'required',
         ]);
        

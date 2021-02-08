@@ -15,30 +15,30 @@
                   <div class="card bg-gradient-primary text-white">
                     <div class="card-body">
                       Total Student
-                      <div class="text-white-50 small">0</div>
+                      <div class="text-white-50 small"><a style="text-decoration:none;color:#fff;" href="{{ url('/ab_students') }}">{{$ab_student}}</a></div>
                     </div>
                   </div>
                 </div>
                 <div class="col-lg-4 mb-4">
                   <div class="card bg-gradient-success text-white">
                     <div class="card-body">
-                      Total Course
-                      <div class="text-white-50 small">0</div>
+                      Total Batch
+                      <div class="text-white-50 small">{{$ab_course}}</div>
                     </div>
                   </div>
                 </div>
                 <div class="col-lg-4 mb-4">
                   <div class="card bg-gradient-info text-white">
                     <div class="card-body">
-                      Total Batch
-                      <div class="text-white-50 small">0</div>
+                      Total Course
+                      <div class="text-white-50 small">{{$ab_batch}}</div>
                     </div>
                   </div>
                 </div>
                 <div class="col-lg-4 mb-4">
                   <div class="card bg-gradient-warning text-white">
                     <div class="card-body">
-                      Total Course
+                      Total Item
                       <div class="text-white-50 small">0</div>
                     </div>
                   </div>
@@ -55,7 +55,7 @@
                   <div class="card bg-gradient-secondary text-white">
                     <div class="card-body">
                       Total User
-                      <div class="text-white-50 small">0</div>
+                      <div class="text-white-50 small">{{$user}}</div>
                     </div>
                   </div>
                 </div>

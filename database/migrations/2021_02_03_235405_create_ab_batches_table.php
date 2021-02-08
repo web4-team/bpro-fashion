@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateArtbotExpensesTable extends Migration
+class CreateAbBatchesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateArtbotExpensesTable extends Migration
      */
     public function up()
     {
-        Schema::create('artbot_expenses', function (Blueprint $table) {
+        Schema::create('ab_batches', function (Blueprint $table) {
             $table->id();
-            $table->string('category');
-            $table->integer('amount');
-            $table->date('date');
+            $table->string('ab_name');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ class CreateArtbotExpensesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('artbot_expenses');
+        Schema::dropIfExists('ab_batches');
     }
 }

@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('artbotlayouts.master')
 
 @section('content')
 @include('datatable.style')
@@ -7,7 +7,7 @@
   <h1 class="h3 mb-0 text-gray-800">Student Management</h1>
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{{ url('/')}}"><i class="fas fa-home"></i></a></li>
-    <li class="breadcrumb-item"><a href="{{ route('students.index')}}">Students List</a></li>
+    <li class="breadcrumb-item"><a href="{{ route('ab_students.index')}}">Students List</a></li>
   </ol>
 </div>
 
@@ -18,12 +18,12 @@
       <div class="card">
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between mb-2">
           <h6 class="m-0 font-weight-bold text-primary">Students List</h6>
-          <a href="{{route('students.create')}}" class="btn btn-sm btn-primary">Create Student</a>
+          <a href="{{route('ab_students.create')}}" class="btn btn-sm btn-primary">Create Student</a>
         </div>
 
 
         <div class="table-responsive">
-          <table class="table hover align-items-center table-flush" id="dataTable">
+          <table class="table hover align-items-center table-flush" id="abdataTable">
             <thead class="thead-light">
               <tr>
                 <th scope="col" class="sort">No</th>                
@@ -50,38 +50,38 @@
             </thead>
             <tbody>
               @php $i=1; @endphp
-                  @foreach($students as $row)
+                  @foreach($ab_students as $row)
                     <tr>
                       <td>{{$i++}}</td>             
-                      <td>{{$row->code}}</td>
-                      <td>{{$row->name}}</td>
+                      <td>{{$row->ab_code}}</td>
+                      <td>{{$row->ab_name}}</td>
 
-                      <td>{{$row->batch->name}}</td>
-                      <td>{{$row->course->name}}</td>
-                      <td>{{$row->course->fees}}</td>
-                      <td>{{$row->accept_date}}</td>
-                      <td>{{$row->age}}</td>
-                      <td>{{$row->dob}}</td>
-                      <td>{{$row->phone}}</td>
-                      <td>{{$row->email}}</td>
-                      <td>{{$row->education}}</td>
-                      <td>{{$row->first_paid}}</td>
-                      <td>{{$row->second_paid}}</td>
-                      <td>{{$row->address}}</td>
+                      <td>{{$row->ab_batch->ab_name}}</td>
+                      <td>{{$row->ab_course->ab_name}}</td>
+                      <td>{{$row->ab_course->ab_fees}}</td>
+                      <td>{{$row->ab_accept_date}}</td>
+                      <td>{{$row->ab_age}}</td>
+                      <td>{{$row->ab_dob}}</td>
+                      <td>{{$row->ab_phone}}</td>
+                      <td>{{$row->ab_email}}</td>
+                      <td>{{$row->ab_education}}</td>
+                      <td>{{$row->ab_first_paid}}</td>
+                      <td>{{$row->ab_second_paid}}</td>
+                      <td>{{$row->ab_address}}</td>
 
                       <td>
-                        <a href="{{action('StudentController@downloadPDF', $row->id)}}" class="btn btn-dark detail btn-sm mt-1" ><i class="fa fa-file-pdf fa-1x btn-danger"></i></a>
+                        <a href="{{action('AbStudentController@downloadPDF', $row->id)}}" class="btn btn-dark detail btn-sm mt-1" ><i class="fa fa-file-pdf fa-1x btn-danger"></i></a>
 
-                        <a href="{{route('students.show',$row->id)}}" class="btn btn-warning detail btn-sm mt-1" ><i class="fas fa-eye"></i></a>
+                        <a href="{{route('ab_students.show',$row->id)}}" class="btn btn-warning detail btn-sm mt-1" ><i class="fas fa-eye"></i></a>
 
-                        <a href="{{route('students.edit',$row->id)}}" class="btn btn-primary btn-sm mt-1"><i class="fas fa-edit"></i></a>
-                        @can('delete.users')
-                        <form method="post" style="display: inline-block;" action="{{route('students.destroy',$row->id)}}" onsubmit="return confirm('Are you sure?')">
+                        <a href="{{route('ab_students.edit',$row->id)}}" class="btn btn-primary btn-sm mt-1"><i class="fas fa-edit"></i></a>
+                        
+                        <form method="post" style="display: inline-block;" action="{{route('ab_students.destroy',$row->id)}}" onsubmit="return confirm('Are you sure?')">
                           @csrf
                           @method('DELETE')
                           <button type="submit" class="btn btn-danger btn-sm mt-1"><i class="fas fa-trash"></i></button>
                         </form>
-                        @endcan
+                        
                       </td>
                     </tr>
                   @endforeach
@@ -109,7 +109,7 @@
 @section('scripts')
 @include('datatable.script')
   <!-- Page level custom scripts -->
-  <script src="{{ asset('backend/js/demo/datatables-demo.js') }}"></script>
+  <script src="{{ asset('backend/js/demo/datatables-abdemo.js') }}"></script>
   
 @endsection
 

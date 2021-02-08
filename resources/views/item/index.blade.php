@@ -75,5 +75,6 @@
 <script type="text/javascript" src="backend/DataTables/js/dataTables.bootstrap4.min.js"></script>
   <!-- Page level custom scripts -->
 <script src="{{ asset('backend/js/demo/datatables-item.js') }}"></script>
+<script src="{{ asset('backend/datatables/dataTables.bootstrap4.min.js') }}"></script>
 @endsection
  

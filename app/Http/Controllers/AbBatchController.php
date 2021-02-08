@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Batch;
-use App\Course;
+use App\AbBatch;
+use App\AbCourse;
 
 use Illuminate\Http\Request;
 
-class BatchController extends Controller
+class AbBatchController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,9 @@ class BatchController extends Controller
      */
     public function index()
     {
-        $batches = Batch::all();
-        return view('batch.index',compact('batches'));
+        $ab_batches = AbBatch::all();
+    
+        return view('ab_batch.index',compact('ab_batches'));
     }
 
     /**
@@ -27,9 +28,9 @@ class BatchController extends Controller
      */
     public function create()
     {
-       $courses = Course::all();
+        $ab_courses = AbCourse::all();
 
-       return view('batch.create',compact('courses'));
+       return view('ab_batch.create',compact('ab_courses'));
     }
 
     /**
@@ -41,29 +42,29 @@ class BatchController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'=>'required',
+            'ab_name'=>'required',
             
             
         ]);
 
-        $batch = new Batch([
-            'name' => $request->get('name'),
+        $ab_batch = new AbBatch([
+            'ab_name' => $request->get('ab_name'),
        
             
             
         ]);
-        $batch->save();
+        $ab_batch->save();
         // dd($batch)
-        return redirect('/batch')->with('success', 'Batch Successfully Added!');
+        return redirect('/ab_batch')->with('success', 'Course Successfully Added!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Batch  $batch
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Batch $batch)
+    public function show($id)
     {
         //
     }
@@ -71,46 +72,36 @@ class BatchController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Batch  $batch
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $batch = Batch::find($id);
-       return view('batch.edit', compact('batch')); 
-   }
+        //
+    }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Batch  $batch
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'name'=>'required',
-                        
-        ]);
-            
-         $batch = Batch::find($id);
-            $batch->name = $request->get('name');
-           
-        $batch->save();
-        return redirect('/batch')->with('success', 'Your Course successfully Updated!');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Batch  $batch
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id )
+    public function destroy($id)
     {
-        $batch = Batch::find($id);
-        $batch->delete();
+        $ab_batch = AbBatch::find($id);
+        $ab_batch->delete();
 
-        return redirect('/batch')->with('success', 'Your Batch have been deleted!');    }
+        return redirect('/ab_batch')->with('success', 'Your Course have been deleted!');    }
 }
