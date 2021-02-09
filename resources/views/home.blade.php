@@ -187,7 +187,7 @@
             </ul>
         </div>
     </div>
-    @endcan
+ 
 </div>
 @endsection
 

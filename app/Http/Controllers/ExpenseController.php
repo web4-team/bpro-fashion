@@ -121,4 +121,15 @@ class ExpenseController extends Controller
      $expense->delete();
      return redirect()->route('DailyExpense.expense.index');
     }
+
+
+     public function searchExpense(Request $request)
+    {
+        $from_date=request()->input('fromdate');
+        $to_date=request()->input('todate');
+        $exps=Expense::where('date','>=',$from_date)->where('date','<=',$to_date)->get();
+
+        return view ('DailyExpense.expense.index',compact('exps'));
+
+    }
 }
