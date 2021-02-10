@@ -32,12 +32,26 @@
           </div>
 					
           <div class="card-body">
+          	@if ($errors->any())
+    <div class="alert alert-danger">
+      <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div><br />
+    @endif
 					
     <form method="post" action="{{route('employees.store')}}" enctype="multipart/form-data" class="col-md-6 mb-4">
         	@csrf
         	<div class="form-group">
 			    	<label for="first_name" class="text-dark">First Name</label>
 			    	<input type="text" class="form-control text-dark" name="first_name" id="first_name" value="{{Request::old('first_name') ? : ''}}">
+			    	@error('first_name')
+						    	<span class="invalid-feedback alert-danger" role="alert">
+		                          <strong>{{ $message }}</strong>
+		                      	</span>
+							@enderror
 					</div>
 
 					<div class="form-group">
@@ -123,15 +137,7 @@
 							</select>
 					</div>
 
-				<div class="form-group">
-						<label for="class" class="text-dark">Salary</label>
-							<select name="salary" class="custom-select custom-select-md text-dark">
-								<option value="" disabled {{ old('salary') ? '' : 'selected' }}>Choose a Salary</option>
-				  			@foreach($salaries as $salary)
-								<option value="{{$salary->id}}" {{ old('salary') ? 'selected' : '' }}>{{$salary->s_amount}}</option>
-								@endforeach
-							</select>
-					</div>
+			
 
 					<div class="form-group">
 						<label for="class" class="text-dark">Department</label>

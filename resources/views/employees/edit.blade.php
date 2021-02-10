@@ -142,17 +142,7 @@
                     </select>
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="salary" class="col-sm-3 col-form-label text-dark">Salary</label>
-                <div class="col-sm-9">
-                    <select name="salary" class="form-control">
-                        <option value="" disabled>Choose a Salary</option>
-                        @foreach($salaries as $salary)
-                            <option value="{{$salary->id}}" {{old('salary') ? 'selected' : ''}} {{ $employee->empSalary==$salary ? 'selected' : '' }} >${{$salary->s_amount}}</option>
-                        @endforeach
-                    </select>
-                </div>
-            </div>
+         
             
             <div class="form-group row">
                 <label for="department" class="col-sm-3 col-form-label text-dark">Department</label>

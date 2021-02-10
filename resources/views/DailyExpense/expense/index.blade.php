@@ -48,7 +48,7 @@
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                    Expense Amount Total
-                    <span class="badge badge-success badge-pill expenseValue"> {{$amount_total}} ks</span>
+                    <span class="badge badge-danger badge-pill expenseValue"> {{$amount_total}} ks</span>
                 </li>               
                 
                 <li class="list-group-item d-flex justify-content-between align-items-center">

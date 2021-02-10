@@ -33,7 +33,7 @@ class CreateEmployeesTable extends Migration
             $table->integer('state_id')->unsigned();
             $table->integer('city_id')->unsigned();
             $table->integer('division_id')->unsigned();
-            $table->integer('salary_id')->unsigned();
+            
             $table->integer('age');
             $table->string('picture');
 
@@ -45,7 +45,7 @@ class CreateEmployeesTable extends Migration
             $table->foreign('state_id')->references('id')->on('states');
             $table->foreign('city_id')->references('id')->on('cities');
             $table->foreign('division_id')->references('id')->on('divisions');
-            $table->foreign('salary_id')->references('id')->on('salaries');
+           
             $table->foreign('gender_id')->references('id')->on('genders');
             $table->timestamps();
             

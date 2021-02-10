@@ -72,8 +72,8 @@ group by income_id');
         $payroll=Payroll::where('date','>=',$from_date)->where('date','<=',$to_date)->get();
         $employee1=Employee::all();
         $data_items=Item::all();
-        $expanse=Expense::where('income_id')->sum('amount')->groupBy('income_id')->get();
-      
+        
+       
         
         $sale_total=Sale::where('date','>=',$from_date)->where('date','<=',$to_date)->get();
         $results = DB::select('SELECT SUM(amount), income_id FROM expenses 

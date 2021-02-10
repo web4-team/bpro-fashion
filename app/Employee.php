@@ -49,9 +49,7 @@ class Employee extends Model
     /**
      * @return object
      */
-    public function empSalary(){
-        return $this->belongsTo('App\Salary','salary_id');
-    }
+  
 
     /**
      * @return object

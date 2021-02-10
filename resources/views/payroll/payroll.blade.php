@@ -21,7 +21,7 @@
        
         <div class="card">
           <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">Basic Salary : MMK {{$employee->empSalary->s_amount}}</h6>
+          
             <a href="{{ route('payrolls.create', ['id'=>$employee->id]) }}" class="btn btn-sm btn-primary">Create Payroll</a>
           </div>
           <div class="table-responsive">

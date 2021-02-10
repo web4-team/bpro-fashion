@@ -68,7 +68,7 @@
           <a class="collapse-item" href="{{url('/employees')}}">Employee Lists</a>
           <a class="collapse-item" href="{{url('/departments')}}">Department</a>
           <a class="collapse-item" href="/divisions">Position</a>
-          <a class="collapse-item" href="{{url('/salaries')}}">Salary</a>
+          
           {{-- <a class="collapse-item" href="{{url('/salaries')}}">Attendence</a>
           <a class="collapse-item" href="{{url('/salaries')}}">Late</a>
           <a class="collapse-item" href="{{url('/salaries')}}">Leave</a>

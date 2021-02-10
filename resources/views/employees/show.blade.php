@@ -55,9 +55,7 @@
                 <div class="row">
                     <p class="pl-15"><span class="bold col s5 m4 l4 xl3">Email :</span><span class="col m8 l8 xl9">{{$employee->email}}</span></p>
                 </div>
-                <div class="row">
-                    <p class="pl-15"><span class="bold col s5 m4 l4 xl3">Salary :</span><span class="col m8 l8 xl9">MMK {{$employee->empSalary->s_amount}}/-</span></p>
-                </div>
+              
                 <div class="row">
                     <p class="pl-15"><span class="bold col s5 m4 l4 xl3">Joined Date :</span><span class="col m8 l8 xl9">{{$employee->join_date}}</span></p>
                 </div>
