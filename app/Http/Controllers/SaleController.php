@@ -82,9 +82,10 @@ class SaleController extends Controller
         $sale=Sale::where('item_id',$id)->whereMonth('date', Carbon::now()->month);
         $sum_inTotal=Sale::where('item_id',$id)->whereMonth('date', Carbon::now()->month)->sum('in_total');
          $inTotal=Sale::where('item_id',$id)->whereMonth('date', Carbon::now()->month)->sum('stock_in');
+         $outTotal=Sale::where('item_id',$id)->whereMonth('date', Carbon::now()->month)->sum('stock_out');
         // dd($sale_sum);
         
-        return view('sale.sale',compact('item','sum_inTotal','sale','inTotal','data_sale'));
+        return view('sale.sale',compact('item','sum_inTotal','sale','inTotal','data_sale','outTotal'));
     }
     public function show(Sale $sale)
     {

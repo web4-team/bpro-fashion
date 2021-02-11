@@ -51,7 +51,7 @@ class EmployeesController extends Controller
         $divisions = Division::orderBy('division_name','asc')->get();
         $genders = Gender::orderBy('gender_name','asc')->get();
         $departments = Department::orderBy('dept_name','asc')->get();
-        $salaries = Salary::orderBy('s_amount','asc')->get();
+       
 
         return view('employees.create')->with([
             'genders'      => $genders,
@@ -60,7 +60,7 @@ class EmployeesController extends Controller
             'cities'       => $cities,
             'divisions'    => $divisions,
             'departments'  => $departments,
-            'salaries'     => $salaries
+            
         ]);
     }
 
@@ -72,6 +72,8 @@ class EmployeesController extends Controller
      */
     public function store(Request $request)
     {
+
+      
          /**
          * 
          *  Handle the image file upload which will be stored
@@ -118,7 +120,7 @@ class EmployeesController extends Controller
         $countries    = Country::orderBy('country_name','asc')->get();
         $cities       = City::orderBy('city_name','asc')->get();
         $states       = State::orderBy('state_name','asc')->get();
-        $salaries     = Salary::orderBy('s_amount','asc')->get();
+        
         $divisions    = Division::orderBy('division_name','asc')->get();
         $genders      = Gender::orderBy('gender_name','asc')->get();
 
@@ -128,7 +130,7 @@ class EmployeesController extends Controller
             'countries'    => $countries,
             'cities'       => $cities,
             'states'       => $states,
-            'salaries'     => $salaries,
+            
             'divisions'    => $divisions,
             'genders'      => $genders,       
             'employee'     => $employee
@@ -187,6 +189,27 @@ class EmployeesController extends Controller
      * @return Boolean
      */
     private function setEmployee(Employee $employee,Request $request,$fileNameToStore){
+
+           $request->validate([
+            'first_name'=>'required',
+            'last_name'=>'required',
+            'email'=>'required',
+            'age'=>'required',
+            'address'=>'required',
+            'join_date'=>'required',
+            'birth_date'=>'required',
+            'gender_id'=>'required',
+            'division_id'=>'required',
+            'dept_id'=>'required',
+            'city_id'=>'required',
+            'country_id'=>'required',
+            'picture'=>'required|image|mimes:bmp,png,jpg,gif,jpeg',
+            'state_id'=>'required'
+            
+        ]);
+
+
+
         $employee->first_name   = $request->input('first_name');
         $employee->last_name    = $request->input('last_name');
         $employee->email        = $request->input('email');
@@ -199,7 +222,7 @@ class EmployeesController extends Controller
         $employee->birth_date   = date('Y-m-d', strtotime(str_replace('-', '/', $request->input('birth_date'))));
         $employee->gender_id    = $request->input('gender');
         $employee->division_id  = $request->input('division');
-        $employee->salary_id    = $request->input('salary'); 
+        
         $employee->dept_id      = $request->input('department');
         $employee->city_id      = $request->input('city');
         $employee->state_id     = $request->input('state');
@@ -227,6 +250,10 @@ class EmployeesController extends Controller
      * @return string
      */
     public function handleImageUpload(Request $request){
+
+        $request->validate([
+            'picture'=>'required|image|mimes:bmp,png,jpg,gif,jpeg'
+        ]);
         if( $request->hasFile('picture') ){
             
             //get filename with extension

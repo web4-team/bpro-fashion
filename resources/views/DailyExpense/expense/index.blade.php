@@ -1,5 +1,7 @@
 @extends('layouts.master')
 @section('content')
+@include('datatable.style')
+
 <div class="row">
   <div class="col-sm-12">
 
@@ -10,23 +12,67 @@
     <h2 class="display-3">Expense Management</h2> 
         <div>
     <a style="margin: 19px;" href="{{ route('expense.create')}}" class="btn btn-primary float-right">New Expense</a>
-    </div>     
-  <table class="table table-striped">
+    </div>
+
+    <div class="col-xl-6 offset-xl-3 col-sm-12 mb-3">
+    <form action="{{route('expense.search')}}" method="POST">
+          @csrf
+<div class="row mb-4">
+
+     <div class="col-md-5">
+        <input type="date" class="form-control" name="fromdate" id="date"  />
+    </div>
+    <div class="col-md-5">
+        <input type="date" class="form-control" name="todate" />
+    </div>
+    <div class="col-md-2">
+        <input type="submit" name="search" class="btn btn-success" value="Filter" />
+    </div>
+</div>
+</form>
+   <ul class="list-group">
+                <li class="list-group-item bg-info text-center text-white">
+                    <span> Summary For all</span>
+                </li>
+                 @php $given_total=0 @endphp
+          @php $amount_total=0 @endphp
+                @foreach($exps as $row)
+                  @php $given_total +=  $row->given; 
+                  $amount_total += $row->amount;
+                  @endphp
+                @endforeach
+            
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                     Given Amount Total
+                    <span class="badge badge-success badge-pill incomeValue">{{$given_total}} Ks</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                   Expense Amount Total
+                    <span class="badge badge-danger badge-pill expenseValue"> {{$amount_total}} ks</span>
+                </li>               
+                
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Difference
+                    <span class="badge badge-primary badge-pill">{{$given_total-$amount_total}} Ks</span>
+                </li>
+            </ul>
+</div>   
+  <table class="table table-striped" id="exp">
     <thead>
         <tr>
-          <td>No</td>
-          <td>Category Name</td>
-          <td>Description</td>
-          <td>EXpense Amount</td>
-          <td>Given Amount</td>
-          <td>Date</td>
+          <th>No</th>
+          <th>Category Name</th>
+          <th>Description</th>
+          <th>Expense Amount</th>
+          <th>Given Amount</th>
+          <th>Date</th>
 
           
         
          
 
           
-          <td colspan = 2>Actions</td>
+          <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -65,4 +111,10 @@
 </div>
 
 
+@endsection
+@section('scripts')
+@include('datatable.script')
+  <!-- Page level custom scripts -->
+  <script src="{{ asset('backend/js/demo/expense.js') }}"></script>
+  
 @endsection

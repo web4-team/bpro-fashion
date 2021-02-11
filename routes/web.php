@@ -72,6 +72,7 @@ Route::resource('item', 'ItemController');
 // Income/Expense
 Route::resource('income', 'IncomeController');
 Route::resource('expense', 'ExpenseController');
+Route::post('expense', 'ExpenseController@searchExpense')->name('expense.search');
 
 
 // Sale
@@ -84,7 +85,7 @@ Route::get('/item/sale/{id}/edit', 'SaleController@edit')->name('sales.edit');
 Route::patch('/sales/update/{id}', 'SaleController@update')->name('sales.update');
 Route::get('/downloadSale/{id}','SaleController@downloadSale');
 
-Route::get('my-chart', 'ChartController@index');
+
 
 //=======================================================================================
 

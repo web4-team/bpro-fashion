@@ -35,16 +35,16 @@
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                    Total Outcome Of Items
-                    <span class="badge badge-success badge-pill expenseValue"> {{$sum_inTotal}} ks</span>
+                    <span class="badge badge-danger badge-pill expenseValue"> {{$sum_inTotal}} ks</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                    Total of Stock In
-                    <span class="badge badge-danger badge-pill expenseValue"> {{$inTotal}} ks</span>
+                    <span class="badge badge-info badge-pill expenseValue"> {{$inTotal}} </span>
                 </li>
                 
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Profit/Loss
-                    <span class="badge badge-primary badge-pill"> Ks</span>
+                    Total of Stock Out
+                    <span class="badge badge-primary badge-pill">{{$outTotal}} </span>
                 </li>
             </ul>
 </div>
@@ -99,7 +99,7 @@
 
               <tbody>
                 @php $i=1; @endphp
-               
+                
                   @foreach($item->sales as $row)
                     <tr>	
                     <td>{{$i++}}</td>	

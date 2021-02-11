@@ -210,8 +210,6 @@
         </div>
                   
     </div>
-  
-    @endcan
+  @endcan
 </div>
 @endsection
-
