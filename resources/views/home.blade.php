@@ -70,63 +70,27 @@
         <!-- Report -->
          <!-- Area Chart -->
                    
-          <!-- Course Fees -->
-          <div class="col-xl-4 col-lg-5">
+       
+          <div class="col-xl-8 col-lg-5">
             <div class="card mb-4">
-              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class=" font-weight-bold text-primary text-center">Summary Of Course Fees</h6>
-              </div>
               <div class="card-body">
-                 @php $stu_total=0 @endphp
-                  @php     $first=0   @endphp
-                  @php     $second=0   @endphp
-                  @foreach($students as $row)
-                    @php $stu_total +=  $row->course->fees;
-                       $first += $row->first_paid;
-                       $second += $row->second_paid;
-                    @endphp
-                  @endforeach
-                <div class="mb-4">
-                  <div class="medium text-gray-500">Total Course Fee
-                    <div class="medium float-right"><b>{{$stu_total}} Ks</b></div>
-                  </div>
-                </div>
-                <div class="mb-4">
-                 <div class="medium text-gray-500">Total First Amount
-                    <div class="medium float-right"><b>{{$first}} Ks</b></div>
-                  </div>
-                </div>
-                <div class="mb-4">
-                  <div class="medium text-gray-500">Total Second Amount
-                    <div class="medium float-right"><b>{{$second}} Ks</b></div>
-                  </div>
-                </div>
-                <div class="mb-4">
-                  <div class="medium text-gray-500">Due
-                    <div class="medium float-right"><b>{{$stu_total-$first}} Ks</b></div>
-                  </div>
-                </div>
-                <br><br>
-              </div>
-            </div>
-          </div>
-                    <div class="col-xl-6 offset-xl-3 col-sm-12 mb-3">
-                              <form action="{{route('home.search')}}" method="POST">
-          @csrf
-<div class="row mb-4">
+                <form action="{{route('home.search')}}" method="POST">
+                  @csrf
+                 <div class="row mb-4">
 
-     <div class="col-md-5">
-        <input type="date" class="form-control" name="fromdate" id="date"  />
-    </div>
-    <div class="col-md-5">
-        <input type="date" class="form-control" name="todate" />
-    </div>
-    <div class="col-md-2">
-        <input type="submit" name="search" class="btn btn-success" value="Filter" />
-    </div>
-</div>
-</form>
-            <ul class="list-group">
+                     <div class="col-md-5">
+                         <input type="date" class="form-control" name="fromdate" id="date"  />
+                     </div>
+                     <div class="col-md-5">
+                         <input type="date" class="form-control" name="todate" />
+                     </div>
+                     <div class="col-md-2">
+                         <input type="submit" name="search" class="btn btn-success" value="Filter" />
+                     </div>
+                 </div>
+               </form>
+               <ul class="list-group">
+                 
                 <li class="list-group-item bg-info text-center text-white">
                     <span> Profit/Loss of B-Pro Fashion</span>
                 </li>
@@ -140,19 +104,29 @@
                 @foreach($stu as $row)
                   @php $stu_total +=  $row->course->fees; @endphp
                 @endforeach
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                     Total Course Fee
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h5 class=" font-weight-bold text-primary text-center">Income</h5>
+                </div>
+                <li class="list-group-item d-flex justify-content-between align-items-center ">
+                     Course Fee
                     <span class="badge badge-success badge-pill incomeValue">{{$stu_total}} Ks</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                    Sell Items
                     <span class="badge badge-success badge-pill expenseValue"> {{$sum_total}} ks</span>
                 </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  <b>Total Income</b>
+                   <span class="badge badge-success badge-pill expenseValue">{{$stu_total + $sum_total}} ks</span>
+               </li>
                 
                 @php $item_total=0 @endphp
                 @foreach($sale_total as $row)
                 @php $item_total += $row->in_total; @endphp
                 @endforeach
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h5 class=" font-weight-bold text-primary text-center">Expense</h5>
+                </div>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                          
                 Buy Items
@@ -162,31 +136,81 @@
                 @foreach($payroll as $row)
                 @php $salary += ($row->salary+$row->commission+$row->bonus+$row->overtime)-($row->leave+$row->late); @endphp
                 @endforeach
-
+                @php $amount_total=0 @endphp
+             
+                @foreach($exps as $row)
+                @php $amount_total += $row->amount; @endphp
+              @endforeach
 
                  <li class="list-group-item d-flex justify-content-between align-items-center">
-                   All Salary
+                   Salary
                     <span class="badge badge-danger badge-pill expenseValue"> {{$salary}} ks</span>
                 </li>
-                
-               
-               
-
-            
-                
-                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                   >>>
-                    <span class="badge badge-danger badge-pill expenseValue">Total Expense  {{$item_total}} ks</span>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Office Expense
+                    <span class="badge badge-danger badge-pill expenseValue">  {{$amount_total}} ks</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                <b>Total Expense</b>
+                    <span class="badge badge-danger badge-pill expenseValue">  {{$item_total + $salary + $amount_total}} ks</span>
                 </li>
 
-                
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h5 class=" font-weight-bold text-primary text-center">Profit/Loss </h5>
+                </div>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Profit/Loss 
-                    <span class="badge badge-primary badge-pill">{{($sum_total+$stu_total)-$item_total}} Ks</span>
+                    Amount
+                    <span class="badge badge-primary badge-pill">{{($sum_total+$stu_total)-($salary + $item_total + $amount_total )}} Ks</span>
                 </li>
             </ul>
+              </div>
+            </div>
+          </div>
+          
+            <!-- Course Fees -->
+         <div class="col-xl-4 col-lg-5">
+          <div class="card mb-4">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+              <h6 class=" font-weight-bold text-primary text-center">Summary Of Course Fees</h6>
+            </div>
+            <div class="card-body">
+               @php $stu_total=0 @endphp
+                @php     $first=0   @endphp
+                @php     $second=0   @endphp
+                @foreach($students as $row)
+                  @php $stu_total +=  $row->course->fees;
+                     $first += $row->first_paid;
+                     $second += $row->second_paid;
+                  @endphp
+                @endforeach
+              <div class="mb-4">
+                <div class="medium text-gray-500">Total Course Fee
+                  <div class="medium float-right"><b>{{$stu_total}} Ks</b></div>
+                </div>
+              </div>
+              <div class="mb-4">
+               <div class="medium text-gray-500">Total First Amount
+                  <div class="medium float-right"><b>{{$first}} Ks</b></div>
+                </div>
+              </div>
+              <div class="mb-4">
+                <div class="medium text-gray-500">Total Second Amount
+                  <div class="medium float-right"><b>{{$second}} Ks</b></div>
+                </div>
+              </div>
+              <div class="mb-4">
+                <div class="medium text-gray-500">Due
+                  <div class="medium float-right"><b>{{$stu_total-$first}} Ks</b></div>
+                </div>
+              </div>
+              <br><br>
+         
+            </div>
+          </div>
         </div>
+                  
     </div>
+  
     @endcan
 </div>
 @endsection

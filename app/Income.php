@@ -11,4 +11,9 @@ class Income extends Model
       
     ];
 
+    public function expense()
+  {
+    return $this->belongsTo('App\Expense');
+  }
+
 }
