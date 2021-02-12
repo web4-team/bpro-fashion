@@ -67,9 +67,11 @@ class IncomeController extends Controller
      * @param  \App\Income  $income
      * @return \Illuminate\Http\Response
      */
-    public function edit(Income $income)
+    public function edit($id)
     {
-        //
+      
+        $incomes = Income::find($id);
+        return view('DailyExpense.income.edit', compact('incomes'));
     }
 
     /**
@@ -79,9 +81,23 @@ class IncomeController extends Controller
      * @param  \App\Income  $income
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Income $income)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'category'=>'required',
+          
+            
+        ]);
+            
+         $incomes = Income::find($id);
+         
+            $incomes->category = $request->get('category');
+          
+              
+            
+        
+        $incomes->save();
+        return redirect('/income')->with('success', 'Your incomes are successfully Updated!');
     }
 
     /**

@@ -115,15 +115,15 @@ class ExpenseController extends Controller
      * @param  \App\Expense  $expense
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+       public function destroy($id)
     {
      $expense=Expense::find($id);
      $expense->delete();
-     return redirect()->route('DailyExpense.expense.index');
+     return redirect('/expense')->with('success', 'Has been Deleted!');
     }
 
 
-     public function searchExpense(Request $request)
+     public function findexpense(Request $request)
     {
         $from_date=request()->input('fromdate');
         $to_date=request()->input('todate');

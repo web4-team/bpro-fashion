@@ -23,7 +23,7 @@ $(document).ready(function() {
             className:'page'},
                                
         ],
-       columnDefs: [{targets: [3,4,5,6,7], visible: false}],
+       columnDefs: [{targets: [4,5,6,8,9], visible: false}],
 
     } );
 } );

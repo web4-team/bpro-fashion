@@ -41,7 +41,7 @@ class ItemController extends Controller
     {
                 $request->validate([
             'name'=>'required',
-            'price'=>'required',
+          
             
             
             
@@ -94,7 +94,7 @@ class ItemController extends Controller
     {
         $request->validate([
             'name'=>'required',
-            'price'=>'required'
+          
             
         ]);
             
@@ -106,7 +106,7 @@ class ItemController extends Controller
             
         
         $items->save();
-        return redirect('/item')->with('success', 'Your items are successfully Updated!');
+        return redirect('/item')->with('success', 'Your item is successfully Updated!');
     }
 
     /**

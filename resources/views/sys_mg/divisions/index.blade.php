@@ -2,10 +2,10 @@
 @section('content')
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-  <h1 class="h3 mb-0 text-gray-800">Division</h1>
+  <h1 class="h3 mb-0 text-gray-800">Position</h1>
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{{ url('/home')}}"><i class="fas fa-home"></i></a></li>
-    <li class="breadcrumb-item"><a href="">Division Lists</a></li>
+    <li class="breadcrumb-item"><a href="">Position Lists</a></li>
   </ol>
 </div>
 

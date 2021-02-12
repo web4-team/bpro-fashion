@@ -79,10 +79,10 @@
                  <div class="row mb-4">
 
                      <div class="col-md-5">
-                         <input type="date" class="form-control" name="fromdate" id="date"  />
+                         <input type="date" class="form-control" name="fromdate" id="date"  required/>
                      </div>
                      <div class="col-md-5">
-                         <input type="date" class="form-control" name="todate" />
+                         <input type="date" class="form-control" name="todate" required/>
                      </div>
                      <div class="col-md-2">
                          <input type="submit" name="search" class="btn btn-success" value="Filter" />
