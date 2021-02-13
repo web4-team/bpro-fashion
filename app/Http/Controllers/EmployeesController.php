@@ -93,7 +93,7 @@ class EmployeesController extends Controller
          */
         $this->setEmployee($employee,$request,$fileNameToStore);
         
-        return redirect('/employees')->with('info','New Employee has been created!');
+        return redirect('/employees')->with('success','New Employee has been created!');
     }
 
     /**
@@ -163,7 +163,7 @@ class EmployeesController extends Controller
          *  method
          */
         $this->setEmployee($employee,$request,$fileNameToStore);
-        return redirect('/employees')->with('info','Selected Employee has been updated!');
+        return redirect('/employees')->with('success','Selected Employee has been updated!');
     }
 
     /**
@@ -177,7 +177,7 @@ class EmployeesController extends Controller
         $employee = Employee::find($id);
         $employee->delete();
         Storage::delete('public/employee_images/'.$employee->picture);
-        return redirect('/employees')->with('info','Selected Employee has been deleted!');
+        return redirect('/employees')->with('success','Selected Employee has been deleted!');
     }
 
      /**
@@ -190,24 +190,7 @@ class EmployeesController extends Controller
      */
     private function setEmployee(Employee $employee,Request $request,$fileNameToStore){
 
-           $request->validate([
-            'first_name'=>'required',
-            'last_name'=>'required',
-            'email'=>'required',
-            'age'=>'required',
-            'address'=>'required',
-            'join_date'=>'required',
-            'birth_date'=>'required',
-            'gender_id'=>'required',
-            'division_id'=>'required',
-            'dept_id'=>'required',
-            'city_id'=>'required',
-            'country_id'=>'required',
-            'picture'=>'required|image|mimes:bmp,png,jpg,gif,jpeg',
-            'state_id'=>'required'
-            
-        ]);
-
+       
 
 
         $employee->first_name   = $request->input('first_name');
@@ -251,9 +234,26 @@ class EmployeesController extends Controller
      */
     public function handleImageUpload(Request $request){
 
-        $request->validate([
-            'picture'=>'required|image|mimes:bmp,png,jpg,gif,jpeg'
+     
+
+           $request->validate([
+            'first_name'=>'required',
+            'last_name'=>'required',
+            'email'=>'required',
+            'age'=>'required',
+            'address'=>'required',
+            'join_date'=>'required',
+            'birth_date'=>'required',
+            'gender'=>'required',
+            'division'=>'required',
+            'department'=>'required',
+            'city'=>'required',
+            'country'=>'required',
+            'picture'=>'required|image|mimes:bmp,png,jpg,gif,jpeg',
+            'state'=>'required'
+            
         ]);
+
         if( $request->hasFile('picture') ){
             
             //get filename with extension

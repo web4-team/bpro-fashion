@@ -106,6 +106,19 @@
         </tr>
         @endforeach
     </tbody>
+           <tfoot>
+            <tr>
+                <th colspan="1"   style="text-align:right"></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+               
+                
+                
+            </tr>
+        </tfoot>
   </table>
 <div>
 </div>

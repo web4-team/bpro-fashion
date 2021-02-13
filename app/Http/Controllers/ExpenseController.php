@@ -119,11 +119,11 @@ class ExpenseController extends Controller
     {
      $expense=Expense::find($id);
      $expense->delete();
-     return redirect()->route('DailyExpense.expense.index');
+     return redirect('/expense')->with('success', 'Has been Deleted!');
     }
 
 
-     public function searchExpense(Request $request)
+     public function findExpense(Request $request)
     {
         $from_date=request()->input('fromdate');
         $to_date=request()->input('todate');

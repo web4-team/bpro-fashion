@@ -35,7 +35,7 @@
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                    Total Outcome Of Items
-                    <span class="badge badge-danger badge-pill expenseValue"> {{$sum_inTotal}} ks</span>
+                    <span class="badge badge-danger badge-pill expenseValue"> {{$in_total}} ks</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                    Total of Stock In
@@ -54,13 +54,13 @@
     <div class="col-lg-12 mb-4">
        
         <div class="card">
-          <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-           <a href="{{action('SaleController@downloadSale',['id'=>$item->id])}}" class="btn btn-dark detail btn-sm mt-1" ><i class="fa fa-file-pdf fa-1x btn-danger"></i> Report</a>
-            <a href="{{ route('sales.create', ['id'=>$item->id]) }}" class="btn btn-sm btn-primary">Create Sale</a>
+          <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between float-right">
+          <!--  <a href="{{action('SaleController@downloadSale',['id'=>$item->id])}}" class="btn btn-dark detail btn-sm mt-1" ><i class="fa fa-file-pdf fa-1x btn-danger"></i> Report</a> -->
+            <a href="{{ route('sales.create', ['id'=>$item->id]) }}" class="btn btn-sm btn-primary">Create</a>
             
           </div>
          
-          <form action="{{route('sale.search',['id' => $item->id])}}" method="POST">
+<!--           <form action="{{route('sale.search',['id' => $item->id])}}" method="POST">
           @csrf
 <div class="row mb-4">
 
@@ -74,7 +74,7 @@
         <input type="submit" name="search" class="btn btn-success" value="Filter" />
     </div>
 </div>
-</form>
+</form> -->
         
           <div class="table-responsive">
             <table class="table align-items-center table-flush" id="sale">
