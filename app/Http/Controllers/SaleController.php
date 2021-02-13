@@ -47,10 +47,12 @@ class SaleController extends Controller
      */
     public function store(Request $request, $id)
     {
-       $request-> validate ([
-           
-            
-        ]);
+            $this->validate($request,[
+          'date'=> 'required',
+           'choose'=> 'required',
+    ]);
+   
+        
         $sale= new Sale([
             'date'=>$request->get('date'),
             'customer_name'=>$request->get('customer'),
@@ -78,14 +80,14 @@ class SaleController extends Controller
     public function saleIndex($id){
         $item = Item::findOrFail($id);
         $data_sale=Sale::all();
-        $sale_sum =Sale::all()->where('item_id',$id)->sum('stock_out');
-        $sale=Sale::where('item_id',$id)->whereMonth('date', Carbon::now()->month);
-        $sum_inTotal=Sale::where('item_id',$id)->whereMonth('date', Carbon::now()->month)->sum('in_total');
-         $inTotal=Sale::where('item_id',$id)->whereMonth('date', Carbon::now()->month)->sum('stock_in');
-         $outTotal=Sale::where('item_id',$id)->whereMonth('date', Carbon::now()->month)->sum('stock_out');
+       
+        $sale=Sale::where('item_id',$id)->whereMonth('date', Carbon::now()->month)->get();
+        
+        $inTotal=Sale::where('item_id',$id)->sum('stock_in');
+        $outTotal=Sale::where('item_id',$id)->sum('stock_out');
         // dd($sale_sum);
         
-        return view('sale.sale',compact('item','sum_inTotal','sale','inTotal','data_sale','outTotal'));
+        return view('sale.sale',compact('item','sale','inTotal','data_sale','outTotal'));
     }
     public function show(Sale $sale)
     {
@@ -116,14 +118,19 @@ class SaleController extends Controller
         
         $this->validate($request,[
           'date'=> 'required',
+           'choose'=> 'required',
     ]);
    
         
         $sale = Sale::findOrFail($id);
         $sale->date = $request->date;
-        $sale->customer_name = $request->customer_name;
+        $sale->choose = $request->choose;
+        $sale->customer_name = $request->customer;
         $sale->stock_out = $request->stock_out;
         $sale->per_price = $request->per_price;
+        $sale->stock_in= $request->stock_in;
+         $sale->supplier_name = $request->supplier;
+        $sale->in_total = $request->in_total;
        
         $sale->save();       
         
@@ -141,7 +148,7 @@ class SaleController extends Controller
      */
     public function destroy(Sale $sale)
     {
-        //
+        
     }
 
         public function searchSale(Request $request, $id)
