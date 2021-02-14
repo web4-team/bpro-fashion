@@ -96,7 +96,7 @@
                 </li>
                 @php $sum_total=0 @endphp
                 @foreach($sale_total as $row)
-                  @php $sum_total +=  $row->stock_out*$row->per_price; @endphp
+                  @php $sum_total +=  $row->per_price; @endphp
                 @endforeach
 
 

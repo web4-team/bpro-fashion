@@ -1,29 +1,9 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="header pb-6">
-  <div class="container-fluid">
-    <div class="header-body">
-      <div class="row align-items-center py-4">
-        <div class="col-lg-6 col-7">
-          <h3 class="h2 text-dark d-inline-block mb-0">Update Sales List of {{ $sale->item->name }}</h3>
-          <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-              <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-            
-              <li class="breadcrumb-item active" aria-current="page">Update sale</li>
-            </ol>
-          </nav>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</div>
-
 <div class="row">
  <div class="col-sm-8 offset-sm-2">
-
+  <h4>Update Sales List of {{ $sale->item->name }}</h4>
   <div>
     @if ($errors->any())
     <div class="alert alert-danger">
@@ -44,18 +24,43 @@
       </div>
 
       <div class="form-group">
-        <label for="commission">Customer Name:</label>
-        <input type="text" class="form-control" name="customer_name" value="{{$sale->customer_name}}"/>
+    <label for="seeAnotherFieldGroup">Please Choose One</label>
+    <select class="form-control" id="seeAnotherFieldGroup" name="choose" >
+            <option @if($sale->choose == 'Customer') selected @endif >Customer          
+         </option>
+         <option @if($sale->choose == 'Supplier') selected @endif >Supplier         
+         </option>
+    </select>
+  </div>
+    <div class="form-group" id="otherFieldGroupDiv">
+    <div class="row">
+       <div class="col-12">
+        <label for="otherField1">Supplier Name</label>
+        <input type="text" class="form-control w-100" id="otherField1" name="supplier" value="{{$sale->supplier_name}}" >
       </div>
+      <div class="col-6">
+        <label for="otherField1">Stock In</label>
+        <input type="number" class="form-control w-100" id="otherField1" name="stock_in" value="{{$sale->stock_in}}" >
+      </div>
+      <div class="col-6">
+        <label for="otherField2">Cash Out</label>
+        <input type="number" class="form-control w-100" id="otherField2" name="in_total" value="{{$sale->in_total}}" >
+      </div>
+    </div>
+  </div>
+  <div class="form-group" id="FieldGroupDiv">
+        <label for="commission">Customer Name:</label>
+        <input type="text" class="form-control" name="customer" id="otherField1" value="{{$sale->customer_name}}" />
+      
       <div class="form-group">
         <label for="commission">Stock Out:</label>
-        <input type="number" class="form-control" name="stock_out" value="{{$sale->stock_out}}"/>
+        <input type="number" class="form-control" name="stock_out" id="otherField2" value="{{$sale->stock_out}}" />
       </div>
       <div class="form-group">
-        <label for="overtime">Per Price:</label>
-        <input type="number" class="form-control" name="per_price" value="{{$sale->per_price}}"/>
+        <label for="overtime">Cash In</label>
+        <input type="number" class="form-control" name="per_price" value="{{$sale->per_price}}" />
       </div>
-     
+    </div> 
      
      
       
@@ -69,4 +74,3 @@
 
 
 @endsection
-

@@ -57,11 +57,11 @@
                 @endforeach
             
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                     Given Amount Total
+                     Total Amount Received 
                     <span class="badge badge-success badge-pill incomeValue">{{$given_total}} Ks</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                   Expense Amount Total
+                   Total Amount Paid
                     <span class="badge badge-danger badge-pill expenseValue"> {{$amount_total}} ks</span>
                 </li>               
                 
@@ -77,8 +77,8 @@
           <th>No</th>
           <th>Expense Name</th>
           <th>Expense Category</th>
-          <th>Given Amount</th>
-          <th>Expense Amount</th>
+          <th>Amount received</th>
+          <th>Amount Paid</th>
           <th>Date</th>
           <th>Actions</th>
         </tr>

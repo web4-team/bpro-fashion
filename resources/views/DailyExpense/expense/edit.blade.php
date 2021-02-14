@@ -65,7 +65,7 @@
                         </div>
                         <div class="form-group">
                             <div class="form-label-group">
-                                <label for="expense_amount">Given Amount</label>
+                                <label for="expense_amount">Amount received</label>
                                 <input type="number" step="any" id="expense_amount" class="form-control"
                                     placeholder="Given Amount" required="required" name="given_amount"
                                     value="{{ $expense->given }}">
@@ -74,8 +74,8 @@
                         </div>
                         <div class="form-group">
                             <div class="form-label-group">
-                                <label for="expense_amount">Expense Amount</label>
-                                <input type="number" step="any" id="expense_amount" min="0.01" class="form-control"
+                                <label for="expense_amount">Amount Paid</label>
+                                <input type="number" step="any" id="expense_amount"  class="form-control"
                                     placeholder="Expense Amount" required="required" name="expense_amount"
                                     value="{{ $expense->amount }}">
 
