@@ -175,6 +175,7 @@ class EmployeesController extends Controller
     public function destroy($id)
     {
         $employee = Employee::find($id);
+        $employee->payrolls()->delete();
         $employee->delete();
         Storage::delete('public/employee_images/'.$employee->picture);
         return redirect('/employees')->with('success','Selected Employee has been deleted!');
