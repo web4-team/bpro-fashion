@@ -62,7 +62,7 @@
 
 
               <a href="{{ route('item.edit',$row->id)}}" class="btn btn-primary btn btn-sm"><i class="fas fa-edit"></i></a>
-            <form action="{{ route('item.destroy', $row->id)}}" method="post">
+            <form action="{{ route('item.destroy', $row->id)}}" method="post" onsubmit="return confirm('Are you sure?')">
               @csrf
               @method('DELETE')
               <button class="btn btn-danger btn btn-sm mx-1" type="submit"><i class="fa fa-trash"></i></button>
