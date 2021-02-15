@@ -115,7 +115,7 @@ class ExpenseController extends Controller
      * @param  \App\Expense  $expense
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+       public function destroy($id)
     {
      $expense=Expense::find($id);
      $expense->delete();
@@ -123,7 +123,9 @@ class ExpenseController extends Controller
     }
 
 
-     public function findExpense(Request $request)
+
+     public function findexpense(Request $request)
+
     {
         $from_date=request()->input('fromdate');
         $to_date=request()->input('todate');

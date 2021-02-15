@@ -40,17 +40,17 @@
     <form method="post" action="{{ route('item.update', $items->id) }}">
       @method ('PATCH')
            @csrf
-      <div class="form-group">
+      {{-- <div class="form-group">
             <label for="date" class="text-dark">Date</label>
             <input type="date" class="form-control" name="date" value="{{$items->date}}">
-        </div>
+        </div> --}}
       <div class="form-group">    
         <label for="name">Item Name:</label>
         <input type="text" class="form-control" name="name" value="{{$items->name}}" />
       </div>   
       
       
-      <div class="form-group">    
+      {{-- <div class="form-group">    
         <label for="name">Quantity:</label>
         <input type="number" class="form-control" name="quantity" min="0" value="{{$items->quantity}}"/>
       </div>
@@ -66,7 +66,7 @@
         <div class="form-group">
           <label for="remark" class="text-dark">Remark</label>
           <textarea class="form-control text-dark" name="remark" rows="3" value="">{{$items->remark}}</textarea>
-      </div>
+      </div> --}}
 
 
    

@@ -71,10 +71,11 @@ Route::resource('item', 'ItemController');
 
 // Income/Expense
 Route::resource('income', 'IncomeController');
-// Route::resource('expense', 'ExpenseController');
+
 Route::get('expense', 'ExpenseController@index')->name('expense.index');
 
-Route::post('expense/search', 'ExpenseController@findExpense')->name('expense.search');
+Route::post('expense/search', 'ExpenseController@findexpense')->name('expense.search');
+
 Route::get('expense/create', 'ExpenseController@create')->name('expense.create');
 Route::patch('expense/{id}', 'ExpenseController@update')->name('expense.update');
 Route::get('expense/{id}/edit', 'ExpenseController@edit')->name('expense.edit');

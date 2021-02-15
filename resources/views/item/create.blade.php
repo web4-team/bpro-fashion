@@ -40,14 +40,14 @@
   
     <form method="post" action="{{route('item.store') }}">
       @csrf
-      
+
       <div class="form-group">    
         <label for="name">Item Name:</label>
         <input type="text" class="form-control" name="name" />
       </div>   
       
       
-     
+
 
 
    
@@ -59,5 +59,5 @@
       <button type="submit" class="btn btn-primary">Save</button>
     </form>
 </div>
-
+</div>
 @endsection

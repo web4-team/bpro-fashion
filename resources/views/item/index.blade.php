@@ -5,9 +5,27 @@
 @endsection
 
 @section('content')
+<div class="header pb-6">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row align-items-center py-4">
+        <div class="col-lg-6 col-7">
+          <h3 class="h2 text-dark d-inline-block mb-0">Item Management</h3>
+          <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+              <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+              <li class="breadcrumb-item"><a href="#">Item Lists</a></li>
+           
+            </ol>
+          </nav>
+        </div>
 
+      </div>
+    </div>
+  </div>
+</div>
 <div class="col-sm-12">
-  <h2 class="display-3">Items</h2> 
+ 
   <div class="float-right">
     <a style="margin: 19px;" href="{{ route('item.create')}}" class="btn btn-primary">New Item</a>
   </div>     
@@ -15,7 +33,6 @@
     <thead>
       <tr>
         <td>No</td>
-        <td>Date</td>
         <td>Item Name</td>       
        
         <td>Actions</td>
@@ -26,7 +43,7 @@
       @foreach($items as $row)
       <tr>
         <td>{{$i++}}</td>
-       <td>{{ \Carbon\Carbon::parse($row->created_at)->format('d/M/Y')}}</td>
+       
         
         <td>{{$row->name}}</td>    
      
@@ -43,8 +60,9 @@
 
 
 
-            <a href="{{ route('item.edit',$row->id)}}" class="btn btn-primary btn btn-sm"><i class="fas fa-edit"></i></a>
-            <form action="{{ route('item.destroy', $row->id)}}" method="post">
+              <a href="{{ route('item.edit',$row->id)}}" class="btn btn-primary btn btn-sm"><i class="fas fa-edit"></i></a>
+            <form action="{{ route('item.destroy', $row->id)}}" method="post" onsubmit="return confirm('Are you sure?')">
+
               @csrf
               @method('DELETE')
               <button class="btn btn-danger btn btn-sm mx-1" type="submit"><i class="fa fa-trash"></i></button>

@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
  <div class="col-sm-8 offset-sm-2">
-  <h3 class="display-3">Update Sales List of {{ $sale->item->name }}</h3>
+  <h4>Update Sales List of {{ $sale->item->name }}</h4>
   <div>
     @if ($errors->any())
     <div class="alert alert-danger">
@@ -41,11 +41,13 @@
       <div class="col-6">
         <label for="otherField1">Stock In</label>
         <input type="number" class="form-control w-100" id="otherField1" name="stock_in" value="{{$sale->stock_in}}" >
+
       </div>
       <div class="col-6">
-        <label for="otherField2">Stock In Total Amount</label>
+        <label for="otherField2">Cash Out</label>
         <input type="number" class="form-control w-100" id="otherField2" name="in_total" value="{{$sale->in_total}}" >
       </div>
+
     </div>
   </div>
   <div class="form-group" id="FieldGroupDiv">
@@ -57,7 +59,9 @@
         <input type="number" class="form-control" name="stock_out" id="otherField2" value="{{$sale->stock_out}}" />
       </div>
       <div class="form-group">
-        <label for="overtime">Per Price:</label>
+
+        <label for="overtime">Cash In</label>
+
         <input type="number" class="form-control" name="per_price" value="{{$sale->per_price}}" />
       </div>
     </div> 
@@ -74,4 +78,3 @@
 
 
 @endsection
-

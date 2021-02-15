@@ -79,15 +79,16 @@ class SaleController extends Controller
 
     public function saleIndex($id){
         $item = Item::findOrFail($id);
+
+      
         $data_sale=Sale::where('item_id',$id)->get();
        
-        $sale=Sale::where('item_id',$id)->whereMonth('date', Carbon::now()->month)->get();
         
-        $inTotal=Sale::where('item_id',$id)->whereMonth('date', Carbon::now()->month)->sum('stock_in');
-        $outTotal=Sale::where('item_id',$id)->whereMonth('date', Carbon::now()->month)->sum('stock_out');
+     
+
         // dd($sale_sum);
         
-        return view('sale.sale',compact('item','sale','inTotal','data_sale','outTotal'));
+        return view('sale.sale',compact('item','data_sale'));
     }
     public function show(Sale $sale)
     {
@@ -146,12 +147,20 @@ class SaleController extends Controller
      * @param  \App\Sale  $sale
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Sale $sale)
+      public function destroy($id)
     {
         
+
+        $sale = Sale::find($id);
+        
+        $sale->delete();
+
+        Session::flash('success', 'Sales List Deleted.');
+        return redirect()->route('sales.show',['id'=>$sale->item_id]);
+
     }
 
-        public function searchSale(Request $request, $id)
+    public function searchSale(Request $request, $id)
     {
         $item = Item::findOrFail($id);
         $from_date=request()->input('fromdate');

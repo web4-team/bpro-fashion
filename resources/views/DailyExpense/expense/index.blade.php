@@ -1,35 +1,49 @@
 @extends('layouts.master')
 @section('content')
 @include('datatable.style')
+<div class="header pb-6">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row align-items-center py-4">
+        <div class="col-lg-6 col-7">
+          <h3 class="h2 text-dark d-inline-block mb-0">Expense Management</h3>
+          <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+              <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+              <li class="breadcrumb-item"><a href="#">Expense Lists</a></li>
+             
+            </ol>
+          </nav>
+        </div>
 
-<div class="row">
-  <div class="col-sm-12">
-
-
-
+      </div>
+    </div>
+  </div>
 </div>
+<div class="row">
+
 <div class="col-sm-12">
-    <h2 class="display-3">Expense Management</h2> 
+
         <div>
     <a style="margin: 19px;" href="{{ route('expense.create')}}" class="btn btn-primary float-right">New Expense</a>
     </div>
 
-    <div class="col-xl-6 offset-xl-3 col-sm-12 mb-3">
+    <div class="col-xl-6 offset-xl-3 col-sm-12 mb-3 card" style="padding:20px;">
     <form action="{{route('expense.search')}}" method="POST">
           @csrf
-<div class="row mb-4">
+        <div class="row mb-4">
 
      <div class="col-md-5">
-        <input type="date" class="form-control" name="fromdate" id="date"  />
+        <input type="date" class="form-control" name="fromdate" id="date" required  />
     </div>
     <div class="col-md-5">
-        <input type="date" class="form-control" name="todate" />
+        <input type="date" class="form-control" name="todate" required />
     </div>
     <div class="col-md-2">
         <input type="submit" name="search" class="btn btn-success" value="Filter" />
     </div>
-</div>
-</form>
+    </div>
+    </form>
    <ul class="list-group">
                 <li class="list-group-item bg-info text-center text-white">
                     <span> Summary For all</span>
@@ -43,11 +57,11 @@
                 @endforeach
             
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                     Given Amount Total
+                     Total Amount Received 
                     <span class="badge badge-success badge-pill incomeValue">{{$given_total}} Ks</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                   Expense Amount Total
+                   Total Amount Paid
                     <span class="badge badge-danger badge-pill expenseValue"> {{$amount_total}} ks</span>
                 </li>               
                 
@@ -56,22 +70,16 @@
                     <span class="badge badge-primary badge-pill">{{$given_total-$amount_total}} Ks</span>
                 </li>
             </ul>
-</div>   
-  <table class="table table-striped" id="exp">
+        </div>   
+  <table class="table table-striped hover" id="exp">
     <thead>
         <tr>
           <th>No</th>
-          <th>Category Name</th>
-          <th>Description</th>
-          <th>Expense Amount</th>
-          <th>Given Amount</th>
+          <th>Expense Name</th>
+          <th>Expense Category</th>
+          <th>Amount received</th>
+          <th>Amount Paid</th>
           <th>Date</th>
-
-          
-        
-         
-
-          
           <th>Actions</th>
         </tr>
     </thead>
@@ -80,16 +88,11 @@
         @foreach($exps as $row)
         <tr>
             <td>{{$i++}}</td>
-            <td>{{$row->income->category}}</td>
             <td>{{$row->description}}</td>
-            <td>{{$row->amount}}</td>
+            <td>{{$row->income->category}}</td>
             <td>{{$row->given}}</td>
+            <td>{{$row->amount}}</td>
             <td>{{$row->date}}</td>
-            
-            
-           
-
-           
             <td>
               <div class="btn-group">
                 
@@ -106,19 +109,21 @@
         </tr>
         @endforeach
     </tbody>
-           <tfoot>
-            <tr>
-                <th colspan="1"   style="text-align:right"></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-               
-                
-                
-            </tr>
-        </tfoot>
+
+    <tfoot>
+      <tr>
+          <th colspan="1"   style="text-align:right"></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+         
+          
+          
+      </tr>
+  </tfoot>
+
   </table>
 <div>
 </div>

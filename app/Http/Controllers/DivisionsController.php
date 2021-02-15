@@ -51,9 +51,9 @@ class DivisionsController extends Controller
         $division->division_name = $request->input('division_name');
        
         if($division->save()){
-            $request->session()->flash('success', 'New Division has been created');
+            $request->session()->flash('success', 'New Position has been created');
         }else{
-            $request->session()->flash('error', 'There was an error Creating the Division');
+            $request->session()->flash('error', 'There was an error Creating the Position');
         }
 
         return redirect('/divisions');
@@ -95,9 +95,9 @@ class DivisionsController extends Controller
         $division->division_name = $request->input('division_name');
        
         if($division->save()){
-            $request->session()->flash('success', 'Selected Division has been updated');
+            $request->session()->flash('success', 'Selected Position has been updated');
         }else{
-            $request->session()->flash('error', 'There was an error updating the Division');
+            $request->session()->flash('error', 'There was an error updating the Position');
         }
 
         return redirect('/divisions');
@@ -113,6 +113,6 @@ class DivisionsController extends Controller
     {
         $division = Division::find($id);
         $division->delete();
-        return redirect('/divisions')->with('info', 'Selected Division has been deleted!');
+        return redirect('/divisions')->with('info', 'Selected Position has been deleted!');
     }
 }
