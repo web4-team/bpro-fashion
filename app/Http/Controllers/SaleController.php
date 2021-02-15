@@ -79,7 +79,7 @@ class SaleController extends Controller
 
     public function saleIndex($id){
         $item = Item::findOrFail($id);
-        $data_sale=Sale::all();
+        $data_sale=Sale::where('item_id',$id)->get();
        
         $sale=Sale::where('item_id',$id)->whereMonth('date', Carbon::now()->month)->get();
         
@@ -153,17 +153,16 @@ class SaleController extends Controller
 
         public function searchSale(Request $request, $id)
     {
-     $item = Item::findOrFail($id);
+        $item = Item::findOrFail($id);
         $from_date=request()->input('fromdate');
         $to_date=request()->input('todate');
 
-        $data_sale=Sale::where('date','>=',$from_date)->where('date','<=',$to_date)->get();    
+        $data_sale=Sale::where('item_id',$id)->where('date','>=',$from_date)->where('date','<=',$to_date)->get();    
         
-        
-        
+       
 
         
-        return redirect()->route('sales.show',['id'=>$id])->with('data_sale',$data_sale,'item',$item);
+        return view('sale.sale',compact('item','data_sale'));
 
     }
 }

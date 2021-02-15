@@ -41,7 +41,7 @@ class ItemController extends Controller
     {
                 $request->validate([
             'name'=>'required',
-            'price'=>'required',
+            
             
             
             
@@ -118,7 +118,9 @@ class ItemController extends Controller
     public function destroy($id)
     {
         $item = Item::find($id);
+        $item->sales()->delete();
         $item->delete();
+
 
         return redirect('/item')->with('success', 'Your items have been deleted!'); 
     }

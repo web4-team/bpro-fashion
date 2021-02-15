@@ -40,33 +40,14 @@
   
     <form method="post" action="{{route('item.store') }}">
       @csrf
-      <div class="form-group">
-            <label for="date" class="text-dark">Date</label>
-            <input type="date" class="form-control" name="date">
-        </div>
+      
       <div class="form-group">    
         <label for="name">Item Name:</label>
         <input type="text" class="form-control" name="name" />
       </div>   
       
       
-      <div class="form-group">    
-        <label for="name">Quantity:</label>
-        <input type="number" class="form-control" name="quantity" min="0" />
-      </div>
-      
-      <div class="form-group">    
-        <label for="name">Total</label>
-        <input type="number" class="form-control" name="total" />
-      </div>
-      <div class="form-group">    
-        <label for="name">Retail Price:</label>
-        <input type="number" class="form-control" name="price" />
-      </div>
-        <div class="form-group">
-          <label for="remark" class="text-dark">Remark</label>
-          <textarea class="form-control text-dark" name="remark" rows="3"></textarea>
-      </div>
+     
 
 
    

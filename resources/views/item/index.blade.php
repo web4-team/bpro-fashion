@@ -43,7 +43,7 @@
 
 
 
-              <a href="{{ route('item.edit',$row->id)}}" class="btn btn-primary btn btn-sm"><i class="fas fa-edit"></i></a>
+            <a href="{{ route('item.edit',$row->id)}}" class="btn btn-primary btn btn-sm"><i class="fas fa-edit"></i></a>
             <form action="{{ route('item.destroy', $row->id)}}" method="post">
               @csrf
               @method('DELETE')

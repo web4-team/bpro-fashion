@@ -17,35 +17,43 @@
   </ol>
 </div>
 <div class="col-xl-6 offset-xl-3 col-sm-12 mb-3">
+            <form action="{{route('sale.search',['id' => $item->id])}}" method="POST">
+          @csrf
+<div class="row mb-4">
+
+     <div class="col-md-5">
+        <input type="date" class="form-control" name="fromdate" id="date"  />
+    </div>
+    <div class="col-md-5">
+        <input type="date" class="form-control" name="todate" />
+    </div>
+    <div class="col-md-2">
+        <input type="submit" name="search" class="btn btn-success" value="Filter" />
+    </div>
+</div>
+</form>
    <ul class="list-group">
                 <li class="list-group-item bg-info text-center text-white">
                     <span> Summary For This Month</span>
                 </li>
                  @php $sum_total=0 @endphp
-          @php $in_total=0 @endphp
-                @foreach($sale as $row)
-                  @php $sum_total +=  $row->stock_out*$row->per_price; 
+                 @php $in_total=0 @endphp
+                 @foreach($data_sale as $row)
+                  @php $sum_total +=  $row->per_price; 
                   $in_total += $row->in_total;
+                  
                   @endphp
                 @endforeach
             
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                     Total Income for Item
+                     Total Income for Items
                     <span class="badge badge-success badge-pill incomeValue">{{$sum_total}} Ks</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                    Total Outcome Of Items
                     <span class="badge badge-danger badge-pill expenseValue"> {{$in_total}} ks</span>
                 </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                   Total of Stock In
-                    <span class="badge badge-info badge-pill expenseValue"> {{$inTotal}} </span>
-                </li>
-                
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Total of Stock Out
-                    <span class="badge badge-primary badge-pill">{{$outTotal}} </span>
-                </li>
+          
             </ul>
 </div>
 
@@ -60,21 +68,7 @@
             
           </div>
          
-<!--           <form action="{{route('sale.search',['id' => $item->id])}}" method="POST">
-          @csrf
-<div class="row mb-4">
 
-     <div class="col-md-5">
-        <input type="date" class="form-control" name="fromdate" id="date"  />
-    </div>
-    <div class="col-md-5">
-        <input type="date" class="form-control" name="todate" />
-    </div>
-    <div class="col-md-2">
-        <input type="submit" name="search" class="btn btn-success" value="Filter" />
-    </div>
-</div>
-</form> -->
         
           <div class="table-responsive">
             <table class="table align-items-center table-flush" id="sale">
@@ -85,12 +79,12 @@
                   <th scope="col" class="sort">Type</th>                 
                   <th scope="col" class="sort">Customer Name</th>
                   <th scope="col" class="sort">Stock Out</th>
-                  <th scope="col" class="sort">Per Price</th>                           
-                  <th scope="col" class="sort">StockOut Total</th>
+                  <th scope="col" class="sort">Cash In</th>                           
+                  
 
                   <th scope="col" class="sort">Supplier Name</th>
                   <th scope="col" class="sort">Stock In</th>
-                  <th scope="col" class="sort">StockIn Total</th>
+                  <th scope="col" class="sort">Cash Out</th>
                               
                   <th scope="col" class="sort">Action</th>
                 </tr>
@@ -99,7 +93,7 @@
               <tbody>
                 @php $i=1; @endphp
                 
-                  @foreach($item->sales as $row)
+                  @foreach($data_sale as $row)
                     <tr>	
                     <td>{{$i++}}</td>	
                       <td>{{ \Carbon\Carbon::parse($row->date)->format('d/M/Y')}}</td>
@@ -107,7 +101,7 @@
                       <td>{{ $row->customer_name }}</td>
                       <td>{{ $row->stock_out }}</td>
                       <td>{{ $row->per_price }}</td>
-                      <td>{{ $row->stock_out*$row->per_price }}</td>
+                     
                       <td>{{ $row->supplier_name }}</td>
                       <td>{{ $row->stock_in }}</td>
                       <td>{{ $row->in_total }}</td>
@@ -116,6 +110,7 @@
                      
                       <td>
                         <a href="{{ route('sales.edit', ['id' =>$row->id]) }}" class="btn btn-success">Edit</a>
+                        
                       </td>
          
                     </tr>

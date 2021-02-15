@@ -17,6 +17,9 @@ $(document).ready(function() {
             { extend: 'excel', 
               text: '<i class="fas fa-file-excel" aria-hidden="true"></i> <b>Excel</b>' ,
               className:'saleexcel',
+              exportOptions: {
+                    columns: [ 0,1,2,3,4,5,6,7,8 ],
+                }
               
             },
             { extend: 'pageLength',
