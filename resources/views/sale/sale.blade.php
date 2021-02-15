@@ -139,7 +139,7 @@
               <tbody>
                 @php $i=1; @endphp
                 
-                  @foreach($item->sales as $row)
+                  @foreach($data_sale as $row)
                     <tr>	
                     <td>{{$i++}}</td>	
                       <td>{{ \Carbon\Carbon::parse($row->date)->format('d/M/Y')}}</td>
