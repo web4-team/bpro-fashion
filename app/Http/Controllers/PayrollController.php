@@ -64,10 +64,17 @@ class PayrollController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function payrollIndex($id){
-		$employee = Employee::findOrFail($id);
-		
-        return view('payroll.payroll')->with('employee',$employee);
-    }
+      $employee = Employee::findOrFail($id);
+      $pay=Payroll::where('employee_id',$id)->orderBy('date', 'asc')->get();
+          return view('payroll.payroll',compact('employee','pay'));
+      }
+
+      public function report()
+      {
+        $employees = Employee::get();
+        $payrolls=Payroll::orderBy('date', 'asc')->get();
+          return view('employees.report', compact('employees','payrolls'));
+      }
 
     /**
      * Show the form for editing the specified resource.
