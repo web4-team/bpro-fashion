@@ -155,7 +155,7 @@ class SaleController extends Controller
         return redirect()->route('sales.show',['id'=>$sale->item_id]);
     }
 
-        public function searchSale(Request $request, $id)
+    public function searchSale(Request $request, $id)
     {
         $item = Item::findOrFail($id);
         $from_date=request()->input('fromdate');

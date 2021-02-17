@@ -76,7 +76,6 @@ public function payrollIndex($id){
           return view('employees.report', compact('employees','payrolls'));
       }
 
-
     /**
      * Show the form for editing the specified resource.
      *

@@ -43,8 +43,11 @@ Route::middleware('can:manage.users')->group(function(){
 // Employee
     
     Route::resource('/employees', 'EmployeesController');
+
     Route::get('/employee/payroll/{id}', 'PayrollController@payrollIndex')->name('payrolls.show');
+ 
     Route::get('/payrolls/create/{id}', 'PayrollController@create')->name('payrolls.create');
+    Route::get('/empReport', 'PayrollController@report')->name('employees.report');
     Route::post('/payrolls/{id}', 'PayrollController@store')->name('payrolls.store');
     Route::get('/employee/payroll/{id}/edit', 'PayrollController@edit')->name('payrolls.edit');
     Route::patch('/payrolls/update/{id}', 'PayrollController@update')->name('payrolls.update');
