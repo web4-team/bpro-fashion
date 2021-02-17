@@ -32,45 +32,10 @@
           
       </div>
     </li>
-    <li class="nav-item">
-      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm" aria-expanded="true"
-        aria-controls="collapseForm">
-        <i class="fab fa-fw fa-accusoft"></i>
-        <span>School Management</span>
-      </a>
-      <div id="collapseForm" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-          
-          
-          
-          <a class="collapse-item" href="{{url('/item')}}">Item</a>
-        </div>
-      </div>
-    </li>
+  
     @can('manage.users')
-    <li class="nav-item">
-      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
-        aria-controls="collapseTable">
-        <i class="fas fa-fw fa-user-tie"></i>
-        <span>Employee Management</span>
-      </a>
-      <div id="collapseTable" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-          <!-- <h6 class="collapse-header">Tables</h6> -->
-          <a class="collapse-item" href="{{url('/employees')}}">Employee Lists</a>
-          <a class="collapse-item" href="{{url('/departments')}}">Department</a>
-          <a class="collapse-item" href="/divisions">Position</a>
-          <a class="collapse-item" href="{{url('/salaries')}}">Salary</a>
-          {{-- <a class="collapse-item" href="{{url('/salaries')}}">Attendence</a>
-          <a class="collapse-item" href="{{url('/salaries')}}">Late</a>
-          <a class="collapse-item" href="{{url('/salaries')}}">Leave</a>
-          <a class="collapse-item" href="{{url('/salaries')}}">Overtime</a> --}}
-          {{-- <a class="collapse-item" href="{{url('/salaries')}}">Payroll</a> --}}
-          <!-- <a class="collapse-item" href="datatables.html">DataTables</a> -->
-        </div>
-      </div>
-    </li>
-    {{-- <li class="nav-item">
+
+    {{--  <li class="nav-item">
       <a class="nav-link" href="ui-colors.html">
         <i class="fas fa-fw fa-palette"></i>
         <span>UI Colors</span>

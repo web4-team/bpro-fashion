@@ -115,10 +115,12 @@ class ItemController extends Controller
      * @param  \App\Item  $item
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+ public function destroy($id)
     {
         $item = Item::find($id);
+        $item->sales()->delete();
         $item->delete();
+
 
         return redirect('/item')->with('success', 'Your items have been deleted!'); 
     }

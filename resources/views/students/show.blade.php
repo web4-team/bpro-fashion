@@ -62,7 +62,7 @@
 
                     <tr>
                       <td>Accept Date</td>
-                      <td>{{$student->accept_date}}</td>
+                      <td>{{ \Carbon\Carbon::parse($student->accept_date)->format('d/M/Y')}}</td>
                     </tr>
 
                     <tr>
@@ -72,7 +72,7 @@
 
                     <tr>
                       <td>Date of Birth</td>
-                      <td>{{$student->dob}}</td>
+                      <td>{{ \Carbon\Carbon::parse($student->dob)->format('d/M/Y')}}</td>
                     </tr>
 
                     <tr>

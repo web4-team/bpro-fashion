@@ -64,7 +64,7 @@
                         
                         <div class="form-group">
                             <div class="form-label-group">
-                                <label for="expense_amount">Given Amount</label>
+                                <label for="expense_amount">Amount received</label>
                                 <input type="number" step="any" id="expense_amount" value="0" class="form-control"
                                     required="required" name="given_amount">
 
@@ -73,8 +73,8 @@
 
                         <div class="form-group">
                             <div class="form-label-group">
-                                <label for="expense_amount">Expense Amount</label>
-                                <input type="number" step="any" id="expense_amount" min="0.01" class="form-control"
+                                <label for="expense_amount">Amount Paid</label>
+                                <input type="number" step="any" id="expense_amount"  class="form-control"
                                 value="0" required="required" name="expense_amount">
 
                             </div>

@@ -96,7 +96,7 @@
                 </li>
                 @php $sum_total=0 @endphp
                 @foreach($sale_total as $row)
-                  @php $sum_total +=  $row->stock_out*$row->per_price; @endphp
+                  @php $sum_total +=  $row->per_price; @endphp
                 @endforeach
 
 
@@ -104,34 +104,36 @@
                 @foreach($stu as $row)
                   @php $stu_total +=  $row->course->fees; @endphp
                 @endforeach
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h5 class=" font-weight-bold text-primary text-center">Income</h5>
-                </div>
-                <li class="list-group-item d-flex justify-content-between align-items-center ">
-                     Course Fee
-                    <span class="badge badge-success badge-pill incomeValue">{{$stu_total}} Ks</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                   Sell Items
-                    <span class="badge badge-success badge-pill expenseValue"> {{$sum_total}} ks</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  <b>Total Income</b>
-                   <span class="badge badge-success badge-pill expenseValue">{{$stu_total + $sum_total}} ks</span>
-               </li>
-                
-                @php $item_total=0 @endphp
+				    @php $item_total=0 @endphp
                 @foreach($sale_total as $row)
                 @php $item_total += $row->in_total; @endphp
                 @endforeach
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h5 class=" font-weight-bold text-primary text-center">Expense</h5>
+                  <h5 class=" font-weight-bold text-primary text-center">Income</h5>
                 </div>
+                <li class="list-group-item d-flex justify-content-between align-items-center ">
+                     Course Fees
+                    <span class="badge badge-success badge-pill incomeValue">{{$stu_total}} Ks</span>
+                </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
+                   Sale
+                    <span class="badge badge-success badge-pill expenseValue"> {{$sum_total}} ks</span>
+                </li>
+				    <li class="list-group-item d-flex justify-content-between align-items-center">
                          
-                Buy Items
+                Cost of Goods sold
                 <span class="badge badge-danger badge-pill expenseValue">{{$item_total}} Ks</span>                
                 </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  <b>Net Profit</b>
+                   <span class="badge badge-primary badge-pill expenseValue">{{($stu_total + $sum_total) - $item_total}} ks</span>
+               </li>
+                
+               
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h5 class=" font-weight-bold text-primary text-center">Expense</h5>
+                </div>
+               
                 @php $salary=0 @endphp
                 @foreach($payroll as $row)
                 @php $salary += ($row->salary+$row->commission+$row->bonus+$row->overtime)-($row->leave+$row->late); @endphp
@@ -147,20 +149,17 @@
                     <span class="badge badge-danger badge-pill expenseValue"> {{$salary}} ks</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                  Office Expense
+                  Petty Cash Book
                     <span class="badge badge-danger badge-pill expenseValue">  {{$amount_total}} ks</span>
                 </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                <b>Total Expense</b>
-                    <span class="badge badge-danger badge-pill expenseValue">  {{$item_total + $salary + $amount_total}} ks</span>
-                </li>
+               
 
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                   <h5 class=" font-weight-bold text-primary text-center">Profit/Loss </h5>
                 </div>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Amount
-                    <span class="badge badge-primary badge-pill">{{($sum_total+$stu_total)-($salary + $item_total + $amount_total )}} Ks</span>
+					<b>Amount</b>
+                    <span class="badge badge-primary badge-pill">{{(($stu_total + $sum_total) - $item_total)-($salary + $amount_total )}} Ks</span>
                 </li>
             </ul>
               </div>
