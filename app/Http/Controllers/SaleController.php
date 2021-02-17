@@ -62,6 +62,7 @@ class SaleController extends Controller
             'supplier_name'=>$request->get('supplier'),
             'stock_in'=>$request->get('stock_in'),
             'in_total'=>$request->get('in_total'),
+            'open_amount'=>$request->get('open'),
             'item_id' => $id,
         ]);
         $sale->save();
@@ -132,6 +133,7 @@ class SaleController extends Controller
         $sale->stock_in= $request->stock_in;
          $sale->supplier_name = $request->supplier;
         $sale->in_total = $request->in_total;
+        $sale->open_amount = $request->open;
        
         $sale->save();       
         

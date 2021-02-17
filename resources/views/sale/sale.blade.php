@@ -131,6 +131,7 @@
                   <th scope="col" class="sort">Supplier Name</th>
                   <th scope="col" class="sort">Stock In</th>
                   <th scope="col" class="sort">Cash Out</th>
+                  <th scope="col" class="sort">Opening Amount</th>
                               
                   <th scope="col" class="sort">Action</th>
                 </tr>
@@ -151,6 +152,7 @@
                       <td>{{ $row->supplier_name }}</td>
                       <td>{{ $row->stock_in }}</td>
                       <td>{{ $row->in_total }}</td>
+                      <td>{{ $row->open_amount }}</td>
                     
                       
                      

@@ -15,10 +15,7 @@
                             </ol>
                         </nav>
                     </div>
-                    <!--  <div class="col-lg-6 col-5 text-right">
-                  <a href="{{ route('expense.index') }}" class="btn btn-primary btn-sm">Back to Table</a>
-                  
-                </div> -->
+                
                 </div>
             </div>
         </div>
@@ -38,7 +35,7 @@
             <div class="card mx-auto mt-5">
                 <div class="card-header">Update Expense</div>
                 <div class="card-body">
-                    <form action="{{ route('expense.update', $expense->id) }}" method="POST">
+                    <form action="{{ route('expense.update', ['id'=>$expense->id]) }}" method="POST">
                         @method ('PATCH')
                         @csrf
                         <div class="form-group">
@@ -50,20 +47,7 @@
 
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="form-label-group">
-                                <label for="expense_title">Expense Category</label>
-                                <select class="form-control" name="income_id" value="{{ $expense->income_id }}">
-                                    <optgroup label="Choose Course">
-                                        @foreach ($incomes as $row)
-                                            <option value="{{ $row->id }}">{{ $row->category }}</option>
-                                        @endforeach
-                                    </optgroup>
-                                </select>
-
-                            </div>
-
-                        </div>
+                    
                         <div class="form-group">
                             <div class="form-label-group">
                                 <label for="expense_amount">Amount received</label>

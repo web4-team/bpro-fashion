@@ -1,9 +1,7 @@
 @extends('layouts.master')	
-@section('style')
-  <!-- Custom styles for this page -->
-  <link href="{{asset('backend/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
-@endsection
+
 @section('content')
+@include('datatable.style')
 <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
 <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 
@@ -25,7 +23,7 @@
             <a href="{{ route('payrolls.create', ['id'=>$employee->id]) }}" class="btn btn-sm btn-primary">Create Payroll</a>
           </div>
           <div class="table-responsive">
-            <table class="table align-items-center table-flush">
+            <table class="table align-items-center table-flush" id="exp">
               <thead class="thead-light">
                 <tr>
                   <th scope="col" class="sort">Date-issued</th>
@@ -42,11 +40,11 @@
 
               <tbody>
                 @if($employee->payrolls->count()> 0)
-                  @foreach($employee->payrolls as $payroll)
+                  @foreach($pay as $payroll)
                     <tr>		
-                      <td>{{ $payroll->date }}</td>
+                      <td>{{ \Carbon\Carbon::parse($payroll->date)->format('Y/M/d')}}</td>
                       <td>{{ $payroll->salary }}</td>
-                        <td>{{ $payroll->commission }}</td>
+                      <td>{{$payroll->commission }}</td>
                       <td>{{ $payroll->bonus }}</td>
                       <td>{{ $payroll->overtime }}</td>
                       <td>{{ $payroll->leave }}</td>
@@ -72,17 +70,11 @@
 
 
 
-
-
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 @endsection
-@section('script')
-  <!-- Page level plugins -->
-  <script src="{{ asset('backend/datatables/jquery.dataTables.min.js') }}"></script>
-  <script src="{{ asset('backend/datatables/dataTables.bootstrap4.min.js') }}"></script>
+@section('scripts')
+ @include('datatable.script')
 
   <!-- Page level custom scripts -->
-  {{-- <script src="{{ asset('backend/js/demo/datatables-demo.js') }}"></script> --}}
+  <script src="{{ asset('backend/js/demo/expense.js') }}"></script>
+  
 @endsection

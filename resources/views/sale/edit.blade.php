@@ -30,6 +30,8 @@
          </option>
          <option @if($sale->choose == 'Supplier') selected @endif >Supplier         
          </option>
+         <option @if($sale->choose == 'Opening Amount') selected @endif >Opening Amount        
+         </option>
     </select>
   </div>
     <div class="form-group" id="otherFieldGroupDiv">
@@ -64,6 +66,15 @@
 
         <input type="number" class="form-control" name="per_price" value="{{$sale->per_price}}" />
       </div>
+    </div> 
+        <div class="form-group" id="GroupDiv">
+      
+      
+      <div class="form-group">
+        <label for="commission">Opening Amount:</label>
+        <input type="number" class="form-control" name="open" value="{{$sale->open_amount}}" />
+      </div>
+      
     </div> 
      
      

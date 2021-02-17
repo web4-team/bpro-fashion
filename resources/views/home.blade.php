@@ -146,10 +146,7 @@
                    Salary
                     <span class="badge badge-danger badge-pill expenseValue"> {{$salary}} ks</span>
                 </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  Office Expense
-                    <span class="badge badge-danger badge-pill expenseValue">  {{$amount_total}} ks</span>
-                </li>
+             
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                 <b>Total Expense</b>
                     <span class="badge badge-danger badge-pill expenseValue">  {{$item_total + $salary + $amount_total}} ks</span>

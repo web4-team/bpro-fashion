@@ -47,7 +47,7 @@
          
           <a class="collapse-item" href="{{url('/item')}}">Item</a>
           <a class="collapse-item" href="{{url('/income')}}">Category of Expense</a>
-          <a class="collapse-item" href="{{url('/expense')}}">Petty Cash Book</a>
+          <a class="collapse-item" href="{{url('/income')}}">Petty Cash Book</a>
         </div>
       </div>
     </li>
