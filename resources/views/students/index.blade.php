@@ -59,9 +59,9 @@
                       <td>{{$row->batch->name}}</td>
                       <td>{{$row->course->name}}</td>
                       <td>{{$row->course->fees}}</td>
-                      <td>{{$row->accept_date}}</td>
+                      <td>{{ \Carbon\Carbon::parse($row->accept_date)->format('d/M/Y')}}</td>
                       <td>{{$row->age}}</td>
-                      <td>{{$row->dob}}</td>
+                      <td>{{ \Carbon\Carbon::parse($row->dob)->format('d/M/Y')}}</td>
                       <td>{{$row->phone}}</td>
                       <td>{{$row->email}}</td>
                       <td>{{$row->education}}</td>

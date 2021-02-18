@@ -44,7 +44,7 @@
                       <td>{{$employee->first_name}} {{$employee->last_name}}</td>                
                       <td>{{$employee->empDepartment->dept_name}}</td>
                       <td>{{$employee->empDivision->division_name}}</td>
-                      <td>{{$employee->join_date}}</td>
+                      <td>{{ \Carbon\Carbon::parse($employee->join_date)->format('d/M/Y')}}</td>
                       <td>
                         <a href="{{route('employees.show',$employee->id)}}" class="btn btn-warning detail btn-sm" ><i class="fas fa-eye"></i></a>
 

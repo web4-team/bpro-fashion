@@ -178,7 +178,7 @@
 					<div class="form-group col-md-5">
 				    <label for="email" class="text-dark"><strong>First Paid Amount</strong></label>
 				    	<div class="col-md-12">
-				    		<input type="number" class="form-control text-dark @error('first') is-invalid @enderror" name="first" value="0">
+				    		<input type="number"  class="form-control text-dark @error('first') is-invalid @enderror" name="first" value="0" required>
 
 					    	@error('first')
 							    <span class="invalid-feedback alert-danger" role="alert">
@@ -191,7 +191,7 @@
 					<div class="form-group float-right col-md-5">
 					    <label for="education" class="text-dark"><strong>Second Paid Amount</strong></label>
 					    	<div class="col-md-12">
-					    		<input type="number" class="form-control text-dark @error('second') is-invalid @enderror" name="second" value="0">
+					    		<input type="number" class="form-control text-dark @error('second') is-invalid @enderror" name="second" value="0" required>
 
 							    @error('second')
 								    <span class="invalid-feedback alert-danger" role="alert">

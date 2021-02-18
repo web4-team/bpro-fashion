@@ -38,6 +38,8 @@ class EmployeesController extends Controller
         return view('employees.index')->with('employees',$employees);
     }
 
+    
+
     /**
      * Show the form for creating a new resource.
      *

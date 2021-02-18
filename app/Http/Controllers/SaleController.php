@@ -81,9 +81,10 @@ class SaleController extends Controller
     public function saleIndex($id){
         $item = Item::findOrFail($id);
 
-      
-        $data_sale=Sale::where('item_id',$id)->get();
+       $data_sale=Sale::where('item_id',$id)->get();
        
+      
+
         
      
 
@@ -131,7 +132,7 @@ class SaleController extends Controller
         $sale->stock_out = $request->stock_out;
         $sale->per_price = $request->per_price;
         $sale->stock_in= $request->stock_in;
-         $sale->supplier_name = $request->supplier;
+        $sale->supplier_name = $request->supplier;
         $sale->in_total = $request->in_total;
         $sale->open_amount = $request->open;
        
@@ -151,10 +152,8 @@ class SaleController extends Controller
      */
       public function destroy($id)
     {
-        
 
         $sale = Sale::find($id);
-        
         $sale->delete();
 
         Session::flash('success', 'Sales List Deleted.');

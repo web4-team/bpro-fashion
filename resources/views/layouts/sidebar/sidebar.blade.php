@@ -45,9 +45,11 @@
         <div class="bg-white py-2 collapse-inner rounded">
           
          
-          <a class="collapse-item" href="{{url('/item')}}">Item</a>
+
+          <a class="collapse-item" href="{{url('/item')}}">Inventory Management</a>
           <a class="collapse-item" href="{{url('/category')}}">Category of Expense</a>
-          <a class="collapse-item" href="{{url('/income')}}">Petty Cash Book</a>
+          <a class="collapse-item" href="{{url('/income')}}">Accounting</a>
+
         </div>
       </div>
     </li>
@@ -68,6 +70,7 @@
           <a class="collapse-item" href="{{url('/employees')}}">Employee Lists</a>
           <a class="collapse-item" href="{{url('/departments')}}">Department</a>
           <a class="collapse-item" href="/divisions">Position</a>
+			<a class="collapse-item" href="/empReport">Payroll Report</a>
           
           {{-- <a class="collapse-item" href="{{url('/salaries')}}">Attendence</a>
           <a class="collapse-item" href="{{url('/salaries')}}">Late</a>

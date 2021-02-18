@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 
@@ -239,7 +240,6 @@
                             obcaecati quo consequuntur mollitia facilis.
                         </div>
                     </div>
-
                     <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="">
                         <div class="block__35630">
                             <div class="icon mb-3">
@@ -340,7 +340,6 @@
 
                                     Copyright &copy;<script>
                                         document.write(new Date().getFullYear());
-
                                     </script> All rights reserved.</a>
 
                                 </small></p>

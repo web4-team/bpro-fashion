@@ -103,20 +103,7 @@
             
           </div>
          
-<!--           <form action="{{route('sale.search',['id' => $item->id])}}" method="POST">
-          @csrf
-<div class="row mb-4">
-     <div class="col-md-5">
-        <input type="date" class="form-control" name="fromdate" id="date"  />
-    </div>
-    <div class="col-md-5">
-        <input type="date" class="form-control" name="todate" />
-    </div>
-    <div class="col-md-2">
-        <input type="submit" name="search" class="btn btn-success" value="Filter" />
-    </div>
-</div>
-</form> -->
+<
         
           <div class="table-responsive">
             <table class="table align-items-center table-flush" id="sale">
@@ -143,8 +130,9 @@
                 @php $i=1; @endphp
                 
                   @foreach($data_sale as $row)
-                    <tr>  
-                    <td>{{$i++}}</td> 
+
+                    <tr>	
+                    <td>{{$i++}}</td>	
                       <td>{{ \Carbon\Carbon::parse($row->date)->format('d/M/Y')}}</td>
                       <td>{{$row->choose}}</td>
                       <td>{{ $row->customer_name }}</td>

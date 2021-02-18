@@ -50,6 +50,8 @@ class HomeController extends Controller
         $exps = Expense::all();
         $results = DB::select('SELECT SUM(amount), income_id FROM expenses 
 group by income_id');
+
+      
         
 
      return view('home',compact('student','course','batch','employee','user','sale_total','students','item','data_item','data_items','stu','payroll','employee1','results','exps'));
