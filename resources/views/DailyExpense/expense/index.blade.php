@@ -9,8 +9,8 @@
           <h3 class="h2 text-dark d-inline-block mb-0">Expense Management</h3>
           <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-              <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-              <li class="breadcrumb-item"><a href="#">Expense Lists</a></li>
+              <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
+              <li class="breadcrumb-item"><a href="/income">Back</a></li>
              
             </ol>
           </nav>
@@ -93,7 +93,7 @@
             <td>{{$row->cate->category_name}}</td>
             <td>{{$row->given}}</td>
             <td>{{$row->amount}}</td>
-            <td>{{$row->date}}</td>
+            <td>{{ \Carbon\Carbon::parse($row->date)->format('d/M/Y')}}</td>
             <td>
               <div class="btn-group">
                 

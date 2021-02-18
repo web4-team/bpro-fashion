@@ -109,6 +109,7 @@ class ExpenseController extends Controller
             $expense->amount = $request->get('expense_amount');
             $expense->given = $request->get('given_amount');
             $expense->date = $request->get('expense_date');
+            $expense->category_id = $request->get('category_id');
 
             
            

@@ -149,7 +149,7 @@
                     <span class="badge badge-danger badge-pill expenseValue"> {{$salary}} ks</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                  Petty Cash Book
+                  Total Accounting
                     <span class="badge badge-danger badge-pill expenseValue">  {{$amount_total}} ks</span>
                 </li>
                

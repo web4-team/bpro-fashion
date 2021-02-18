@@ -46,8 +46,8 @@
           
          
           <a class="collapse-item" href="{{url('/item')}}">Inventory Management</a>
-          <a class="collapse-item" href="{{url('/income')}}">Category of Expense</a>
-          <a class="collapse-item" href="{{url('/expense')}}">Accounting</a>
+          <a class="collapse-item" href="{{url('/category')}}">Category of Expense</a>
+          <a class="collapse-item" href="{{url('/income')}}">Accounting</a>
         </div>
       </div>
     </li>
