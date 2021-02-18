@@ -51,11 +51,10 @@ class HomeController extends Controller
         $results = DB::select('SELECT SUM(amount), income_id FROM expenses 
 group by income_id');
 
-        $employees = Employee::get();
-        $payrolls=Payroll::get();
+      
         
 
-     return view('home',compact('student','course','batch','employee','employees','user','sale_total','students','item','data_item','data_items','stu','payroll','payrolls','employee1','results','exps'));
+     return view('home',compact('student','course','batch','employee','user','sale_total','students','item','data_item','data_items','stu','payroll','employee1','results','exps'));
     
     }
 

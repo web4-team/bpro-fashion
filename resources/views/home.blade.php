@@ -210,47 +210,7 @@
                   
     </div>
 
-    <h3>Latest issued payroll</h3>
-	
-    <table class= "table table-hover">
-      <thead>	
-        <tr>
-          
-          <th>Date-issued</td>
-          <th>Name</th>
-          <th>Salary</th>
-          <th>Commision</th>
-          <th>Bonus</th>
-          <th>Overtime</th>
-          <th>Leave</th>
-          <th>Late</th>
-          <th>Total</th>
-        </tr>
-      </thead>		
-      <tbody>
-        @if($payrolls->count()> 0)
-          @foreach($payrolls as $payroll)
-            <tr>		
-              <td>{{ $payroll->created_at->toDateString() }}</td>
-              <td>{{ $payroll->employee->first_name }} {{ $payroll->employee->last_name }}</td>
-              <td>{{ $payroll->salary }}</td>
-              <td>{{ $payroll->commission }}</td>
-              <td>{{ $payroll->bonus }}</td>
-              <td>{{ $payroll->overtime }}</td>
-              <td>{{ $payroll->leave }}</td>
-              <td>{{ $payroll->late }}</td>
-              <td>{{($payroll->salary+$payroll->commission+$payroll->bonus+$payroll->overtime)-($payroll->leave+$payroll->late) }}</td>
-            </tr>
-          @endforeach
-        @else
-          <tr> 
-            <th colspan="5" class="text-center">Empty</th>
-          </tr>
-        @endif
-      </tbody>
-   
-    						
-    </table>
+
   @endcan
 </div>
 @endsection
