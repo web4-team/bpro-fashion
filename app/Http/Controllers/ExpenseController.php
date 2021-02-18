@@ -104,7 +104,7 @@ class ExpenseController extends Controller
             
          $expense = Expense::find($id);
             
-            
+            $expense->category_id = $request->get('category_id');
             $expense->description = $request->get('description');             
             $expense->amount = $request->get('expense_amount');
             $expense->given = $request->get('given_amount');
