@@ -49,6 +49,7 @@
     <select class="form-control" id="seeAnotherFieldGroup" name="choose">
           <option value="Customer">Customer</option>
           <option value="Supplier">Supplier</option>
+          <option value="Opening Amount">Opening Amount</option>
     </select>
   </div>
     <div class="form-group" id="otherFieldGroupDiv">
@@ -80,6 +81,15 @@
         <input type="number" class="form-control" name="per_price"/>
       </div>
     </div> 
+      <div class="form-group" id="GroupDiv">
+      
+      
+      <div class="form-group">
+        <label for="commission">Opening Amount:</label>
+        <input type="number" class="form-control" name="open" value="0" />
+      </div>
+      
+    </div> 
      
      
       
@@ -97,12 +107,19 @@
 $("#seeAnotherFieldGroup").change(function() {
   if ($(this).val() == "Supplier") {
     $('#otherFieldGroupDiv').show();
-   
+   $('#GroupDiv').hide();
     $('#FieldGroupDiv').hide();
-  } else {
+  } else if ($(this).val() == "Customer") {
     $('#otherFieldGroupDiv').hide();
+    $('#GroupDiv').hide();
     
     $('#FieldGroupDiv').show();
+  } 
+  else {
+    $('#GroupDiv').show();
+    $('#FieldGroupDiv').hide();
+    $('#otherFieldGroupDiv').hide();
+
   }
 });
 $("#seeAnotherFieldGroup").trigger("change");

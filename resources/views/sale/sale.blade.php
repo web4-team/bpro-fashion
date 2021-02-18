@@ -1,4 +1,4 @@
-@extends('layouts.master')	
+@extends('layouts.master')  
 @section('style')
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
 <!-- <link rel="stylesheet" type="text/css" href="backend/DataTables/css/dataTables.bootstrap4.min.css"> -->
@@ -38,6 +38,7 @@
                 <li class="list-group-item bg-primary text-center text-white">
                     <span> Overview Amount for  {{ $item->name }}</span>
                 </li>
+                @php $open=0 @endphp
                 @php $sum_total=0 @endphp
                  @php $in_total=0 @endphp
                  @php $inTotal=0 @endphp
@@ -47,12 +48,13 @@
                   $in_total += $row->in_total;
                   $inTotal += $row->stock_in;
                   $outTotal += $row->stock_out;
+                  $open += $row->open_amount;
                   @endphp
                 @endforeach
             
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                      Total Cash In 
-                    <span class="badge badge-success badge-pill incomeValue">{{$sum_total}} Ks</span>
+                    <span class="badge badge-success badge-pill incomeValue">{{$sum_total+$open}} Ks</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                    Total Cash Out 
@@ -60,7 +62,7 @@
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                    Balance for {{ $item->name }}
-                    <span class="badge badge-info badge-pill expenseValue"> {{$sum_total - $in_total}} </span>
+                    <span class="badge badge-info badge-pill expenseValue"> {{($sum_total+$open) - $in_total}} </span>
                 </li>
                 
                
@@ -126,11 +128,12 @@
                   <th scope="col" class="sort">Customer Name</th>
                   <th scope="col" class="sort">Stock Out</th>
                   <th scope="col" class="sort">Cash In</th>                           
-               	    
+                    
 
                   <th scope="col" class="sort">Supplier Name</th>
                   <th scope="col" class="sort">Stock In</th>
                   <th scope="col" class="sort">Cash Out</th>
+                  <th scope="col" class="sort">Opening Amount</th>
                               
                   <th scope="col" class="sort">Action</th>
                 </tr>
@@ -151,6 +154,7 @@
                       <td>{{ $row->supplier_name }}</td>
                       <td>{{ $row->stock_in }}</td>
                       <td>{{ $row->in_total }}</td>
+                      <td>{{ $row->open_amount }}</td>
                     
                       
                      
@@ -171,7 +175,7 @@
           
 
               
-              </tbody>	
+              </tbody>  
               <tfoot>
                 <tr>
                     <th colspan="1"   style="text-align:right"></th>

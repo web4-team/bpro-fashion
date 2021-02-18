@@ -6,7 +6,7 @@
         <div class="header-body">
           <div class="row align-items-center py-4">
             <div class="col-lg-6 col-7">
-              <h3 class="h2 text-dark d-inline-block mb-0">Add New Item</h3>
+              <h3 class="h2 text-dark d-inline-block mb-0">Add New Category</h3>
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                   <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
@@ -16,7 +16,7 @@
               </nav>
             </div>
             <div class="col-lg-6 col-5 text-right">
-              <a href="{{route('item.index')}}" class="btn btn-primary btn-sm">Back to Table</a>
+              <a href="{{route('category.index')}}" class="btn btn-primary btn-sm">Back to Table</a>
               
             </div>
           </div>
@@ -38,11 +38,11 @@
 
 
   
-    <form method="post" action="{{route('item.store') }}">
+    <form method="post" action="{{route('category.store') }}">
       @csrf
 
       <div class="form-group">    
-        <label for="name">Item Name:</label>
+        <label for="name">Category Name:</label>
         <input type="text" class="form-control" name="name" />
       </div>   
       

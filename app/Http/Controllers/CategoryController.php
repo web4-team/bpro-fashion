@@ -2,22 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Item;
-use App\Sale;
 use Illuminate\Http\Request;
+use App\Category;
 
-class ItemController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+   public function index()
     {
-       $items=Item::all();
+       $category=Category::all();
 
-        return view('item.index',compact('items'));
+        return view('DailyExpense.category.index',compact('category'));
     }
 
     /**
@@ -27,8 +26,8 @@ class ItemController extends Controller
      */
     public function create()
     {
-        $items = Item::all();
-        return view('item.create',  compact('items'));
+        $category=Category::all();
+        return view('DailyExpense.category.create',  compact('category'));
     }
 
     /**
@@ -46,17 +45,17 @@ class ItemController extends Controller
             
         ]);
 
-        $item = new Item([
+        $category = new Category([
             
-            'name' => $request->get('name'),
+            'category_name' => $request->get('name'),
             
          
             
             
         ]);
-        $item->save();
+        $category->save();
         
-        return redirect('/item')->with('success', 'Items Successfully Added!');
+        return redirect('/category')->with('success', 'Successfully Added!');
     }
 
     /**
@@ -78,8 +77,8 @@ class ItemController extends Controller
      */
     public function edit($id)
     {
-        $items = Item::find($id);
-        return view('item.edit', compact('items'));
+        $category=Category::find($id);
+        return view('DailyExpense.category.edit', compact('category'));
 
     /**
      * Update the specified resource in storage.
@@ -97,15 +96,15 @@ class ItemController extends Controller
             
         ]);
             
-         $items = Item::find($id);
+         $category = Category::find($id);
          
-            $items->name = $request->get('name');
+            $category->category_name = $request->get('name');
           
               
             
         
-        $items->save();
-        return redirect('/item')->with('success', 'Your item is successfully Updated!');
+        $category->save();
+        return redirect('/category')->with('success', 'Your Category is successfully Updated!');
     }
 
     /**
@@ -114,14 +113,15 @@ class ItemController extends Controller
      * @param  \App\Item  $item
      * @return \Illuminate\Http\Response
      */
- public function destroy($id)
+    public function destroy($id)
     {
-        $item = Item::find($id);
-        $item->sales()->delete();
-        $item->delete();
+        $category = Category::find($id);
+       
+        $category->delete();
 
 
-        return redirect('/item')->with('success', 'Your items have been deleted!'); 
+        return redirect('/category')->with('success', 'Your Category have been deleted!'); 
     }
 
 }
+

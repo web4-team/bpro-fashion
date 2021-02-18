@@ -62,6 +62,7 @@ class SaleController extends Controller
             'supplier_name'=>$request->get('supplier'),
             'stock_in'=>$request->get('stock_in'),
             'in_total'=>$request->get('in_total'),
+            'open_amount'=>$request->get('open'),
             'item_id' => $id,
         ]);
         $sale->save();
@@ -79,15 +80,16 @@ class SaleController extends Controller
 
     public function saleIndex($id){
         $item = Item::findOrFail($id);
-       $data_sale=Sale::where('item_id',$id)->get();
+
+      
+        $data_sale=Sale::where('item_id',$id)->get();
        
-        $sale=Sale::where('item_id',$id)->get();
         
-        $inTotal=Sale::where('item_id',$id)->sum('stock_in');
-        $outTotal=Sale::where('item_id',$id)->sum('stock_out');
+     
+
         // dd($sale_sum);
         
-        return view('sale.sale',compact('item','sale','inTotal','data_sale','outTotal'));
+        return view('sale.sale',compact('item','data_sale'));
     }
     public function show(Sale $sale)
     {
@@ -131,6 +133,7 @@ class SaleController extends Controller
         $sale->stock_in= $request->stock_in;
          $sale->supplier_name = $request->supplier;
         $sale->in_total = $request->in_total;
+        $sale->open_amount = $request->open;
        
         $sale->save();       
         
@@ -148,11 +151,14 @@ class SaleController extends Controller
      */
       public function destroy($id)
     {
+        
+
         $sale = Sale::find($id);
         $sale->delete();
 
         Session::flash('success', 'Sales List Deleted.');
         return redirect()->route('sales.show',['id'=>$sale->item_id]);
+
     }
 
     public function searchSale(Request $request, $id)

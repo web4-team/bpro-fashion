@@ -17,13 +17,16 @@ $(document).ready(function() {
             { extend: 'excel', 
               text: '<i class="fas fa-file-excel" aria-hidden="true"></i> <b>Excel</b>' ,
               className:'saleexcel',
+              exportOptions: {
+                    columns: [ 0,1,2,3,4,5,6,7,8,9 ],
+                }
               
             },
             { extend: 'pageLength',
             className:'page'},
                                
         ],
-       columnDefs: [{targets: [6,7,8], visible: false}],
+       columnDefs: [{targets: [6,7,8,9], visible: false}],
 
        "footerCallback": function ( row, data, start, end, display ) {
         var api = this.api(), data;

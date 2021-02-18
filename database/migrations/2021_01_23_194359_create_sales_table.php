@@ -23,6 +23,7 @@ class CreateSalesTable extends Migration
             $table->integer('stock_in');
             $table->string('supplier_name');
             $table->integer('in_total');
+            $table->integer('open_amount');
             $table->string('choose');
 
             

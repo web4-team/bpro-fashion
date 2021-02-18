@@ -71,6 +71,7 @@ group by income_id');
         $course=Course::count();
         $batch=Batch::count();
         $employee=Employee::count();
+         $item=Item::count();
         $user=User::count();
         // $expanse=Expense::where('date','>=',$from_date)->where('date','<=',$to_date)->get();
         $payroll=Payroll::where('date','>=',$from_date)->where('date','<=',$to_date)->get();
@@ -83,8 +84,11 @@ group by income_id');
         $sale_total=Sale::where('date','>=',$from_date)->where('date','<=',$to_date)->get();
         $results = DB::select('SELECT SUM(amount), income_id FROM expenses 
       group by income_id');
+        dd($results);
+
 
         return view('home',compact('student','course','batch','employee','user','sale_total','item','stu','students','payroll','employee1','results','exps'));
+
 
     }
 

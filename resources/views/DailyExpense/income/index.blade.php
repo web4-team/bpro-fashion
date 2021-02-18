@@ -50,19 +50,21 @@
            
 
            
-            <td>
-              <div class="btn-group">
-                
-            
+                 <td>
+          <div class="btn-group">
 
-                <a href="{{route('income.edit',$row->id)}}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
-                {{-- <form action="{{ route('income.destroy', $row->id)}}" method="post">
-                  @csrf
-                  @method('DELETE')
-                  <button class="btn btn-danger" type="submit"><i class="fa fa-trash"></i></button>
-                </form> --}}
-              </div>
-            </td>
+
+
+              <a href="{{ route('income.edit',$row->id)}}" class="btn btn-primary btn btn-sm"><i class="fas fa-edit"></i></a>
+            <form action="{{ route('income.destroy', $row->id)}}" method="post" onsubmit="return confirm('Are you sure?')">
+
+              @csrf
+              @method('DELETE')
+              <button class="btn btn-danger btn btn-sm mx-1" type="submit"><i class="fa fa-trash"></i></button>
+            </form>
+             <a href="{{ route('expense.show', $row->id) }}" data-toggle="tooltip" title="SaleList" class="btn btn-success btn btn-sm"><i class="fas fa-calculator"></i></a>
+          </div>
+        </td>
         </tr>
         @endforeach
     </tbody>

@@ -59,7 +59,7 @@ Route::resource('/departments', 'DepartmentsController');
 // Salaries
 Route::resource('/salaries', 'SalariesController');
 // Divisions
-Route::resource('/divisions', 'DivisionsController');
+Route::resource('/positions', 'DivisionsController');
 // Cities
 Route::resource('/cities', 'CitiesController');
 // States
@@ -73,16 +73,20 @@ Route::middleware('can:usermanage.users')->group(function(){
 // Items
 Route::resource('item', 'ItemController');
 
+Route::resource('category', 'CategoryController');
+
 // Income/Expense
 Route::resource('income', 'IncomeController');
-Route::get('expense', 'ExpenseController@index')->name('expense.index');
 
-Route::post('expense/search', 'ExpenseController@findexpense')->name('expense.search');
-Route::get('expense/create', 'ExpenseController@create')->name('expense.create');
-Route::patch('expense/{id}', 'ExpenseController@update')->name('expense.update');
-Route::get('expense/{id}/edit', 'ExpenseController@edit')->name('expense.edit');
-Route::delete('expense/{id}', 'ExpenseController@destroy')->name('expense.destroy');
-Route::post('expense', 'ExpenseController@store')->name('expense.store');
+Route::get('/income/expense/{id}', 'ExpenseController@expenseIndex')->name('expense.show');
+
+Route::post('/income/expense/{id}', 'ExpenseController@findexpense')->name('expense.search');
+
+Route::get('expenses/create/{id}', 'ExpenseController@create')->name('expense.create');
+Route::patch('expense/update/{id}', 'ExpenseController@update')->name('expense.update');
+Route::get('/income/expense/{id}/edit', 'ExpenseController@edit')->name('expense.edit');
+Route::delete('income/expense/{id}', 'ExpenseController@destroy')->name('expense.destroy');
+Route::post('expense/{id}', 'ExpenseController@store')->name('expense.store');
 
 
 // Sale

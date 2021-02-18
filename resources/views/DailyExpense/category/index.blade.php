@@ -10,7 +10,7 @@
     <div class="header-body">
       <div class="row align-items-center py-4">
         <div class="col-lg-6 col-7">
-          <h3 class="h2 text-dark d-inline-block mb-0">Inventory Management</h3>
+          <h3 class="h2 text-dark d-inline-block mb-0">Category List</h3>
           <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
               <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
@@ -27,25 +27,25 @@
 <div class="col-sm-12">
  
   <div class="float-right">
-    <a style="margin: 19px;" href="{{ route('item.create')}}" class="btn btn-primary">New Item</a>
+    <a style="margin: 19px;" href="{{ route('category.create')}}" class="btn btn-primary">New Category</a>
   </div>     
   <table class="table table-striped" id="datatable">
     <thead>
       <tr>
         <td>No</td>
-        <td>Item Name</td>       
+        <td>Category Name</td>       
        
         <td>Actions</td>
       </tr>
     </thead>
     <tbody>
     	@php $i=1; @endphp
-      @foreach($items as $row)
+      @foreach($category as $row)
       <tr>
         <td>{{$i++}}</td>
        
         
-        <td>{{$row->name}}</td>    
+        <td>{{$row->category_name}}</td>    
      
   
 
@@ -60,14 +60,14 @@
 
 
 
-              <a href="{{ route('item.edit',$row->id)}}" class="btn btn-primary btn btn-sm"><i class="fas fa-edit"></i></a>
-            <form action="{{ route('item.destroy', $row->id)}}" method="post" onsubmit="return confirm('Are you sure?')">
+              <a href="{{ route('category.edit',$row->id)}}" class="btn btn-primary btn btn-sm"><i class="fas fa-edit"></i></a>
+            <form action="{{ route('category.destroy', $row->id)}}" method="post" onsubmit="return confirm('Are you sure?')">
 
               @csrf
               @method('DELETE')
               <button class="btn btn-danger btn btn-sm mx-1" type="submit"><i class="fa fa-trash"></i></button>
             </form>
-             <a href="{{ route('sales.show', $row->id) }}" data-toggle="tooltip" title="SaleList" class="btn btn-success btn btn-sm"><i class="fas fa-file"></i></a>
+            
           </div>
         </td>
       </tr>
@@ -85,7 +85,7 @@
 
 
 
-  @endsection
+@endsection
 @section('scripts')
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>

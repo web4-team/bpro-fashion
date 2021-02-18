@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Expense;
 use App\Income;
+use App\Category;
+use Session;
 use Illuminate\Http\Request;
 
 class ExpenseController extends Controller
@@ -13,10 +15,15 @@ class ExpenseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $exps = Expense::all();
-        return view('DailyExpense.expense.index',compact('exps'));
+    public function expenseIndex($id)
+    {   
+        $income=Income::find($id);
+        $category=Category::all();
+        $exps=Expense::where('income_id',$id)->get();
+       
+        
+        
+        return view('DailyExpense.expense.index',compact('income','exps','category'));
     }
 
     /**
@@ -24,10 +31,12 @@ class ExpenseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        $incomes = Income::all();
-        return view('DailyExpense.expense.create',compact('incomes'));
+        $incomes = Income::find($id);
+        $category=Category::all();
+
+        return view('DailyExpense.expense.create',compact('incomes','category'));
     }
 
     /**
@@ -36,23 +45,25 @@ class ExpenseController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$id)
     {
 
         $exp = new Expense([
             
-            'income_id' => $request->get('income_id'),
+            'category_id' => $request->get('category_id'),
             'description' => $request->get('description'),
             'amount' => $request->get('expense_amount'),
             'given' => $request->get('given_amount'),
             
             'date'=>$request->get('expense_date'),
+            'income_id' => $id,
             
             
         ]);
         $exp->save();
         //dd($request);
-        return redirect('/expense')->with('success', 'Successfully Created!');
+         Session::flash('success', 'Expense Created');
+        return redirect()->route('expense.show',['id'=>$id]);
     }
 
     /**
@@ -75,8 +86,9 @@ class ExpenseController extends Controller
     public function edit($id)
     {
         $expense = Expense::find($id);
-        $incomes = Income::all();
-        return view('DailyExpense.expense.edit',compact('expense','incomes'));
+        $category=Category::all();
+        
+        return view('DailyExpense.expense.edit',compact('expense','category'));
     }
 
     /**
@@ -91,7 +103,7 @@ class ExpenseController extends Controller
        
             
          $expense = Expense::find($id);
-            $expense->income_id = $request->get('income_id');
+            
             
             $expense->description = $request->get('description');             
             $expense->amount = $request->get('expense_amount');
@@ -106,7 +118,8 @@ class ExpenseController extends Controller
             
         
         $expense->save();
-        return redirect('/expense')->with('success', 'successfully Updated!');
+        Session::flash('success', 'Expense List Updated.');
+        return redirect()->route('expense.show',['id'=>$expense->income_id]);
     }
 
     /**
@@ -119,17 +132,22 @@ class ExpenseController extends Controller
     {
      $expense=Expense::find($id);
      $expense->delete();
-     return redirect('/expense')->with('success', 'Has been Deleted!');
+    
+    Session::flash('success', 'Expense List Deleted.');
+    return redirect()->route('expense.show',['id'=>$expense->income_id]);
     }
 
 
-     public function findexpense(Request $request)
+
+     public function findexpense(Request $request, $id)
+
     {
+        $income=Income::find($id);
         $from_date=request()->input('fromdate');
         $to_date=request()->input('todate');
-        $exps=Expense::where('date','>=',$from_date)->where('date','<=',$to_date)->get();
+        $exps=Expense::where('income_id',$id)->where('date','>=',$from_date)->where('date','<=',$to_date)->get();
 
-        return view ('DailyExpense.expense.index',compact('exps'));
+        return view ('DailyExpense.expense.index',compact('exps','income'));
 
     }
 }

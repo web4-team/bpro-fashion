@@ -25,11 +25,11 @@
 <div class="col-sm-12">
 
         <div>
-    <a style="margin: 19px;" href="{{ route('expense.create')}}" class="btn btn-primary float-right">New Expense</a>
+    <a style="margin: 19px;" href="{{ route('expense.create',['id'=>$income->id])}}" class="btn btn-primary float-right">New Expense</a>
     </div>
 
     <div class="col-xl-6 offset-xl-3 col-sm-12 mb-3 card" style="padding:20px;">
-    <form action="{{route('expense.search')}}" method="POST">
+    <form action="{{route('expense.search',['id' => $income->id])}}" method="POST">
           @csrf
         <div class="row mb-4">
 
@@ -44,14 +44,14 @@
     </div>
     </div>
     </form>
-   <ul class="list-group">
+       <ul class="list-group">
                 <li class="list-group-item bg-info text-center text-white">
                     <span> Summary For all</span>
                 </li>
                  @php $given_total=0 @endphp
-          @php $amount_total=0 @endphp
-                @foreach($exps as $row)
-                  @php $given_total +=  $row->given; 
+                 @php $amount_total=0 @endphp
+                 @foreach($exps as $row)
+                 @php $given_total +=  $row->given; 
                   $amount_total += $row->amount;
                   @endphp
                 @endforeach
@@ -70,13 +70,14 @@
                     <span class="badge badge-primary badge-pill">{{$given_total-$amount_total}} Ks</span>
                 </li>
             </ul>
+
         </div>   
   <table class="table table-striped hover" id="exp">
     <thead>
         <tr>
           <th>No</th>
           <th>Expense Name</th>
-          <th>Expense Category</th>
+          <th>Category</th>
           <th>Amount received</th>
           <th>Amount Paid</th>
           <th>Date</th>
@@ -89,7 +90,7 @@
         <tr>
             <td>{{$i++}}</td>
             <td>{{$row->description}}</td>
-            <td>{{$row->income->category}}</td>
+            <td>{{$row->cate->category_name}}</td>
             <td>{{$row->given}}</td>
             <td>{{$row->amount}}</td>
             <td>{{$row->date}}</td>
@@ -109,6 +110,7 @@
         </tr>
         @endforeach
     </tbody>
+
     <tfoot>
       <tr>
           <th colspan="1"   style="text-align:right"></th>
@@ -122,6 +124,7 @@
           
       </tr>
   </tfoot>
+
   </table>
 <div>
 </div>

@@ -16,6 +16,7 @@ $(document).ready(function() {
                                
         ],
 
+
         "footerCallback": function ( row, data, start, end, display ) {
             var api = this.api(), data;
             
@@ -48,6 +49,7 @@ $(document).ready(function() {
             'Ks '+pageTotal +' ( Ks '+ total +' total)'
             );
             }
+
        
 
     } );
