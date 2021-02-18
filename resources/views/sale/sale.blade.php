@@ -38,6 +38,7 @@
                 <li class="list-group-item bg-primary text-center text-white">
                     <span> Overview Amount for  {{ $item->name }}</span>
                 </li>
+                @php $open=0 @endphp
                 @php $sum_total=0 @endphp
                  @php $in_total=0 @endphp
                  @php $inTotal=0 @endphp
@@ -47,12 +48,13 @@
                   $in_total += $row->in_total;
                   $inTotal += $row->stock_in;
                   $outTotal += $row->stock_out;
+                  $open += $row->open_amount;
                   @endphp
                 @endforeach
             
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                      Total Cash In 
-                    <span class="badge badge-success badge-pill incomeValue">{{$sum_total}} Ks</span>
+                    <span class="badge badge-success badge-pill incomeValue">{{$sum_total+$open}} Ks</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                    Total Cash Out 
@@ -60,7 +62,7 @@
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                    Balance for {{ $item->name }}
-                    <span class="badge badge-info badge-pill expenseValue"> {{$sum_total - $in_total}} </span>
+                    <span class="badge badge-info badge-pill expenseValue"> {{($sum_total+$open) - $in_total}} </span>
                 </li>
                 
                

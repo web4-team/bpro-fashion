@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Expense extends Model
 {
         protected $fillable = [
+        'category_id',
         'description',
         'income_id',
         'amount',
@@ -16,8 +17,17 @@ class Expense extends Model
         
               
     ];
+
 public function income()
   {
     return $this->belongsTo('App\Income');
   }
+
+  public function cate()
+  {
+    return $this->belongsTo('App\Category','category_id');
+  }
+
+
+
 }

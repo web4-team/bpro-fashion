@@ -47,6 +47,20 @@
 
                             </div>
                         </div>
+
+                             <div class="form-group">
+                            <div class="form-label-group">
+                                <label for="expense_title">Expense Category</label>
+                              <select name="category_id" class="form-control">
+                        <option value="" disabled>Choose a Category</option>
+                        @foreach($category as $row)
+                            <option value="{{$row->id}}" {{ $expense->cate==$row ? 'selected' : '' }}>{{$row->category_name}}</option>
+                        @endforeach
+                    </select>
+
+                            </div>
+                        </div>
+                  
                     
                         <div class="form-group">
                             <div class="form-label-group">

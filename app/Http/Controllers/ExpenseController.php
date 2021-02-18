@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Expense;
 use App\Income;
+use App\Category;
 use Session;
 use Illuminate\Http\Request;
 
@@ -17,9 +18,12 @@ class ExpenseController extends Controller
     public function expenseIndex($id)
     {   
         $income=Income::find($id);
+        $category=Category::all();
         $exps=Expense::where('income_id',$id)->get();
+       
         
-        return view('DailyExpense.expense.index',compact('income','exps'));
+        
+        return view('DailyExpense.expense.index',compact('income','exps','category'));
     }
 
     /**
@@ -30,7 +34,9 @@ class ExpenseController extends Controller
     public function create($id)
     {
         $incomes = Income::find($id);
-        return view('DailyExpense.expense.create',compact('incomes'));
+        $category=Category::all();
+
+        return view('DailyExpense.expense.create',compact('incomes','category'));
     }
 
     /**
@@ -44,7 +50,7 @@ class ExpenseController extends Controller
 
         $exp = new Expense([
             
-            
+            'category_id' => $request->get('category_id'),
             'description' => $request->get('description'),
             'amount' => $request->get('expense_amount'),
             'given' => $request->get('given_amount'),
@@ -80,8 +86,9 @@ class ExpenseController extends Controller
     public function edit($id)
     {
         $expense = Expense::find($id);
+        $category=Category::all();
         
-        return view('DailyExpense.expense.edit',compact('expense'));
+        return view('DailyExpense.expense.edit',compact('expense','category'));
     }
 
     /**

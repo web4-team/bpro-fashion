@@ -69,6 +69,8 @@ Route::middleware('can:usermanage.users')->group(function(){
 // Items
 Route::resource('item', 'ItemController');
 
+Route::resource('category', 'CategoryController');
+
 // Income/Expense
 Route::resource('income', 'IncomeController');
 

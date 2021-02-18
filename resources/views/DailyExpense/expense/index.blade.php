@@ -77,7 +77,7 @@
         <tr>
           <th>No</th>
           <th>Expense Name</th>
-          
+          <th>Category</th>
           <th>Amount received</th>
           <th>Amount Paid</th>
           <th>Date</th>
@@ -90,7 +90,7 @@
         <tr>
             <td>{{$i++}}</td>
             <td>{{$row->description}}</td>
-            
+            <td>{{$row->cate->category_name}}</td>
             <td>{{$row->given}}</td>
             <td>{{$row->amount}}</td>
             <td>{{$row->date}}</td>

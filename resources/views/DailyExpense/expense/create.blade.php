@@ -44,6 +44,19 @@
 
                             </div>
                         </div>
+                             <div class="form-group">
+                            <div class="form-label-group">
+                                <label for="expense_title">Expense Category</label>
+                                <select class="form-control" name="category_id">
+                                    <optgroup label="Choose Category">
+                                        @foreach ($category as $row)
+                                            <option value="{{ $row->id }}">{{ $row->category_name }}</option>
+                                        @endforeach
+                                    </optgroup>
+                                </select>
+
+                            </div>
+                        </div>
                   
                         
                         <div class="form-group">
