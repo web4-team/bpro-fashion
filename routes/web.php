@@ -110,6 +110,50 @@ Route::get('/artbothome', 'ArtbotHomeController@index')->name('artbothome');
 Route::resource('ab_course', 'AbCourseController');
 Route::resource('ab_students', 'AbStudentController');
 Route::resource('ab_batch', 'AbBatchController');
+Route::resource('ab_items', 'AbItemController');
 Route::get('/ab_downloadPDF/{id}','AbStudentController@downloadPDF');
 });
 
+Route::resource('ab_sale', 'AbSaleController');
+Route::get('/ab_items/ab_sale/{id}', 'AbSaleController@saleIndex')->name('ab_sales.show');
+Route::post('/ab_items/ab_sale/{id}','AbSaleController@searchSale')->name('ab_sale.search');
+Route::get('/ab_sales/create/{id}', 'AbSaleController@create')->name('ab_sales.create');
+Route::post('/ab_sales/{id}', 'AbSaleController@store')->name('ab_sales.store');
+Route::get('/ab_items/ab_sale/{id}/edit', 'AbSaleController@edit')->name('ab_sales.edit');
+Route::patch('/ab_sales/update/{id}', 'AbSaleController@update')->name('ab_sales.update');
+
+Route::resource('ab_category', 'AbCategoryController');
+
+Route::resource('ab_income', 'AbIncomeController');
+
+Route::get('/ab_income/ab_expense/{id}', 'AbExpenseController@expenseIndex')->name('ab_expense.show');
+
+Route::post('/ab_income/ab_expense/{id}', 'AbExpenseController@findexpense')->name('ab_expense.search');
+
+Route::get('ab_expenses/create/{id}', 'AbExpenseController@create')->name('ab_expense.create');
+Route::patch('ab_expense/update/{id}', 'AbExpenseController@update')->name('ab_expense.update');
+Route::get('/ab_income/ab_expense/{id}/edit', 'AbExpenseController@edit')->name('ab_expense.edit');
+Route::delete('ab_income/ab_expense/{id}', 'AbExpenseController@destroy')->name('ab_expense.destroy');
+Route::post('ab_expense/{id}', 'AbExpenseController@store')->name('ab_expense.store');
+
+Route::resource('/ab_employees', 'AbEmployeesController');
+
+Route::get('/ab_employee/ab_payroll/{id}', 'AbPayrollController@payrollIndex')->name('ab_payrolls.show');
+
+Route::get('/ab_payrolls/create/{id}', 'AbPayrollController@create')->name('ab_payrolls.create');
+Route::get('/ab_empReport', 'AbPayrollController@report')->name('ab_employees.report');
+Route::post('/ab_payrolls/{id}', 'AbPayrollController@store')->name('ab_payrolls.store');
+Route::get('/ab_employee/ab_payroll/{id}/edit', 'AbPayrollController@edit')->name('ab_payrolls.edit');
+Route::patch('/ab_payrolls/update/{id}', 'AbPayrollController@update')->name('ab_payrolls.update');
+
+
+// Departments
+Route::resource('/ab_departments', 'AbDepartmentsController');
+// Divisions
+Route::resource('/ab_divisions', 'AbDivisionsController');
+// Cities
+Route::resource('/ab_cities', 'AbCitiesController');
+// States
+Route::resource('/ab_states', 'AbStatesController');
+// Countries
+Route::resource('/ab_countries', 'AbCountriesController');

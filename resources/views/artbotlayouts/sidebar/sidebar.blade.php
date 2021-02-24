@@ -32,36 +32,54 @@
           
       </div>
     </li>
-  
-    @can('manage.users')
 
-    {{--  <li class="nav-item">
-      <a class="nav-link" href="ui-colors.html">
-        <i class="fas fa-fw fa-palette"></i>
-        <span>UI Colors</span>
+    @can('usermanage.users')
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm" aria-expanded="true"
+        aria-controls="collapseForm">
+        <i class="fab fa-fw fa-accusoft"></i>
+        <span>School Management</span>
       </a>
-    </li> --}}
+      <div id="collapseForm" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          
+         
+
+          <a class="collapse-item" href="{{url('/ab_items')}}">Inventory Management</a>
+          <a class="collapse-item" href="{{url('/ab_category')}}">Category of Expense</a>
+          <a class="collapse-item" href="{{url('/ab_income')}}">Accounting</a>
+
+        </div>
+      </div>
+    </li>
+    @endcan
+    @can('manage.users')
+  
+
+      <li class="nav-item">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
+        aria-controls="collapseTable">
+        <i class="fas fa-fw fa-user-tie"></i>
+        <span>Employee Management</span>
+      </a>
+      <div id="collapseTable" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <!-- <h6 class="collapse-header">Tables</h6> -->
+          <a class="collapse-item" href="{{url('/ab_employees')}}">Employee Lists</a>
+          <a class="collapse-item" href="{{url('/ab_departments')}}">Department</a>
+          <a class="collapse-item" href="/ab_divisions">Position</a>
+			<a class="collapse-item" href="/ab_empReport">Payroll Report</a>
+          
+        
+        </div>
+      </div>
+    </li>
+    
     <hr class="sidebar-divider">
     <div class="sidebar-heading">
       Settings
     </div>
-    <li class="nav-item">
-      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePage" aria-expanded="true"
-        aria-controls="collapsePage">
-        <i class="fas fa-fw fa-folder-open"></i>
-        <span>Reports</span>
-      </a>
-      <div id="collapsePage" class="collapse" aria-labelledby="headingPage" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">Example Pages</h6>
-          <a class="collapse-item" href="login.html">Login</a>
-          <a class="collapse-item" href="register.html">Register</a>
-          <a class="collapse-item" href="404.html">404 Page</a>
-          <a class="collapse-item" href="blank.html">Blank Page</a>
-        </div>
-      </div>
-    </li>
-  
+   
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsesPage" aria-expanded="true"
         aria-controls="collapsesPage">
@@ -71,13 +89,15 @@
       <div id="collapsesPage" class="collapse" aria-labelledby="headingPage" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
          
-          <a class="collapse-item" href="/cities">City</a>
-          <a class="collapse-item" href="/states">State</a>
-          <a class="collapse-item" href="/countries">Country</a>
+          <a class="collapse-item" href="/ab_cities">City</a>
+          <a class="collapse-item" href="/ab_states">State</a>
+          <a class="collapse-item" href="/ab_countries">Country</a>
         </div>
       </div>
     </li>
     @endcan
+  
+    
     @can('manage.users')
     <li class="nav-item">
       <a class="nav-link" href="{{ route('admin.users.index')}}">
