@@ -65,7 +65,8 @@ class PayrollController extends Controller
      */
 public function payrollIndex($id){
 		$employee = Employee::findOrFail($id);
-		$pay=Payroll::where('employee_id',$id)->orderBy('date', 'asc')->get();
+    
+		$pay=Payroll::where('employee_id',$id)->orderBy('date','desc')->get();
         return view('payroll.payroll',compact('employee','pay'));
     }
 	
@@ -103,6 +104,7 @@ public function payrollIndex($id){
 		
 		$payroll = Payroll::findOrFail($id);
 		$payroll->date = $request->date;
+    $payroll->salary = $request->salary;
 		$payroll->commission= $request->commission;
 		$payroll->bonus = $request->bonus;
 		$payroll->overtime = $request->overtime;

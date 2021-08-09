@@ -40,10 +40,11 @@ class AbStudentController extends Controller
         $ab_student = AbStudent::find($id);
         $ab_course = AbCourse::all();
         $ab_batches = AbBatch::all();
-        $ab_pdf = PDF::loadView('ab_students.certificate', compact('ab_student','ab_course','ab_batches'));
-        // $customPaper = array(0,0,650,450);
-        $ab_pdf->setPaper('letter', 'landscape');
-        return $ab_pdf->download($ab_student->ab_name.".pdf");
+        return view('ab_students.certificate',compact('ab_student','ab_batches','ab_course'));
+        // $ab_pdf = PDF::loadView('ab_students.certificate', compact('ab_student','ab_course','ab_batches'));
+        // // $customPaper = array(0,0,650,450);
+        // $ab_pdf->setPaper('letter', 'landscape');
+        // return $ab_pdf->download($ab_student->ab_name.".pdf");
     }
 
     /**

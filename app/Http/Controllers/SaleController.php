@@ -81,7 +81,7 @@ class SaleController extends Controller
     public function saleIndex($id){
         $item = Item::findOrFail($id);
 
-       $data_sale=Sale::where('item_id',$id)->get();
+       $data_sale=Sale::where('item_id',$id)->orderBy('date','asc')->get();
        
       
 

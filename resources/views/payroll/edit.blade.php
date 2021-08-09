@@ -22,6 +22,10 @@
         <input type="date" class="form-control" name="date" value="{{$payroll->date}}" />
       </div>
       <div class="form-group">
+        <label for="commission">Basic Salary:</label>
+        <input type="number" class="form-control" name="salary" value="{{$payroll->salary}}"/>
+      </div>
+      <div class="form-group">
         <label for="commission">Commission:</label>
         <input type="number" class="form-control" name="commission" value="{{$payroll->commission}}" />
       </div>

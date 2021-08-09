@@ -9,7 +9,7 @@
     </a>
     <hr class="sidebar-divider my-0">
     <li class="nav-item active">
-      <a class="nav-link" href="{{ url('/home') }}">
+      <a class="nav-link" href="{{ url('/artbothome') }}">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Dashboard</span></a>
     </li>
@@ -75,12 +75,12 @@
       </div>
     </li>
     
-    <hr class="sidebar-divider">
+    <!-- <hr class="sidebar-divider">
     <div class="sidebar-heading">
       Settings
-    </div>
+    </div> -->
    
-    <li class="nav-item">
+    <!-- <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsesPage" aria-expanded="true"
         aria-controls="collapsesPage">
         <i class="fas fa-fw fa-cogs"></i>
@@ -94,17 +94,17 @@
           <a class="collapse-item" href="/ab_countries">Country</a>
         </div>
       </div>
-    </li>
+    </li> -->
     @endcan
   
     
     @can('manage.users')
-    <li class="nav-item">
+    <!-- <li class="nav-item">
       <a class="nav-link" href="{{ route('admin.users.index')}}">
         <i class="fas fa-fw fa-users"></i>
         <span>Manage Users </span>
       </a>
-    </li>
+    </li> -->
     @endcan
 
     <hr class="sidebar-divider">

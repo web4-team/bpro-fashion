@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Student;
 use App\Course;
 use App\Batch;
+use JPG;
+
+use View;
+
 use PDF;
 use Carbon\Carbon;
 
@@ -34,11 +38,33 @@ class StudentController extends Controller
         $student = Student::find($id);
         $course = Course::all();
         $batches = Batch::all();
-        $pdf = PDF::loadView('students.certificate', compact('student','course','batches'));
-        // $customPaper = array(0,0,650,450);
-        $pdf->setPaper('letter', 'landscape');
-        return $pdf->download($student->name.".pdf");
+        return view('students.certificate',compact('student','batches','course'));
+        // $options = [
+        //     'width' => 500,
+        //     'height' => 300,
+        //     'quality' => 90
+        // ];
+        // $pdf = PDF::loadView('students.certificate', compact('student','course','batches'));
+        // // $customPaper = array(0,0,650,450);
+        // $pdf->setPaper('letter', 'landscape');
+        
+      
+        // return $pdf->download($student->name.".pdf");
+//         $pdf = View::make('students.certificate', compact('student','course','batches'));
+        
+// $conv = new \Anam\PhantomMagick\Converter();
+
+// // $conv->setBinary('/vendor/anam/phantomjs-linux-x86-binary/bin/phantomjs');
+// $conv->setBinary('/phantomjs/bin/phantomjs');
+
+
+
+// $conv->source('www.google.com')->toJpg($options)->download('/public/img/certificate.jpg');
+    
+//     return $conv->download($student->name.".jpg");
+
     }
+  
 
 
     // // Generate PDF
@@ -104,7 +130,7 @@ class StudentController extends Controller
         $student->save();
         //dd($request);
         //Return redirect // 5
-        return redirect()->route('students.index')->with('success','student create successfully');
+        return redirect()->route('students.index')->with('success','Student Created Successfully');
     }
 
     public function show($id){
@@ -120,6 +146,13 @@ class StudentController extends Controller
         $course = Course::all();
         $batch = Batch::all();
         return view('students.edit',compact('student','course','batch'));
+    }
+    public function new_edit($id)
+    {
+        $student = Student::find($id);
+        $course = Course::all();
+        $batch = Batch::all();
+        return view('students.new_edit',compact('student','course','batch'));
     }
 
     /**
@@ -167,14 +200,14 @@ class StudentController extends Controller
 
         $student->save();
       
-        return redirect()->route('students.index')->with('success','Student update successfully');
+        return redirect()->route('students.index')->with('success','Student Updated successfully');
     }
 
     public function destroy($id)
     {
         $student = Student::find($id);
         $student->delete();
-        return redirect()->route('students.index');  
+        return redirect()->route('students.index')->with('success','Your Data are deleted successfully');
     }
 
 

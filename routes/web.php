@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    
     return view('frontend.mainpage');
 });
 
@@ -37,8 +38,13 @@ Route::resource('batch', 'BatchController');
 
 // Route::get('/students/pdf', 'StudentController@index');
 Route::get('/downloadPDF/{id}','StudentController@downloadPDF');
+Route::get('/student/{id}','StudentController@new_edit')->name('students.new_edit');
+
+
 });
 
+
+//====================================
 Route::middleware('can:manage.users')->group(function(){
 // Employee
     
@@ -99,7 +105,7 @@ Route::get('/item/sale/{id}/edit', 'SaleController@edit')->name('sales.edit');
 Route::patch('/sales/update/{id}', 'SaleController@update')->name('sales.update');
 Route::get('/downloadSale/{id}','SaleController@downloadSale');
 
-
+});
 
 //=======================================================================================
 
@@ -112,7 +118,8 @@ Route::resource('ab_students', 'AbStudentController');
 Route::resource('ab_batch', 'AbBatchController');
 Route::resource('ab_items', 'AbItemController');
 Route::get('/ab_downloadPDF/{id}','AbStudentController@downloadPDF');
-});
+
+
 
 Route::resource('ab_sale', 'AbSaleController');
 Route::get('/ab_items/ab_sale/{id}', 'AbSaleController@saleIndex')->name('ab_sales.show');

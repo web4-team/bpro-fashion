@@ -47,7 +47,7 @@
                     <tr>		
                         <td>{{$i++}}</td>
                         <td>{{ $payroll->employee->first_name }} {{ $payroll->employee->last_name }}</td>
-                  <td>{{ \Carbon\Carbon::parse($payroll->date)->format('Y/M/d')}}</td>
+                   <td>{{ \Carbon\Carbon::parse($payroll->date)->format('Y/M/d')}}</td>
                      
                       <td>{{ $payroll->salary }}</td>
                       <td>{{ $payroll->commission }}</td>

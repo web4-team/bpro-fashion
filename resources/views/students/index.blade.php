@@ -2,6 +2,16 @@
 
 @section('content')
 @include('datatable.style')
+<!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet"/> -->
+
+<style>
+.btn-group-xs > .btn, .btn-xs {
+padding: 1px 5px;
+font-size: 12px;
+line-height: 1.5;
+border-radius: 3px;
+}
+</style>
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
   <h1 class="h3 mb-0 text-gray-800">Student Management</h1>
@@ -70,18 +80,23 @@
                       <td>{{$row->address}}</td>
 
                       <td>
-                        <a href="{{action('StudentController@downloadPDF', $row->id)}}" class="btn btn-dark detail btn-sm mt-1" ><i class="fa fa-file-pdf fa-1x btn-danger"></i></a>
+                      <a href="{{route('students.new_edit',$row->id)}}" class="btn btn-success btn-xs mt-1"><i class="fas fa-plus-circle"></i></a>
+                        <a href="{{action('StudentController@downloadPDF', $row->id)}}" class="btn btn-dark detail btn-xs mt-1" ><i class="fa fa-file-image fa-1x btn-danger"></i></a>
+                         
 
-                        <a href="{{route('students.show',$row->id)}}" class="btn btn-warning detail btn-sm mt-1" ><i class="fas fa-eye"></i></a>
+                        <a href="{{route('students.show',$row->id)}}" class="btn btn-warning detail btn-xs mt-1" ><i class="fas fa-eye"></i></a>
 
-                        <a href="{{route('students.edit',$row->id)}}" class="btn btn-primary btn-sm mt-1"><i class="fas fa-edit"></i></a>
+                        <a href="{{route('students.edit',$row->id)}}" class="btn btn-primary btn-xs mt-1"><i class="fas fa-edit"></i></a>
                         @can('delete.users')
                         <form method="post" style="display: inline-block;" action="{{route('students.destroy',$row->id)}}" onsubmit="return confirm('Are you sure?')">
                           @csrf
                           @method('DELETE')
-                          <button type="submit" class="btn btn-danger btn-sm mt-1"><i class="fas fa-trash"></i></button>
+                          <button type="submit" class="btn btn-danger btn-xs mt-1"><i class="fas fa-trash"></i></button>
                         </form>
                         @endcan
+                        
+                      
+                       
                       </td>
                     </tr>
                   @endforeach
@@ -109,7 +124,12 @@
 @section('scripts')
 @include('datatable.script')
   <!-- Page level custom scripts -->
+  <script src="{{ asset('backend/js/demo/html2jpg.js') }}"></script>
   <script src="{{ asset('backend/js/demo/datatables-demo.js') }}"></script>
+  <script src="{{asset('js/html2canvas.min.js')}}" ></script>
+<script src="{{asset('js/html2canvas.js')}}" ></script> 
+
+
   
 @endsection
 

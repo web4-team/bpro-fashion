@@ -175,6 +175,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
+        App\Providers\GoogleDriveServiceProvider::class,
+        Anam\PhantomMagick\ConverterServiceProvider::class,
+
         
 
 
@@ -230,6 +233,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
+        'Converter' => Anam\PhantomMagick\Facades\Converter::class,
+
         
 
     ],

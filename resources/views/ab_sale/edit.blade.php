@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
  <div class="col-sm-8 offset-sm-2">
-  <h4>Update Sales List of {{ $sale->item->name }}</h4>
+  <h4>Update Sales List of {{ $sale->ab_item->name }}</h4>
   <div>
     @if ($errors->any())
     <div class="alert alert-danger">

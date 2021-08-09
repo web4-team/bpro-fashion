@@ -9,6 +9,8 @@
     "license": "MIT",
     "require": {
         "php": "^7.2.5|^8.0",
+        "anam/phantomjs-linux-x86-binary": "^2.1",
+        "anam/phantommagick": "^2.0",
         "barryvdh/laravel-dompdf": "^0.8.7",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
@@ -16,7 +18,9 @@
         "laravel/framework": "^7.29",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^2.0",
+        "nao-pon/flysystem-google-drive": "~1.1",
         "realrashid/sweet-alert": "^3.2",
+        "spatie/laravel-backup": "^6.16",
         "yajra/laravel-datatables-oracle": "~9.0"
     },
     "require-dev": {

@@ -49,23 +49,23 @@
       </div>
       <div class="form-group">
         <label for="commission">Commission:</label>
-        <input type="number" class="form-control" name="commission"/>
+        <input type="number" class="form-control" name="commission" value='0'/>
       </div>
       <div class="form-group">
         <label for="commission">Bonus:</label>
-        <input type="number" class="form-control" name="bonus"/>
+        <input type="number" class="form-control" name="bonus" value='0'/>
       </div>
       <div class="form-group">
         <label for="overtime">Overtime:</label>
-        <input type="number" class="form-control" name="overtime"/>
+        <input type="number" class="form-control" name="overtime" value='0'/>
       </div>
       <div class="form-group">
         <label for="leave">Leave:</label>
-        <input type="number" class="form-control" name="leave"/>
+        <input type="number" class="form-control" name="leave" value='0'/>
       </div>
       <div class="form-group">
         <label for="late">Late:</label>
-        <input type="number" class="form-control" name="late"/>
+        <input type="number" class="form-control" name="late" value='0'/>
       </div>
      
      

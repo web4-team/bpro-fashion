@@ -39,10 +39,10 @@
               </thead>
 
               <tbody>
-                @if($employee->payrolls->count()> 0)
+                
                   @foreach($pay as $payroll)
                     <tr>		
-                      <td>{{ \Carbon\Carbon::parse($payroll->date)->format('Y/M/d')}}</td>
+                    <td>{{ \Carbon\Carbon::parse($payroll->date)->format('d/M/Y')}}</td>
                       <td>{{ $payroll->salary }}</td>
                       <td>{{$payroll->commission }}</td>
                       <td>{{ $payroll->bonus }}</td>
@@ -58,7 +58,7 @@
                     </tr>
                   @endforeach
             
-                @endif
+                
               </tbody>	
            
             </table>

@@ -103,6 +103,7 @@ public function payrollIndex($id){
 		
 		$payroll = AbPayroll::findOrFail($id);
 		$payroll->date = $request->date;
+    $payroll->salary = $request->salary;
 		$payroll->commission= $request->commission;
 		$payroll->bonus = $request->bonus;
 		$payroll->overtime = $request->overtime;

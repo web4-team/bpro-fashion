@@ -14,4 +14,7 @@ class AbBatch extends Model
   {
     return $this->belongsTo('App\AbCourse');
   }
+
+
+
 }
